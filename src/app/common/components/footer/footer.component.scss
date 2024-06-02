@@ -1,0 +1,13 @@
+footer {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+
+  .title {
+    display: flex;
+  }
+
+  p {
+    text-align: right;
+  }
+}

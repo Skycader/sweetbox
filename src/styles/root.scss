@@ -1,0 +1,8 @@
+//@Import theme
+@import "./themes/indigo-pink.theme.scss";
+
+//Import common
+@import "./common/root.common.scss";
+
+//Import override
+@import "./override/root.override.scss";
