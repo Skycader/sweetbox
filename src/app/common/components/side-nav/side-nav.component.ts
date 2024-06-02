@@ -4,21 +4,15 @@ import { map, of, switchMap, timer } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ThemeService } from '../../services/theme.service';
 
-export interface Section {
-  name: string;
+interface NavGroup {
+  icon: string;
+  title: string;
+  items: NavItem[];
 }
 
-export interface ArdonNavList {
-  topic: ArdonNavTopic[];
-  articles: ArdonNavArticle[];
-}
-
-export interface ArdonNavTopic {
-  name: string;
-}
-export interface ArdonNavArticle {
-  name: string;
-  route: string;
+interface NavItem {
+  icon: string;
+  title: string;
 }
 
 @Component({
@@ -29,21 +23,37 @@ export interface ArdonNavArticle {
 export class SideNavComponent {
   public recentArticles$ = of([]);
 
-  public lists: ArdonNavList[] = [
+  public groups: NavGroup[] = [
     {
-      topic: [
+      icon: 'flag',
+      title: 'Some group',
+      items: [
         {
-          name: 'Backup',
+          icon: 'grade',
+          title: 'Some item',
+        },
+        {
+          icon: 'grade',
+          title: 'Some item',
+        },
+
+        {
+          icon: 'grade',
+          title: 'Some item',
         },
       ],
-      articles: [
+    },
+    {
+      icon: 'flag',
+      title: 'Some group',
+      items: [
         {
-          name: 'Import database',
-          route: 'about',
+          icon: 'grade',
+          title: 'Some item',
         },
         {
-          name: 'Export database',
-          route: 'price-list',
+          icon: 'grade',
+          title: 'Some item',
         },
       ],
     },

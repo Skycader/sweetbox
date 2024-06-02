@@ -40,27 +40,20 @@
   </mat-toolbar>
 
   <div class="side-nav-content bg-body">
-    <mat-list *ngFor="let list of lists">
-      @for (topic of list.topic; track topic) {
-        <mat-list-item>
-          <mat-icon matListItemIcon>book</mat-icon>
-          <div matListItemTitle>{{ topic.name }}</div>
-        </mat-list-item>
-      }
+    <mat-list *ngFor="let group of groups">
+      <mat-list-item>
+        <mat-icon matListItemIcon>{{ group.icon }}</mat-icon>
+        <div matListItemTitle>{{ group.title }}</div>
+      </mat-list-item>
       <!--<mat-divider></mat-divider>-->
-      @for (article of list.articles; track article) {
-        <mat-list-item
-          class="article"
-          mat-ripple
-          (click)="closeSideNav()"
-          [routerLink]="['article', article.route]"
-        >
+      @for (item of group.items; track item) {
+        <mat-list-item class="article" mat-ripple (click)="closeSideNav()">
           <mat-icon matListItemIcon>label</mat-icon>
 
-          <mat-icon matListItemIcon>description</mat-icon>
+          <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
 
           <div matListItemTitle>
-            {{ article.name }}
+            {{ item.title }}
           </div>
         </mat-list-item>
       }

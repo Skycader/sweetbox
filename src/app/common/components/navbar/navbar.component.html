@@ -1,8 +1,10 @@
 <p [class.hide-navbar]="hideNavbar">
   <mat-toolbar color="primary">
     <a [routerLink]="['/']">
-      <span class="logo"><mat-icon>cell_tower</mat-icon></span>
-      <span> {{ appName }}</span>
+      <span class="logo"
+        ><mat-icon>{{ appConfig.appIcon }}</mat-icon></span
+      >
+      <span> {{ appConfig.appName }}</span>
     </a>
 
     <span class="example-spacer"></span>

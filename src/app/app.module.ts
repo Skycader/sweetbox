@@ -13,6 +13,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { AppCommonModule } from './common/common.module';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,11 +31,15 @@ import { AppCommonModule } from './common/common.module';
     EffectsModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
-      logOnly: !environment.production,
+      logOnly: environment.production,
       trace: !environment.production,
     }),
   ],
-  providers: [provideClientHydration(), provideAnimationsAsync()],
+  providers: [
+    provideClientHydration(),
+    provideAnimationsAsync(),
+    provideHttpClient(withFetch()),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

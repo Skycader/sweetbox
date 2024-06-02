@@ -1,14 +1,14 @@
 import { Component, HostListener } from '@angular/core';
 import { NavbarService } from '../../services/navbar.service';
 import { ThemeService } from '../../services/theme.service';
-import { AppConfig } from '../../../../config/app.config';
+import { AppConfig, AppConfigInterface } from '../../../../config/app.config';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
-  public appName: string = AppConfig.appName;
+  public appConfig: AppConfigInterface = AppConfig;
   public currentScroll: number = 0;
   public hideNavbar: boolean = false;
 
