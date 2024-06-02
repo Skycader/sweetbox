@@ -6,7 +6,7 @@
 <div class="side-nav" [class.opened]="isSideNav">
   <mat-toolbar color="secondary">
     <mat-toolbar-row class="navigation">
-      <span>Navigation</span>
+      <span class="side-nav-navigation">Navigation</span>
 
       <div>
         <button
@@ -29,7 +29,7 @@
 
         <button
           mat-icon-button
-          class="example-icon"
+          class="close-side-nav-btn"
           (click)="closeSideNav()"
           aria-label="Example icon-button with share icon"
         >
