@@ -18,6 +18,7 @@
   },
   "ntl": {
     "descriptions": {
+      "initialize": "give your project a name...",
       "serve": "start dev server on http://localhost:4200",
       "serve-public": "start dev server on your public ip:4200",
       "test": "Run project's tests with coverage",
