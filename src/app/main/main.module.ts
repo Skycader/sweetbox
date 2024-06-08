@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { RouterModule } from '@angular/router';
+import { PageNotFoundComponent } from '../common/components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [MainLayoutComponent, WelcomeComponent],
@@ -15,14 +16,16 @@ import { RouterModule } from '@angular/router';
         children: [
           {
             path: 'welcome',
+
             component: WelcomeComponent,
           },
         ],
       },
+      {
+        path: '**',
+        component: PageNotFoundComponent,
+      },
     ]),
   ],
 })
-export class MainModule { }
-
-
-
+export class MainModule {}
