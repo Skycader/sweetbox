@@ -9,7 +9,7 @@ export interface AppConfigInterface {
 
 export const AppConfig: AppConfigInterface = {
   appIcon: 'design_services',
-  appName: '$2',
+  appName: 'app-name',
   version: '0.0.1',
   manufacturer: 'project-manufacturer',
   manufacturerIcon: 'near_me',
