@@ -8,8 +8,7 @@ const init = (from, to, path) => {
 
   try {
     const results = replace.sync(options);
-    console.log("Replacement results:", results);
-    // if (results)
+    return results[0].hasChanged;
   } catch (error) {
     console.error("❗Error occurred:", error);
   }

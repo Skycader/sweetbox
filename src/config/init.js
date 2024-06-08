@@ -6,9 +6,11 @@ const projectName = readline.question("📝 Project name: ");
 const appName = readline.question("📝 App name: ");
 const projectManufacturer = readline.question("📝 Manufacturer name: ");
 
-init(/project-name/g, projectName, "package.json");
-init(/app-name/g, appName, "src/index.html");
-init(/app-name/g, appName, "src/config/app.config.ts");
-init(/project-manufacturer/g, projectManufacturer, "src/config/app.config.ts");
+let result = 1;
+result = result * init(/project-name/g, projectName, "package.json");
+result = result * init(/app-name/g, appName, "src/index.html");
+result = result * init(/app-name/g, appName, "src/config/app.config.ts");
+result = result * init(/project-manufacturer/g, projectManufacturer, "src/config/app.config.ts");
 
-console.log("✅ project has been successfuly initialized!");
+if (result) console.log("✅ project has been successfuly initialized!");
+if !(result) console.log("❗Something went wrong")
