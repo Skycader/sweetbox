@@ -2,7 +2,7 @@
   "name": "ngrx-template-app",
   "version": "0.0.0",
   "scripts": {
-    "start": "yarn ntl -s 20 -A --exclude cy:open cy:run upload build start",
+    "start": "yarn ntl -s 3 -A --exclude cy:open cy:run upload build start",
     "serve": "ng serve",
     "build": "ng build --base-href https://skycader.github.io/ngrx-todo-app/",
     "upload": "npx angular-cli-ghpages --dir=dist/ngrx-template-app/browser",

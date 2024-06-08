@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  align-items: center;
+  height: calc(100% - 64px);
+  justify-content: center;
+  flex-direction: column;
+  .h1 {
+    font-size: 120px;
+  }
+
+  .h2 {
+    font-size: 43px;
+  }
+}
