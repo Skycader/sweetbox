@@ -11,7 +11,7 @@ export const AppConfig: AppConfigInterface = {
   appIcon: 'design_services',
   appName: '$2',
   version: '0.0.1',
-  manufacturer: 'Vodrion Softworks',
+  manufacturer: 'project-manufacturer',
   manufacturerIcon: 'near_me',
   year: '2024',
 };
