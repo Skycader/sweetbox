@@ -5,8 +5,8 @@
     "initialize": "node src/config/init.js",
     "start": "yarn ntl -s 3 -A --exclude cy:open cy:run upload build start",
     "serve": "ng serve",
-    "build": "ng build --base-href https://skycader.github.io/ngrx-todo-app/",
-    "upload": "npx angular-cli-ghpages --dir=dist/ngrx-template-app/browser",
+    "build": "ng build --base-href https://skycader.github.io/project-name/",
+    "upload": "npx angular-cli-ghpages --dir=dist/project-name/browser",
     "deploy": "yarn build && yarn upload",
     "serve-public": "ng serve --host 0.0.0.0",
     "test": "ng test",
@@ -14,7 +14,7 @@
     "cy:run": "cypress run",
     "e2e": "concurrently \"npm run serve\" \"wait-on http-get://localhost:4200 && npm run cy:run\" --kill-others --success first",
     "e2e-gui": "concurrently \"npm run serve\" \"wait-on http-get://localhost:4200 && npm run cy:open\" --kill-others --success first",
-    "serve:ssr": "node dist/ngrx-template-app/server/server.mjs"
+    "serve:ssr": "node dist/project-name/server/server.mjs"
   },
   "ntl": {
     "descriptions": {
