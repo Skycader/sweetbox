@@ -9,7 +9,7 @@ export interface AppConfigInterface {
 
 export const AppConfig: AppConfigInterface = {
   appIcon: 'design_services',
-  appName: 'NGRX Template App',
+  appName: '$2',
   version: '0.0.1',
   manufacturer: 'Vodrion Softworks',
   manufacturerIcon: 'near_me',
