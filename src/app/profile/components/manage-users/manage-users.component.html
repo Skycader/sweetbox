@@ -1,0 +1,80 @@
+<div class="container">
+  <br />
+  <h1>Администирование</h1>
+
+  <br />
+  <button
+    mat-raised-button
+    color="primary"
+    class="me-2"
+    (click)="openAddUserDialog()"
+    *ngIf="(currentUser$ | async)?.role === Roles.Administrator"
+  >
+    <mat-icon>add</mat-icon>Add user
+  </button>
+
+  <button mat-raised-button color="primary" (click)="updateList()">
+    <mat-icon>update</mat-icon>Update list
+  </button>
+  <br />
+  <br />
+
+  <table mat-table [dataSource]="dataSource$" class="mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="surname">
+      <mat-header-cell mat-header-cell *matHeaderCellDef
+        >Фамилия</mat-header-cell
+      >
+      <mat-cell mat-cell *matCellDef="let element">{{
+        element.surname
+      }}</mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell mat-header-cell *matHeaderCellDef>Имя</mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let element">{{ element.name }}</mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="midname">
+      <mat-header-cell mat-header-cell *matHeaderCellDef
+        >Отчество</mat-header-cell
+      >
+      <mat-cell mat-cell *matCellDef="let element">{{
+        element.midname
+      }}</mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="role">
+      <mat-header-cell mat-header-cell *matHeaderCellDef>Роль</mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let element">
+        {{ element.role | parseRole }}
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row
+      mat-header-row
+      *matHeaderRowDef="displayedColumns"
+    ></mat-header-row>
+    <mat-row
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      matRipple
+      (click)="openUserCard(row.username)"
+    ></mat-row>
+  </table>
+
+  <br />
+
+  <mat-paginator
+    [length]="totalUsers$ | async"
+    [pageSize]="10"
+    (page)="handlePageEvent($event)"
+  >
+  </mat-paginator>
+</div>

@@ -1,0 +1,57 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span><mat-icon>edit</mat-icon> Добавить пользователя</span>
+    <span class="example-spacer"></span>
+    <button
+      (click)="close()"
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="dialog">
+  <h1>Задайте логин и пароль</h1>
+  <form
+    class="col-12"
+    *ngIf="form"
+    [formGroup]="form"
+    (submit)="submit(form.value)"
+  >
+    <div class="row">
+      <mat-form-field class="col-12">
+        <mat-label>Логин</mat-label>
+        <input matInput formControlName="username" />
+      </mat-form-field>
+
+      <mat-form-field class="col-12">
+        <mat-label>Новый пароль</mat-label>
+        <input matInput formControlName="password" />
+      </mat-form-field>
+
+      <mat-form-field class="col-12">
+        <mat-label>Повторите новый пароль</mat-label>
+        <input matInput formControlName="repeatPassword" />
+      </mat-form-field>
+
+      <div class="gap-1">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="form.invalid || (isSubmitting$ | async)"
+        >
+          <mat-icon>save</mat-icon>Добавить
+        </button>
+
+        <button mat-raised-button color="warn" (click)="close()">
+          <mat-icon>cancel</mat-icon>Отмена
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<ng-container *ngIf="success$ | async"></ng-container>

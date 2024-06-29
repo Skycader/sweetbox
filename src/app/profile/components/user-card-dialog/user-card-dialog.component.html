@@ -1,0 +1,100 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span><mat-icon>edit</mat-icon> Добавить пользователя</span>
+    <span class="example-spacer"></span>
+    <button
+      (click)="close()"
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="container">
+  <br />
+  <h1>Личный кабинет</h1>
+
+  <div class="row">
+    <div class="col-4">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title
+            >{{ (user$ | async)?.name }} ({{
+              (user$ | async)?.username
+            }})</mat-card-title
+          >
+          <mat-card-subtitle>{{
+            (user$ | async)?.role | parseRole
+          }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="assets/images/ngrx.png" />
+        <mat-card-content>
+          <br />
+          <button
+            *ngIf="(currentUser$ | async)?.role === Roles.Administrator"
+            mat-raised-button
+            color="primary"
+            class="me-2 mb-1"
+            (click)="openChangePasswordDialog()"
+          >
+            <mat-icon>edit</mat-icon>Сменить пароль
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <form
+      *ngIf="currentUserForm$ | async as form"
+      [formGroup]="form"
+      class="col-8"
+      (submit)="patchUser(username, form.value)"
+    >
+      <div class="row">
+        <mat-form-field class="col-6">
+          <mat-label>Фамилия</mat-label>
+          <input matInput formControlName="surname" />
+        </mat-form-field>
+
+        @if ((currentUser$ | async)?.role === Roles.Administrator) {
+          <mat-form-field class="col-6">
+            <mat-label>Права</mat-label>
+            <mat-select
+              [value]="selectedRole"
+              (selectionChange)="setRole($event.value)"
+            >
+              <mat-option [value]="1">Пользователь</mat-option>
+              <mat-option [value]="2">Модератор</mat-option>
+              <mat-option disabled [value]="3">Администратор</mat-option>
+            </mat-select>
+          </mat-form-field>
+        } @else {
+          <div class="col-6"></div>
+        }
+
+        <mat-form-field class="col-6">
+          <mat-label>Имя</mat-label>
+          <input matInput formControlName="name" />
+        </mat-form-field>
+
+        <div class="col-6"></div>
+
+        <mat-form-field class="col-6">
+          <mat-label>Отчество</mat-label>
+          <input matInput formControlName="midname" />
+        </mat-form-field>
+
+        <div class="col-6"></div>
+      </div>
+
+      <button mat-raised-button color="primary" type="submit">
+        <mat-icon>save</mat-icon>Сохранить изменения
+      </button>
+    </form>
+  </div>
+</div>
+
+<br />
+
+<div class="container pb-4"></div>

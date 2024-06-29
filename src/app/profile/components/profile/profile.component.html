@@ -1,0 +1,14 @@
+<div class="container">
+  <mat-tab-group>
+    <mat-tab label="Profile"> <app-edit-profile /> </mat-tab>
+    <mat-tab
+      label="Users"
+      *ngIf="
+        (currentUser$ | async)?.role === Roles.Moderator ||
+        (currentUser$ | async)?.role === Roles.Administrator
+      "
+    >
+      <app-manage-users />
+    </mat-tab>
+  </mat-tab-group>
+</div>

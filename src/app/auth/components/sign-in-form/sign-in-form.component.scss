@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (min-width: 0px) {
+  .container {
+    padding: 5%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    padding: 10%;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}

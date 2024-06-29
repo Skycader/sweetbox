@@ -15,12 +15,18 @@ import { environment } from '../environments/environment';
 import { AppCommonModule } from './common/common.module';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { MainModule } from './main/main.module';
+import { AuthModule } from './auth/auth.module';
+import { ProfileModule } from './profile/profile.module';
+import { RootModule } from './root/root.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AuthModule,
+    ProfileModule,
+    RootModule,
     AppCommonModule,
     MainModule,
     ServiceWorkerModule.register('ngsw-worker.js', {

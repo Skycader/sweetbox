@@ -20,11 +20,13 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRippleModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
+import { MatPaginatorModule } from '@angular/material/paginator';
 const MaterialComponents = [
   MatButtonModule,
   MatRippleModule,
@@ -48,6 +50,8 @@ const MaterialComponents = [
   MatListModule,
   MatChipsModule,
   MatExpansionModule,
+  MatProgressSpinnerModule,
+  MatPaginatorModule,
 ];
 
 @NgModule({
@@ -55,4 +59,4 @@ const MaterialComponents = [
   imports: [CommonModule, DragDropModule],
   exports: [...MaterialComponents, DragDropModule],
 })
-export class MaterialModule {}
+export class MaterialModule { }
