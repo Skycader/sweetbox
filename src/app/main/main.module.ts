@@ -15,7 +15,7 @@ import { PageNotFoundComponent } from '../common/components/page-not-found/page-
         component: MainLayoutComponent,
         children: [
           {
-            path: 'welcome',
+            path: '',
 
             component: WelcomeComponent,
           },
