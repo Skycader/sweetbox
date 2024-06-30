@@ -6,10 +6,7 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { FooterComponent } from './components/footer/footer.component';
-import {
-  provideHttpClient,
-  withInterceptorsFromDi,
-} from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 @NgModule({
   declarations: [
