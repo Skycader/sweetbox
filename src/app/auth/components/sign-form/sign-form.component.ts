@@ -15,10 +15,6 @@ import { tap } from 'rxjs';
   styleUrl: './sign-form.component.scss',
 })
 export class SignFormComponent {
-  public isAnonymous$ = this.store
-    .pipe(select(isAnonymousSelector))
-    .pipe(tap((e: any) => console.log('e', e)));
-
   signUpForm: FormGroup = new FormGroup({
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [
@@ -32,10 +28,6 @@ export class SignFormComponent {
   });
 
   constructor(private store: Store<AppStateInterface>) { }
-
-  ngOnInit() {
-    console.log('!!!');
-  }
 
   public submitSignUpForm() { }
 
