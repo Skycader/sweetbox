@@ -20,7 +20,7 @@ export class IsAnonymousGuard implements CanActivate {
     private auth: AuthService,
     private store: Store<AppStateInterface>,
     private router: Router,
-  ) {}
+  ) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -28,8 +28,7 @@ export class IsAnonymousGuard implements CanActivate {
   ): Observable<boolean> {
     return this.store.pipe(
       select(isAnonymousSelector),
-      skipWhile((value) => value === null),
-      tap((isAnonymous: boolean) => {
+      tap((isAnonymous) => {
         if (!isAnonymous) this.router.navigate(['/', 'profile']);
       }),
     );
