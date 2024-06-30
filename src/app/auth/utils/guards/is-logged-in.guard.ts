@@ -5,7 +5,7 @@ import {
   Router,
   RouterStateSnapshot,
 } from '@angular/router';
-import { Observable, of, skipWhile, tap } from 'rxjs';
+import { Observable, filter, of, skipWhile, tap } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { Store, select } from '@ngrx/store';
 import { AppStateInterface } from '../../../models/app-state.model';

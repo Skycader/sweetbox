@@ -2,10 +2,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { AppStateInterface } from '../../../models/app-state.model';
 import { logInAction } from '../../store/actions/log-in.action';
 import { AuthCredentialsDtoInterface } from '../../models/auth-dto.model';
+import { isAnonymousSelector } from '../../store/auth.selector';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'ardon-sign-form',
@@ -13,6 +15,10 @@ import { AuthCredentialsDtoInterface } from '../../models/auth-dto.model';
   styleUrl: './sign-form.component.scss',
 })
 export class SignFormComponent {
+  public isAnonymous$ = this.store
+    .pipe(select(isAnonymousSelector))
+    .pipe(tap((e: any) => console.log('e', e)));
+
   signUpForm: FormGroup = new FormGroup({
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [
@@ -25,9 +31,13 @@ export class SignFormComponent {
     ]),
   });
 
-  constructor(private store: Store<AppStateInterface>) {}
+  constructor(private store: Store<AppStateInterface>) { }
 
-  public submitSignUpForm() {}
+  ngOnInit() {
+    console.log('!!!');
+  }
+
+  public submitSignUpForm() { }
 
   signInForm: FormGroup = new FormGroup({
     username: new FormControl('', [Validators.email, Validators.required]),
@@ -37,7 +47,7 @@ export class SignFormComponent {
     ]),
   });
 
-  public submitSignInForm() {}
+  public submitSignInForm() { }
 
   public logIn() {
     this.store.dispatch(
