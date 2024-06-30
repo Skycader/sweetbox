@@ -6,7 +6,10 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HttpClientModule } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     PageNotFoundComponent,
   ],
-  imports: [CommonModule, MaterialModule, RouterModule, HttpClientModule],
   exports: [NavbarComponent, SideNavComponent, FooterComponent],
+  imports: [CommonModule, MaterialModule, RouterModule],
+  providers: [provideHttpClient(withInterceptorsFromDi())],
 })
-export class AppCommonModule {}
+export class AppCommonModule { }
