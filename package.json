@@ -1,12 +1,12 @@
 {
-  "name": "project-name",
+  "name": "starcom",
   "version": "0.0.0",
   "scripts": {
     "initialize": "node src/config/init.js",
     "start": "yarn ntl -s 3 -A --exclude cy:open cy:run upload build start initialize",
     "serve": "ng serve",
-    "build": "ng build --base-href https://skycader.github.io/project-name/",
-    "upload": "npx angular-cli-ghpages --dir=dist/project-name/browser",
+    "build": "ng build --base-href https://skycader.github.io/💫Starcom/",
+    "upload": "npx angular-cli-ghpages --dir=dist/💫Starcom/browser",
     "deploy": "yarn build && yarn upload",
     "serve-public": "ng serve --host 0.0.0.0",
     "test": "ng test",

@@ -24,7 +24,7 @@ import { RolePipe } from './utils/pipes/role.pipe';
             {
                 path: 'auth',
                 component: SignFormComponent,
-                canActivate: [IsAnonymousGuard],
+                canActivate: [],
             },
         ]),
         ReactiveFormsModule,

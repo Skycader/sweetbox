@@ -6,7 +6,7 @@ import { IsLoggedInGuard } from '../auth/utils/guards/is-logged-in.guard';
 import { MaterialModule } from '../material/material.module';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { ManageUsersComponent } from './components/manage-users/manage-users.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from '../auth/auth.module';
 import { ChangePasswordDialogComponent } from './components/change-password-dialog/change-password-dialog.component';
 import { AddUserDialogComponent } from './components/add-user-dialog/add-user-dialog.component';
@@ -30,10 +30,10 @@ import { UserCardDialogComponent } from './components/user-card-dialog/user-card
       {
         path: 'profile',
         component: ProfileComponent,
-        canActivate: [IsLoggedInGuard],
+        canActivate: [],
       },
     ]),
   ],
-  providers: [IsLoggedInGuard],
+  providers: [],
 })
 export class ProfileModule { }

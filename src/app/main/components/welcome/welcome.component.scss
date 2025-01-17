@@ -1,0 +1,181 @@
+.card-display {
+  margin-bottom: 50px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .star {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: gold;
+    z-index: -2;
+    width: 100vh;
+    height: 100vh;
+    max-width: 550px;
+    max-height: 550px;
+    background-image: url("https://i.ibb.co/9pt4Kw1/star2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    svg {
+      position: absolute;
+      fill: #ccc;
+      transition-duration: 0.5s;
+      transform: scale(0.2);
+      transform-origin: center center;
+    }
+
+    .hide {
+      opacity: 0;
+      transform: rotate(-20deg) scale(0.2);
+    }
+  }
+
+  .card {
+    transition-duration: 2s;
+    top: 0px;
+    background: #393939;
+    width: 300px;
+    height: 400px;
+    z-index: 0;
+
+    border: none;
+
+    mat-slider {
+      z-index: 20;
+      margin: 0px;
+    }
+
+    .cut {
+      display: none;
+      z-index: 5;
+      position: absolute;
+      top: 22px;
+      background: #292929;
+      width: 100%;
+      height: 4px;
+      border-radius: 4px;
+    }
+
+    .content {
+      font-family: "Ubuntu", sans-serif;
+      font-size: 26px;
+      line-height: 46px;
+      color: #fff;
+      text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+      transition-duration: 1s;
+      top: 115px;
+      position: absolute;
+      z-index: 9;
+      left: 5px;
+      width: 290px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 10px;
+      img {
+        cursor: pointer;
+        border-radius: 5px;
+        width: 100%;
+      }
+    }
+
+    .content2 {
+      font-family: "Ubuntu", sans-serif;
+      font-size: 26px;
+      line-height: 46px;
+      color: #fff;
+      text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+      transition-duration: 1s;
+      top: 115px;
+      position: absolute;
+      z-index: 9;
+      left: 5px;
+      width: 290px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 10px;
+      img {
+        cursor: pointer;
+        border-radius: 5px;
+        width: 100%;
+        filter: drop-shadow(5px 5px 15px gold);
+      }
+    }
+
+    .card-front {
+      top: 26px;
+      width: 100%;
+      height: calc(100% - 30px);
+      background: #393939;
+      position: absolute;
+      z-index: 10;
+      border-radius: 0px 0px 15px 15px;
+    }
+  }
+}
+
+.up {
+  top: -600px !important;
+  margin-top: 45px;
+}
+
+.down {
+  top: 600px !important;
+}
+
+.show {
+  display: block !important;
+}
+
+.animate {
+  animation: spin 6s linear infinite;
+}
+
+.hideCard {
+  top: 1000px !important;
+}
+
+.remove {
+  transform: translate(800px, -800px) rotate(45deg);
+}
+
+.wiggle {
+  animation: wiggle 3s ease-in-out infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

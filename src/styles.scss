@@ -5,8 +5,43 @@
 html,
 body {
   height: 100%;
+  overflow: hidden;
 }
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mdc-slider__track--inactive {
+  background-color: transparent !important;
+}
+
+.mdc-slider__track--active {
+  background-color: transparent !important;
+}
+
+.mdc-slider__track--active {
+  background-color: transparent !important;
+}
+
+.mat-mdc-slider .mdc-slider__thumb-knob {
+  border-color: #292929 !important;
+}
+
+.mat-mdc-slider .mdc-slider__track--active_fill {
+  border-color: #292929 !important;
+}
+
+.mat-mdc-slider .mat-ripple .mat-mdc-slider-focus-ripple,
+.mat-mdc-slider .mat-ripple .mat-mdc-slider-active-ripple {
+  background-color: transparent !important;
+}
+
+.mdc-slider__thumb--with-indicator {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.mat-mdc-focus-indicator {
+  display: none !important;
 }

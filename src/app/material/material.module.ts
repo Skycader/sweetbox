@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { MatSliderModule } from '@angular/material/slider';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -28,6 +29,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { MatPaginatorModule } from '@angular/material/paginator';
 const MaterialComponents = [
+  MatSliderModule,
   MatButtonModule,
   MatRippleModule,
   MatMenuModule,

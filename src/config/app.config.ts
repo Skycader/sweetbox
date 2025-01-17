@@ -9,9 +9,9 @@ export interface AppConfigInterface {
 
 export const AppConfig: AppConfigInterface = {
   appIcon: 'design_services',
-  appName: 'app-name',
+  appName: '💫Starcom',
   version: '0.0.1',
-  manufacturer: 'project-manufacturer',
+  manufacturer: '💎Vodrion',
   manufacturerIcon: 'near_me',
   year: '2024',
 };
