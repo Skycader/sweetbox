@@ -13,6 +13,13 @@ export class WelcomeComponent {
   public slider = 0;
 
   public slide(event: any) {
+    if (this.slider === 0) {
+      var audio = new Audio('assets/audio/paper.mp3');
+      audio.play();
+      setTimeout(() => {
+        audio.pause();
+      }, 1000);
+    }
     if (this.slider === 100) {
       this.playSound();
       this.open = true;
