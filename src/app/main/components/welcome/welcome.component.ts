@@ -26,10 +26,19 @@ export class WelcomeComponent {
     }
   }
 
+  playFood() {
+    var audio = new Audio('assets/audio/food.m4a');
+    audio.play();
+  }
+
   playSound() {
     this.count += 1;
     var audio = new Audio('assets/audio/slip.mp3');
     audio.play();
+
+    setTimeout(() => {
+      if (this.count === 1) this.playFood();
+    }, 1000);
     setTimeout(() => {
       audio.pause();
     }, 500);
