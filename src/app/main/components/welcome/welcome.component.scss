@@ -7,6 +7,7 @@
   justify-content: center;
 
   .star {
+    cursor: pointer;
     position: absolute;
     display: flex;
     align-items: center;
@@ -18,11 +19,12 @@
     height: 100vh;
     max-width: 550px;
     max-height: 550px;
-    background-image: url("https://i.ibb.co/9pt4Kw1/star2.png");
+    background-image: url(../../../../assets/images/common/star.png);
     background-size: contain;
     background-repeat: no-repeat;
 
     svg {
+      cursor: pointer;
       animation: openMe 0.6s ease-in-out infinite;
       position: absolute;
       fill: #ccc;
@@ -63,62 +65,59 @@
       border-radius: 4px;
     }
 
+    .cut-line {
+      z-index: 5;
+      position: absolute;
+      border: 1px dashed #ccc;
+      top: 22px;
+      background: #292929;
+      width: 100%;
+      border-radius: 4px;
+    }
+
     .content {
       font-family: "Ubuntu", sans-serif;
       font-size: 26px;
       line-height: 46px;
       color: #fff;
-      text-shadow:
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
       transition-duration: 1s;
       top: 115px;
       position: absolute;
       z-index: 9;
       left: 5px;
-      width: 290px;
+      width: 300px;
+      height: 340px;
       border-radius: 15px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
       padding: 10px;
+      padding-left: 20px;
       img {
         cursor: pointer;
         border-radius: 5px;
         width: 100%;
       }
-    }
 
-    .content2 {
-      font-family: "Ubuntu", sans-serif;
-      font-size: 26px;
-      line-height: 46px;
-      color: #fff;
-      text-shadow:
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
-      transition-duration: 1s;
-      top: 115px;
-      position: absolute;
-      z-index: 9;
-      left: 5px;
-      width: 290px;
-      border-radius: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      padding: 10px;
-      img {
-        cursor: pointer;
-        border-radius: 5px;
-        width: 100%;
-        filter: drop-shadow(5px 5px 15px gold);
+      .gold {
+        filter: drop-shadow(5px 5px 15px #c5a93d);
+      }
+
+      .title {
+        font-family: Roboto, sans-serif;
+        transition-duration: 0.5s;
+        box-shadow: 24px 45px 11px #565151;
+        background: #292929e0;
+        border-radius: 32px;
+        font-size: 19px;
+        line-height: 16px;
+        padding: 10px;
+      }
+
+      .hidden-title {
+        opacity: 0;
+        transform: scale(1.5);
       }
     }
 
@@ -130,6 +129,14 @@
       position: absolute;
       z-index: 10;
       border-radius: 0px 0px 15px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      svg {
+        width: 50%;
+        fill: #ccc;
+      }
     }
   }
 }
@@ -156,11 +163,15 @@
 }
 
 .remove {
-  transform: translate(800px, -800px) rotate(45deg);
+  transform: translate(1000px, -1000px) rotate(60deg);
 }
 
 .wiggle {
   animation: wiggle 3s ease-in-out infinite;
+}
+
+.hide {
+  opacity: 0;
 }
 
 @keyframes spin {

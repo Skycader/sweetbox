@@ -12,6 +12,11 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+@font-face {
+  font-family: "VSS";
+  src: url("/assets/fonts/googlesans.woff2");
+}
+
 .mdc-slider__track--inactive {
   background-color: transparent !important;
 }
