@@ -50,3 +50,7 @@ body {
 .mat-mdc-focus-indicator {
   display: none !important;
 }
+
+.mdc-button.amount {
+  min-width: 35px !important;
+}

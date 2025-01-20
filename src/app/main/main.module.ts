@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from '../common/components/page-not-found/page-not-found.component';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule } from '@angular/forms';
+import { SweetboxModule } from '../sweetbox/sweetbox.module';
 
 @NgModule({
   declarations: [MainLayoutComponent, WelcomeComponent],
@@ -13,6 +14,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     MaterialModule,
+    SweetboxModule,
     RouterModule.forChild([
       {
         path: '',
