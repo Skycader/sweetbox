@@ -1,14 +1,32 @@
 <mat-tab-group>
-  <mat-tab class="lol" label="⬤ Обычный контейнер"> <app-package /> </mat-tab>
-  <mat-tab label="⬤ Редкий контейнер"> <app-package /> </mat-tab>
-  <mat-tab label="⬤ Эпический контейнер"> <app-package /> </mat-tab>
+  <mat-tab label="⬤ Обычный контейнер">
+    <app-package containerType="common" />
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <span style="color: #3f51b5; letter-spacing: 5px"> ⬤ </span><wbr />
+      <span>Редкий контейнер</span>
+      <span matBadge="0" matBadgeSize="small" style="color: transparent"
+        >x</span
+      >
+    </ng-template>
+
+    <app-package containerType="rare" />
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <span style="color: #c5a93d; letter-spacing: 5px"> ⬤ </span><wbr />
+      <span>Эпический контейнер</span>
+      <span matBadgeSize="small" style="color: transparent">x</span>
+    </ng-template>
+
+    <app-package />
+  </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
       <span style="color: orange; letter-spacing: 5px"> ⬤ </span><wbr />
       <span>Легендарный контейнер</span>
-      <span matBadge="8" matBadgeSize="small" style="color: transparent"
-        >x</span
-      >
+      <span matBadgeSize="small" style="color: transparent">x</span>
     </ng-template>
     <app-package />
   </mat-tab>

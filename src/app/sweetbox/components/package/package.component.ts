@@ -4,6 +4,9 @@ import {
   ItemModelInterface,
 } from '../../models/item.model';
 import { ContainerService } from '../../services/container.service';
+import { ContainerType } from '../../models/container.type';
+import { containerEnum } from '../../models/container.enum';
+import { containerColorEnum } from '../../models/container.enum';
 
 @Component({
   selector: 'app-package',
@@ -11,7 +14,10 @@ import { ContainerService } from '../../services/container.service';
   styleUrl: './package.component.scss',
 })
 export class PackageComponent {
+  @Input() containerType: ContainerType = 'common';
   public isShowingPackage = false;
+  public containerEnum = containerEnum;
+  public containerColorEnum = containerColorEnum;
   public slider = 0; //material slider
 
   public iterator = 0;
@@ -23,7 +29,7 @@ export class PackageComponent {
   constructor(private containerService: ContainerService) { }
 
   public openContainer() {
-    this.generateContainer(10);
+    this.generateContainer(10, this.containerType);
 
     this.isShowingPackage = !this.isShowingPackage;
     this.get();
@@ -31,8 +37,12 @@ export class PackageComponent {
     this.slider = 0;
   }
 
-  public generateContainer(cards: number) {
-    this.cards = this.containerService.generateContainer(cards);
+  getStarImage() {
+    return `url("assets/images/common/${this.containerType}-star.png")`;
+  }
+
+  public generateContainer(cards: number, containerType: ContainerType) {
+    this.cards = this.containerService.generateContainer(cards, containerType);
 
     const accumulator = this.cards
       .map((card) => {

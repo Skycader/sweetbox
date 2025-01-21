@@ -2,7 +2,7 @@ export interface ItemModelInterface {
   title: string;
   image: string; //image of the prize
   sound: string; //path to file with sound
-  type: 'common' | 'rare' | 'legendary';
+  type: 'food' | 'common' | 'rare' | 'legendary';
 }
 
 export interface CardModelInterface extends ItemModelInterface {

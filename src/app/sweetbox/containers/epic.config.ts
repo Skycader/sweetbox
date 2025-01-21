@@ -21,14 +21,11 @@ Array.prototype.getRandomElement = function(): any | undefined {
 
 export const commonContainer = [
   ...[money[0]].repeat(149), //10 рублей
-  ...[money[1]].repeat(30), //50 рублей
-  ...[money[2]].repeat(15), //100 рублей
-  ...[money[2]].repeat(5), //200 рублей
-  ...[money[3]].repeat(1), //500 рублей
+  ...[money[1]].repeat(15), //100 рублей
+  ...[money[2]].repeat(1), //500 рублей
   ...[energy[0]].repeat(149), //10 минут
-  ...[energy[1]].repeat(15), //1 час
-  ...[energy[2]].repeat(1), //6 часов
+  ...[energy[1]].repeat(15), //30 минут
+  ...[energy[2]].repeat(1), //1 час
   ...products,
-  ...[keys[0]].repeat(2), //Обычный ключ
-  ...[keys[1]], //Редкий ключ
+  ...[keys[0]], //Редкий ключ
 ];

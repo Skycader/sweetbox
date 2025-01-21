@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from '../common/components/page-not-found/page-
 import { MaterialModule } from '../material/material.module';
 import { FormsModule } from '@angular/forms';
 import { SweetboxModule } from '../sweetbox/sweetbox.module';
+import { MissionsModule } from '../missions/missions.module';
 
 @NgModule({
   declarations: [MainLayoutComponent, WelcomeComponent],
@@ -15,6 +16,7 @@ import { SweetboxModule } from '../sweetbox/sweetbox.module';
     FormsModule,
     MaterialModule,
     SweetboxModule,
+    MissionsModule,
     RouterModule.forChild([
       {
         path: '',

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { commonContainer } from '../containers/common.config';
 import { ItemModelInterface } from '../models/item.model';
+import { ContainerType } from '../models/container.type';
+import { rareContainer } from '../containers/rare.config';
 
 @Injectable({
   providedIn: 'root',
@@ -8,10 +10,13 @@ import { ItemModelInterface } from '../models/item.model';
 export class ContainerService {
   constructor() { }
 
-  public generateContainer(cards: number) {
+  public generateContainer(cards: number, containerType: ContainerType) {
     const container: ItemModelInterface[] = [];
     while (cards--) {
-      container.push(commonContainer.getRandomElement());
+      if (containerType === 'common')
+        container.push(commonContainer.getRandomElement());
+      if (containerType === 'rare')
+        container.push(rareContainer.getRandomElement());
     }
     return container;
   }

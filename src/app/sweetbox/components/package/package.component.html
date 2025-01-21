@@ -1,15 +1,17 @@
 <div class="card-display">
   <div
     class="star"
+    [style.background-image]="getStarImage()"
     [class.animate]="isShowingPackage"
     [style]="!isShowingPackage ? 'z-index: 10' : 'z-index: 0'"
     (click)="openContainer()"
   >
     <svg
+      style="fill: #ccc"
+      style="fill: {{ containerColorEnum[containerType] }}"
       [class.hide]="isShowingPackage"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
-      fill="#000000"
       version="1.1"
       id="Capa_1"
       width="800px"
@@ -72,13 +74,19 @@
         [matBadge]="item.amount"
         matBadgeSize="medium"
       >
-        <div><span style="color: #3f51b5">⬤</span> {{ item.title }}</div>
+        <div>
+          <span style="color: {{ containerColorEnum[item.type] }}">⬤</span>
+          {{ item.title }}
+        </div>
       </div>
 
       <!-- <div class="underline"></div> -->
     </div>
 
-    <div class="card-front">
+    <div
+      class="card-front"
+      style="fill: {{ containerColorEnum[containerType] }}"
+    >
       <div
         style="
           position: absolute;
@@ -96,7 +104,7 @@
             width: 4px;
             height: 4px;
             border-radius: 15px;
-            background: #3f51b5;
+            background: {{ containerColorEnum[containerType] }};
           "
         ></div>
 
@@ -107,7 +115,7 @@
             width: 100px;
             height: 4px;
             border-radius: 15px;
-            background: #3f51b5;
+            background: {{ containerColorEnum[containerType] }};
           "
         ></div>
       </div>
@@ -153,7 +161,7 @@
   [class.hide]="isShowingPackage"
 >
   <button mat-raised-button mat-primary (click)="openContainer()">
-    Открыть обычный контейнер
+    Открыть {{ containerEnum[containerType] }} контейнер
   </button>
 
   <div style="width: 5px"></div>
