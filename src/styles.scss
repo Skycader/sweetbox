@@ -47,10 +47,16 @@ body {
   box-shadow: none !important;
 }
 
-.mat-mdc-focus-indicator {
-  display: none !important;
-}
-
 .mdc-button.amount {
   min-width: 35px !important;
+}
+
+.mdc-button.help {
+  width: 40px !important;
+  min-width: 40px !important;
+
+  mat-icon {
+    margin: 0px !important;
+    position: absolute;
+  }
 }

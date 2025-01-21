@@ -2,9 +2,8 @@
   <div
     class="star"
     [class.animate]="isShowingPackage"
-    (click)="
-      isShowingPackage = !isShowingPackage; get(); iterator = 0; slider = 0
-    "
+    [style]="!isShowingPackage ? 'z-index: 10' : 'z-index: 0'"
+    (click)="openContainer()"
   >
     <svg
       [class.hide]="isShowingPackage"
@@ -37,6 +36,7 @@
   </div>
   <div
     class="card"
+    [class.no-animate]="!isShowingPackage"
     [class.down]="iterator > 0"
     [class.hideCard]="!isShowingPackage || iterator === items.length + 1"
   >
@@ -141,16 +141,10 @@
   </div>
 </div>
 
-<br />
-<br />
-<br />
-
-<br />
-<br />
-<br />
-
 <div
   style="
+    position: absolute;
+    bottom: 10px;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -165,4 +159,10 @@
   <div style="width: 5px"></div>
 
   <button mat-raised-button mat-primary class="amount">10</button>
+
+  <div style="width: 5px"></div>
+
+  <button mat-raised-button mat-primary class="help">
+    <mat-icon>widgets</mat-icon>
+  </button>
 </div>

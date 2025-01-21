@@ -1,8 +1,15 @@
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <p class="lead"></p>
-    <div style="height: 200px"></div>
-  </div>
-
-  <app-package />
-</div>
+<mat-tab-group>
+  <mat-tab class="lol" label="⬤ Обычный контейнер"> <app-package /> </mat-tab>
+  <mat-tab label="⬤ Редкий контейнер"> <app-package /> </mat-tab>
+  <mat-tab label="⬤ Эпический контейнер"> <app-package /> </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <span style="color: orange; letter-spacing: 5px"> ⬤ </span><wbr />
+      <span>Легендарный контейнер</span>
+      <span matBadge="8" matBadgeSize="small" style="color: transparent"
+        >x</span
+      >
+    </ng-template>
+    <app-package />
+  </mat-tab>
+</mat-tab-group>
