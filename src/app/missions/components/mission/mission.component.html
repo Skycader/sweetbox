@@ -1,1 +1,42 @@
-<p>mission works!</p>
+<mat-toolbar
+  matRipple
+  [class.disabled]="mission.isDisabled()"
+  [class.completed]="mission.isCompleted()"
+  class="todo-item"
+  style="
+    height: 100px;
+    border-radius: 25px 25px 0px 0px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 20px;
+  "
+>
+  <div style="width: 10px"></div>
+  <button
+    id="days-left-indicator"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+    [disabled]="mission.isDisabled()"
+    (click)="mission.complete(); getReward(mission, reward)"
+  >
+    <mat-icon>done</mat-icon>
+  </button>
+
+  <span id="todo-title">{{ mission.title }}</span>
+  <span class="example-spacer"></span>
+
+  <!-- Check the todo  -->
+
+  <div #reward style="width: 80px" [class.hidden]="mission.isCompleted()">
+    <img style="width: 100%" src="assets/images/keys/common.png" />
+  </div>
+  <div style="width: 30px"></div>
+
+  <mat-progress-bar
+    style="position: absolute; bottom: 0px"
+    mode="determinate"
+    [value]="mission.getProgress()"
+  ></mat-progress-bar>
+</mat-toolbar>

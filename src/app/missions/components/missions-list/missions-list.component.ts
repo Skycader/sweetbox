@@ -102,7 +102,23 @@ export class MissionsListComponent {
       this.storage,
     ),
     new Mission(
-      'Сделать 1 урок японского на дуолинго',
+      'Memos - добавить 1 карточку',
+      10,
+      6 * TimeEnum.HOUR,
+      TimeEnum.DAY,
+      this.persistance,
+      this.storage,
+    ),
+    new Mission(
+      '1 практика японского языка на дуолинго',
+      10,
+      1 * TimeEnum.MINUTE,
+      3 * TimeEnum.HOUR,
+      this.persistance,
+      this.storage,
+    ),
+    new Mission(
+      'Сделать 1 новый урок японского на дуолинго',
       20,
       1 * TimeEnum.MINUTE,
       3 * TimeEnum.HOUR,
@@ -121,7 +137,7 @@ export class MissionsListComponent {
     new Mission(
       'Сделать 10 отжиманий',
       20,
-      TimeEnum.HOUR,
+      TimeEnum.MINUTE,
       TimeEnum.DAY,
       this.persistance,
       this.storage,
@@ -129,7 +145,7 @@ export class MissionsListComponent {
     new Mission(
       'Сделать 20 скручиваний',
       10,
-      TimeEnum.HOUR,
+      TimeEnum.MINUTE,
       TimeEnum.DAY,
       this.persistance,
       this.storage,
@@ -137,7 +153,7 @@ export class MissionsListComponent {
     new Mission(
       'Сделать 10 приседаний',
       20,
-      TimeEnum.HOUR,
+      TimeEnum.MINUTE,
       TimeEnum.DAY,
       this.persistance,
       this.storage,
@@ -175,6 +191,14 @@ export class MissionsListComponent {
       this.storage,
     ),
     new Mission(
+      'Махи ногами - 20 каждой ногой',
+      10,
+      3 * TimeEnum.HOUR,
+      TimeEnum.DAY,
+      this.persistance,
+      this.storage,
+    ),
+    new Mission(
       '100 сжиманий кулаков - с эспандером',
       10,
       1 * TimeEnum.MINUTE,
@@ -190,10 +214,40 @@ export class MissionsListComponent {
       this.persistance,
       this.storage,
     ),
+    new Mission(
+      'Сделать Широ Оби но Ката',
+      50,
+      6 * TimeEnum.HOUR,
+      TimeEnum.DAY,
+      this.persistance,
+      this.storage,
+    ),
+    new Mission(
+      'Собрать кубик рубика',
+      25,
+      12 * TimeEnum.HOUR,
+      TimeEnum.HOUR,
+      this.persistance,
+      this.storage,
+    ),
+    new Mission(
+      'Прочитать 1 главу книги',
+      50,
+      12 * TimeEnum.HOUR,
+      TimeEnum.HOUR,
+      this.persistance,
+      this.storage,
+    ),
+
+    //new Mission('debug', 50, 1000, 1000, this.persistance, this.storage),
   ];
+
+  public customMissions: Mission[] = [];
 
   constructor(
     private persistance: PersistanceService,
     private storage: StorageService,
   ) { }
+
+  // Используем функцию, передавая необходимый ID
 }

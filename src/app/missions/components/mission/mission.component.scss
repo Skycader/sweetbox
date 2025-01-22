@@ -1,0 +1,18 @@
+.todo-item {
+  transition:
+    height 1s,
+    opacity 1s;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.disabled {
+  cursor: default !important;
+  opacity: 0.5;
+}
+
+.hidden {
+  opacity: 0;
+}
