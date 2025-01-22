@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { TimeEnum } from '../../models/time.list.enum';
 import {
   Persistance,
@@ -6,6 +6,7 @@ import {
 } from '../../../common/services/persistance.service';
 import { StorageService } from '../../../storage/services/storage.service';
 import { keys } from '../../../sweetbox/resources/keys.resource';
+import { interval, tap } from 'rxjs';
 
 export class Mission {
   private disabledUntil = 0;
@@ -254,6 +255,7 @@ export class MissionsListComponent {
   constructor(
     private persistance: PersistanceService,
     private storage: StorageService,
+    private cdk: ChangeDetectorRef,
   ) { }
 
   public loading = true;
@@ -268,6 +270,8 @@ export class MissionsListComponent {
       this.finish = true;
     }, 500);
   }
+
+  public update$ = interval(100).pipe(tap(() => this.cdk.detectChanges));
 
   // Используем функцию, передавая необходимый ID
 }
