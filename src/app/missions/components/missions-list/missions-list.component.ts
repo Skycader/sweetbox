@@ -247,7 +247,7 @@ export class MissionsListComponent {
       this.storage,
     ),
 
-    // new Mission('debug', 50, 1000, 1000, this.persistance, this.storage),
+    new Mission('debug', 50, 1000, 1000, this.persistance, this.storage),
   ];
 
   public customMissions: Mission[] = [];

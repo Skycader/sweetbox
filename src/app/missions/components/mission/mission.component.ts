@@ -12,7 +12,7 @@ export class MissionComponent {
     if (mission.isCompletedUntil <= Date.now()) return;
     setTimeout(() => {
       let clonedElement = this.cloneElementById(element);
-      clonedElement.style.transitionDuration = '0.5s';
+      clonedElement.style.transitionDuration = '3s';
       clonedElement.classList.remove('hidden');
       setTimeout(() => {
         clonedElement.style.top = '0px';
@@ -44,14 +44,12 @@ export class MissionComponent {
 
     // Получаем координаты оригинального элемента
     const rect = originalElement.getBoundingClientRect();
-    console.log(rect);
     // Задаем стиль для абсолютного позиционирования
     clonedElement.style.position = 'absolute';
     clonedElement.style.top = `${rect.top + window.scrollY}px`; // Учитываем прокрутку
     clonedElement.style.left = `${rect.left + window.scrollX}px`; // Учитываем прокрутку
 
     // Добавляем клонированный элемент в корень документа
-    console.log(clonedElement);
     document.body.appendChild(clonedElement);
     return clonedElement;
   }
