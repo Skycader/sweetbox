@@ -9,6 +9,7 @@ import { containerEnum } from '../../models/container.enum';
 import { containerColorEnum } from '../../models/container.enum';
 import { StorageService } from '../../../storage/services/storage.service';
 import { keys } from '../../resources/keys.resource';
+import { SnackbarService } from '../../../common/services/snackbar.service';
 
 @Component({
   selector: 'app-package',
@@ -37,9 +38,14 @@ export class PackageComponent {
   constructor(
     private containerService: ContainerService,
     private storageService: StorageService,
+    private snackbar: SnackbarService,
   ) { }
 
   public openContainer() {
+    if (this.storageService.getItem(keys[0]) < 1) {
+      this.snackbar.inform('Нет ключей!');
+      return;
+    }
     this.storageService.addItem(keys[0], -1);
 
     this.generateContainer(10, this.containerType);
@@ -52,6 +58,12 @@ export class PackageComponent {
 
   getStarImage() {
     return `url("assets/images/common/${this.containerType}-star.png")`;
+  }
+
+  ngOnInit() {
+    const audio = new Audio(`assets/audio/menu.mp3`);
+    audio.volume = 0.3;
+    audio.play();
   }
 
   public generateContainer(cards: number, containerType: ContainerType) {

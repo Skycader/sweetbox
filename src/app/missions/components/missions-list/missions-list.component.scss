@@ -14,3 +14,18 @@
 .hidden {
   opacity: 0;
 }
+
+.parent {
+  transition-duration: 1s;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.loading {
+  height: 0px !important;
+}
+
+.finish {
+  height: inherit !important;
+  overflow: inherit !important;
+}

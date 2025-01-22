@@ -256,5 +256,18 @@ export class MissionsListComponent {
     private storage: StorageService,
   ) { }
 
+  public loading = true;
+  public finish = false;
+  ngOnInit() {
+    const audio = new Audio(`assets/audio/menu.mp3`);
+    audio.play();
+    setTimeout(() => {
+      this.loading = false;
+    }, 0);
+    setTimeout(() => {
+      this.finish = true;
+    }, 500);
+  }
+
   // Используем функцию, передавая необходимый ID
 }
