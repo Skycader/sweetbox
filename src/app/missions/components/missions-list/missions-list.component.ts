@@ -41,7 +41,14 @@ export class Mission {
 
     this.stats.disabledUntil = this.disabledUntil;
 
+    if (this.progress < 100) {
+      const audio = new Audio(`assets/audio/exp.m4a`);
+      audio.play();
+    }
     if (this.progress >= 100) {
+      const audio = new Audio(`assets/audio/mission-complete.m4a`);
+      audio.play();
+
       this.storage.addItem(keys[0], 1);
       this.progress = 0;
       this.stats.progress = this.progress;
@@ -239,7 +246,7 @@ export class MissionsListComponent {
       this.storage,
     ),
 
-    //new Mission('debug', 50, 1000, 1000, this.persistance, this.storage),
+    new Mission('debug', 50, 1000, 1000, this.persistance, this.storage),
   ];
 
   public customMissions: Mission[] = [];
