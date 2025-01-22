@@ -7,6 +7,8 @@ import { ContainerService } from '../../services/container.service';
 import { ContainerType } from '../../models/container.type';
 import { containerEnum } from '../../models/container.enum';
 import { containerColorEnum } from '../../models/container.enum';
+import { StorageService } from '../../../storage/services/storage.service';
+import { keys } from '../../resources/keys.resource';
 
 @Component({
   selector: 'app-package',
@@ -15,6 +17,8 @@ import { containerColorEnum } from '../../models/container.enum';
 })
 export class PackageComponent {
   @Input() containerType: ContainerType = 'common';
+  @Input() keyType: number = 0;
+
   public isShowingPackage = false;
   public containerEnum = containerEnum;
   public containerColorEnum = containerColorEnum;
@@ -26,9 +30,18 @@ export class PackageComponent {
 
   public cards: ItemModelInterface[] = [];
 
-  constructor(private containerService: ContainerService) { }
+  public getKeys() {
+    return this.storageService.getItem(keys[this.keyType]);
+  }
+
+  constructor(
+    private containerService: ContainerService,
+    private storageService: StorageService,
+  ) { }
 
   public openContainer() {
+    this.storageService.addItem(keys[0], -1);
+
     this.generateContainer(10, this.containerType);
 
     this.isShowingPackage = !this.isShowingPackage;
@@ -79,6 +92,9 @@ export class PackageComponent {
   iterate() {
     this.playSound();
     if (this.items[this.iterator]) {
+      const currentItem = this.items[this.iterator];
+      this.storageService.addItem(currentItem, currentItem.amount);
+
       this.playAudio(this.items[this.iterator].sound);
       this.items[this.iterator].isTaken = true;
       let copy = this.iterator;

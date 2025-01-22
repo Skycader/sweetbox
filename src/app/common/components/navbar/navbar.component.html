@@ -21,7 +21,12 @@
         class="example-icon"
         aria-label="Example icon-button with menu icon"
       >
-        <mat-icon>new_releases</mat-icon>
+        <mat-icon
+          [matBadge]="getMissions()"
+          matBadgeColor="accent"
+          matBadgeSize="small"
+          >new_releases</mat-icon
+        >
       </button>
     </a>
 

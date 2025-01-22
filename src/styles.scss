@@ -5,7 +5,6 @@
 html,
 body {
   height: 100%;
-  overflow: hidden;
 }
 body {
   margin: 0;
@@ -64,4 +63,9 @@ body {
 .mat-toolbar-row,
 .mat-toolbar-single-row {
   padding: 0px !important;
+}
+
+.completed {
+  height: 0px !important;
+  opacity: 0;
 }

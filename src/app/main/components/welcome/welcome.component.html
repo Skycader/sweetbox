@@ -1,6 +1,6 @@
 <mat-tab-group>
   <mat-tab label="⬤ Обычный контейнер">
-    <app-package containerType="common" />
+    <app-package containerType="common" [keyType]="0" />
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
@@ -11,7 +11,7 @@
       >
     </ng-template>
 
-    <app-package containerType="rare" />
+    <app-package containerType="rare" [keyType]="1" />
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>

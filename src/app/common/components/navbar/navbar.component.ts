@@ -8,6 +8,9 @@ import {
   isLoggedInSelector,
 } from '../../../auth/store/auth.selector';
 import { Observable } from 'rxjs';
+import { MissionsService } from '../../../missions/services/missions.service';
+import { Mission } from '../../../missions/components/missions-list/missions-list.component';
+import { PersistanceService } from '../../services/persistance.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -37,7 +40,25 @@ export class NavbarComponent {
     private navbarService: NavbarService,
     public themeService: ThemeService,
     private store: Store<AppStateInterface>,
+    private missions: MissionsService,
+    private persistance: PersistanceService,
   ) { }
+
+  loadMission(title: string): any {
+    const missions = this.persistance.getItem('missions');
+    return missions[title];
+  }
+
+  getMissions() {
+    let count = 0;
+    Object.keys(JSON.parse(localStorage.getItem('missions') || '[]')).forEach(
+      (mission) => {
+        if (this.loadMission(mission).isCompletedUntil < Date.now()) count++;
+      },
+    );
+
+    return count;
+  }
 
   public openSideNav() {
     this.navbarService.openSideNav();

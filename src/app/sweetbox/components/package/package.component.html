@@ -160,13 +160,20 @@
   "
   [class.hide]="isShowingPackage"
 >
-  <button mat-raised-button mat-primary (click)="openContainer()">
+  <button
+    mat-raised-button
+    mat-primary
+    (click)="openContainer()"
+    [disabled]="getKeys() < 1"
+  >
     Открыть {{ containerEnum[containerType] }} контейнер
   </button>
 
   <div style="width: 5px"></div>
 
-  <button mat-raised-button mat-primary class="amount">10</button>
+  <button mat-raised-button mat-primary class="amount">
+    {{ getKeys() || 0 }}
+  </button>
 
   <div style="width: 5px"></div>
 
