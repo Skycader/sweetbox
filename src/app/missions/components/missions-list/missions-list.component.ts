@@ -121,7 +121,7 @@ export class MissionsListComponent {
       '1 практика японского языка на дуолинго',
       10,
       1 * TimeEnum.MINUTE,
-      1 * TimeEnum.MINUTE,
+      3 * TimeEnum.HOUR,
       this.persistance,
       this.storage,
     ),
