@@ -32,7 +32,8 @@ export class PackageComponent {
   public cards: ItemModelInterface[] = [];
 
   public getKeys() {
-    return this.storageService.getItem(keys[this.keyType]);
+    let amount = this.storageService.getItem(keys[this.keyType]);
+    return amount || 0;
   }
 
   constructor(
