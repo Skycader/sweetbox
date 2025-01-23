@@ -62,7 +62,7 @@ export class PackageComponent {
 
   ngOnInit() {
     const audio = new Audio(`assets/audio/menu.mp3`);
-    audio.volume = 0.3;
+    audio.volume = 0.1;
     audio.play();
   }
 

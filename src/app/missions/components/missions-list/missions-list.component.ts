@@ -246,8 +246,24 @@ export class MissionsListComponent {
       this.persistance,
       this.storage,
     ),
+    new Mission(
+      'Убить демона в Raptorium',
+      25,
+      6 * TimeEnum.HOUR,
+      TimeEnum.HOUR,
+      this.persistance,
+      this.storage,
+    ),
+    new Mission(
+      'Решить случайное regexp задание',
+      25,
+      6 * TimeEnum.HOUR,
+      TimeEnum.HOUR,
+      this.persistance,
+      this.storage,
+    ),
 
-    new Mission('debug', 50, 1000, 1000, this.persistance, this.storage),
+    // new Mission('debug', 50, 1000, 1000, this.persistance, this.storage),
   ];
 
   public customMissions: Mission[] = [];
@@ -262,6 +278,7 @@ export class MissionsListComponent {
   public finish = false;
   ngOnInit() {
     const audio = new Audio(`assets/audio/menu.mp3`);
+    audio.volume = 0.5;
     audio.play();
     setTimeout(() => {
       this.loading = false;
