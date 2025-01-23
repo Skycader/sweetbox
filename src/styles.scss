@@ -68,3 +68,12 @@ body {
 .completed {
   opacity: 0.5;
 }
+
+.mat-mdc-card {
+  border-radius: var(--mdc-elevated-card-container-shape) !important;
+  background-color: var(--mdc-elevated-card-container-color) !important;
+  border-width: 0 !important;
+  border-style: solid;
+  border-color: var(--mdc-elevated-card-container-color) !important;
+  box-shadow: var(--mdc-elevated-card-container-elevation) !important;
+}

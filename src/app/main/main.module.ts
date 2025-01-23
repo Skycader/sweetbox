@@ -8,6 +8,7 @@ import { MaterialModule } from '../material/material.module';
 import { FormsModule } from '@angular/forms';
 import { SweetboxModule } from '../sweetbox/sweetbox.module';
 import { MissionsModule } from '../missions/missions.module';
+import { StorageModule } from '../storage/storage.module';
 
 @NgModule({
   declarations: [MainLayoutComponent, WelcomeComponent],
@@ -17,6 +18,7 @@ import { MissionsModule } from '../missions/missions.module';
     MaterialModule,
     SweetboxModule,
     MissionsModule,
+    StorageModule,
     RouterModule.forChild([
       {
         path: '',

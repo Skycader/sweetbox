@@ -176,7 +176,7 @@ export class MissionsListComponent {
     ),
     new Mission(
       'Сделать растяжку ног на коврике - с дисками гантелей',
-      10,
+      50,
       TimeEnum.HOUR,
       TimeEnum.DAY,
       this.persistance,
@@ -240,7 +240,7 @@ export class MissionsListComponent {
     ),
     new Mission(
       'Прочитать 1 главу книги',
-      50,
+      100,
       12 * TimeEnum.HOUR,
       TimeEnum.HOUR,
       this.persistance,
@@ -278,7 +278,7 @@ export class MissionsListComponent {
   public finish = false;
   ngOnInit() {
     const audio = new Audio(`assets/audio/menu.mp3`);
-    audio.volume = 0.5;
+    audio.volume = 0.3;
     audio.play();
     setTimeout(() => {
       this.loading = false;
