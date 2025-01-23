@@ -11,8 +11,14 @@
         <app-mission [mission]="mission" />
       </ng-container>
     </mat-tab>
-    <mat-tab label="⬤ Еженедельные задания"> Content 2 </mat-tab>
-    <mat-tab label="⬤ Кастомные задания">
+    <mat-tab label="⬤ Редкие задания"> Content 2 </mat-tab>
+    <mat-tab label="⬤ Эпические задания">
+      <br />
+      <ng-container *ngFor="let mission of customMissions">
+        <app-mission [mission]="mission" />
+      </ng-container>
+    </mat-tab>
+    <mat-tab label="⬤ Легендарные задания">
       <br />
       <ng-container *ngFor="let mission of customMissions">
         <app-mission [mission]="mission" />
