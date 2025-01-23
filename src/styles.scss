@@ -77,3 +77,8 @@ body {
   border-color: var(--mdc-elevated-card-container-color) !important;
   box-shadow: var(--mdc-elevated-card-container-elevation) !important;
 }
+
+.mat-mdc-card-avatar {
+  margin-top: 5px !important;
+  margin-bottom: 7px !important;
+}

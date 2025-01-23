@@ -1,10 +1,19 @@
 .example-card {
   max-width: 400px;
-  height: 300px;
+  height: 400px;
   overflow: hidden;
 }
 
+.example-header-image {
+  font-size: 2rem;
+}
+
+.header {
+  border-bottom: 1px solid #313131;
+}
+
 .action {
+  border-top: 1px solid #313131;
   background-color: var(--mdc-elevated-card-container-color);
 }
 

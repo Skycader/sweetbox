@@ -13,9 +13,21 @@ export class StorageComponent {
     return {
       key: key,
       amount: this.storage[key],
+      type: dict(
+        resourcesList.find((resource) => resource.title === key)?.type,
+      ),
       image: resourcesList.find((resource) => resource.title === key)?.image,
     };
   });
 
   constructor(private persistance: PersistanceService) { }
 }
+
+const dict = (type: any) => d[type];
+const d: any = {
+  common: 'Обычный предмет',
+  food: 'Еда',
+  rare: 'Редкий предмет',
+  epic: 'Эпический предмет',
+  legendary: 'Легендарный предмет',
+};

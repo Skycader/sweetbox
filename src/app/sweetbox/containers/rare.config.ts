@@ -30,5 +30,5 @@ export const rareContainer = [
   ...[energy[3]].repeat(1), //12 часов
   ...[...products].repeat(100),
   ...[keys[1]].repeat(2), //Редкий ключ
-  ...[keys[2]], //Эпический ключ
+  ...[keys[2]].repeat(500), //Эпический ключ
 ];

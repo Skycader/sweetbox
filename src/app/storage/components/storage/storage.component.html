@@ -2,23 +2,37 @@
   <br />
   <div class="row">
     <ng-container *ngFor="let item of items">
-      <div *ngIf="item.amount" class="col-4 mb-4">
+      <div *ngIf="item.amount" class="col-sm-12 col-md-6 col-lg-4 mb-4">
         <mat-card class="example-card">
-          <mat-card-header>
+          <mat-card-header class="header">
             <div mat-card-avatar class="example-header-image">💫</div>
-            <mat-card-title>{{ item.key }}</mat-card-title>
-            <mat-card-subtitle>x{{ item.amount }}</mat-card-subtitle>
+            <mat-card-title class="mb-1">{{ item.key }}</mat-card-title>
+            <mat-card-subtitle>{{ item.type }}</mat-card-subtitle>
           </mat-card-header>
-          <img mat-card-image [src]="item.image" alt="Photo of a Shiba Inu" />
+          <div
+            mat-card-image
+            style="background-image: url('{{
+              item.image
+            }}'); background-size: contain; height: calc(100% - 125px)"
+          ></div>
           <mat-card-content>
             <p></p>
           </mat-card-content>
           <mat-card-actions
             class="action"
-            style="position: absolute; bottom: 0px; width: 100%"
+            style="
+              position: absolute;
+              bottom: 0px;
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+            "
           >
-            <button mat-raised-button color="primary" class="me-2">-1</button>
-            <button mat-raised-button color="primary">+1</button>
+            <button mat-raised-button color="primary">
+              {{ item.amount }} шт.
+            </button>
+
+            <button mat-raised-button color="primary">Вывести 0 шт.</button>
           </mat-card-actions>
         </mat-card>
       </div>

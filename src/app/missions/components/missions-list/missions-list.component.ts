@@ -262,7 +262,14 @@ export class MissionsListComponent {
       this.persistance,
       this.storage,
     ),
-
+    new Mission(
+      'Сделать что-то очень полезное',
+      100,
+      6 * TimeEnum.HOUR,
+      TimeEnum.DAY,
+      this.persistance,
+      this.storage,
+    ),
     // new Mission('debug', 50, 1000, 1000, this.persistance, this.storage),
   ];
 
