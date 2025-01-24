@@ -18,6 +18,12 @@ export class StorageComponent {
     }),
   );
 
+  ngOnInit() {
+    const audio = new Audio(`assets/audio/storage.mp3`);
+    audio.volume = 0.3;
+    audio.play();
+  }
+
   ngAfterViewInit() {
     this.emitter$.next(1);
   }
@@ -42,7 +48,20 @@ export class StorageComponent {
   ) { }
 
   public takeOut(item: any) {
+    const audio = new Audio(`assets/audio/takeout.mp3`);
+    audio.volume = 0.3;
+    audio.play();
+
     this.storageService.addItem(item as ItemModelInterface, -item.amount);
+    this.emitter$.next(1);
+  }
+
+  public takeOutOne(item: any) {
+    const audio = new Audio(`assets/audio/takeout.mp3`);
+    audio.volume = 0.3;
+    audio.play();
+
+    this.storageService.addItem(item as ItemModelInterface, -1);
     this.emitter$.next(1);
   }
 }

@@ -61,4 +61,16 @@ export const products: ItemModelInterface[] = [
     image: 'assets/images/products/multifruit.png',
     sound: 'food.m4a',
   },
+  {
+    title: 'Шоколадные шарики',
+    type: 'food',
+    image: 'assets/images/products/chocoballs.png',
+    sound: 'food.m4a',
+  },
+  {
+    title: 'Молоко - Самокат',
+    type: 'food',
+    image: 'assets/images/products/milk.png',
+    sound: 'food.m4a',
+  },
 ];

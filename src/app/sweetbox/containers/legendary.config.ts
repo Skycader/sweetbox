@@ -19,7 +19,7 @@ Array.prototype.getRandomElement = function(): any | undefined {
   return this[randomIndex];
 };
 
-export const commonContainer = [
+export const legendaryContainer = [
   ...[money[0]].repeat(149), //10 рублей
   ...[money[1]].repeat(15), //100 рублей
   ...[money[2]].repeat(1), //500 рублей

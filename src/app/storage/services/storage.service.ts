@@ -21,7 +21,6 @@ export class StorageService {
   }
 
   getItem(item: ItemModelInterface) {
-    debugger;
     const storage = this.persistance.getItem('storage');
     return storage[item.title];
   }

@@ -32,9 +32,20 @@
               {{ item.amount }} шт.
             </button>
 
-            <button mat-raised-button color="primary" (click)="takeOut(item)">
-              Вывести всё
-            </button>
+            <div>
+              <button
+                mat-raised-button
+                class="me-2"
+                color="primary"
+                (click)="takeOutOne(item)"
+              >
+                Вывести 1 шт.
+              </button>
+
+              <button mat-raised-button color="primary" (click)="takeOut(item)">
+                Вывести всё
+              </button>
+            </div>
           </mat-card-actions>
         </mat-card>
       </div>

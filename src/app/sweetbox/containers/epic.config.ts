@@ -19,13 +19,15 @@ Array.prototype.getRandomElement = function(): any | undefined {
   return this[randomIndex];
 };
 
-export const commonContainer = [
-  ...[money[0]].repeat(149), //10 рублей
-  ...[money[1]].repeat(15), //100 рублей
-  ...[money[2]].repeat(1), //500 рублей
-  ...[energy[0]].repeat(149), //10 минут
-  ...[energy[1]].repeat(15), //30 минут
-  ...[energy[2]].repeat(1), //1 час
-  ...products,
-  ...[keys[0]], //Редкий ключ
+export const epicContainer = [
+  ...[money[3]].repeat(149), //200 рублей
+  ...[money[4]].repeat(30), //500 рублей
+  ...[money[5]].repeat(15), //1000 рублей
+  ...[money[6]].repeat(5), //2000 рублей
+  ...[money[7]].repeat(1), //5000 рублей
+  ...[energy[2]].repeat(149), //6 час
+  ...[energy[3]].repeat(15), //12 часав
+  ...[energy[4]].repeat(1), //24 часов
+  ...[keys[2]].repeat(2), //Эпический ключ ключ
+  ...[keys[3]], //Легендарный ключ
 ];
