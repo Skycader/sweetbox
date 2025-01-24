@@ -1,7 +1,7 @@
 <div class="container">
   <br />
   <div class="row">
-    <ng-container *ngFor="let item of items">
+    <ng-container *ngFor="let item of items | async">
       <div *ngIf="item.amount" class="col-sm-12 col-md-6 col-lg-4 mb-4">
         <mat-card class="example-card">
           <mat-card-header class="header">
@@ -32,7 +32,9 @@
               {{ item.amount }} шт.
             </button>
 
-            <button mat-raised-button color="primary">Вывести 0 шт.</button>
+            <button mat-raised-button color="primary" (click)="takeOut(item)">
+              Вывести всё
+            </button>
           </mat-card-actions>
         </mat-card>
       </div>
