@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { commonContainer } from '../../containers/common.config';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { rareContainer } from '../../containers/rare.config';
 import { legendaryContainer } from '../../containers/legendary.config';
 import { epicContainer } from '../../containers/epic.config';
@@ -50,7 +50,12 @@ export class ItemsDisplayComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: { containerType: 'common' | 'rare' | 'epic' | 'legendary' },
+    private dialogRef: MatDialogRef<ItemsDisplayComponent>,
   ) { }
+
+  public closeDialog() {
+    this.dialogRef.close();
+  }
 }
 
 function onlyUnique(value: any, index: any, array: any) {

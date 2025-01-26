@@ -4,6 +4,19 @@
   overflow: hidden;
 }
 
+.container {
+  overflow: hidden;
+
+  mat-icon {
+    cursor: pointer;
+  }
+}
+
+.row {
+  overflow: scroll;
+  height: 90vh;
+}
+
 .example-header-image {
   font-size: 2rem;
 }

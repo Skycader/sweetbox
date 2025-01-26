@@ -1,5 +1,21 @@
 <div class="container">
-  <br />
+  <div
+    style="
+      display: flex;
+      position: sticky;
+      top: 0px;
+      height: 40px;
+      justify-content: flex-end;
+      background: #393939;
+      width: 100%;
+      padding-top: 10px;
+      margin-bottom: 10px;
+      z-index: 1000;
+    "
+  >
+    <br />
+    <mat-icon (click)="closeDialog()">close</mat-icon>
+  </div>
   <div class="row">
     <ng-container *ngFor="let item of items">
       <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
