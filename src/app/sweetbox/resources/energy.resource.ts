@@ -31,4 +31,10 @@ export const energy: ItemModelInterface[] = [
     image: 'assets/images/energy/nuclear.png',
     sound: 'legendary.m4a',
   },
+  {
+    title: 'Ядерная смесь - 30 дней',
+    type: 'legendary',
+    image: 'assets/images/energy/nuclear2.webp',
+    sound: 'legendary.m4a',
+  },
 ];

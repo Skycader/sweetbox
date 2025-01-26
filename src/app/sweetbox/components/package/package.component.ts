@@ -10,6 +10,8 @@ import { containerColorEnum } from '../../models/container.enum';
 import { StorageService } from '../../../storage/services/storage.service';
 import { keys } from '../../resources/keys.resource';
 import { SnackbarService } from '../../../common/services/snackbar.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ItemsDisplayComponent } from '../items-display/items-display.component';
 
 @Component({
   selector: 'app-package',
@@ -40,6 +42,7 @@ export class PackageComponent {
     private containerService: ContainerService,
     private storageService: StorageService,
     private snackbar: SnackbarService,
+    private modal: MatDialog,
   ) { }
 
   public openContainer() {
@@ -59,6 +62,15 @@ export class PackageComponent {
 
   getStarImage() {
     return `url("assets/images/common/${this.containerType}-star.png")`;
+  }
+
+  displayItems(containerType: ContainerType) {
+    this.modal.open(ItemsDisplayComponent, {
+      autoFocus: false,
+      height: '90vh',
+      width: '1200px',
+      data: { containerType },
+    });
   }
 
   ngOnInit() {

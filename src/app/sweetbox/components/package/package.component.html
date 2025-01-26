@@ -177,7 +177,12 @@
 
   <div style="width: 5px"></div>
 
-  <button mat-raised-button mat-primary class="help">
+  <button
+    mat-raised-button
+    mat-primary
+    class="help"
+    (click)="displayItems(containerType)"
+  >
     <mat-icon>widgets</mat-icon>
   </button>
 </div>

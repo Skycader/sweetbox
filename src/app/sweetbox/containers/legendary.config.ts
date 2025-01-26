@@ -20,12 +20,7 @@ Array.prototype.getRandomElement = function(): any | undefined {
 };
 
 export const legendaryContainer = [
-  ...[money[0]].repeat(149), //10 рублей
-  ...[money[1]].repeat(15), //100 рублей
-  ...[money[2]].repeat(1), //500 рублей
-  ...[energy[0]].repeat(149), //10 минут
-  ...[energy[1]].repeat(15), //30 минут
-  ...[energy[2]].repeat(1), //1 час
-  ...products,
-  ...[keys[0]], //Редкий ключ
+  ...[money[7]].repeat(1), //5000 рублей
+  ...[energy[5]].repeat(1), //Безлимитная энергия
+  ...[keys[3]], //Легендарный ключ
 ];
