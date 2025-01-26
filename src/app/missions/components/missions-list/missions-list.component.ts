@@ -135,7 +135,7 @@ export class MissionsListComponent {
     ),
     new Mission(
       'Сделать 10 упражнений на морязнку',
-      25,
+      50,
       60 * TimeEnum.MINUTE,
       12 * TimeEnum.HOUR,
       this.persistance,
@@ -143,7 +143,7 @@ export class MissionsListComponent {
     ),
     new Mission(
       'Упражнение "Велиосипед" - махи ногами лёжа 100 раз',
-      10,
+      25,
       60 * TimeEnum.MINUTE,
       12 * TimeEnum.HOUR,
       this.persistance,
