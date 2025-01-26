@@ -34,6 +34,10 @@ export class Mission {
     this.init();
   }
 
+  public setPrize(keyType: number, amount: number) {
+    this.prize = { keyType, amount };
+  }
+
   public complete() {
     this.progress += this.step;
 
@@ -150,8 +154,8 @@ export class MissionsListComponent {
     new Mission(
       'Упражнение "Велиосипед" - махи ногами лёжа 100 раз',
       25,
-      60 * TimeEnum.MINUTE,
-      12 * TimeEnum.HOUR,
+      TimeEnum.HOUR,
+      TimeEnum.HOUR,
       this.persistance,
       this.storage,
       { keyType: 0, amount: 1 },
@@ -381,6 +385,16 @@ export class MissionsListComponent {
 
   public loading = true;
   public finish = false;
+
+  public randomBonus() {
+    const key = new Date().toISOString().split('T')[0];
+    const key2 = new Date().toISOString().split('T')[0] + '#2';
+    const randomNum = getRandomNumber(key, 0, this.missions.length - 1);
+    const randomNum2 = getRandomNumber(key2, 0, this.missions.length - 1);
+    this.missions[randomNum2].setPrize(0, 2);
+    this.missions[randomNum].setPrize(0, 3);
+  }
+
   ngOnInit() {
     const audio = new Audio(`assets/audio/menu.mp3`);
     audio.volume = 0.3;
@@ -393,7 +407,28 @@ export class MissionsListComponent {
     }, 500);
   }
 
-  public update$ = interval(100).pipe(tap(() => this.cdk.detectChanges));
+  public update$ = interval(100).pipe(
+    tap(() => {
+      this.randomBonus();
+      this.cdk.detectChanges();
+    }),
+  );
 
   // Используем функцию, передавая необходимый ID
+}
+
+function hashCode(str: string): number {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = (hash << 5) - hash + str.charCodeAt(i); // hash = hash * 31 + charCode
+    hash |= 0; // Приведение к 32-битному целому
+  }
+  return hash;
+}
+
+function getRandomNumber(key: string, min: number, max: number): number {
+  const hash = hashCode(key);
+  const range = max - min + 1;
+  // Используем модуль, чтобы результат был в пределах от 0 до range-1
+  return min + (Math.abs(hash) % range);
 }
