@@ -25,6 +25,7 @@ export class Mission {
     private respawnTime: number,
     private persistance: PersistanceService,
     private storage: StorageService,
+    private prize: { keyType: number; amount: number },
   ) {
     this.stats = this.loadMissionStats(this.title) || this.stats;
     this.disabledUntil = this.stats.disabledUntil;
@@ -50,7 +51,7 @@ export class Mission {
       const audio = new Audio(`assets/audio/mission-complete.m4a`);
       audio.play();
 
-      this.storage.addItem(keys[0], 1);
+      this.storage.addItem(keys[this.prize.keyType], this.prize.amount);
       this.progress = 0;
       this.stats.progress = this.progress;
       this.isCompletedUntil = Date.now() + this.respawnTime;
@@ -108,6 +109,7 @@ export class MissionsListComponent {
       TimeEnum.MINUTE,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       'Memos - добавить 1 карточку',
@@ -116,6 +118,7 @@ export class MissionsListComponent {
       TimeEnum.MINUTE,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       '1 практика японского языка на дуолинго',
@@ -124,6 +127,7 @@ export class MissionsListComponent {
       4 * TimeEnum.HOUR,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       'Сделать 1 новый урок японского на дуолинго',
@@ -132,6 +136,7 @@ export class MissionsListComponent {
       4 * TimeEnum.HOUR,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       'Сделать 10 упражнений на морязнку',
@@ -140,6 +145,7 @@ export class MissionsListComponent {
       12 * TimeEnum.HOUR,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       'Упражнение "Велиосипед" - махи ногами лёжа 100 раз',
@@ -148,6 +154,7 @@ export class MissionsListComponent {
       12 * TimeEnum.HOUR,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
 
     new Mission(
@@ -157,6 +164,7 @@ export class MissionsListComponent {
       TimeEnum.DAY,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       'Сделать 20 скручиваний',
@@ -165,6 +173,7 @@ export class MissionsListComponent {
       TimeEnum.DAY,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       'Сделать 10 приседаний',
@@ -173,14 +182,16 @@ export class MissionsListComponent {
       TimeEnum.DAY,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
-      'Сделать растяжку ног на кухне',
+      'Сделать растяжку ног на кухне - майнинг (каждый час +20%)',
       20,
       TimeEnum.HOUR,
       TimeEnum.HOUR,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       'Сделать растяжку ног на коврике - с дисками гантелей',
@@ -189,6 +200,7 @@ export class MissionsListComponent {
       6 * TimeEnum.HOUR,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       'Растяжка - продольный шпагат на полу',
@@ -197,6 +209,7 @@ export class MissionsListComponent {
       TimeEnum.DAY,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       'Растяжка - поперечный шпагат у стенки',
@@ -205,6 +218,7 @@ export class MissionsListComponent {
       TimeEnum.DAY,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       'Махи ногами - 20 каждой ногой',
@@ -213,6 +227,7 @@ export class MissionsListComponent {
       TimeEnum.DAY,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       '100 сжиманий кулаков - с эспандером',
@@ -221,6 +236,7 @@ export class MissionsListComponent {
       TimeEnum.DAY,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       '2-х минутная тренировка прочности костяшек кулаков',
@@ -229,6 +245,7 @@ export class MissionsListComponent {
       TimeEnum.DAY,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       'Сделать Широ Оби но Ката',
@@ -237,6 +254,7 @@ export class MissionsListComponent {
       TimeEnum.DAY,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       'Собрать кубик рубика',
@@ -245,6 +263,7 @@ export class MissionsListComponent {
       TimeEnum.HOUR,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       'Прочитать 1 главу книги',
@@ -253,6 +272,7 @@ export class MissionsListComponent {
       TimeEnum.HOUR,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       'Убить демона в Raptorium',
@@ -261,6 +281,7 @@ export class MissionsListComponent {
       TimeEnum.HOUR,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       'Решить случайное regexp задание',
@@ -269,6 +290,7 @@ export class MissionsListComponent {
       TimeEnum.HOUR,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       'Съесть яблоко',
@@ -277,6 +299,7 @@ export class MissionsListComponent {
       TimeEnum.MINUTE,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       'Принять душ + холодный душ + 100 раз попрыгать',
@@ -285,6 +308,7 @@ export class MissionsListComponent {
       TimeEnum.MINUTE,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
     new Mission(
       'Сделать что-то очень полезное',
@@ -293,12 +317,61 @@ export class MissionsListComponent {
       TimeEnum.DAY,
       this.persistance,
       this.storage,
+      { keyType: 0, amount: 1 },
     ),
-
-    // new Mission('debug', 50, 1000, 1000, this.persistance, this.storage),
+    new Mission(
+      'Дрон нашёл ключ',
+      100,
+      6 * TimeEnum.HOUR,
+      TimeEnum.MINUTE,
+      this.persistance,
+      this.storage,
+      { keyType: 0, amount: 1 },
+    ),
   ];
 
-  public customMissions: Mission[] = [];
+  public rareMissions: Mission[] = [
+    new Mission(
+      'Победить в шахматах используя The World',
+      100,
+      6 * TimeEnum.HOUR,
+      TimeEnum.MINUTE,
+      this.persistance,
+      this.storage,
+      { keyType: 1, amount: 1 },
+    ),
+  ];
+  public epicMissions: Mission[] = [
+    new Mission(
+      'Сделать домашку по Java курсу',
+      100,
+      6 * TimeEnum.HOUR,
+      TimeEnum.MINUTE,
+      this.persistance,
+      this.storage,
+      { keyType: 2, amount: 3 },
+    ),
+  ];
+  public legendaryMissions: Mission[] = [
+    new Mission(
+      'Завершить Java курс',
+      100,
+      6 * TimeEnum.HOUR,
+      TimeEnum.MINUTE,
+      this.persistance,
+      this.storage,
+      { keyType: 3, amount: 1 },
+    ),
+    new Mission(
+      'Завершить чтение "Взломать Всё"',
+      100,
+      6 * TimeEnum.HOUR,
+      TimeEnum.MINUTE,
+      this.persistance,
+      this.storage,
+      { keyType: 3, amount: 1 },
+    ),
+  ];
 
   constructor(
     private persistance: PersistanceService,

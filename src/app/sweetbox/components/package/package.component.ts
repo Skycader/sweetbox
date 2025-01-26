@@ -46,13 +46,17 @@ export class PackageComponent {
   ) { }
 
   public openContainer() {
-    if (this.storageService.getItem(keys[0]) < 1) {
+    if (
+      this.storageService.getItem(keys[this.keyType]) < 1 ||
+      !this.storageService.getItem(keys[this.keyType])
+    ) {
       this.snackbar.inform('Нет ключей!');
       return;
     }
-    this.storageService.addItem(keys[0], -1);
+    this.storageService.addItem(keys[this.keyType], -1);
 
-    this.generateContainer(10, this.containerType);
+    console.log(this.keyType);
+    this.generateContainer(this.keyType < 3 ? 10 : 1, this.containerType);
 
     this.isShowingPackage = !this.isShowingPackage;
     this.get();

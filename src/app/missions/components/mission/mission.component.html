@@ -30,7 +30,31 @@
   <!-- Check the todo  -->
 
   <div #reward style="width: 80px" [class.hidden]="mission.isCompleted()">
-    <img style="width: 100%" src="assets/images/keys/common.png" />
+    <span
+      style="color: transparent; position: absolute; right: 45px; top: 20px"
+      [matBadge]="mission.prize.amount > 1 ? mission.prize.amount : ''"
+      >X</span
+    >
+    <img
+      *ngIf="mission.prize.keyType === 0"
+      style="width: 100%"
+      src="assets/images/keys/common.png"
+    />
+    <img
+      *ngIf="mission.prize.keyType === 1"
+      style="width: 100%"
+      src="assets/images/keys/rare.png"
+    />
+    <img
+      *ngIf="mission.prize.keyType === 2"
+      style="width: 100%"
+      src="assets/images/keys/epic.png"
+    />
+    <img
+      *ngIf="mission.prize.keyType === 3"
+      style="width: 100%"
+      src="assets/images/keys/legendary.png"
+    />
   </div>
   <div style="width: 30px"></div>
 

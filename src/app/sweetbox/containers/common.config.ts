@@ -1,6 +1,7 @@
 import { energy } from '../resources/energy.resource';
 import { keys } from '../resources/keys.resource';
 import { money } from '../resources/money.resource';
+import { partsItems } from '../resources/parts.resource';
 import { products } from '../resources/products.resource';
 
 Array.prototype.repeat = function <T>(this: T[], count: number): T[] {
@@ -29,6 +30,7 @@ export const commonContainer = [
   ...[energy[1]].repeat(15), //1 час
   ...[energy[2]].repeat(1), //6 часов
   ...products,
+  ...[...partsItems].repeat(25),
   ...[keys[0]].repeat(2), //Обычный ключ
   ...[keys[1]], //Редкий ключ
 ];
