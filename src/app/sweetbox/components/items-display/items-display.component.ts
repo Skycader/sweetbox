@@ -37,7 +37,11 @@ export class ItemsDisplayComponent {
 
   public container = commonContainer;
 
-  ngOnInit() { }
+  ngOnInit() {
+    const audio = new Audio(`assets/audio/menu.mp3`);
+    audio.volume = 0.3;
+    audio.play();
+  }
 
   public dict = {
     common: 'Обычный предмет',
