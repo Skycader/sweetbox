@@ -30,7 +30,7 @@ export const commonContainer = [
   ...[energy[1]].repeat(15), //1 час
   ...[energy[2]].repeat(1), //6 часов
   ...products,
-  ...[...partsItems].repeat(25),
+  ...[...partsItems].repeat(2500),
   ...[keys[0]].repeat(2), //Обычный ключ
   ...[keys[1]], //Редкий ключ
 ];
