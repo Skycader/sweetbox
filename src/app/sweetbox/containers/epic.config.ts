@@ -1,3 +1,4 @@
+import { coins } from '../resources/coins.resource';
 import { energy } from '../resources/energy.resource';
 import { keys } from '../resources/keys.resource';
 import { money } from '../resources/money.resource';
@@ -28,6 +29,7 @@ export const epicContainer = [
   ...[energy[2]].repeat(149), //6 час
   ...[energy[3]].repeat(15), //12 часав
   ...[energy[4]].repeat(1), //24 часов
+  ...[coins[0]].repeat(5),
   ...[keys[2]].repeat(2), //Эпический ключ ключ
   ...[keys[3]], //Легендарный ключ
 ];

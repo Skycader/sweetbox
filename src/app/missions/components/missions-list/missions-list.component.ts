@@ -107,7 +107,25 @@ export class Mission {
 export class MissionsListComponent {
   public missions: Mission[] = [
     new Mission(
+      'Сделать 100 шагов',
+      5,
+      10 * TimeEnum.MINUTE,
+      TimeEnum.MINUTE,
+      this.persistance,
+      this.storage,
+      { keyType: 0, amount: 1 },
+    ),
+    new Mission(
       'Отчистить Memos',
+      25,
+      1 * TimeEnum.HOUR,
+      TimeEnum.MINUTE,
+      this.persistance,
+      this.storage,
+      { keyType: 0, amount: 1 },
+    ),
+    new Mission(
+      '❤️  Отчистить Memos (25%/h)',
       25,
       1 * TimeEnum.HOUR,
       TimeEnum.MINUTE,
@@ -391,8 +409,8 @@ export class MissionsListComponent {
     const key2 = new Date().toISOString().split('T')[0] + '#2';
     const randomNum = getRandomNumber(key, 0, this.missions.length - 1);
     const randomNum2 = getRandomNumber(key2, 0, this.missions.length - 1);
-    this.missions[randomNum2].setPrize(0, 2);
     this.missions[randomNum].setPrize(0, 3);
+    this.missions[randomNum2].setPrize(0, 2);
   }
 
   ngOnInit() {

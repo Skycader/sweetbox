@@ -1,3 +1,4 @@
+import { coins } from '../resources/coins.resource';
 import { energy } from '../resources/energy.resource';
 import { keys } from '../resources/keys.resource';
 import { money } from '../resources/money.resource';
@@ -30,6 +31,8 @@ export const commonContainer = [
   ...[energy[1]].repeat(15), //1 час
   ...[energy[2]].repeat(1), //6 часов
   ...products,
+  ...[coins[1]].repeat(15),
+  ...[coins[2]].repeat(5),
   ...[...partsItems].repeat(25),
   ...[keys[0]].repeat(2), //Обычный ключ
   ...[keys[1]], //Редкий ключ

@@ -1,3 +1,4 @@
+import { coins } from '../resources/coins.resource';
 import { energy } from '../resources/energy.resource';
 import { keys } from '../resources/keys.resource';
 import { money } from '../resources/money.resource';
@@ -29,6 +30,8 @@ export const rareContainer = [
   ...[energy[2]].repeat(15), //6 часав
   ...[energy[3]].repeat(1), //12 часов
   ...[...products].repeat(100),
+  ...[coins[2]].repeat(15),
+  ...[coins[3]].repeat(5),
   ...[keys[1]].repeat(2), //Редкий ключ
   ...[keys[2]], //Эпический ключ
 ];
