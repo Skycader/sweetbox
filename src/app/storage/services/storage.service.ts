@@ -12,6 +12,12 @@ export class StorageService {
     }
   }
 
+  getDiverseItems() {
+    return Object.values(this.persistance.getItem('storage') || {}).filter(
+      (value) => value !== 0,
+    ).length;
+  }
+
   addItem(item: ItemModelInterface, amount: number) {
     const storage = this.persistance.getItem('storage');
     if (!storage[item.title]) storage[item.title] = 0;

@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 import { MissionsService } from '../../../missions/services/missions.service';
 import { Mission } from '../../../missions/components/missions-list/missions-list.component';
 import { PersistanceService } from '../../services/persistance.service';
+import { StorageService } from '../../../storage/services/storage.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -42,6 +43,7 @@ export class NavbarComponent {
     private store: Store<AppStateInterface>,
     private missions: MissionsService,
     private persistance: PersistanceService,
+    private storage: StorageService,
   ) { }
 
   loadMission(title: string): any {
@@ -58,6 +60,10 @@ export class NavbarComponent {
     );
 
     return count;
+  }
+
+  getItems() {
+    return this.storage.getDiverseItems();
   }
 
   public openSideNav() {

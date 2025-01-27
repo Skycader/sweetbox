@@ -40,7 +40,10 @@
         class="example-icon"
         aria-label="Example icon-button with menu icon"
       >
-        <mat-icon matBadge="8" matBadgeColor="accent" matBadgeSize="small"
+        <mat-icon
+          [matBadge]="getItems()"
+          matBadgeColor="accent"
+          matBadgeSize="small"
           >shopping_cart</mat-icon
         >
       </button>

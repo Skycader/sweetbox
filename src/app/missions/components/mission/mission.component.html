@@ -18,7 +18,7 @@
     mat-icon-button
     class="example-icon"
     aria-label="Example icon-button with menu icon"
-    [disabled]="mission.isDisabled()"
+    [disabled]="mission.isDisabled() || mission.getConfig().autocomplete"
     (click)="mission.complete(); getReward(mission, reward)"
   >
     <mat-icon>done</mat-icon>
@@ -27,6 +27,13 @@
   <span id="todo-title">{{ mission.title }}</span>
   <span class="example-spacer"></span>
 
+  <mat-chip-listbox aria-label="Fish selection">
+    <mat-chip-option>{{ mission.getConfig().step }}%</mat-chip-option>
+    <mat-chip-option>{{ mission.getConfig().refreshTime }}</mat-chip-option>
+    <mat-chip-option>{{ mission.getConfig().respawnTime }}</mat-chip-option>
+  </mat-chip-listbox>
+
+  <div style="width: 100px"></div>
   <!-- Check the todo  -->
 
   <div #reward style="width: 80px" [class.hidden]="mission.isCompleted()">

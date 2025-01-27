@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class MissionComponent {
   @Input() mission: any;
+  @Input() unlockMission: boolean = false;
 
   public getReward(mission: any, element: any) {
     if (mission.isCompletedUntil <= Date.now()) return;
