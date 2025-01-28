@@ -41,9 +41,17 @@
               bottom: 0px;
               width: 100%;
               display: flex;
-              justify-content: flex-end;
+              justify-content: space-between;
             "
           >
+            <button
+              color="primary"
+              [class.accent]="item?.amt"
+              mat-raised-button
+            >
+              {{ item?.amt ? item.amt : 1 }} шт.
+            </button>
+
             <button mat-raised-button color="primary">
               Шанс выпдаения {{ item.probability }} %
             </button>

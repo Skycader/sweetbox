@@ -17,9 +17,11 @@
   $fontConfig: (
     display-4:
       mat.m2-define-typography-level(112px, 112px, 300, "Roboto", -0.0134em),
-    display-3: mat.m2-define-typography-level(56px, 56px, 400, "Roboto", -0.0089em),
+    display-3:
+      mat.m2-define-typography-level(56px, 56px, 400, "Roboto", -0.0089em),
     display-2: mat.m2-define-typography-level(45px, 48px, 400, "Roboto", 0em),
-    display-1: mat.m2-define-typography-level(34px, 40px, 400, "Roboto", 0.0074em),
+    display-1:
+      mat.m2-define-typography-level(34px, 40px, 400, "Roboto", 0.0074em),
     headline: mat.m2-define-typography-level(24px, 32px, 400, "Roboto", 0em),
     title: mat.m2-define-typography-level(20px, 32px, 500, "Roboto", 0.0075em),
     subheading-2:

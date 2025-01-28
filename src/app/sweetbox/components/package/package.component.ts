@@ -51,7 +51,7 @@ export class PackageComponent {
       !this.storageService.getItem(keys[this.keyType])
     ) {
       this.snackbar.inform('Нет ключей!');
-      return;
+      // return;
     }
     this.storageService.addItem(keys[this.keyType], -1);
 
@@ -122,7 +122,11 @@ export class PackageComponent {
     this.playSound();
     if (this.items[this.iterator]) {
       const currentItem = this.items[this.iterator];
-      this.storageService.addItem(currentItem, currentItem.amount);
+      debugger;
+      this.storageService.addItem(
+        currentItem,
+        currentItem.amount + (currentItem?.amt ? currentItem.amt : 0),
+      );
 
       this.playAudio(this.items[this.iterator].sound);
       this.items[this.iterator].isTaken = true;

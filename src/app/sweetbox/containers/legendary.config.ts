@@ -1,5 +1,5 @@
 import { energy } from '../resources/energy.resource';
-import { keys } from '../resources/keys.resource';
+import { keys, multipleKeys } from '../resources/keys.resource';
 import { legendaryItems } from '../resources/legendary.resource';
 import { money } from '../resources/money.resource';
 import { products } from '../resources/products.resource';
@@ -23,5 +23,6 @@ Array.prototype.getRandomElement = function(): any | undefined {
 export const legendaryContainer = [
   ...[money[7]].repeat(1), //5000 рублей
   ...[energy[5]].repeat(1), //Безлимитная энергия
+  ...[multipleKeys[2]], //5 эпических ключей
   ...[...legendaryItems],
 ];

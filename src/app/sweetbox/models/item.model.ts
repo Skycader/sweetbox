@@ -3,6 +3,7 @@ export interface ItemModelInterface {
   image: string; //image of the prize
   sound: string; //path to file with sound
   type: 'food' | 'common' | 'rare' | 'legendary';
+  amt?: number;
 }
 
 export interface CardModelInterface extends ItemModelInterface {

@@ -163,7 +163,7 @@ export class MissionsListComponent {
       'Выполните все ежедневные миссии в течении суток, чтобы получить эту награду',
       100,
       10 * TimeEnum.MINUTE,
-      TimeEnum.MINUTE,
+      TimeEnum.DAY,
       this.persistance,
       this.storage,
       { keyType: 1, amount: 3 },
@@ -171,12 +171,12 @@ export class MissionsListComponent {
     ),
     new Mission(
       '❤️  Отчистить Memos',
-      100,
-      0,
+      50,
+      6 * TimeEnum.HOUR,
       TimeEnum.DAY,
       this.persistance,
       this.storage,
-      { keyType: 0, amount: 1 },
+      { keyType: 0, amount: 2 },
     ),
     new Mission(
       'Memos - добавить 1 карточку',
@@ -216,8 +216,8 @@ export class MissionsListComponent {
     ),
     new Mission(
       'Упражнение "Велиосипед" - махи ногами лёжа 100 раз',
-      25,
-      25 * TimeEnum.MINUTE,
+      20,
+      10 * TimeEnum.MINUTE,
       TimeEnum.DAY,
       this.persistance,
       this.storage,
@@ -270,8 +270,8 @@ export class MissionsListComponent {
     ),
     new Mission(
       'Растяжка - продольный шпагат на полу',
-      25,
-      TimeEnum.HOUR,
+      50,
+      3 * TimeEnum.HOUR,
       TimeEnum.DAY,
       this.persistance,
       this.storage,
@@ -307,7 +307,7 @@ export class MissionsListComponent {
     new Mission(
       '2-х минутная тренировка прочности костяшек кулаков',
       10,
-      1 * TimeEnum.HOUR,
+      10 * TimeEnum.MINUTE,
       TimeEnum.DAY,
       this.persistance,
       this.storage,
@@ -342,8 +342,8 @@ export class MissionsListComponent {
     ),
     new Mission(
       'Убить демона в Raptorium',
-      100,
-      TimeEnum.MINUTE,
+      50,
+      3 * TimeEnum.HOUR,
       TimeEnum.DAY,
       this.persistance,
       this.storage,
@@ -351,8 +351,8 @@ export class MissionsListComponent {
     ),
     new Mission(
       'Решить случайное regexp задание',
-      100,
-      TimeEnum.HOUR,
+      50,
+      3 * TimeEnum.HOUR,
       TimeEnum.DAY,
       this.persistance,
       this.storage,
@@ -369,7 +369,7 @@ export class MissionsListComponent {
     ),
     new Mission(
       'Принять душ + холодный душ + 100 раз попрыгать',
-      100,
+      50,
       TimeEnum.HOUR,
       TimeEnum.DAY,
       this.persistance,
@@ -379,7 +379,7 @@ export class MissionsListComponent {
     new Mission(
       'Тренировка икроножных мышц - 100 раз',
       25,
-      TimeEnum.HOUR,
+      10 * TimeEnum.MINUTE,
       TimeEnum.DAY,
       this.persistance,
       this.storage,
@@ -388,6 +388,15 @@ export class MissionsListComponent {
   ];
 
   public rareMissions: Mission[] = [
+    new Mission(
+      'Прочитать дополнительно 5 глав за день (клик за 1 главу)',
+      20,
+      TimeEnum.MINUTE,
+      TimeEnum.DAY,
+      this.persistance,
+      this.storage,
+      { keyType: 1, amount: 1 },
+    ),
     new Mission(
       'Победить в шахматах используя The World',
       100,
@@ -410,6 +419,15 @@ export class MissionsListComponent {
     ),
   ];
   public legendaryMissions: Mission[] = [
+    new Mission(
+      'Миссия Минимализм',
+      100,
+      6 * TimeEnum.HOUR,
+      TimeEnum.MINUTE,
+      this.persistance,
+      this.storage,
+      { keyType: 3, amount: 1 },
+    ),
     new Mission(
       'Завершить Java курс',
       100,

@@ -1,6 +1,6 @@
 import { coins } from '../resources/coins.resource';
 import { energy } from '../resources/energy.resource';
-import { keys } from '../resources/keys.resource';
+import { keys, multipleKeys } from '../resources/keys.resource';
 import { money } from '../resources/money.resource';
 import { products } from '../resources/products.resource';
 
@@ -32,6 +32,7 @@ export const rareContainer = [
   ...[...products].repeat(100),
   ...[coins[2]].repeat(15),
   ...[coins[3]].repeat(5),
+  ...[multipleKeys[0]], //3 обычных ключа
   ...[keys[1]].repeat(2), //Редкий ключ
   ...[keys[2]], //Эпический ключ
 ];

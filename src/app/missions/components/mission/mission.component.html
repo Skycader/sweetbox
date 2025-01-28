@@ -29,7 +29,11 @@
 
   <mat-chip-listbox aria-label="Fish selection">
     <mat-chip-option>{{ mission.getConfig().step }}%</mat-chip-option>
-    <mat-chip-option>{{ mission.getConfig().refreshTime }}</mat-chip-option>
+    <mat-chip-option
+      color="accent"
+      [selected]="mission.getConfig().refreshTime.includes('h')"
+      >{{ mission.getConfig().refreshTime }}</mat-chip-option
+    >
     <mat-chip-option>{{ mission.getConfig().respawnTime }}</mat-chip-option>
   </mat-chip-listbox>
 
