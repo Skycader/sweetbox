@@ -70,8 +70,20 @@
   <div style="width: 30px"></div>
 
   <mat-progress-bar
-    style="position: absolute; bottom: 0px"
+    color="primary"
+    style="position: absolute; bottom: 0px; z-index: 20"
     mode="determinate"
     [value]="mission.getProgress()"
-  ></mat-progress-bar>
+  >
+  </mat-progress-bar>
+
+  <mat-progress-bar
+    *ngIf="mission.getRequiredProgress() > 0"
+    color="primary"
+    style="position: absolute; bottom: 0px; z-index: 25"
+    mode="buffer"
+    [value]="mission.getProgress()"
+    [bufferValue]="mission.getRequiredProgress()"
+  >
+  </mat-progress-bar>
 </mat-toolbar>

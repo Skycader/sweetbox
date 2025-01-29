@@ -10,7 +10,9 @@ import { interval, tap } from 'rxjs';
 
 export class Mission {
   private disabledUntil = 0;
+  private prizeModified = false;
   private progress = 0;
+  private requiredProgress = 0;
   private isCompletedUntil = 0;
   private stats: any = {
     progress: 0,
@@ -38,6 +40,14 @@ export class Mission {
 
   unblock() {
     this.autocomplete = false;
+  }
+
+  setProgress(progress: number) {
+    this.progress = progress;
+  }
+
+  setRequiredProgress(progress: number) {
+    this.requiredProgress = progress;
   }
 
   public getConfig() {
@@ -74,7 +84,13 @@ export class Mission {
   }
 
   public setPrize(keyType: number, amount: number) {
+    if (this.prizeModified) return;
     this.prize = { keyType, amount };
+    this.prizeModified = true;
+  }
+
+  public getPrize() {
+    return this.prize;
   }
 
   public refreshTodo() {
@@ -130,6 +146,10 @@ export class Mission {
 
   public getProgress() {
     return this.progress;
+  }
+
+  public getRequiredProgress() {
+    return this.requiredProgress;
   }
 
   public loadMissionStats(title: string) {
@@ -289,7 +309,7 @@ export class MissionsListComponent {
     new Mission(
       'Махи ногами - 20 каждой ногой',
       50,
-      3 * TimeEnum.HOUR,
+      10 * TimeEnum.MINUTE,
       TimeEnum.DAY,
       this.persistance,
       this.storage,
@@ -333,12 +353,12 @@ export class MissionsListComponent {
     ),
     new Mission(
       'Прочитать 1 главу книги',
-      100,
+      50,
       TimeEnum.MINUTE,
       TimeEnum.DAY,
       this.persistance,
       this.storage,
-      { keyType: 0, amount: 1 },
+      { keyType: 0, amount: 2 },
     ),
     new Mission(
       'Убить демона в Raptorium',
@@ -352,7 +372,7 @@ export class MissionsListComponent {
     new Mission(
       'Решить случайное regexp задание',
       50,
-      3 * TimeEnum.HOUR,
+      10 * TimeEnum.MINUTE,
       TimeEnum.DAY,
       this.persistance,
       this.storage,
@@ -461,14 +481,37 @@ export class MissionsListComponent {
     const missions = this.missions.slice(1);
 
     let allMissionsComplete = true;
+    let totalPercentage = 0;
+    let requiredTotalPercentage = (this.missions.length - 1) * 100;
 
     missions.forEach((mission: Mission) => {
       if (!mission.isCompleted()) allMissionsComplete = false;
+      totalPercentage += mission.getProgress();
     });
 
     if (allMissionsComplete) {
       return this.missions[0].unblock();
     }
+
+    this.missions[0].setProgress(
+      Math.floor((totalPercentage / requiredTotalPercentage) * 100),
+    );
+
+    this.missions[0].setRequiredProgress(
+      Math.floor(
+        ((this.getSecondsToday() - 8 * 60 * 60) / (12 * 60 * 60)) * 100,
+      ),
+    );
+  }
+
+  public getSecondsToday() {
+    let now = new Date();
+
+    // create an object using the current day/month/year
+    let today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+    let diff = now.getTime() - today.getTime(); // ms difference
+    return Math.round(diff / 1000); // make seconds
   }
 
   public randomBonus() {
@@ -476,8 +519,14 @@ export class MissionsListComponent {
     const key2 = new Date().toISOString().split('T')[0] + '#2';
     const randomNum = getRandomNumber(key, 0, this.missions.length - 1);
     const randomNum2 = getRandomNumber(key2, 0, this.missions.length - 1);
-    this.missions[randomNum].setPrize(0, 3);
-    this.missions[randomNum2].setPrize(0, 2);
+    this.missions[randomNum].setPrize(
+      0,
+      this.missions[randomNum].getPrize().amount * 3,
+    );
+    this.missions[randomNum2].setPrize(
+      0,
+      this.missions[randomNum2].getPrize().amount * 2,
+    );
   }
 
   ngOnInit() {
