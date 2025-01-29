@@ -261,7 +261,7 @@ export class MissionsListComponent {
     ),
     new Mission(
       'Сделать растяжку ног на коврике - с дисками гантелей',
-      50,
+      25,
       TimeEnum.HOUR,
       TimeEnum.DAY,
       this.persistance,
@@ -270,8 +270,8 @@ export class MissionsListComponent {
     ),
     new Mission(
       'Растяжка - продольный шпагат на полу',
-      50,
-      3 * TimeEnum.HOUR,
+      25,
+      TimeEnum.HOUR,
       TimeEnum.DAY,
       this.persistance,
       this.storage,
@@ -324,8 +324,8 @@ export class MissionsListComponent {
     ),
     new Mission(
       'Собрать кубик рубика',
-      100,
-      TimeEnum.MINUTE,
+      50,
+      3 * TimeEnum.HOUR,
       TimeEnum.DAY,
       this.persistance,
       this.storage,
