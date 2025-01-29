@@ -5,9 +5,10 @@ import { MissionsListComponent } from './components/missions-list/missions-list.
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
+import { CompletedPipe } from './utils/pipes/completed.pipe';
 
 @NgModule({
-  declarations: [MissionComponent, MissionsListComponent, MainLayoutComponent],
+  declarations: [MissionComponent, MissionsListComponent, MainLayoutComponent, CompletedPipe],
   imports: [
     CommonModule,
     MaterialModule,

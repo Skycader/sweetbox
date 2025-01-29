@@ -227,7 +227,7 @@ export class MissionsListComponent {
     ),
     new Mission(
       'Сделать 10 упражнений на морязнку',
-      50,
+      25,
       TimeEnum.MINUTE,
       24 * TimeEnum.HOUR,
       this.persistance,
@@ -363,7 +363,7 @@ export class MissionsListComponent {
     new Mission(
       'Убить демона в Raptorium',
       50,
-      3 * TimeEnum.HOUR,
+      TimeEnum.HOUR,
       TimeEnum.DAY,
       this.persistance,
       this.storage,
@@ -408,6 +408,15 @@ export class MissionsListComponent {
   ];
 
   public rareMissions: Mission[] = [
+    new Mission(
+      'Дрон нашел ключ',
+      100,
+      TimeEnum.MINUTE,
+      TimeEnum.DAY,
+      this.persistance,
+      this.storage,
+      { keyType: 0, amount: 1 },
+    ),
     new Mission(
       'Прочитать дополнительно 5 глав за день (клик за 1 главу)',
       20,

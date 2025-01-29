@@ -16,7 +16,8 @@
           margin-bottom: 10px;
         "
       >
-        Скрывать выполненные задачи
+        Скрывать выполненные задачи ({{ missions | completed }} /
+        {{ missions.length - 1 }})
         <mat-slide-toggle
           color="primary"
           [checked]="hideCompletedMissions"
