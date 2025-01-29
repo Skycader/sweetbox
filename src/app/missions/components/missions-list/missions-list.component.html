@@ -1,5 +1,6 @@
 <div
   style="padding: 50px"
+  *ngIf="getSecondsToday() > 28800; else elseRef"
   class="parent"
   [class.loading]="loading"
   [class.finish]="finish"
@@ -7,8 +8,29 @@
   <mat-tab-group style="">
     <mat-tab label="⬤ Ежедневные задания">
       <br />
+      <div
+        style="
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 5px;
+          margin-bottom: 10px;
+        "
+      >
+        Скрывать выполненные задачи
+        <mat-slide-toggle
+          color="primary"
+          [checked]="hideCompletedMissions"
+          (change)="toggle()"
+          class="ms-2"
+        ></mat-slide-toggle>
+      </div>
+      <br />
+
       <ng-container *ngFor="let mission of missions">
-        <app-mission [mission]="mission" />
+        <app-mission
+          [mission]="mission"
+          [class.hide]="mission.isCompleted() && hideCompletedMissions"
+        />
       </ng-container>
     </mat-tab>
     <mat-tab label="⬤ Редкие задания">
@@ -33,3 +55,12 @@
 </div>
 
 <span *ngIf="update$ | async"></span>
+
+<ng-template #elseRef>
+  <div class="container">
+    <div class="h1">403</div>
+    <div class="h2">Доступ запрещен</div>
+    <br />
+    <div class="h4">Приходите завтра за новыми заданиями!</div>
+  </div>
+</ng-template>

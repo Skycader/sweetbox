@@ -476,6 +476,11 @@ export class MissionsListComponent {
 
   public loading = true;
   public finish = false;
+  public hideCompletedMissions = true;
+
+  public toggle() {
+    this.hideCompletedMissions = !this.hideCompletedMissions;
+  }
 
   public areAllMissionsComplete() {
     const missions = this.missions.slice(1);
@@ -486,7 +491,8 @@ export class MissionsListComponent {
 
     missions.forEach((mission: Mission) => {
       if (!mission.isCompleted()) allMissionsComplete = false;
-      totalPercentage += mission.getProgress();
+      totalPercentage +=
+        mission.getProgress() + Number(mission.isCompleted()) * 100;
     });
 
     if (allMissionsComplete) {
