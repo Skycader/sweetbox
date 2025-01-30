@@ -1,30 +1,32 @@
 <div
   style="padding: 50px"
-  *ngIf="getSecondsToday() > 28800; else elseRef"
+  *ngIf="getSecondsToday() > -28800; else elseRef"
   class="parent"
   [class.loading]="loading"
   [class.finish]="finish"
 >
   <mat-tab-group style="">
-    <mat-tab label="⬤ Ежедневные задания">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <div
+          style="
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 5px;
+            margin-bottom: 10px;
+          "
+        >
+          ⬤ Ежедневные задания ({{ missions | completed }} /
+          {{ missions.length - 1 }})
+          <!-- <mat-slide-toggle -->
+          <!--   color="primary" -->
+          <!--   [checked]="hideCompletedMissions" -->
+          <!--   (change)="toggle()" -->
+          <!--   class="ms-2" -->
+          <!-- ></mat-slide-toggle> -->
+        </div>
+      </ng-template>
       <br />
-      <div
-        style="
-          display: flex;
-          justify-content: flex-end;
-          margin-top: 5px;
-          margin-bottom: 10px;
-        "
-      >
-        Скрывать выполненные задачи ({{ missions | completed }} /
-        {{ missions.length - 1 }})
-        <mat-slide-toggle
-          color="primary"
-          [checked]="hideCompletedMissions"
-          (change)="toggle()"
-          class="ms-2"
-        ></mat-slide-toggle>
-      </div>
       <br />
 
       <ng-container *ngFor="let mission of missions">

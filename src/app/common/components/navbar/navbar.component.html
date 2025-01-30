@@ -1,15 +1,72 @@
 <p [class.hide-navbar]="hideNavbar">
-  <mat-toolbar color="primary">
-    <a class="nav-btn" [routerLink]="['/']">
-      <!-- <span class="logo me-2"><mat-icon>explore</mat-icon></span> -->
-      <span> 💫 Starway</span>
-    </a>
+  <mat-toolbar color="primary" style="overflow: hidden">
+    <span class="vr d-none d-sm-block d-md-block d-lg-block d-xl-block"></span>
 
-    <span class="gap"></span>
+    <img
+      matTooltip="Бригадир"
+      matTooltipClass="mat-tooltip-main"
+      style="width: 50px; height: auto; margin-right: 10px"
+      src="https://tankionline.com/play/static/images/23.99d83bfa.webp"
+    />
+
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        font-family: Main;
+        height: calc(100% + 5px);
+        align-items: flex-start;
+        justify-content: center;
+      "
+    >
+      <div
+        style="
+          font-size: 15px;
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+        "
+      >
+        <div>Генерал</div>
+
+        <div>Lv. 14</div>
+      </div>
+
+      <mat-progress-bar
+        style="width: 200px"
+        mode="determinate"
+        color="accent"
+        value="40"
+      ></mat-progress-bar>
+      <div
+        style="
+          font-size: 15px;
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+        "
+      >
+        <div>Skycader</div>
+        <div>
+          <img
+            style="width: 12px; height: auto; margin-bottom: 2px"
+            src="assets/images/common/xp.webp"
+          />200 / 400
+        </div>
+      </div>
+    </div>
 
     <span class="spacer"></span>
 
-    <span class="vr d-none d-sm-block d-md-block d-lg-block d-xl-block"></span>
+    <a
+      class="nav-btn"
+      style="margin-right: 200px; font-family: &quot;Main&quot;"
+      [routerLink]="['/']"
+    >
+      <!-- <span class="logo me-2"><mat-icon>explore</mat-icon></span> -->
+      <span> 💫 Starway</span>
+    </a>
+    <span class="spacer"></span>
 
     <a
       [routerLink]="['/missions']"

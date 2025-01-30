@@ -1,2 +1,8 @@
 @import "./material/mat-badge.override.scss";
 @import "./material/mat-tab.override.scss";
+
+.mat-tooltip-main {
+  /* your own custom styles here */
+  /* e.g. */
+  font-family: "Main" !important;
+}
