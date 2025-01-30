@@ -1,6 +1,6 @@
 <div
   style="padding: 50px"
-  *ngIf="getSecondsToday() > -28800; else elseRef"
+  *ngIf="getSecondsToday() > 28800; else elseRef"
   class="parent"
   [class.loading]="loading"
   [class.finish]="finish"
