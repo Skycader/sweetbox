@@ -15,7 +15,6 @@ export class Mission {
     disabledUntil: Date.now(),
     isCompletedUntil: Date.now(),
   };
-  private autocomplete = true;
 
   constructor(
     private config: MissionConfig,
@@ -34,7 +33,7 @@ export class Mission {
   }
 
   unblock() {
-    this.autocomplete = false;
+    this.config.autocomplete = false;
   }
 
   setProgress(progress: number) {
@@ -51,7 +50,7 @@ export class Mission {
       step: this.config.step,
       refreshTime: this.formatDuration(this.config.refreshTime),
       respawnTime: this.formatDuration(this.config.respawnTime),
-      autocomplete: this.autocomplete,
+      autocomplete: this.config.autocomplete,
       xp: this.config.reward.xp,
     };
   }

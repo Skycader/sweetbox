@@ -6,7 +6,7 @@
       matTooltip="Бригадир"
       matTooltipClass="mat-tooltip-main"
       style="width: 50px; height: auto; margin-right: 10px"
-      src="https://tankionline.com/play/static/images/23.99d83bfa.webp"
+      [src]="getRang().icon"
     />
 
     <div
@@ -27,9 +27,9 @@
           justify-content: space-between;
         "
       >
-        <div>Генерал</div>
+        <div>{{ getRang().title }}</div>
 
-        <div>Lv. 14</div>
+        <div>Lv. {{ getRang().rang }}</div>
       </div>
 
       <mat-progress-bar
@@ -52,7 +52,7 @@
             style="width: 12px; height: auto; margin-bottom: 2px"
             src="assets/images/common/xp.webp"
           />
-          {{ getXp() }} / 100
+          {{ getXp() }} / {{ getNextRangXp() }}
         </div>
       </div>
     </div>

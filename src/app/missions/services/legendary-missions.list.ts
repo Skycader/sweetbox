@@ -14,22 +14,22 @@ export class LegendaryMissions {
       title: '🧹 Миссия Минимализм',
       step: 100,
       refreshTime: 6 * TimeEnum.HOUR,
-      respawnTime: TimeEnum.MINUTE,
-      reward: { keyType: 3, amount: 1, xp: 5000 },
+      respawnTime: 24 * TimeEnum.HOUR,
+      reward: { keyType: 3, amount: 1, xp: 1500 },
     },
     {
       title: '☕️ Завершить Java курс',
       step: 100,
       refreshTime: 6 * TimeEnum.HOUR,
       respawnTime: TimeEnum.MINUTE,
-      reward: { keyType: 3, amount: 1, xp: 10000 },
+      reward: { keyType: 3, amount: 1, xp: 5000 },
     },
     {
       title: '📖 Завершить чтение "Взломать Всё"',
       step: 100,
       refreshTime: 6 * TimeEnum.HOUR,
       respawnTime: TimeEnum.MINUTE,
-      reward: { keyType: 3, amount: 1, xp: 5000 },
+      reward: { keyType: 3, amount: 1, xp: 1000 },
     },
   ];
 
