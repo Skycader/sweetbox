@@ -86,7 +86,7 @@ export class Mission {
 
   public setPrize(keyType: number, amount: number, xp?: number) {
     if (this.prizeModified) return;
-    this.prize = { keyType, amount, xp: xp ? xp : 0 };
+    this.prize = { keyType, amount, xp: xp ? xp : this.prize.xp };
     this.prizeModified = true;
   }
 
@@ -230,7 +230,7 @@ export class MissionsListComponent {
       'Сделать 10 упражнений на морязнку',
       25,
       TimeEnum.MINUTE,
-      24 * TimeEnum.HOUR,
+      TimeEnum.DAY,
       this.persistance,
       this.storage,
       { keyType: 0, amount: 1, xp: 50 },
@@ -332,7 +332,7 @@ export class MissionsListComponent {
       TimeEnum.DAY,
       this.persistance,
       this.storage,
-      { keyType: 0, amount: 1, xp: 75 },
+      { keyType: 0, amount: 1, xp: 70 },
     ),
     new Mission(
       'Сделать Широ Оби но Ката',
