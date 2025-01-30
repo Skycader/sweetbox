@@ -9,9 +9,9 @@ import {
 } from '../../../auth/store/auth.selector';
 import { Observable } from 'rxjs';
 import { MissionsService } from '../../../missions/services/missions.service';
-import { Mission } from '../../../missions/components/missions-list/missions-list.component';
 import { PersistanceService } from '../../services/persistance.service';
 import { StorageService } from '../../../storage/services/storage.service';
+import { RangService } from '../../../rangs/services/rang.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -44,8 +44,12 @@ export class NavbarComponent {
     private missions: MissionsService,
     private persistance: PersistanceService,
     private storage: StorageService,
+    private rang: RangService,
   ) { }
 
+  getXp() {
+    return this.rang.getXp();
+  }
   loadMission(title: string): any {
     const missions = this.persistance.getItem('missions');
     return missions[title];

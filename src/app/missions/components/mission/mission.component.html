@@ -24,7 +24,7 @@
     <mat-icon>done</mat-icon>
   </button>
 
-  <span id="todo-title">{{ mission.title }}</span>
+  <span id="todo-title">{{ mission.getConfig().title }}</span>
   <span class="example-spacer"></span>
 
   <mat-chip-listbox aria-label="Fish selection">
@@ -49,26 +49,28 @@
   <div #reward style="width: 80px" [class.hidden]="mission.isCompleted()">
     <span
       style="color: transparent; position: absolute; right: 45px; top: 20px"
-      [matBadge]="mission.prize.amount > 1 ? mission.prize.amount : ''"
+      [matBadge]="
+        mission.getReward().amount > 1 ? mission.getReward().amount : ''
+      "
       >X</span
     >
     <img
-      *ngIf="mission.prize.keyType === 0"
+      *ngIf="mission.getReward().keyType === 0"
       style="width: 100%"
       src="assets/images/keys/common.png"
     />
     <img
-      *ngIf="mission.prize.keyType === 1"
+      *ngIf="mission.getReward().keyType === 1"
       style="width: 100%"
       src="assets/images/keys/rare.png"
     />
     <img
-      *ngIf="mission.prize.keyType === 2"
+      *ngIf="mission.getReward().keyType === 2"
       style="width: 100%"
       src="assets/images/keys/epic.png"
     />
     <img
-      *ngIf="mission.prize.keyType === 3"
+      *ngIf="mission.getReward().keyType === 3"
       style="width: 100%"
       src="assets/images/keys/legendary.png"
     />

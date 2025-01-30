@@ -1,8 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Mission } from '../../components/missions-list/missions-list.component';
+import { Mission } from '../../services/mission.class';
 
 @Pipe({
   name: 'completed',
+  pure: false,
 })
 export class CompletedPipe implements PipeTransform {
   transform(missions: Mission[]): number {

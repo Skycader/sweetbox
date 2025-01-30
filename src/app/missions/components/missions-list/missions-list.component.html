@@ -1,6 +1,6 @@
 <div
   style="padding: 50px"
-  *ngIf="getSecondsToday() > 28800; else elseRef"
+  *ngIf="getSecondsToday() > -28800; else elseRef"
   class="parent"
   [class.loading]="loading"
   [class.finish]="finish"
@@ -16,8 +16,8 @@
             margin-bottom: 10px;
           "
         >
-          ⬤ Ежедневные задания ({{ missions | completed }} /
-          {{ missions.length - 1 }})
+          ⬤ Ежедневные задания ({{ commonMissions | completed }} /
+          {{ commonMissions.length }})
           <!-- <mat-slide-toggle -->
           <!--   color="primary" -->
           <!--   [checked]="hideCompletedMissions" -->
@@ -29,7 +29,7 @@
       <br />
       <br />
 
-      <ng-container *ngFor="let mission of missions">
+      <ng-container *ngFor="let mission of commonMissions">
         <app-mission
           [mission]="mission"
           [class.hide]="mission.isCompleted() && hideCompletedMissions"
