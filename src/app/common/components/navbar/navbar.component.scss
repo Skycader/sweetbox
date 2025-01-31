@@ -3,6 +3,10 @@
   opacity: 0;
 }
 
+:host {
+  user-select: none;
+}
+
 nav {
   background: #343a40 !important;
 

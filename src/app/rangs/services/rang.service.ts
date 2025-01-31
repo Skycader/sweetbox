@@ -96,7 +96,10 @@ export class RangService {
 
   public getRang(): Rang {
     const xp = this.xp || 0;
-    return this.rangs.find((rang) => rang.xp >= xp) || this.rangs[0];
+    return (
+      this.rangs[this.rangs.findIndex((rang) => rang.xp >= xp) - 1] ||
+      this.rangs[0]
+    );
   }
 
   public getNextRangXp(): number {

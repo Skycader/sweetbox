@@ -1,3 +1,9 @@
+:host {
+  user-select: none;
+}
+img {
+  user-drag: none;
+}
 .rangs {
   position: relative;
   display: flex;

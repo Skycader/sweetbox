@@ -28,7 +28,7 @@ export class RangListComponent {
   }
 
   public getWidth() {
-    const req = (this.rang.getRang().xp / this.rang.getNextRangXp()) * 200;
+    const req = (this.rang.getXp() / this.rang.getNextRangXp()) * 200;
     return (
       this.rang.getRang().rang * 200 +
       (this.rang.getRang().rang - 1) * 10 +
