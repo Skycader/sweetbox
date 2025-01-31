@@ -15,7 +15,7 @@ export class RareMissions {
       step: 100,
       refreshTime: TimeEnum.HOUR,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 1, amount: 1, xp: 20000 },
+      reward: { keyType: 1, amount: 1, xp: 4000 },
     },
     {
       title: '🛸 Дрон нашел ключ',
