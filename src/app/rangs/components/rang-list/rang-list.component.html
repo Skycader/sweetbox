@@ -1,0 +1,57 @@
+<div class="component" style="padding: 10px">
+  <div style="display: flex; justify-content: center">
+    <h1 class="m-4">Звания</h1>
+  </div>
+
+  <br />
+
+  <div #rangList class="rangs" (wheel)="onWheel($event)">
+    <div
+      class="rang"
+      [class.achived]="achived(rang.rang)"
+      *ngFor="let rang of rangs"
+    >
+      <div class="rang-title">{{ rang.title }}</div>
+      <div class="rang-icon"><img [src]="rang.icon" /></div>
+      <div class="rang-xp">
+        <div
+          style="
+            background-image: url(assets/images/common/xp.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+            height: 100%;
+            z-index: 1;
+            width: 18px;
+            margin-right: 4px;
+          "
+        ></div>
+        {{ rang.xp }}
+      </div>
+    </div>
+
+    <div
+      class="progress"
+      style="
+        position: absolute;
+        height: 4px;
+        width: {{ getWidth() }};
+        background: rgb(118, 255, 51);
+        bottom: 10px;
+      "
+    ></div>
+
+    <div
+      class="progress"
+      style="
+        position: absolute;
+        height: 4px;
+        width: 1650px;
+        background: rgba(191, 213, 255, 0.25);
+        bottom: 10px;
+      "
+    ></div>
+
+    <br />
+  </div>
+</div>

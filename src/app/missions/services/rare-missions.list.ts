@@ -11,6 +11,14 @@ export class RareMissions {
 
   private rareMissions: MissionConfig[] = [
     {
+      title: '🥋 Сходить на OZON за рамкой',
+      step: 100,
+      refreshTime: TimeEnum.HOUR,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 1, amount: 1, xp: 400 }, //эквивалент 1000 отжиманий, 1 000 000 (маршал) = 250 тренировок (почти 2 года, 96 Тренировок за год)
+    },
+
+    {
       title: '🥋 Сходить на тренировку по каратэ',
       step: 100,
       refreshTime: TimeEnum.HOUR,

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { PersistanceService } from '../../common/services/persistance.service';
+import { MatDialog } from '@angular/material/dialog';
+import { RangListComponent } from '../components/rang-list/rang-list.component';
 
 interface RangInterface {
   title: string;
@@ -58,12 +60,31 @@ export class RangService {
     new Rang('Легенда', 31, 1600000),
   ];
 
-  constructor(private persistance: PersistanceService) {
+  constructor(
+    private persistance: PersistanceService,
+    private dialog: MatDialog,
+  ) {
     if (!this.persistance.getItem('xp')) this.persistance.setItem('xp', 0);
 
     for (let i = 1; i <= 69; i++) {
       this.rangs.push(new Rang('Легенда', 31 + i, 1600000 + 200000 * i));
     }
+  }
+
+  getRangs() {
+    return this.rangs;
+  }
+
+  showRangs() {
+    const audio = new Audio(`assets/audio/takeout.mp3`);
+    audio.volume = 0.3;
+    audio.play();
+
+    this.dialog.open(RangListComponent, {
+      autoFocus: false,
+      height: '900px',
+      width: '90vw',
+    });
   }
 
   public getRang(): Rang {

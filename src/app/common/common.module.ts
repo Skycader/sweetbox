@@ -10,6 +10,7 @@ import {
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
+import { RangsModule } from '../rangs/rangs.module';
 
 @NgModule({
   declarations: [

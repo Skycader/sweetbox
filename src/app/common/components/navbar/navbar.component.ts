@@ -47,6 +47,10 @@ export class NavbarComponent {
     private rang: RangService,
   ) { }
 
+  showRangs() {
+    this.rang.showRangs();
+  }
+
   getRang() {
     return this.rang.getRang();
   }

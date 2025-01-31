@@ -185,7 +185,7 @@ export class CommonMissions {
       step: 25,
       refreshTime: 10 * TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 400 },
+      reward: { keyType: 0, amount: 1, xp: 200 },
     },
   ];
 

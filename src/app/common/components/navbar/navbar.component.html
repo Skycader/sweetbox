@@ -3,10 +3,9 @@
     <span class="vr d-none d-sm-block d-md-block d-lg-block d-xl-block"></span>
 
     <img
-      matTooltip="Бригадир"
-      matTooltipClass="mat-tooltip-main"
-      style="width: 50px; height: auto; margin-right: 10px"
+      style="width: 50px; height: auto; margin-right: 10px; cursor: pointer"
       [src]="getRang().icon"
+      (click)="showRangs()"
     />
 
     <div
@@ -36,7 +35,7 @@
         style="width: 300px"
         mode="determinate"
         color="accent"
-        value="40"
+        [value]="(getXp() / getNextRangXp()) * 100"
       ></mat-progress-bar>
       <div
         style="
