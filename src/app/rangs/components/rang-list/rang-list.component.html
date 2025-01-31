@@ -14,9 +14,22 @@
   <div #rangList class="rangs" (wheel)="onWheel($event)">
     <div
       class="rang"
+      [id]="'level' + rang.rang"
       [class.achived]="achived(rang.rang)"
       *ngFor="let rang of rangs"
     >
+      <div
+        class="rang-lvl"
+        style="
+          position: absolute;
+          bottom: 10px;
+          width: 100%;
+          text-align: center;
+          font-size: 15px;
+        "
+      >
+        Lv. {{ rang.rang }}
+      </div>
       <div class="rang-title">{{ rang.title }}</div>
       <div class="rang-icon"><img [src]="rang.icon" /></div>
       <div class="rang-xp">

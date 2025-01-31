@@ -5,6 +5,7 @@
   overflow-x: scroll;
   padding: 20px;
   .rang {
+    position: relative;
     display: flex;
     overflow: hidden;
     flex-direction: column;
@@ -38,6 +39,7 @@
       font-size: 24px;
       padding: 10px;
       margin: 0 auto;
+      margin-bottom: 30px;
     }
   }
 }

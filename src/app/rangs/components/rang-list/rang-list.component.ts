@@ -21,6 +21,12 @@ export class RangListComponent {
     audio.play();
   }
 
+  ngAfterViewInit() {
+    document
+      .querySelector('#level' + (this.rang.getRang().rang * 1 + 2))
+      ?.scrollIntoView();
+  }
+
   public getWidth() {
     const req = (this.rang.getRang().xp / this.rang.getNextRangXp()) * 200;
     return (
