@@ -44,22 +44,24 @@ export class NewRangComponent {
     setTimeout(() => {
       let clonedElement = this.cloneElementById(element);
 
-      const audio = new Audio('assets/audio/mission-complete.mp3');
-      audio.volume = 0.3;
-      audio.play();
-
       element.style.opacity = 0;
       clonedElement.style.transitionDuration = '3s';
       clonedElement.classList.remove('hidden');
       setTimeout(() => {
         clonedElement.style.top = '-1000px';
         clonedElement.style.left =
-          clonedElement.style.left.slice(0, -2) * 1 + 1550 + 'px';
+          clonedElement.style.left.slice(0, -2) * 1 + 1000 + 'px';
         clonedElement.style.transform = 'scale(0) rotate(45deg)';
 
         setTimeout(() => {
           clonedElement.remove();
-        }, 3000);
+        }, 1000);
+
+        setTimeout(() => {
+          const audio = new Audio('assets/audio/mission-complete.mp3');
+          audio.volume = 0.3;
+          audio.play();
+        });
       }, 100);
     });
   }
