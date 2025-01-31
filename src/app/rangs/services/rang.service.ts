@@ -14,7 +14,7 @@ class Rang implements RangInterface {
     public rang: number,
     public xp: number,
   ) {
-    this.icon = `assets/images/rangs/${rang}.webp`;
+    this.icon = `assets/images/rangs/${rang > 31 ? 31 : rang}.webp`;
   }
 }
 
@@ -55,11 +55,14 @@ export class RangService {
     new Rang('Командор', 28, 1255000),
     new Rang('Генералиссимус', 30, 1400000),
     new Rang('Легенда', 31, 1600000),
-    new Rang('Легенда', 32, 1800000),
   ];
 
   constructor(private persistance: PersistanceService) {
     if (!this.persistance.getItem('xp')) this.persistance.setItem('xp', 0);
+
+    for (let i = 1; i <= 69; i++) {
+      this.rangs.push(new Rang('Легенда', 31 + i, 1600000 + 200000 * i));
+    }
   }
 
   public getRang(): Rang {
