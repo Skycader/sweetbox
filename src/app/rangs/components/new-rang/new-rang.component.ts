@@ -59,7 +59,7 @@ export class NewRangComponent {
 
         setTimeout(() => {
           clonedElement.remove();
-        }, 1000);
+        }, 3000);
       }, 100);
     });
   }
