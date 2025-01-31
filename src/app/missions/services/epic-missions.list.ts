@@ -15,7 +15,7 @@ export class EpicMissions {
       step: 100,
       refreshTime: 6 * TimeEnum.HOUR,
       respawnTime: TimeEnum.MINUTE,
-      reward: { keyType: 2, amount: 3, xp: 2500 },
+      reward: { keyType: 2, amount: 3, xp: 4000 },
     },
   ];
 

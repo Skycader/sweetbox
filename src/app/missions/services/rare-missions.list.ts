@@ -15,28 +15,28 @@ export class RareMissions {
       step: 100,
       refreshTime: TimeEnum.HOUR,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 1, amount: 1, xp: 1000 },
+      reward: { keyType: 1, amount: 1, xp: 20000 },
     },
     {
       title: '🛸 Дрон нашел ключ',
       step: 100,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 10 },
+      reward: { keyType: 0, amount: 1, xp: 40 },
     },
     {
       title: '📖 Прочитать дополнительно 5 глав за день (клик за 1 главу)',
       step: 20,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 1, amount: 1, xp: 750 },
+      reward: { keyType: 1, amount: 1, xp: 2000 },
     },
     {
       title: '♟ Победить в шахматах используя The World',
       step: 100,
       refreshTime: 6 * TimeEnum.HOUR,
       respawnTime: TimeEnum.MINUTE,
-      reward: { keyType: 1, amount: 1, xp: 500 },
+      reward: { keyType: 1, amount: 1, xp: 1000 },
     },
   ];
 

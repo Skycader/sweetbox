@@ -15,21 +15,21 @@ export class LegendaryMissions {
       step: 100,
       refreshTime: 6 * TimeEnum.HOUR,
       respawnTime: 24 * TimeEnum.HOUR,
-      reward: { keyType: 3, amount: 1, xp: 1500 },
+      reward: { keyType: 3, amount: 1, xp: 4000 },
     },
     {
       title: '☕️ Завершить Java курс',
       step: 100,
       refreshTime: 6 * TimeEnum.HOUR,
       respawnTime: TimeEnum.MINUTE,
-      reward: { keyType: 3, amount: 1, xp: 5000 },
+      reward: { keyType: 3, amount: 1, xp: 40000 },
     },
     {
       title: '📖 Завершить чтение "Взломать Всё"',
       step: 100,
       refreshTime: 6 * TimeEnum.HOUR,
       respawnTime: TimeEnum.MINUTE,
-      reward: { keyType: 3, amount: 1, xp: 1000 },
+      reward: { keyType: 3, amount: 1, xp: 10000 },
     },
   ];
 
