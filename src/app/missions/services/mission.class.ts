@@ -109,7 +109,13 @@ export class Mission {
 
   public complete() {
     this.progress += this.config.step;
+    const prevRang = this.deps.rang.getRang().rang;
     this.deps.rang.addXp(this.getConfig().xp);
+    const newRang = this.deps.rang.getRang().rang;
+
+    if (newRang !== prevRang) {
+      setTimeout(() => this.deps.rang.congratsOnNewRang(), 300);
+    }
 
     this.stats.progress = this.progress;
 

@@ -60,6 +60,12 @@ export class ItemsDisplayComponent {
   public closeDialog() {
     this.dialogRef.close();
   }
+
+  ngOnDestroy() {
+    const audio = new Audio('assets/audio/close.mp3');
+    audio.volume = 0.3;
+    audio.play();
+  }
 }
 
 function onlyUnique(value: any, index: any, array: any) {

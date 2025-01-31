@@ -1,0 +1,43 @@
+.rangs {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  justify-content: center;
+  .rang {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 200px;
+    height: 450px;
+    border-radius: 15px;
+    margin-right: 10px;
+    background: linear-gradient(
+      rgba(191, 213, 255, 0.25) 0%,
+      rgba(118, 255, 51, 0.25) 100%
+    ) !important;
+
+    .rang-title {
+      font-size: 1.2em;
+      color: rgb(255, 255, 255);
+      margin: 0 auto;
+      padding: 10px;
+    }
+
+    .rang-icon img {
+      width: 100%;
+      height: auto;
+      padding: 25px;
+    }
+
+    .rang-xp {
+      display: flex;
+      color: rgb(118, 255, 51);
+      font-size: 24px;
+      padding: 10px;
+      margin: 0 auto;
+    }
+  }
+}

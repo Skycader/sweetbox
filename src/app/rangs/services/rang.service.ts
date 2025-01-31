@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { PersistanceService } from '../../common/services/persistance.service';
 import { MatDialog } from '@angular/material/dialog';
 import { RangListComponent } from '../components/rang-list/rang-list.component';
+import { NewRangComponent } from '../components/new-rang/new-rang.component';
 
 interface RangInterface {
   title: string;
@@ -67,7 +68,9 @@ export class RangService {
     if (!this.persistance.getItem('xp')) this.persistance.setItem('xp', 0);
 
     for (let i = 1; i <= 69; i++) {
-      this.rangs.push(new Rang('Легенда', 31 + i, 1600000 + 200000 * i));
+      this.rangs.push(
+        new Rang('Легенда ' + (i + 1) + ' ранга', 31 + i, 1600000 + 200000 * i),
+      );
     }
   }
 
@@ -75,11 +78,15 @@ export class RangService {
     return this.rangs;
   }
 
-  showRangs() {
-    const audio = new Audio(`assets/audio/takeout.mp3`);
-    audio.volume = 0.3;
-    audio.play();
+  congratsOnNewRang() {
+    this.dialog.open(NewRangComponent, {
+      autoFocus: false,
+      height: '750px',
+      width: '500px',
+    });
+  }
 
+  showRangs() {
     this.dialog.open(RangListComponent, {
       autoFocus: false,
       height: '900px',

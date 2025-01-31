@@ -51,6 +51,10 @@ export class NavbarComponent {
     this.rang.showRangs();
   }
 
+  congrats() {
+    this.rang.congratsOnNewRang();
+  }
+
   getRang() {
     return this.rang.getRang();
   }

@@ -1,0 +1,52 @@
+<div class="component" style="padding: 10px">
+  <mat-icon
+    (click)="close()"
+    style="position: absolute; top: 10px; right: 10px; cursor: pointer"
+    >close</mat-icon
+  >
+
+  <div style="display: flex; justify-content: center">
+    <h1 class="m-4">У Вас новое звание!</h1>
+  </div>
+
+  <div style="display: flex; justify-content: center">
+    <h1 class="m-4">Skycader теперь</h1>
+  </div>
+
+  <br />
+
+  <div class="rangs">
+    <div class="rang">
+      <div class="rang-title">{{ rang.title }}</div>
+      <div class="rang-icon"><img [src]="rang.icon" /></div>
+      <div class="rang-xp">
+        <img
+          #reward
+          (click)="getReward(reward)"
+          class="mb-2"
+          style="height: 80px; width: 80px; cursor: pointer"
+          src="assets/images/keys/common.png"
+        />
+      </div>
+
+      <div
+        class="rang-lvl"
+        style="position: absolute; bottom: 10px; left: 10px"
+      >
+        Lv. {{ rang.rang }}
+      </div>
+    </div>
+  </div>
+  <br />
+
+  <div style="display: flex; justify-content: center">
+    <button
+      (click)="getReward(reward)"
+      [disabled]="gotReward"
+      mat-raised-button
+      color="primary"
+    >
+      <mat-icon>card_giftcard</mat-icon> Получить награду
+    </button>
+  </div>
+</div>
