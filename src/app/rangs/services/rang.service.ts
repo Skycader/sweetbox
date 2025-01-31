@@ -105,7 +105,7 @@ export class RangService {
   public getNextRangXp(): number {
     const xp = this.xp;
     const index = this.rangs.findIndex((rang) => rang.xp > xp);
-    return this.rangs[index + 1].xp;
+    return this.rangs[index].xp;
   }
 
   public getXp() {
