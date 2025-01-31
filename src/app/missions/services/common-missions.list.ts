@@ -20,6 +20,13 @@ export class CommonMissions {
       autocomplete: true,
     },
     {
+      title: '💊 Выпить антидепрессант',
+      step: 100,
+      refreshTime: TimeEnum.HOUR,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 0, amount: 1, xp: 40 },
+    },
+    {
       title: '❤️  Отчистить Memos',
       step: 50,
       refreshTime: 6 * TimeEnum.HOUR,
