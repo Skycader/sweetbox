@@ -76,14 +76,8 @@ export class MissionsListComponent {
     const key2 = new Date().toISOString().split('T')[0] + '#2';
     const randomNum = getRandomNumber(key, 0, this.commonMissions.length - 1);
     const randomNum2 = getRandomNumber(key2, 0, this.commonMissions.length - 1);
-    this.commonMissions[randomNum].setPrize(
-      0,
-      this.commonMissions[randomNum].getReward().amount * 3,
-    );
-    this.commonMissions[randomNum2].setPrize(
-      0,
-      this.commonMissions[randomNum2].getReward().amount * 2,
-    );
+    this.commonMissions[randomNum].setRewardCoef(3);
+    this.commonMissions[randomNum2].setRewardCoef(2);
   }
 
   ngOnInit() {

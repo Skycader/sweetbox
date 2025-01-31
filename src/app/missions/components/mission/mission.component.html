@@ -50,7 +50,9 @@
     <span
       style="color: transparent; position: absolute; right: 45px; top: 20px"
       [matBadge]="
-        mission.getReward().amount > 1 ? mission.getReward().amount : ''
+        mission.getReward().amount > 1
+          ? mission.getReward().amount * mission.getRewardCoef()
+          : ''
       "
       >X</span
     >

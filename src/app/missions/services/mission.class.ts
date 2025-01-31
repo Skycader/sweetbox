@@ -6,7 +6,6 @@ import { MissionConfig } from './missions.service';
 
 export class Mission {
   private disabledUntil = 0;
-  private prizeModified = false;
   private progress = 0;
   private requiredProgress = 0;
   private isCompletedUntil = 0;
@@ -80,13 +79,19 @@ export class Mission {
   }
 
   public setPrize(keyType: number, amount: number, xp?: number) {
-    if (this.prizeModified) return;
     this.config.reward = {
       keyType,
       amount,
       xp: xp ? xp : this.config.reward.xp,
     };
-    this.prizeModified = true;
+  }
+
+  private rewardCoef = 1;
+  public setRewardCoef(coef: number) {
+    this.rewardCoef = coef;
+  }
+  public getRewardCoef() {
+    return this.rewardCoef;
   }
 
   public getReward() {
@@ -133,7 +138,7 @@ export class Mission {
 
       this.deps.storage.addItem(
         keys[this.config.reward.keyType],
-        this.config.reward.amount,
+        this.config.reward.amount * this.rewardCoef,
       );
       this.progress = 0;
       this.stats.progress = this.progress;

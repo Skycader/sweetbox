@@ -51,7 +51,7 @@ export class PackageComponent {
       !this.storageService.getItem(keys[this.keyType])
     ) {
       this.snackbar.inform('Нет ключей!');
-      // return;
+      return;
     }
     this.storageService.addItem(keys[this.keyType], -1);
 
