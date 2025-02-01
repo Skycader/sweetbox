@@ -1,3 +1,4 @@
+import { clothes } from '../resources/clothes.resource';
 import { energy } from '../resources/energy.resource';
 import { keys, multipleKeys } from '../resources/keys.resource';
 import { legendaryItems } from '../resources/legendary.resource';
@@ -24,5 +25,6 @@ export const legendaryContainer = [
   ...[money[7]].repeat(1), //5000 рублей
   ...[energy[5]].repeat(1), //Безлимитная энергия
   ...[multipleKeys[2]], //5 эпических ключей
+  ...[...clothes].repeat(5),
   ...[...legendaryItems],
 ];

@@ -1,4 +1,5 @@
 import { ItemModelInterface } from '../models/item.model';
+import { clothes } from './clothes.resource';
 import { coins } from './coins.resource';
 import { energy } from './energy.resource';
 import { keys, multipleKeys } from './keys.resource';
@@ -14,4 +15,5 @@ export const resourcesList: ItemModelInterface[] = [
   ...money,
   ...products,
   ...partsItems,
+  ...clothes,
 ];

@@ -1,3 +1,4 @@
+import { clothes } from '../resources/clothes.resource';
 import { coins } from '../resources/coins.resource';
 import { energy } from '../resources/energy.resource';
 import { keys, multipleKeys } from '../resources/keys.resource';
