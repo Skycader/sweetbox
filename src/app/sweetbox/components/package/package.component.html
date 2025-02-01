@@ -171,7 +171,13 @@
 
   <div style="width: 5px"></div>
 
-  <button mat-raised-button mat-primary class="amount">
+  <button
+    mat-raised-button
+    mat-primary
+    class="amount"
+    (click)="openContainer(true)"
+    matTooltip="Открыть сразу все"
+  >
     {{ getKeys() || 0 }}
   </button>
 
@@ -180,9 +186,14 @@
   <button
     mat-raised-button
     mat-primary
+    matTooltip="Что в контейнере"
     class="help"
     (click)="displayItems(containerType)"
   >
     <mat-icon>widgets</mat-icon>
   </button>
+
+  <!-- <div style="width: 5px"></div> -->
+  <!---->
+  <!-- <button mat-raised-button (click)="plusKey()">+1</button> -->
 </div>
