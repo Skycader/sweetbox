@@ -5,6 +5,7 @@ import { CommonMissions } from '../../services/common-missions.list';
 import { LegendaryMissions } from '../../services/legendary-missions.list';
 import { EpicMissions } from '../../services/epic-missions.list';
 import { RareMissions } from '../../services/rare-missions.list';
+import { TimeEnum } from '../../models/time.list.enum';
 
 @Component({
   selector: 'app-missions-list',
@@ -90,6 +91,11 @@ export class MissionsListComponent {
     setTimeout(() => {
       this.finish = true;
     }, 500);
+  }
+
+  openHours() {
+    const currentTime = this.getSecondsToday();
+    currentTime > 8 * TimeEnum.HOUR && currentTime < 20 * TimeEnum.HOUR;
   }
 
   public update$ = interval(100).pipe(
