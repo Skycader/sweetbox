@@ -23,8 +23,12 @@ export class RangListComponent {
 
   ngAfterViewInit() {
     document
-      .querySelector('#level' + (this.rang.getRang().rang * 1 + 2))
+      .querySelector('#level' + (this.rang.getRang().rang * 1 + 4))
       ?.scrollIntoView();
+  }
+
+  currentXp() {
+    return this.rang.getXp();
   }
 
   public getWidth() {
@@ -34,10 +38,7 @@ export class RangListComponent {
       200;
 
     return (
-      this.rang.getRang().rang * 200 +
-      (this.rang.getRang().rang - 1) * 10 +
-      req +
-      'px'
+      this.rang.getRang().rang * 200 + (this.rang.getRang().rang - 1) * 10 + req
     );
   }
 

@@ -10,6 +10,7 @@ img {
   flex-direction: row;
   overflow-x: scroll;
   padding: 20px;
+  height: 800px;
   .rang {
     position: relative;
     display: flex;
@@ -17,7 +18,7 @@ img {
     flex-direction: column;
     justify-content: space-between;
     min-width: 200px;
-    height: 700px;
+    height: calc(100% - 100px);
     border-radius: 15px;
     margin-right: 10px;
 
@@ -50,9 +51,30 @@ img {
   }
 }
 
+.xp-progress {
+  border-radius: 0.375rem 0px 0px 0.375rem;
+}
+
 .achived {
   background: linear-gradient(
     rgba(191, 213, 255, 0.25) 0%,
     rgba(118, 255, 51, 0.25) 100%
   ) !important;
+}
+
+.current-xp {
+  display: flex;
+  color: rgb(118, 255, 51);
+  align-items: center;
+  height: 90px;
+  padding: 20px;
+  border-right: 1px solid rgba(118, 255, 51, 0.75);
+  font-size: 24px;
+  margin: 0 auto;
+  background: linear-gradient(
+      270deg,
+      rgba(118, 255, 51, 0.25) 0%,
+      rgba(118, 255, 51, 0) 100%
+    )
+    right center / auto repeat-y;
 }
