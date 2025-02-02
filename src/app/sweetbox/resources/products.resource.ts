@@ -73,10 +73,4 @@ export const products: ItemModelInterface[] = [
     image: 'assets/images/products/milk.png',
     sound: 'food.m4a',
   },
-  {
-    title: 'KFC - Крылышки',
-    type: 'food',
-    image: 'assets/images/products/kfc-wings.png',
-    sound: 'food.m4a',
-  },
 ];

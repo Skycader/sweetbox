@@ -35,7 +35,7 @@
         style="width: 300px"
         mode="determinate"
         color="accent"
-        [value]="(getXp() / getNextRangXp()) * 100"
+        [value]="nextRangProgress()"
       ></mat-progress-bar>
       <div
         style="

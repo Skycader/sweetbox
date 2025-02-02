@@ -3,6 +3,7 @@ import { energy } from '../resources/energy.resource';
 import { keys, multipleKeys } from '../resources/keys.resource';
 import { money } from '../resources/money.resource';
 import { products } from '../resources/products.resource';
+import { rareProducts } from '../resources/rare-products.resource';
 
 Array.prototype.repeat = function <T>(this: T[], count: number): T[] {
   let output: T[] = this;
@@ -30,6 +31,7 @@ export const rareContainer = [
   ...[energy[2]].repeat(15), //6 часав
   ...[energy[3]].repeat(1), //12 часов
   ...[...products].repeat(100),
+  ...[...rareProducts].repeat(100),
   ...[coins[2]].repeat(15),
   ...[coins[3]].repeat(5),
   ...[multipleKeys[0]], //3 обычных ключа

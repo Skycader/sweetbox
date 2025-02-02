@@ -6,6 +6,7 @@ import { keys, multipleKeys } from './keys.resource';
 import { money } from './money.resource';
 import { partsItems } from './parts.resource';
 import { products } from './products.resource';
+import { rareProducts } from './rare-products.resource';
 
 export const resourcesList: ItemModelInterface[] = [
   ...coins,
@@ -16,4 +17,5 @@ export const resourcesList: ItemModelInterface[] = [
   ...products,
   ...partsItems,
   ...clothes,
+  ...rareProducts,
 ];
