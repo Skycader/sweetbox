@@ -11,11 +11,25 @@ export class RareMissions {
 
   private rareMissions: MissionConfig[] = [
     {
+      title: '🇯🇵 Сделать юнит японского легендарным',
+      step: 100,
+      refreshTime: TimeEnum.HOUR,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 1, amount: 1, xp: 2000 },
+    },
+    {
+      title: '🇯🇵 Закончить юнит японского',
+      step: 100,
+      refreshTime: TimeEnum.HOUR,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 1, amount: 1, xp: 2000 },
+    },
+    {
       title: '🥋 Сходить на OZON за рамкой',
       step: 100,
       refreshTime: TimeEnum.HOUR,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 1, amount: 1, xp: 400 }, //эквивалент 1000 отжиманий, 1 000 000 (маршал) = 250 тренировок (почти 2 года, 96 Тренировок за год)
+      reward: { keyType: 1, amount: 1, xp: 400 },
     },
 
     {

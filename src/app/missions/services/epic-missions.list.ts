@@ -13,8 +13,8 @@ export class EpicMissions {
     {
       title: '☕️ Сделать домашку по Java курсу',
       step: 100,
-      refreshTime: 6 * TimeEnum.HOUR,
-      respawnTime: TimeEnum.MINUTE,
+      refreshTime: TimeEnum.MINUTE,
+      respawnTime: 365 * TimeEnum.DAY,
       reward: { keyType: 2, amount: 3, xp: 4000 },
     },
   ];

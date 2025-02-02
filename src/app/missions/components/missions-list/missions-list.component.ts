@@ -93,12 +93,12 @@ export class MissionsListComponent {
     }, 500);
   }
 
-  openHours() {
+  openHours(start: number, end: number) {
     const currentTime = this.getSecondsToday();
 
     return (
-      currentTime > 3 * (TimeEnum.HOUR / 1000) &&
-      currentTime < 20 * (TimeEnum.HOUR / 1000)
+      currentTime > start * (TimeEnum.HOUR / 1000) &&
+      currentTime < end * (TimeEnum.HOUR / 1000)
     );
   }
 

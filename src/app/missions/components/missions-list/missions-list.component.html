@@ -1,6 +1,6 @@
 <div
   style="padding: 50px"
-  *ngIf="openHours(); else elseRef"
+  *ngIf="openHours(0, 24); else elseRef"
   class="parent"
   [class.loading]="loading"
   [class.finish]="finish"

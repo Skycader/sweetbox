@@ -31,6 +31,27 @@ export class LegendaryMissions {
       respawnTime: TimeEnum.MINUTE,
       reward: { keyType: 3, amount: 1, xp: 10000 },
     },
+    {
+      title: '📓 Закончить чтение книги SQL бычстрое погружение (+практика)',
+      step: 100,
+      refreshTime: TimeEnum.MINUTE,
+      respawnTime: 365 * TimeEnum.DAY,
+      reward: { keyType: 3, amount: 1, xp: 10000 },
+    },
+    {
+      title: '📓 Изучить Lodash (добавить 10 упражнений по Lodash)',
+      step: 100,
+      refreshTime: TimeEnum.MINUTE,
+      respawnTime: 365 * TimeEnum.DAY,
+      reward: { keyType: 3, amount: 1, xp: 10000 },
+    },
+    {
+      title: '📓 Изучить язык Си (добавить 10 упражнений по Си)',
+      step: 100,
+      refreshTime: TimeEnum.MINUTE,
+      respawnTime: 365 * TimeEnum.DAY,
+      reward: { keyType: 3, amount: 1, xp: 10000 },
+    },
   ];
 
   public get(): Mission[] {
