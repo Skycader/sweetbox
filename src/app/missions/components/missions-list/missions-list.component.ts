@@ -95,7 +95,11 @@ export class MissionsListComponent {
 
   openHours() {
     const currentTime = this.getSecondsToday();
-    currentTime > 8 * TimeEnum.HOUR && currentTime < 20 * TimeEnum.HOUR;
+
+    return (
+      currentTime > 3 * (TimeEnum.HOUR / 1000) &&
+      currentTime < 20 * (TimeEnum.HOUR / 1000)
+    );
   }
 
   public update$ = interval(100).pipe(

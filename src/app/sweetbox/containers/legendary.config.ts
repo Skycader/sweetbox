@@ -1,9 +1,8 @@
 import { clothes } from '../resources/clothes.resource';
 import { energy } from '../resources/energy.resource';
-import { keys, multipleKeys } from '../resources/keys.resource';
+import { multipleKeys } from '../resources/keys.resource';
 import { legendaryItems } from '../resources/legendary.resource';
 import { money } from '../resources/money.resource';
-import { products } from '../resources/products.resource';
 
 Array.prototype.repeat = function <T>(this: T[], count: number): T[] {
   let output: T[] = this;
