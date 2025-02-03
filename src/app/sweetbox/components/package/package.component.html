@@ -193,7 +193,9 @@
     <mat-icon>widgets</mat-icon>
   </button>
 
-  <div style="width: 5px"></div>
+  <ng-container *ngIf="false">
+    <div style="width: 5px"></div>
 
-  <button mat-raised-button (click)="addKey()">+1</button>
+    <button mat-raised-button (click)="addKey()">+1</button>
+  </ng-container>
 </div>
