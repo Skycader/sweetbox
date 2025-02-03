@@ -10,7 +10,7 @@
         >x</span
       >
     </ng-template>
-    <app-package containerType="common" [keyType]="0" />
+    <app-package containerType="common" [keyType]="0" [itemsAmount]="10" />
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
@@ -24,7 +24,7 @@
       >
     </ng-template>
 
-    <app-package containerType="rare" [keyType]="1" />
+    <app-package containerType="rare" [keyType]="1" [itemsAmount]="5" />
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
@@ -38,7 +38,7 @@
       >
     </ng-template>
 
-    <app-package containerType="epic" [keyType]="2" />
+    <app-package containerType="epic" [keyType]="2" [itemsAmount]="3" />
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
@@ -51,6 +51,6 @@
         >x</span
       >
     </ng-template>
-    <app-package containerType="legendary" [keyType]="3" />
+    <app-package containerType="legendary" [keyType]="3" [itemsAmount]="1" />
   </mat-tab>
 </mat-tab-group>

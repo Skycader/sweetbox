@@ -21,6 +21,7 @@ import { ItemsDisplayComponent } from '../items-display/items-display.component'
 export class PackageComponent {
   @Input() containerType: ContainerType = 'common';
   @Input() keyType: number = 0;
+  @Input() itemsAmount: number = 10;
 
   public isShowingPackage = false;
   public containerEnum = containerEnum;
@@ -43,7 +44,7 @@ export class PackageComponent {
     private storageService: StorageService,
     private snackbar: SnackbarService,
     private modal: MatDialog,
-  ) { }
+  ) {}
 
   addKey() {
     this.storageService.addItem(keys[this.keyType], 1);
@@ -59,7 +60,7 @@ export class PackageComponent {
     }
 
     this.generateContainer(
-      this.keyType < 3 ? (openAll ? this.getKeys() * 10 : 10) : 1,
+      openAll ? this.getKeys() * this.itemsAmount : this.itemsAmount,
       this.containerType,
     );
 
@@ -119,6 +120,7 @@ export class PackageComponent {
             sound: item.sound,
             type: item.type,
             amt: item.amt || 0,
+            scale: item.scale,
             amount: 0,
           };
         }

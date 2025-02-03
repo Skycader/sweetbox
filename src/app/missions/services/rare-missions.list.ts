@@ -7,7 +7,7 @@ import { TimeEnum } from '../models/time.list.enum';
   providedIn: 'root',
 })
 export class RareMissions {
-  constructor(private mission: MissionsService) { }
+  constructor(private mission: MissionsService) {}
 
   private rareMissions: MissionConfig[] = [
     {
@@ -24,14 +24,6 @@ export class RareMissions {
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 1, amount: 1, xp: 2000 },
     },
-    {
-      title: '🥋 Сходить на OZON за рамкой',
-      step: 100,
-      refreshTime: TimeEnum.HOUR,
-      respawnTime: TimeEnum.DAY,
-      reward: { keyType: 1, amount: 1, xp: 400 },
-    },
-
     {
       title: '🥋 Сходить на тренировку по каратэ',
       step: 100,

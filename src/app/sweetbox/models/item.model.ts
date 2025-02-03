@@ -4,6 +4,7 @@ export interface ItemModelInterface {
   sound: string; //path to file with sound
   type: 'food' | 'common' | 'rare' | 'legendary';
   amt?: number;
+  scale?: number;
 }
 
 export interface CardModelInterface extends ItemModelInterface {

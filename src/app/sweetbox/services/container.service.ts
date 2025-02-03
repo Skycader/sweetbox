@@ -10,7 +10,7 @@ import { epicContainer } from '../containers/epic.config';
   providedIn: 'root',
 })
 export class ContainerService {
-  constructor() { }
+  constructor() {}
 
   public generateContainer(cards: number, containerType: ContainerType) {
     const container: ItemModelInterface[] = [];
