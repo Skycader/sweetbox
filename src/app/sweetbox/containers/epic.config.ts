@@ -1,9 +1,8 @@
-import { clothes } from '../resources/clothes.resource';
 import { coins } from '../resources/coins.resource';
+import { collectables } from '../resources/collectables.resource';
 import { energy } from '../resources/energy.resource';
 import { keys, multipleKeys } from '../resources/keys.resource';
 import { money } from '../resources/money.resource';
-import { products } from '../resources/products.resource';
 
 Array.prototype.repeat = function <T>(this: T[], count: number): T[] {
   let output: T[] = this;
@@ -32,6 +31,7 @@ export const epicContainer = [
   ...[energy[4]].repeat(1), //24 часов
   ...[coins[0]].repeat(5),
   ...[multipleKeys[1]], //5 редких ключей
+  ...[...collectables],
   ...[keys[2]].repeat(2), //Эпический ключ ключ
   ...[keys[3]], //Легендарный ключ
 ];

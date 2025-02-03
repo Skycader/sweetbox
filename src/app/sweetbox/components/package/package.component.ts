@@ -55,7 +55,7 @@ export class PackageComponent {
       !this.storageService.getItem(keys[this.keyType])
     ) {
       this.snackbar.inform('Нет ключей!');
-      return;
+      // return;
     }
 
     this.generateContainer(
@@ -67,6 +67,8 @@ export class PackageComponent {
       keys[this.keyType],
       openAll ? -this.getKeys() : -1,
     );
+
+    console.log(this.items);
 
     this.isShowingPackage = !this.isShowingPackage;
     this.get();
@@ -116,6 +118,7 @@ export class PackageComponent {
             image: item.image,
             sound: item.sound,
             type: item.type,
+            amt: item.amt || 0,
             amount: 0,
           };
         }
@@ -132,6 +135,7 @@ export class PackageComponent {
     this.playSound();
     if (this.items[this.iterator]) {
       const currentItem = this.items[this.iterator];
+
       this.storageService.addItem(
         currentItem,
         currentItem.amount + (currentItem?.amt ? currentItem.amt : 0),

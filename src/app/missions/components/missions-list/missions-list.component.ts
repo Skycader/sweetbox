@@ -128,3 +128,32 @@ function getRandomNumber(key: string, min: number, max: number): number {
   // Используем модуль, чтобы результат был в пределах от 0 до range-1
   return min + (Math.abs(hash) % range);
 }
+
+function toIsoString(date: Date) {
+  var tzo = -date.getTimezoneOffset(),
+    dif = tzo >= 0 ? '+' : '-',
+    pad = function(num: number) {
+      return (num < 10 ? '0' : '') + num;
+    };
+
+  return (
+    date.getFullYear() +
+    '-' +
+    pad(date.getMonth() + 1) +
+    '-' +
+    pad(date.getDate()) +
+    'T' +
+    pad(date.getHours()) +
+    ':' +
+    pad(date.getMinutes()) +
+    ':' +
+    pad(date.getSeconds()) +
+    dif +
+    pad(Math.floor(Math.abs(tzo) / 60)) +
+    ':' +
+    pad(Math.abs(tzo) % 60)
+  );
+}
+
+var dt = new Date();
+console.log(toIsoString(dt));
