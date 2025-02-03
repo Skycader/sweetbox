@@ -71,7 +71,7 @@
       <div
         class="title"
         [class.hidden-title]="!item.isShowingTitle"
-        [matBadge]="item.amount"
+        [matBadge]="item.amount * (item?.amt || 1)"
         matBadgeSize="medium"
       >
         <div>
@@ -193,7 +193,7 @@
     <mat-icon>widgets</mat-icon>
   </button>
 
-  <!-- <div style="width: 5px"></div> -->
-  <!---->
-  <!-- <button mat-raised-button (click)="plusKey()">+1</button> -->
+  <div style="width: 5px"></div>
+
+  <button mat-raised-button (click)="addKey()">+1</button>
 </div>

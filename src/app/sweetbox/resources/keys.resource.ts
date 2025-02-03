@@ -29,21 +29,21 @@ export const keys: ItemModelInterface[] = [
 
 export const multipleKeys: ItemModelInterface[] = [
   {
-    title: 'Обычный ключ - 3 шт.',
+    title: 'Обычный ключ',
     sound: 'prize.m4a',
     type: 'common',
     image: 'assets/images/keys/common.png',
     amt: 3,
   },
   {
-    title: 'Редкий ключ - 3 шт.',
+    title: 'Редкий ключ',
     sound: 'rare.m4a',
     type: 'rare',
     image: 'assets/images/keys/rare.png',
     amt: 3,
   },
   {
-    title: 'Эпический ключ - 3 шт.',
+    title: 'Эпический ключ',
     sound: 'legendary.m4a',
     type: 'legendary',
     image: 'assets/images/keys/epic.png',

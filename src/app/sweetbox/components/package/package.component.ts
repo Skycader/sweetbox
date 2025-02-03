@@ -45,8 +45,8 @@ export class PackageComponent {
     private modal: MatDialog,
   ) { }
 
-  plusKey() {
-    this.storageService.addItem(keys[0], 1);
+  addKey() {
+    this.storageService.addItem(keys[this.keyType], 1);
   }
 
   public openContainer(openAll: boolean = false) {
@@ -55,7 +55,7 @@ export class PackageComponent {
       !this.storageService.getItem(keys[this.keyType])
     ) {
       this.snackbar.inform('Нет ключей!');
-      // return;
+      return;
     }
 
     this.generateContainer(
@@ -136,10 +136,7 @@ export class PackageComponent {
     if (this.items[this.iterator]) {
       const currentItem = this.items[this.iterator];
 
-      this.storageService.addItem(
-        currentItem,
-        currentItem.amount + (currentItem?.amt ? currentItem.amt : 0),
-      );
+      this.storageService.addItem(currentItem, currentItem.amount * 10);
 
       this.playAudio(this.items[this.iterator].sound);
       this.items[this.iterator].isTaken = true;
