@@ -11,44 +11,51 @@ export class RareMissions {
 
   private rareMissions: MissionConfig[] = [
     {
+      title: '🧹 Полы чисты и помыты, нет вещей для глажки и стирки',
+      step: 100,
+      refreshTime: 6 * TimeEnum.DAY,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 1, amount: 1, xp: 1000 },
+    },
+    {
       title: '🇯🇵 Сделать юнит японского легендарным',
       step: 100,
-      refreshTime: TimeEnum.HOUR,
+      refreshTime: TimeEnum.DAY,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 1, amount: 1, xp: 2000 },
     },
     {
       title: '🇯🇵 Закончить юнит японского',
       step: 100,
-      refreshTime: TimeEnum.HOUR,
+      refreshTime: TimeEnum.DAY,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 1, amount: 1, xp: 2000 },
     },
     {
       title: '🥋 Сходить на тренировку по каратэ',
       step: 100,
-      refreshTime: TimeEnum.HOUR,
+      refreshTime: TimeEnum.DAY,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 1, amount: 1, xp: 4000 }, //эквивалент 1000 отжиманий, 1 000 000 (маршал) = 250 тренировок (почти 2 года, 96 Тренировок за год)
     },
     {
       title: '🛸 Дрон нашел ключ',
       step: 100,
-      refreshTime: TimeEnum.MINUTE,
+      refreshTime: TimeEnum.DAY,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 40 },
     },
     {
       title: '📖 Прочитать дополнительно 5 глав за день (клик за 1 главу)',
       step: 20,
-      refreshTime: TimeEnum.MINUTE,
+      refreshTime: TimeEnum.DAY,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 1, amount: 1, xp: 2000 },
     },
     {
       title: '♟ Победить в шахматах используя The World',
       step: 100,
-      refreshTime: 6 * TimeEnum.HOUR,
+      refreshTime: 6 * TimeEnum.DAY,
       respawnTime: TimeEnum.MINUTE,
       reward: { keyType: 1, amount: 1, xp: 1000 },
     },
