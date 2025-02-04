@@ -44,7 +44,7 @@ export class PackageComponent {
     private storageService: StorageService,
     private snackbar: SnackbarService,
     private modal: MatDialog,
-  ) {}
+  ) { }
 
   addKey() {
     this.storageService.addItem(keys[this.keyType], 1);
@@ -138,7 +138,10 @@ export class PackageComponent {
     if (this.items[this.iterator]) {
       const currentItem = this.items[this.iterator];
 
-      this.storageService.addItem(currentItem, currentItem.amount * 10);
+      this.storageService.addItem(
+        currentItem,
+        currentItem.amount * (currentItem.amt ? currentItem.amt : 1),
+      );
 
       this.playAudio(this.items[this.iterator].sound);
       this.items[this.iterator].isTaken = true;

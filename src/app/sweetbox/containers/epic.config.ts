@@ -31,7 +31,7 @@ export const epicContainer = [
   ...[energy[4]].repeat(1), //24 часов
   ...[coins[0]].repeat(5),
   ...[multipleKeys[1]], //3 редких ключа
-  ...[...collectables],
+  ...[...collectables].repeat(10),
   ...[keys[2]].repeat(2), //Эпический ключ ключ
   ...[keys[3]], //Легендарный ключ
 ];

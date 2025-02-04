@@ -17,6 +17,13 @@ export class EpicMissions {
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 2, amount: 3, xp: 4000 },
     },
+    {
+      title: '📓 Сделать проект на GRID CSS',
+      step: 100,
+      refreshTime: TimeEnum.MINUTE,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 2, amount: 3, xp: 4000 },
+    },
   ];
 
   public get(): Mission[] {

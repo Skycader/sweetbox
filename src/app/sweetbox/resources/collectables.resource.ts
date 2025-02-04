@@ -7,4 +7,10 @@ export const collectables: ItemModelInterface[] = [
     image: 'assets/images/collectables/jojo-cards.png',
     sound: 'legendary.m4a',
   },
+  {
+    title: 'Печать фото',
+    type: 'legendary',
+    image: 'assets/images/collectables/print-photo.png',
+    sound: 'legendary.m4a',
+  },
 ];
