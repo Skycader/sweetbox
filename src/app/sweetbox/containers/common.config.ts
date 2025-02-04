@@ -1,4 +1,5 @@
 import { coins } from '../resources/coins.resource';
+import { collectables } from '../resources/collectables.resource';
 import { energy } from '../resources/energy.resource';
 import { keys } from '../resources/keys.resource';
 import { money } from '../resources/money.resource';
