@@ -14,7 +14,7 @@ Array.prototype.repeat = function <T>(this: T[], count: number): T[] {
   return output;
 };
 
-Array.prototype.getRandomElement = function(): any | undefined {
+Array.prototype.getRandomElement = function (): any | undefined {
   if (this.length === 0) {
     return undefined; // Возвращаем undefined, если массив пустой
   }
@@ -35,7 +35,8 @@ export const rareContainer = [
   ...[...rareProducts].repeat(100),
   ...[coins[2]].repeat(15),
   ...[coins[3]].repeat(5),
-  ...[...collectables].repeat(5),
+  ...[collectables[1]].repeat(5), //JoJo Pack
+  ...[collectables[2]].repeat(5), //Photo print
   ...[multipleKeys[0]], //3 обычных ключа
   ...[keys[1]].repeat(2), //Редкий ключ
   ...[keys[2]], //Эпический ключ

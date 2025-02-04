@@ -12,7 +12,7 @@ Array.prototype.repeat = function <T>(this: T[], count: number): T[] {
   return output;
 };
 
-Array.prototype.getRandomElement = function(): any | undefined {
+Array.prototype.getRandomElement = function (): any | undefined {
   if (this.length === 0) {
     return undefined; // Возвращаем undefined, если массив пустой
   }
@@ -31,7 +31,8 @@ export const epicContainer = [
   ...[energy[4]].repeat(1), //24 часов
   ...[coins[0]].repeat(5),
   ...[multipleKeys[1]], //3 редких ключа
-  ...[...collectables].repeat(10),
+  ...[collectables[1]].repeat(10), //JoJo Pack
+  ...[collectables[2]].repeat(10), //Photo print
   ...[keys[2]].repeat(2), //Эпический ключ ключ
   ...[keys[3]], //Легендарный ключ
 ];

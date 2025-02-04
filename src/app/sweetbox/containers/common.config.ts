@@ -14,7 +14,7 @@ Array.prototype.repeat = function <T>(this: T[], count: number): T[] {
   return output;
 };
 
-Array.prototype.getRandomElement = function(): any | undefined {
+Array.prototype.getRandomElement = function (): any | undefined {
   if (this.length === 0) {
     return undefined; // Возвращаем undefined, если массив пустой
   }
@@ -32,6 +32,7 @@ export const commonContainer = [
   ...[energy[1]].repeat(15), //1 час
   ...[energy[2]].repeat(1), //6 часов
   ...products,
+  ...[collectables[0]].repeat(5), //JoJo ePack
   ...[coins[1]].repeat(15),
   ...[coins[2]].repeat(5),
   ...[...partsItems].repeat(25),
