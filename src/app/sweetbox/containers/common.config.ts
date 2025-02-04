@@ -32,7 +32,7 @@ export const commonContainer = [
   ...[energy[1]].repeat(15), //1 час
   ...[energy[2]].repeat(1), //6 часов
   ...products,
-  ...[collectables[0]].repeat(5), //JoJo ePack
+  ...[collectables[0]].repeat(25), //1 карточка JoJo в коллекцию
   ...[coins[1]].repeat(15),
   ...[coins[2]].repeat(5),
   ...[...partsItems].repeat(25),

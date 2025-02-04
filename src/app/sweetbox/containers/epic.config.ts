@@ -31,6 +31,7 @@ export const epicContainer = [
   ...[energy[4]].repeat(1), //24 часов
   ...[coins[0]].repeat(5),
   ...[multipleKeys[1]], //3 редких ключа
+  ...[collectables[3]].repeat(50), //Коллекционная карточка JoJo x5
   ...[collectables[1]].repeat(10), //JoJo Pack
   ...[collectables[2]].repeat(10), //Photo print
   ...[keys[2]].repeat(2), //Эпический ключ ключ

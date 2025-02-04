@@ -35,7 +35,8 @@ export const rareContainer = [
   ...[...rareProducts].repeat(100),
   ...[coins[2]].repeat(15),
   ...[coins[3]].repeat(5),
-  ...[collectables[1]].repeat(5), //JoJo Pack
+  ...[collectables[4]].repeat(200), //3 карточеки JoJo в коллекцию
+  ...[collectables[1]].repeat(5), //JoJo Pack x5
   ...[collectables[2]].repeat(5), //Photo print
   ...[multipleKeys[0]], //3 обычных ключа
   ...[keys[1]].repeat(2), //Редкий ключ

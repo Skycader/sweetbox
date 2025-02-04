@@ -18,6 +18,13 @@ export class RareMissions {
       reward: { keyType: 1, amount: 1, xp: 1000 },
     },
     {
+      title: '📖 Решить алгоритмическую задачу',
+      step: 50,
+      refreshTime: TimeEnum.MINUTE,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 1, amount: 1, xp: 1000 },
+    },
+    {
       title: '🇯🇵 Сделать юнит японского легендарным',
       step: 100,
       refreshTime: TimeEnum.DAY,

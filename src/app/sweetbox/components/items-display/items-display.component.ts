@@ -55,7 +55,7 @@ export class ItemsDisplayComponent {
     @Inject(MAT_DIALOG_DATA)
     public data: { containerType: 'common' | 'rare' | 'epic' | 'legendary' },
     private dialogRef: MatDialogRef<ItemsDisplayComponent>,
-  ) { }
+  ) {}
 
   public closeDialog() {
     this.dialogRef.close();

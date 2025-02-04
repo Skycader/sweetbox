@@ -19,4 +19,18 @@ export const collectables: ItemModelInterface[] = [
     image: 'assets/images/collectables/print-photo.png',
     sound: 'legendary.m4a',
   },
+  {
+    title: 'JoJo карточка',
+    type: 'rare',
+    image: 'assets/images/collectables/jojo-card.png',
+    sound: 'rare.m4a',
+    amt: 5,
+  },
+  {
+    title: 'JoJo карточка',
+    type: 'rare',
+    image: 'assets/images/collectables/jojo-card.png',
+    sound: 'rare.m4a',
+    amt: 3,
+  },
 ];

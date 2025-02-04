@@ -7,7 +7,7 @@ import { TimeEnum } from '../models/time.list.enum';
   providedIn: 'root',
 })
 export class CommonMissions {
-  constructor(private mission: MissionsService) { }
+  constructor(private mission: MissionsService) {}
 
   private commonMissions: MissionConfig[] = [
     {
@@ -139,11 +139,11 @@ export class CommonMissions {
       reward: { keyType: 0, amount: 1, xp: 200 },
     },
     {
-      title: '🥋 Сделать Широ Оби но Ката',
+      title: '🥋 Сделать [1. Широ, 2. Ао] Оби но Ката',
       step: 50,
       refreshTime: 6 * TimeEnum.HOUR,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 200 },
+      reward: { keyType: 0, amount: 2, xp: 400 },
     },
     {
       title: '🧠 Собрать кубик рубика',
@@ -191,6 +191,13 @@ export class CommonMissions {
       title: '💪 Тренировка икроножных мышц - 100 раз',
       step: 25,
       refreshTime: 10 * TimeEnum.MINUTE,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 0, amount: 1, xp: 200 },
+    },
+    {
+      title: '💪 Тренировка мышц спины с 2 дисками по 2кг - 20 раз',
+      step: 50,
+      refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 200 },
     },
