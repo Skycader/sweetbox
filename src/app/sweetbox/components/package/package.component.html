@@ -65,6 +65,8 @@
         [class.rare]="item.type === 'rare'"
         [class.gold]="item.type === 'legendary'"
         [style.scale]="item?.scale ? item.scale : 1"
+        [style.height]="item?.height ? item.height + 'px' : ''"
+        [style.width]="item?.height ? 'auto' : ''"
       />
 
       <div style="height: 20px"></div>
@@ -194,9 +196,9 @@
     <mat-icon>widgets</mat-icon>
   </button>
 
-  <ng-container *ngIf="false">
+  <ng-container *ngIf="true">
     <div style="width: 5px"></div>
 
-    <button mat-raised-button (click)="addKey()">+1</button>
+    <button mat-raised-button (click)="addKey()">+10</button>
   </ng-container>
 </div>

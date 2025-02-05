@@ -47,7 +47,7 @@ export class PackageComponent {
   ) { }
 
   addKey() {
-    this.storageService.addItem(keys[this.keyType], 1);
+    this.storageService.addItem(keys[this.keyType], 10);
   }
 
   public openContainer(openAll: boolean = false) {
@@ -121,6 +121,7 @@ export class PackageComponent {
             type: item.type,
             amt: item.amt || 0,
             scale: item.scale,
+            height: item.height,
             amount: 0,
           };
         }

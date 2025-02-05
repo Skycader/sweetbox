@@ -5,6 +5,7 @@ export interface ItemModelInterface {
   type: 'food' | 'common' | 'rare' | 'legendary';
   amt?: number;
   scale?: number;
+  height?: number;
 }
 
 export interface CardModelInterface extends ItemModelInterface {

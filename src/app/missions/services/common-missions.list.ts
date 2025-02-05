@@ -7,7 +7,7 @@ import { TimeEnum } from '../models/time.list.enum';
   providedIn: 'root',
 })
 export class CommonMissions {
-  constructor(private mission: MissionsService) {}
+  constructor(private mission: MissionsService) { }
 
   private commonMissions: MissionConfig[] = [
     {
@@ -200,6 +200,41 @@ export class CommonMissions {
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 200 },
+    },
+    {
+      title: '🧠 Решить упражнение по шахматам (всего 5)',
+      step: 20,
+      refreshTime: TimeEnum.MINUTE,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 0, amount: 1, xp: 200 },
+    },
+    {
+      title: '💪 Упражнения кегеля + допы (см .UMKA) x5',
+      step: 20,
+      refreshTime: TimeEnum.MINUTE,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 0, amount: 1, xp: 200 },
+    },
+    {
+      title: '🍹 Выпить стакан протеина после тренировки',
+      step: 100,
+      refreshTime: TimeEnum.MINUTE,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 0, amount: 1, xp: 200 },
+    },
+    {
+      title: '💪 Вверх-вниз на коленях x20',
+      step: 20,
+      refreshTime: TimeEnum.MINUTE,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 0, amount: 1, xp: 100 },
+    },
+    {
+      title: '💪 Держать ноги на весу - вперед и вбок 1 минуту',
+      step: 20,
+      refreshTime: TimeEnum.MINUTE,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 0, amount: 1, xp: 400 },
     },
   ];
 

@@ -12,7 +12,7 @@ Array.prototype.repeat = function <T>(this: T[], count: number): T[] {
   return output;
 };
 
-Array.prototype.getRandomElement = function (): any | undefined {
+Array.prototype.getRandomElement = function(): any | undefined {
   if (this.length === 0) {
     return undefined; // Возвращаем undefined, если массив пустой
   }
