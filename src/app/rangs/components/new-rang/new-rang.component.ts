@@ -45,6 +45,9 @@ export class NewRangComponent {
       let clonedElement = this.cloneElementById(element);
 
       element.style.opacity = 0;
+      clonedElement.style.opacity = 1;
+      clonedElement.style.position = 'fixed';
+      clonedElement.style.opacity = 1;
       clonedElement.style.transitionDuration = '3s';
       clonedElement.classList.remove('hidden');
       setTimeout(() => {

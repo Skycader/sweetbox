@@ -27,20 +27,40 @@
   <span id="todo-title">{{ mission.getConfig().title }}</span>
   <span class="example-spacer"></span>
 
-  <mat-chip-listbox aria-label="Fish selection">
+  <mat-chip-listbox>
     <mat-chip-option>{{ mission.getConfig().step }}%</mat-chip-option>
     <mat-chip-option
       color="accent"
       [selected]="mission.getConfig().refreshTime.includes('h')"
+      [matTooltip]="
+        mission.getConfig().refreshTime.includes('h')
+          ? 'У этого задания длительный перерыв'
+          : 'Время перерыва'
+      "
       >{{ mission.getConfig().refreshTime }}</mat-chip-option
     >
-    <mat-chip-option>{{ mission.getConfig().respawnTime }}</mat-chip-option>
-    <mat-chip-option style="display: flex; justify-content: center"
+    <mat-chip-option matTooltip="Время на повторное появление задания">{{
+      mission.getConfig().respawnTime
+    }}</mat-chip-option>
+    <mat-chip-option
+      matTooltip="Очки опыта"
+      style="display: flex; justify-content: center"
       >{{ mission.getConfig().xp }}
       <img
         style="margin-left: 1px; margin-bottom: 2px"
         src="assets/images/common/xp.webp"
     /></mat-chip-option>
+
+    <mat-chip-option
+      color="accent"
+      [matTooltip]="
+        mission.getRewardCoef() === 2 ? 'Двойная награда' : 'Тройная награда'
+      "
+      selected
+      *ngIf="mission.getRewardCoef() > 1"
+    >
+      x{{ mission.getRewardCoef() }}</mat-chip-option
+    >
   </mat-chip-listbox>
 
   <div style="width: 100px"></div>
