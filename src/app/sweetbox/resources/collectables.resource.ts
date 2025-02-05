@@ -27,7 +27,7 @@ export const collectables: ItemModelInterface[] = [
     type: 'rare',
     image: 'assets/images/collectables/jojo-card.png',
     sound: 'rare.m4a',
-    amt: 5,
+    amt: 10,
     height: 270,
   },
   {
@@ -35,7 +35,7 @@ export const collectables: ItemModelInterface[] = [
     type: 'rare',
     image: 'assets/images/collectables/jojo-card.png',
     sound: 'rare.m4a',
-    amt: 3,
+    amt: 5,
     height: 270,
   },
 ];

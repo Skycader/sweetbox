@@ -23,6 +23,8 @@ export class PackageComponent {
   @Input() keyType: number = 0;
   @Input() itemsAmount: number = 10;
 
+  public debug = false;
+
   public isShowingPackage = false;
   public containerEnum = containerEnum;
   public containerColorEnum = containerColorEnum;

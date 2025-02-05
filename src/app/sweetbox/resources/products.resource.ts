@@ -50,12 +50,6 @@ export const products: ItemModelInterface[] = [
     sound: 'food.m4a',
   },
   {
-    title: 'Молочный напиток',
-    type: 'food',
-    image: 'assets/images/products/chocolate-drink.png',
-    sound: 'food.m4a',
-  },
-  {
     title: 'Добрый Мультифрукт 2л.',
     type: 'food',
     image: 'assets/images/products/multifruit.png',
