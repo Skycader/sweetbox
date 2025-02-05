@@ -169,7 +169,7 @@ export class CommonMissions {
     {
       title: '🧑‍💻 Решить случайное regexp задание',
       step: 50,
-      refreshTime: 10 * TimeEnum.MINUTE,
+      refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 400 },
     },
