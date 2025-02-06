@@ -67,4 +67,22 @@ export const products: ItemModelInterface[] = [
     image: 'assets/images/products/milk.png',
     sound: 'food.m4a',
   },
+  {
+    title: 'Шоколад Милка',
+    type: 'food',
+    image: 'assets/images/products/milka_chocolate.png',
+    sound: 'food.m4a',
+  },
+  {
+    title: 'Мороженое Милка',
+    type: 'food',
+    image: 'assets/images/products/ice-milka.png',
+    sound: 'food.m4a',
+  },
+  {
+    title: 'Рисовая каша',
+    type: 'food',
+    image: 'assets/images/products/rice-porridge.png',
+    sound: 'food.m4a',
+  },
 ];
