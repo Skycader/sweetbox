@@ -7,11 +7,14 @@ import {
   isAnonymousSelector,
   isLoggedInSelector,
 } from '../../../auth/store/auth.selector';
-import { Observable } from 'rxjs';
+import { Observable, interval, of, switchMap, tap } from 'rxjs';
 import { MissionsService } from '../../../missions/services/missions.service';
 import { PersistanceService } from '../../services/persistance.service';
 import { StorageService } from '../../../storage/services/storage.service';
 import { RangService } from '../../../rangs/services/rang.service';
+import { CommonMissions } from '../../../missions/services/common-missions.list';
+import { CompletedPipe } from '../../../missions/utils/pipes/completed.pipe';
+import { Streak } from '../../../missions/models/streak.model';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -45,6 +48,7 @@ export class NavbarComponent {
     private persistance: PersistanceService,
     private storage: StorageService,
     private rang: RangService,
+    private common: CommonMissions,
   ) { }
 
   showRangs() {
@@ -80,14 +84,7 @@ export class NavbarComponent {
   }
 
   getMissions() {
-    let count = 0;
-    Object.keys(JSON.parse(localStorage.getItem('missions') || '[]')).forEach(
-      (mission) => {
-        if (this.loadMission(mission).isCompletedUntil < Date.now()) count++;
-      },
-    );
-
-    return count;
+    return CompletedPipe.countPending(this.common.get());
   }
 
   getItems() {
@@ -101,4 +98,39 @@ export class NavbarComponent {
   public toggleTheme() {
     this.themeService.toggleTheme();
   }
+
+  public streak = Streak.getStreak().days;
+  public doneToday = Streak.getStreak().doneToday;
+
+  public dailyRefresh = interval(100).pipe(
+    tap(() => {
+      this.streak = Streak.getStreak().days;
+      this.doneToday = Streak.getStreak().doneToday;
+
+      const today = new Date().toISOString().split('T')[0]; //2025-01-27
+
+      if (!this.persistance.getItem('today'))
+        this.persistance.setItem('today', today);
+
+      const localDate = this.persistance.getItem('today');
+
+      if (localDate !== today) {
+        //Начался новый день
+
+        if (!this.persistance.getItem('streak'))
+          this.persistance.setItem('streak', new Streak(0, false));
+        const streak: Streak = this.persistance.getItem('streak');
+
+        //Если сегодня не был продлён страйк, обнулить дни
+        if (streak.doneToday === false) streak.days = 0;
+        streak.doneToday = false;
+        this.persistance.setItem('streak', streak);
+
+        this.persistance.setItem('today', today);
+      }
+    }),
+    switchMap(() => {
+      return of(true);
+    }),
+  );
 }

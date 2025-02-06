@@ -2,6 +2,8 @@ import { PersistanceService } from '../../common/services/persistance.service';
 import { RangService } from '../../rangs/services/rang.service';
 import { StorageService } from '../../storage/services/storage.service';
 import { keys } from '../../sweetbox/resources/keys.resource';
+import { Streak } from '../models/streak.model';
+import { CompletedPipe } from '../utils/pipes/completed.pipe';
 import { MissionConfig } from './missions.service';
 
 export class Mission {
@@ -51,6 +53,7 @@ export class Mission {
       respawnTime: this.formatDuration(this.config.respawnTime),
       autocomplete: this.config.autocomplete,
       xp: this.config.reward.xp,
+      level: this.config.level,
     };
   }
 
@@ -92,10 +95,12 @@ export class Mission {
   }
 
   public earlyBirdReward() {
-    const date = new Date();
-    if (date.getHours() < 12) return 3;
-    if (date.getHours() < 16) return 2;
     return 1;
+    // if (this.config.reward.keyType > 0) return 1;
+    // const date = new Date();
+    // if (date.getHours() < 12) return 3;
+    // if (date.getHours() < 16) return 2;
+    // return 1;
   }
 
   public getRewardCoef() {
@@ -141,6 +146,8 @@ export class Mission {
       audio.play();
     }
     if (this.progress >= 100) {
+      Streak.markDoneToday();
+
       const audio = new Audio(`assets/audio/mission-complete.m4a`);
       audio.play();
 

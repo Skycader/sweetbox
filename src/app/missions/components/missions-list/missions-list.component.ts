@@ -6,6 +6,8 @@ import { LegendaryMissions } from '../../services/legendary-missions.list';
 import { EpicMissions } from '../../services/epic-missions.list';
 import { RareMissions } from '../../services/rare-missions.list';
 import { TimeEnum } from '../../models/time.list.enum';
+import { PersistanceService } from '../../../common/services/persistance.service';
+import { Streak } from '../../models/streak.model';
 
 @Component({
   selector: 'app-missions-list',
@@ -19,6 +21,7 @@ export class MissionsListComponent {
     private rare: RareMissions,
     private epic: EpicMissions,
     private legendary: LegendaryMissions,
+    private persistance: PersistanceService,
   ) { }
 
   public commonMissions: Mission[] = this.common.get();
@@ -32,6 +35,12 @@ export class MissionsListComponent {
 
   public toggle() {
     this.hideCompletedMissions = !this.hideCompletedMissions;
+  }
+
+  public today() {
+    let day = new Date().toISOString().split('T')[0]; //2025-01-27
+    // day = '2025-01-28';
+    return day;
   }
 
   public areAllMissionsComplete() {
@@ -75,10 +84,13 @@ export class MissionsListComponent {
   public randomBonus() {
     const key = new Date().toISOString().split('T')[0];
     const key2 = new Date().toISOString().split('T')[0] + '#2';
+    const key3 = new Date().toISOString().split('T')[0] + '#3';
     const randomNum = getRandomNumber(key, 0, this.commonMissions.length - 1);
     const randomNum2 = getRandomNumber(key2, 0, this.commonMissions.length - 1);
-    this.commonMissions[randomNum].setRewardCoef(3);
-    this.commonMissions[randomNum2].setRewardCoef(2);
+    const randomNum3 = getRandomNumber(key3, 0, this.commonMissions.length - 1);
+    this.commonMissions[randomNum].setRewardCoef(4);
+    this.commonMissions[randomNum2].setRewardCoef(3);
+    this.commonMissions[randomNum3].setRewardCoef(2);
   }
 
   ngOnInit() {
@@ -102,7 +114,7 @@ export class MissionsListComponent {
     );
   }
 
-  public update$ = interval(100).pipe(
+  public update$ = interval(1000).pipe(
     tap(() => {
       this.randomBonus();
       this.cdk.detectChanges();

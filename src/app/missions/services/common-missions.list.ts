@@ -39,6 +39,7 @@ export class CommonMissions {
       refreshTime: 0,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 200 },
+      level: '⬜️🔵',
     },
     {
       title: '🇯🇵 1 практика японского языка на дуолинго',
@@ -46,6 +47,7 @@ export class CommonMissions {
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 120 },
+      level: '⬜️🔵',
     },
     {
       title: '🇯🇵 Сделать 1 новый урок японского на дуолинго',
@@ -112,6 +114,7 @@ export class CommonMissions {
     },
     {
       title: '🥋 Растяжка - поперечный шпагат у стенки',
+      level: '110°',
       step: 50,
       refreshTime: TimeEnum.HOUR,
       respawnTime: TimeEnum.DAY,
@@ -195,7 +198,8 @@ export class CommonMissions {
       reward: { keyType: 0, amount: 1, xp: 200 },
     },
     {
-      title: '💪 Тренировка мышц спины с 2 дисками по 2кг - 20 раз',
+      title:
+        '💪 Тренировка мышц спины с 2 дисками по 2кг - 3 подхода по 20 раз',
       step: 50,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
@@ -250,7 +254,6 @@ export class CommonMissions {
     this.commonMissions.forEach(
       (mission) => (xp += mission.reward.xp * (100 / mission.step)),
     );
-    console.log(xp);
     return this.commonMissions.map((mission) => this.mission.make(mission));
   }
 }

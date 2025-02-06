@@ -68,6 +68,15 @@
     </a>
     <span class="spacer"></span>
 
+    <div class="streak">
+      <div class="fire" [class.grey]="!doneToday">🔥</div>
+      {{ streak }}
+    </div>
+
+    <span *ngIf="dailyRefresh | async"></span>
+
+    <span class="vr d-none d-sm-block d-md-block d-lg-block d-xl-block"></span>
+
     <a
       [routerLink]="['/missions']"
       matTooltip="Задания"

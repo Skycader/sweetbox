@@ -11,6 +11,7 @@ export interface MissionConfig {
   respawnTime: number;
   reward: Reward;
   autocomplete?: boolean;
+  level?: string;
 }
 
 interface Reward {

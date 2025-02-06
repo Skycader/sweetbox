@@ -93,3 +93,17 @@ p {
 .small-title {
   font-size: 13px;
 }
+
+.streak {
+  display: flex;
+  .fire {
+    font-size: 1rem;
+    padding-right: 1px;
+  }
+
+  .grey {
+    color: grey;
+    filter: grayscale(100%);
+  }
+  font-family: "Main";
+}

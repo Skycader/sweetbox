@@ -11,6 +11,9 @@
     position: relative;
     margin-bottom: 20px;
   "
+  [class.gold-mission]="mission.getRewardCoef() === 4"
+  [class.silver-mission]="mission.getRewardCoef() === 3"
+  [class.bronze-mission]="mission.getRewardCoef() === 2"
 >
   <div style="width: 10px"></div>
   <button
@@ -28,6 +31,12 @@
   <span class="example-spacer"></span>
 
   <mat-chip-listbox>
+    <mat-chip-option
+      matTooltip="Уровень навыка"
+      *ngIf="mission.getConfig().level"
+      >{{ mission.getConfig().level }}</mat-chip-option
+    >
+
     <mat-chip-option>{{ mission.getConfig().step }}%</mat-chip-option>
     <mat-chip-option
       color="accent"
@@ -45,7 +54,7 @@
     <mat-chip-option
       matTooltip="Очки опыта"
       style="display: flex; justify-content: center"
-      >{{ mission.getConfig().xp }}
+      >{{ mission.getConfig().xp | prettyNumber }}
       <img
         style="margin-left: 1px; margin-bottom: 2px"
         src="assets/images/common/xp.webp"
