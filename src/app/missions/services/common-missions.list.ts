@@ -55,11 +55,11 @@ export class CommonMissions {
       reward: { keyType: 0, amount: 1, xp: 200 },
     },
     {
-      title: '⛵️ Сделать 10 упражнений на морязнку',
-      step: 25,
+      title: '⛵️ Закончить уровень морязки',
+      step: 100,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 80 },
+      reward: { keyType: 0, amount: 1, xp: 100 },
     },
     {
       title: '💪 Упражнение "Велиосипед" - махи ногами лёжа 100 раз',
@@ -113,7 +113,7 @@ export class CommonMissions {
     {
       title: '🥋 Растяжка - поперечный шпагат у стенки',
       step: 50,
-      refreshTime: 3 * TimeEnum.HOUR,
+      refreshTime: TimeEnum.HOUR,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 400 },
     },
@@ -242,13 +242,6 @@ export class CommonMissions {
       refreshTime: TimeEnum.SECOND,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 1000 },
-    },
-    {
-      title: '💧 Помыть и пропылесосить полы',
-      step: 100,
-      refreshTime: TimeEnum.SECOND,
-      respawnTime: 7 * TimeEnum.DAY,
-      reward: { keyType: 1, amount: 1, xp: 10000 },
     },
   ];
 

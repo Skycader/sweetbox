@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Mission } from '../../services/mission.class';
 
 @Component({
   selector: 'app-mission',
@@ -6,7 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './mission.component.scss',
 })
 export class MissionComponent {
-  @Input() mission: any;
+  @Input() mission!: Mission;
   @Input() unlockMission: boolean = false;
 
   public getReward(mission: any, element: any) {

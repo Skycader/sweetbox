@@ -1,6 +1,6 @@
 <div
   style="padding: 50px"
-  *ngIf="openHours(0, 24); else elseRef"
+  *ngIf="openHours(5, 20); else elseRef"
   class="parent"
   [class.loading]="loading"
   [class.finish]="finish"
@@ -62,7 +62,7 @@
 <ng-template #elseRef>
   <div class="container">
     <div class="h1">403</div>
-    <div class="h2">Работаем с 8:00 до 20:00</div>
+    <div class="h2">Работаем с 5:00 до 20:00</div>
     <br />
     <div class="h4">Приходите завтра за новыми заданиями!</div>
   </div>

@@ -90,8 +90,16 @@ export class Mission {
   public setRewardCoef(coef: number) {
     this.rewardCoef = coef;
   }
+
+  public earlyBirdReward() {
+    const date = new Date();
+    if (date.getHours() < 12) return 3;
+    if (date.getHours() < 16) return 2;
+    return 1;
+  }
+
   public getRewardCoef() {
-    return this.rewardCoef;
+    return this.rewardCoef * this.earlyBirdReward();
   }
 
   public getReward() {
@@ -138,7 +146,7 @@ export class Mission {
 
       this.deps.storage.addItem(
         keys[this.config.reward.keyType],
-        this.config.reward.amount * this.rewardCoef,
+        this.config.reward.amount * this.getRewardCoef(),
       );
       this.progress = 0;
       this.stats.progress = this.progress;

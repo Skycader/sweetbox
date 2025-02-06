@@ -11,13 +11,12 @@ export class RareMissions {
 
   private rareMissions: MissionConfig[] = [
     {
-      title: '🧹 Полы чисты и помыты, нет вещей для глажки и стирки',
+      title: '💧 Помыть и пропылесосить полы',
       step: 100,
-      refreshTime: 6 * TimeEnum.DAY,
-      respawnTime: TimeEnum.DAY,
-      reward: { keyType: 1, amount: 1, xp: 1000 },
+      refreshTime: TimeEnum.SECOND,
+      respawnTime: 7 * TimeEnum.DAY,
+      reward: { keyType: 1, amount: 1, xp: 10000 },
     },
-
     {
       title: '📖 Решить алгоритмическую задачу',
       step: 50,
