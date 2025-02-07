@@ -117,6 +117,8 @@ export class NavbarComponent {
       if (localDate !== today) {
         //Начался новый день
 
+        this.persistance.setItem('xp-today', '0');
+
         if (!this.persistance.getItem('streak'))
           this.persistance.setItem('streak', new Streak(0, false));
         const streak: Streak = this.persistance.getItem('streak');

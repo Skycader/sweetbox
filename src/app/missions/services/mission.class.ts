@@ -126,6 +126,9 @@ export class Mission {
   }
 
   public complete() {
+    let xpToday = this.deps.persistance.getItem('xp-today', 0);
+    xpToday += this.config.reward.xp;
+    this.deps.persistance.setItem('xp-today', xpToday);
     this.progress += this.config.step;
     const prevRang = this.deps.rang.getRang().rang;
     this.deps.rang.addXp(this.getConfig().xp);
@@ -145,8 +148,10 @@ export class Mission {
       const audio = new Audio(`assets/audio/level-up.m4a`);
       audio.play();
     }
+
     if (this.progress >= 100) {
-      Streak.markDoneToday();
+      //Если игрок набрал 1000 опыта, то ударный режим пополнен новым днем
+      if (xpToday >= 1000) Streak.markDoneToday();
 
       const audio = new Audio(`assets/audio/mission-complete.m4a`);
       audio.play();
@@ -206,7 +211,7 @@ Date.prototype.toISOString = function toIsoString() {
   const date = this;
   var tzo = -date.getTimezoneOffset(),
     dif = tzo >= 0 ? '+' : '-',
-    pad = function(num: number) {
+    pad = function (num: number) {
       return (num < 10 ? '0' : '') + num;
     };
 

@@ -10,10 +10,16 @@ export class PersistanceService {
     this.isBrowser = isPlatformBrowser(platformId);
   }
 
-  public getItem(key: string) {
+  public getItem(key: string, def: any = null) {
     if (this.isBrowser) {
       const item = localStorage.getItem(key);
-      if (!item) return null;
+      if (!item) {
+        if (def) {
+          this.setItem(key, def);
+          return def;
+        }
+        return null;
+      }
       if (this.isJson(item)) return JSON.parse(item);
       return item;
     } else {
