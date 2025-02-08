@@ -68,7 +68,16 @@
     </a>
     <span class="spacer"></span>
 
-    <div class="streak">
+    <div
+      class="streak"
+      [matTooltip]="
+        xpToday < 100
+          ? 'Наберите ещё ' +
+            (100 - xpToday) +
+            'xp чтобы продлить ударный режим'
+          : 'Сегодня вы набрали уже ' + xpToday + 'xp'
+      "
+    >
       <div class="fire" [class.grey]="!doneToday">🔥</div>
       {{ streak }}
     </div>

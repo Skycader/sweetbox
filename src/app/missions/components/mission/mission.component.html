@@ -31,8 +31,20 @@
   <span class="example-spacer"></span>
 
   <mat-chip-listbox>
+    <mat-chip-option matTooltip="Уровень навыка" *ngIf="mission.getSkillXp()"
+      >{{ mission.getSkillRang().title }}
+      <!-- <img -->
+      <!--   style="margin-left: 1px; margin-bottom: 2px" -->
+      <!--   src="assets/images/common/xp.webp" -->
+      <!-- /> -->
+      <img
+        style="margin-left: 1px; margin-bottom: 2px; width: 35px"
+        [src]="mission.getSkillRang().icon"
+      />
+    </mat-chip-option>
+
     <mat-chip-option
-      matTooltip="Уровень навыка"
+      matTooltip="Уровень мастерства"
       *ngIf="mission.getConfig().level"
       >{{ mission.getConfig().level }}</mat-chip-option
     >

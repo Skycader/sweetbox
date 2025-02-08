@@ -94,8 +94,7 @@ export class RangService {
     });
   }
 
-  public getRang(): Rang {
-    const xp = this.xp || 0;
+  public getRang(xp: number = this.xp): Rang {
     return (
       this.rangs[this.rangs.findIndex((rang) => rang.xp >= xp) - 1] ||
       this.rangs[0]

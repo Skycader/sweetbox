@@ -7,7 +7,7 @@ import { TimeEnum } from '../models/time.list.enum';
   providedIn: 'root',
 })
 export class EpicMissions {
-  constructor(private mission: MissionsService) { }
+  constructor(private mission: MissionsService) {}
 
   private epicMissions: MissionConfig[] = [
     {
@@ -15,14 +15,14 @@ export class EpicMissions {
       step: 100,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 2, amount: 3, xp: 4000 },
+      reward: { keyType: 2, amount: 3, xp: 400 },
     },
     {
       title: '📓 Сделать проект на GRID CSS',
       step: 100,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 2, amount: 3, xp: 4000 },
+      reward: { keyType: 2, amount: 3, xp: 400 },
     },
   ];
 

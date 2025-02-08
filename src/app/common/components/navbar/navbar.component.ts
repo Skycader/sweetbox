@@ -49,7 +49,7 @@ export class NavbarComponent {
     private storage: StorageService,
     private rang: RangService,
     private common: CommonMissions,
-  ) { }
+  ) {}
 
   showRangs() {
     this.rang.showRangs();
@@ -102,10 +102,13 @@ export class NavbarComponent {
   public streak = Streak.getStreak().days;
   public doneToday = Streak.getStreak().doneToday;
 
+  public xpToday = this.persistance.getItem('xp-today', 0);
+
   public dailyRefresh = interval(100).pipe(
     tap(() => {
       this.streak = Streak.getStreak().days;
       this.doneToday = Streak.getStreak().doneToday;
+      this.xpToday = this.persistance.getItem('xp-today', 0);
 
       const today = new Date().toISOString().split('T')[0]; //2025-01-27
 

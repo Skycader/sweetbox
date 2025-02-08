@@ -15,6 +15,7 @@ export class Mission {
     progress: 0,
     disabledUntil: Date.now(),
     isCompletedUntil: Date.now(),
+    skillXp: 0,
   };
 
   constructor(
@@ -54,6 +55,7 @@ export class Mission {
       autocomplete: this.config.autocomplete,
       xp: this.config.reward.xp,
       level: this.config.level,
+      skillXp: this.stats.skillXp,
     };
   }
 
@@ -125,10 +127,24 @@ export class Mission {
     }
   }
 
+  public getSkillXp() {
+    return this.stats.skillXp;
+  }
+
+  public getSkillRang() {
+    return this.deps.rang.getRang(this.stats.skillXp);
+  }
+
   public complete() {
     let xpToday = this.deps.persistance.getItem('xp-today', 0);
     xpToday += this.config.reward.xp;
     this.deps.persistance.setItem('xp-today', xpToday);
+
+    this.stats.skillXp += this.config.reward.xp;
+
+    //Если игрок набрал 100 опыта, то ударный режим пополнен новым днем
+    if (xpToday >= 100) Streak.markDoneToday();
+
     this.progress += this.config.step;
     const prevRang = this.deps.rang.getRang().rang;
     this.deps.rang.addXp(this.getConfig().xp);
@@ -150,9 +166,6 @@ export class Mission {
     }
 
     if (this.progress >= 100) {
-      //Если игрок набрал 1000 опыта, то ударный режим пополнен новым днем
-      if (xpToday >= 1000) Streak.markDoneToday();
-
       const audio = new Audio(`assets/audio/mission-complete.m4a`);
       audio.play();
 

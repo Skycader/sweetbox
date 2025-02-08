@@ -14,7 +14,7 @@ export class PersistanceService {
     if (this.isBrowser) {
       const item = localStorage.getItem(key);
       if (!item) {
-        if (def) {
+        if (def && localStorage.getItem(key)) {
           this.setItem(key, def);
           return def;
         }
