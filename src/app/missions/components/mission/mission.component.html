@@ -22,7 +22,7 @@
     class="example-icon"
     aria-label="Example icon-button with menu icon"
     [disabled]="mission.isDisabled() || mission.getConfig().autocomplete"
-    (click)="mission.complete(); getReward(mission, reward)"
+    (click)="this.mission.complete(); getReward(mission, reward); earnXp()"
   >
     <mat-icon>done</mat-icon>
   </button>
@@ -38,6 +38,7 @@
       <!--   src="assets/images/common/xp.webp" -->
       <!-- /> -->
       <img
+        [matTooltip]="mission.getSkillProgress()"
         style="margin-left: 1px; margin-bottom: 2px; width: 35px"
         [src]="mission.getSkillRang().icon"
       />
@@ -68,6 +69,7 @@
       style="display: flex; justify-content: center"
       >{{ mission.getConfig().xp | prettyNumber }}
       <img
+        [id]="'M' + mission.getConfig().hash"
         style="margin-left: 1px; margin-bottom: 2px"
         src="assets/images/common/xp.webp"
     /></mat-chip-option>

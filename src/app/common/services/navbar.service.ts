@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -6,6 +7,8 @@ import { Injectable } from '@angular/core';
 export class NavbarService {
   private _isSideNav: boolean = false;
   constructor() {}
+
+  public controlNavbar$ = new Subject();
 
   public get isSideNav() {
     return this._isSideNav;

@@ -49,6 +49,7 @@ export class Mission {
   public getConfig() {
     return {
       title: this.config.title,
+      hash: this.hashCode(this.config.title),
       step: this.config.step,
       refreshTime: this.formatDuration(this.config.refreshTime),
       respawnTime: this.formatDuration(this.config.respawnTime),
@@ -57,6 +58,15 @@ export class Mission {
       level: this.config.level,
       skillXp: this.stats.skillXp,
     };
+  }
+
+  public hashCode(str: string): number {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      hash = (hash << 5) - hash + str.charCodeAt(i); // hash = hash * 31 + charCode
+      hash |= 0; // Приведение к 32-битному целому
+    }
+    return hash;
   }
 
   public formatDuration(milliseconds: number) {
@@ -135,6 +145,10 @@ export class Mission {
     return this.deps.rang.getRang(this.stats.skillXp);
   }
 
+  public getSkillProgress() {
+    return this.deps.rang.nextRangProgress(this.stats.skillXp) + '%';
+  }
+
   public complete() {
     let xpToday = this.deps.persistance.getItem('xp-today', 0);
     xpToday += this.config.reward.xp;
@@ -146,13 +160,16 @@ export class Mission {
     if (xpToday >= 100) Streak.markDoneToday();
 
     this.progress += this.config.step;
-    const prevRang = this.deps.rang.getRang().rang;
-    this.deps.rang.addXp(this.getConfig().xp);
-    const newRang = this.deps.rang.getRang().rang;
 
-    if (newRang !== prevRang) {
-      setTimeout(() => this.deps.rang.congratsOnNewRang(), 300);
-    }
+    setTimeout(() => {
+      const prevRang = this.deps.rang.getRang().rang;
+      this.deps.rang.addXp(this.getConfig().xp);
+      const newRang = this.deps.rang.getRang().rang;
+
+      if (newRang !== prevRang) {
+        setTimeout(() => this.deps.rang.congratsOnNewRang(), 300);
+      }
+    }, 1500);
 
     this.stats.progress = this.progress;
 

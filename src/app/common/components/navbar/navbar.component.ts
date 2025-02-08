@@ -40,6 +40,13 @@ export class NavbarComponent {
     this.currentScroll = window.scrollY;
   }
 
+  public navbarControl$ = this.navbarService.controlNavbar$.pipe(
+    tap((command) => {
+      if (command === 'open') this.hideNavbar = false;
+      if (command === 'close') this.hideNavbar = true;
+    }),
+  );
+
   constructor(
     private navbarService: NavbarService,
     public themeService: ThemeService,

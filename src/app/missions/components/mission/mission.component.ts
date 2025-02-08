@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Mission } from '../../services/mission.class';
+import { NavbarService } from '../../../common/services/navbar.service';
 
 @Component({
   selector: 'app-mission',
@@ -10,21 +11,48 @@ export class MissionComponent {
   @Input() mission!: Mission;
   @Input() unlockMission: boolean = false;
 
+  constructor(private navbarService: NavbarService) {}
+
+  public earnXp() {
+    this.navbarService.controlNavbar$.next('open');
+    setTimeout(() => {
+      let clonedElement = this.copyElementToFixedPosition(
+        `#M${this.mission.getConfig().hash}`,
+      );
+      clonedElement!.style.transitionDuration = '1.5s';
+      clonedElement!.classList.remove('hidden');
+      setTimeout(() => {
+        const userXp = document.querySelector('#user-xp');
+        const rect = userXp?.getBoundingClientRect();
+
+        clonedElement!.style.top = rect?.top + 'px';
+        clonedElement!.style.left = rect?.left + 'px';
+
+        setTimeout(() => {
+          clonedElement!.remove();
+        }, 1500);
+      }, 100);
+    }, 200);
+  }
+
   public getReward(mission: any, element: any) {
     if (mission.isCompletedUntil <= Date.now()) return;
     setTimeout(() => {
-      let clonedElement = this.cloneElementById(element);
-      clonedElement.style.transitionDuration = '3s';
-      clonedElement.classList.remove('hidden');
+      this.navbarService.controlNavbar$.next('open');
+      let clonedElement = this.copyElementToFixedPosition2(element);
+      clonedElement!.style.transitionDuration = '3s';
+      clonedElement!.classList.remove('hidden');
       setTimeout(() => {
-        clonedElement.style.top = '0px';
-        clonedElement.style.left =
-          clonedElement.style.left.slice(0, -2) * 1 + 55 + 'px';
-        clonedElement.style.transform = 'scale(0) rotate(45deg)';
+        const storageIcon = document.querySelector('#storage');
+        const rect = storageIcon?.getBoundingClientRect();
+
+        clonedElement!.style.top = -1500 + 'px';
+        clonedElement!.style.left = rect!.left + 150 + 'px';
+        clonedElement!.style.transform = 'scale(0) rotate(45deg)';
 
         setTimeout(() => {
-          clonedElement.remove();
-        }, 1000);
+          clonedElement!.remove();
+        }, 3000);
       }, 100);
     });
   }
@@ -47,12 +75,59 @@ export class MissionComponent {
     // Получаем координаты оригинального элемента
     const rect = originalElement.getBoundingClientRect();
     // Задаем стиль для абсолютного позиционирования
-    clonedElement.style.position = 'absolute';
     clonedElement.style.top = `${rect.top + window.scrollY}px`; // Учитываем прокрутку
     clonedElement.style.left = `${rect.left + window.scrollX}px`; // Учитываем прокрутку
 
     // Добавляем клонированный элемент в корень документа
     document.body.appendChild(clonedElement);
     return clonedElement;
+  }
+
+  public copyElementToFixedPosition(selector: string) {
+    const originalElement = document.querySelector<HTMLElement>(selector);
+
+    if (!originalElement) {
+      console.error('Element not found');
+      return;
+    }
+
+    // Получаем позицию элемента относительно окна
+    const rect = originalElement.getBoundingClientRect();
+
+    // Создаем новый элемент, который будет копией оригинала
+    const copyElement = originalElement.cloneNode(true) as HTMLElement;
+
+    // Устанавливаем ему стиль `fixed`
+    copyElement.style.position = 'fixed';
+    copyElement.style.top = `${rect.top}px`;
+    copyElement.style.left = `${rect.left}px`;
+    copyElement.style.zIndex = '9999'; // Можно настроить z-index по необходимости
+
+    // Добавляем новый элемент в body (или другой контейнер)
+    document.body.appendChild(copyElement);
+    return copyElement;
+  }
+
+  public copyElementToFixedPosition2(originalElement: any) {
+    if (!originalElement) {
+      console.error('Element not found');
+      return;
+    }
+
+    // Получаем позицию элемента относительно окна
+    const rect = originalElement.getBoundingClientRect();
+
+    // Создаем новый элемент, который будет копией оригинала
+    const copyElement = originalElement.cloneNode(true) as HTMLElement;
+
+    // Устанавливаем ему стиль `fixed`
+    copyElement.style.position = 'fixed';
+    copyElement.style.top = `${rect.top}px`;
+    copyElement.style.left = `${rect.left}px`;
+    copyElement.style.zIndex = '9999'; // Можно настроить z-index по необходимости
+
+    // Добавляем новый элемент в body (или другой контейнер)
+    document.body.appendChild(copyElement);
+    return copyElement;
   }
 }

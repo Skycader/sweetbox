@@ -48,6 +48,7 @@
         <div>Skycader</div>
         <div>
           <img
+            id="user-xp"
             style="width: 12px; height: auto; margin-bottom: 2px"
             src="assets/images/common/xp.webp"
           />
@@ -116,6 +117,7 @@
         aria-label="Example icon-button with menu icon"
       >
         <mat-icon
+          id="storage"
           [matBadge]="getItems()"
           matBadgeColor="accent"
           matBadgeSize="small"
@@ -152,3 +154,4 @@
   </mat-toolbar>
 </p>
 <div class="br"></div>
+<span *ngIf="navbarControl$ | async"></span>

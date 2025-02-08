@@ -101,8 +101,15 @@ export class RangService {
     );
   }
 
-  public getNextRangXp(): number {
-    const xp = this.xp;
+  public nextRangProgress(xp: number = this.xp) {
+    return (
+      ((xp - this.getRang(xp).xp) /
+        (this.getNextRangXp(xp) - this.getRang(xp).xp)) *
+      100
+    );
+  }
+
+  public getNextRangXp(xp: number = this.xp): number {
     const index = this.rangs.findIndex((rang) => rang.xp > xp);
     return this.rangs[index].xp;
   }
