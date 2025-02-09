@@ -11,8 +11,16 @@ export class RareMissions {
 
   private rareMissions: MissionConfig[] = [
     {
+      id: 'big-reading',
+      title: '📖 Прочитать дополнительно 5 глав за день (клик за 1 главу)',
+      step: 20,
+      refreshTime: TimeEnum.DAY,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 1, amount: 1, xp: 40 },
+    },
+    {
       id: 'memos-cards',
-      title: '📖 Словарь Memos достиг 1 800 карточек',
+      title: '📖 Словарь Memos достиг 1 700 карточек',
       step: 100,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
@@ -74,14 +82,7 @@ export class RareMissions {
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 4 },
     },
-    {
-      id: 'big-reading',
-      title: '📖 Прочитать дополнительно 5 глав за день (клик за 1 главу)',
-      step: 20,
-      refreshTime: TimeEnum.DAY,
-      respawnTime: TimeEnum.DAY,
-      reward: { keyType: 1, amount: 1, xp: 200 },
-    },
+
     {
       id: 'chess-za-warudo',
       title: '♟ Победить в шахматах используя The World',

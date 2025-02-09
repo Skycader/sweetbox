@@ -104,11 +104,12 @@ export class RangService {
   }
 
   public nextRangProgress(xp: number = this.xp) {
+    xp -= 0.001;
     return (
       ((xp - this.getRang(xp).xp) /
         (this.getNextRangXp(xp) - this.getRang(xp).xp)) *
       100
-    );
+    ).toFixed(2);
   }
 
   public getNextRangXp(xp: number = this.xp): number {

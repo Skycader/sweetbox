@@ -67,11 +67,7 @@ export class NavbarComponent {
   }
 
   nextRangProgress() {
-    return (
-      ((this.rang.getXp() - this.rang.getRang().xp) /
-        (this.rang.getNextRangXp() - this.rang.getRang().xp)) *
-      100
-    );
+    return this.rang.nextRangProgress();
   }
 
   getRang() {

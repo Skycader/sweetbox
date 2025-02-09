@@ -26,7 +26,7 @@ export class CommonMissions {
       step: 50,
       refreshTime: TimeEnum.HOUR,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 25 },
+      reward: { keyType: 0, amount: 1, xp: 40 },
     },
     {
       id: 'calf-muscles',
@@ -34,7 +34,7 @@ export class CommonMissions {
       step: 25,
       refreshTime: 10 * TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 20 },
+      reward: { keyType: 0, amount: 1, xp: 40 },
     },
     {
       id: 'eat-apple',
@@ -42,7 +42,7 @@ export class CommonMissions {
       step: 100,
       refreshTime: TimeEnum.HOUR,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 4 },
+      reward: { keyType: 0, amount: 1, xp: 10 },
     },
 
     //Ката
@@ -70,7 +70,7 @@ export class CommonMissions {
       step: 20,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 4 },
+      reward: { keyType: 0, amount: 1, xp: 40 },
     },
     {
       id: 'abs',
@@ -78,7 +78,7 @@ export class CommonMissions {
       step: 20,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 4 },
+      reward: { keyType: 0, amount: 1, xp: 40 },
     },
     {
       id: 'squats',
@@ -86,7 +86,7 @@ export class CommonMissions {
       step: 20,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 4 },
+      reward: { keyType: 0, amount: 1, xp: 40 },
     },
     {
       id: 'bicycle-exercise',
@@ -94,7 +94,7 @@ export class CommonMissions {
       step: 20,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 12 },
+      reward: { keyType: 0, amount: 1, xp: 40 },
     },
     {
       id: 'leg-swinging',
@@ -151,7 +151,7 @@ export class CommonMissions {
       step: 50,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 50 },
+      reward: { keyType: 0, amount: 1, xp: 60 },
     },
     {
       id: 'protein',
@@ -159,7 +159,7 @@ export class CommonMissions {
       step: 100,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 20 },
+      reward: { keyType: 0, amount: 1, xp: 10 },
     },
 
     //Растяжка
@@ -169,7 +169,7 @@ export class CommonMissions {
       step: 20,
       refreshTime: TimeEnum.HOUR,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 4 },
+      reward: { keyType: 0, amount: 1, xp: 10 },
     },
     {
       id: 'carpet-stretching',
@@ -203,8 +203,8 @@ export class CommonMissions {
       title: '❤️  Отчистить Memos',
       step: 100,
       refreshTime: 0,
-      respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 2, xp: 10 },
+      respawnTime: 6 * TimeEnum.HOUR,
+      reward: { keyType: 0, amount: 1, xp: 40 },
     },
     {
       id: 'memos-add-card',
@@ -212,7 +212,7 @@ export class CommonMissions {
       step: 100,
       refreshTime: 0,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 20 },
+      reward: { keyType: 0, amount: 1, xp: 40 },
       level: '⬜️🔵',
     },
     {
@@ -220,7 +220,7 @@ export class CommonMissions {
       title: '🇯🇵 1 практика японского языка на дуолинго',
       step: 25,
       refreshTime: TimeEnum.MINUTE,
-      respawnTime: TimeEnum.DAY,
+      respawnTime: 12 * TimeEnum.HOUR,
       reward: { keyType: 0, amount: 1, xp: 12 },
       level: '⬜️🔵',
     },
@@ -228,8 +228,8 @@ export class CommonMissions {
       id: 'duolingo-new-japanese-lesson',
       title: '🇯🇵 Сделать 1 новый урок японского на дуолинго',
       step: 25,
-      refreshTime: TimeEnum.MINUTE,
-      respawnTime: TimeEnum.DAY,
+      refreshTime: 0 * TimeEnum.MINUTE,
+      respawnTime: 0 * 12 * TimeEnum.HOUR,
       reward: { keyType: 0, amount: 1, xp: 20 },
     },
     {
@@ -238,7 +238,7 @@ export class CommonMissions {
       step: 100,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 100 },
+      reward: { keyType: 0, amount: 1, xp: 40 },
     },
     {
       id: 'rubics-cube',
