@@ -17,7 +17,6 @@ export const resourcesList: ItemModelInterface[] = [
   ...energy,
   ...money,
   ...products,
-  ...partsItems,
   ...clothes,
   ...rareProducts,
   ...collectables,

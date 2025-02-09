@@ -75,15 +75,6 @@ export class RareMissions {
       reward: { keyType: 1, amount: 1, xp: 400 }, //эквивалент 1000 отжиманий, 1 000 000 (маршал) = 250 тренировок (почти 2 года, 96 Тренировок за год)
     },
     {
-      id: 'drone-has-found-key',
-      title: '🛸 Дрон нашел ключ',
-      step: 100,
-      refreshTime: TimeEnum.DAY,
-      respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 4 },
-    },
-
-    {
       id: 'chess-za-warudo',
       title: '♟ Победить в шахматах используя The World',
       step: 100,
