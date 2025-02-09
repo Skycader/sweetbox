@@ -11,6 +11,7 @@ export class EpicMissions {
 
   private epicMissions: MissionConfig[] = [
     {
+      id: 'java-homework',
       title: '☕️ Сделать домашку по Java курсу',
       step: 100,
       refreshTime: TimeEnum.MINUTE,
@@ -18,6 +19,7 @@ export class EpicMissions {
       reward: { keyType: 2, amount: 3, xp: 400 },
     },
     {
+      id: 'grid-css',
       title: '📓 Сделать проект на GRID CSS',
       step: 100,
       refreshTime: TimeEnum.MINUTE,

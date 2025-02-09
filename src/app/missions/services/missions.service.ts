@@ -5,6 +5,7 @@ import { RangService } from '../../rangs/services/rang.service';
 import { Mission } from './mission.class';
 
 export interface MissionConfig {
+  id: string;
   title: string;
   step: number;
   refreshTime: number;

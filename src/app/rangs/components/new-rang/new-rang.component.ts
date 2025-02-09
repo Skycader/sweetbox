@@ -16,10 +16,10 @@ export class NewRangComponent {
     private rangService: RangService,
     private modalRef: DialogRef,
     private storage: StorageService,
-  ) { }
+  ) {}
 
   ngOnInit() {
-    const audio = new Audio(`assets/audio/level-up.mp3`);
+    const audio = new Audio(`assets/audio/level-up-2.m4a`);
     audio.volume = 1;
     audio.play();
   }

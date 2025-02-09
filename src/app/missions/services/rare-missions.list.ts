@@ -11,6 +11,7 @@ export class RareMissions {
 
   private rareMissions: MissionConfig[] = [
     {
+      id: 'memos-cards',
       title: '📖 Словарь Memos достиг 1 800 карточек',
       step: 100,
       refreshTime: TimeEnum.MINUTE,
@@ -18,6 +19,7 @@ export class RareMissions {
       reward: { keyType: 1, amount: 5, xp: 1000 },
     },
     {
+      id: 'memos-power',
       title: '📖 Мощь Memos достигла 15 000 000 часов',
       step: 100,
       refreshTime: TimeEnum.MINUTE,
@@ -25,6 +27,7 @@ export class RareMissions {
       reward: { keyType: 1, amount: 5, xp: 1000 },
     },
     {
+      id: 'cleaning-time',
       title: '💧 Помыть и пропылесосить полы',
       step: 100,
       refreshTime: TimeEnum.SECOND,
@@ -32,6 +35,7 @@ export class RareMissions {
       reward: { keyType: 1, amount: 1, xp: 1000 },
     },
     {
+      id: 'algorithm-task',
       title: '📖 Решить алгоритмическую задачу',
       step: 50,
       refreshTime: TimeEnum.MINUTE,
@@ -39,6 +43,7 @@ export class RareMissions {
       reward: { keyType: 1, amount: 1, xp: 100 },
     },
     {
+      id: 'japanese-unit-legendary',
       title: '🇯🇵 Сделать юнит японского легендарным',
       step: 100,
       refreshTime: TimeEnum.DAY,
@@ -46,6 +51,7 @@ export class RareMissions {
       reward: { keyType: 1, amount: 1, xp: 200 },
     },
     {
+      id: 'finish-japanese-unit',
       title: '🇯🇵 Закончить юнит японского',
       step: 100,
       refreshTime: TimeEnum.DAY,
@@ -53,6 +59,7 @@ export class RareMissions {
       reward: { keyType: 1, amount: 1, xp: 200 },
     },
     {
+      id: 'karate-training',
       title: '🥋 Сходить на тренировку по каратэ',
       step: 100,
       refreshTime: TimeEnum.DAY,
@@ -60,6 +67,7 @@ export class RareMissions {
       reward: { keyType: 1, amount: 1, xp: 400 }, //эквивалент 1000 отжиманий, 1 000 000 (маршал) = 250 тренировок (почти 2 года, 96 Тренировок за год)
     },
     {
+      id: 'drone-has-found-key',
       title: '🛸 Дрон нашел ключ',
       step: 100,
       refreshTime: TimeEnum.DAY,
@@ -67,6 +75,7 @@ export class RareMissions {
       reward: { keyType: 0, amount: 1, xp: 4 },
     },
     {
+      id: 'big-reading',
       title: '📖 Прочитать дополнительно 5 глав за день (клик за 1 главу)',
       step: 20,
       refreshTime: TimeEnum.DAY,
@@ -74,6 +83,7 @@ export class RareMissions {
       reward: { keyType: 1, amount: 1, xp: 200 },
     },
     {
+      id: 'chess-za-warudo',
       title: '♟ Победить в шахматах используя The World',
       step: 100,
       refreshTime: 6 * TimeEnum.DAY,

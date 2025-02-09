@@ -85,9 +85,9 @@ export class NavbarComponent {
   getXp() {
     return this.rang.getXp();
   }
-  loadMission(title: string): any {
+  loadMission(id: string): any {
     const missions = this.persistance.getItem('missions');
-    return missions[title];
+    return missions[id];
   }
 
   getMissions() {

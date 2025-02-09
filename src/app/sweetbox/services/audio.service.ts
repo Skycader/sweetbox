@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AudioService {
-  constructor() { }
+  constructor() {}
 
   playSound(fileName: string, stopAfter: number = 0) {
     const audio = new Audio(`assets/audio/${fileName}`);
@@ -16,4 +16,18 @@ export class AudioService {
       }, stopAfter);
     }
   }
+
+  playGainXp() {
+    const audio = new Audio(`assets/audio/xp/${getRandomInt(1, 5)}.mp3`);
+    audio.play();
+  }
+}
+
+function getRandomInt(min: number, max: number): number {
+  // Убедимся, что min и max - целые числа
+  min = Math.ceil(min);
+  max = Math.floor(max);
+
+  // Генерируем случайное целое число в диапазоне [min, max]
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }

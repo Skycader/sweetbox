@@ -11,6 +11,7 @@ export class LegendaryMissions {
 
   private legendaryMissions: MissionConfig[] = [
     {
+      id: 'blue-belt-japanese',
       title: '🇯🇵 Довести уровень японского до синего пояса',
       step: 100,
       refreshTime: TimeEnum.HOUR,
@@ -18,6 +19,7 @@ export class LegendaryMissions {
       reward: { keyType: 3, amount: 1, xp: 2000 },
     },
     {
+      id: 'mission-minimalism',
       title: '🧹 Миссия Минимализм',
       step: 100,
       refreshTime: 6 * TimeEnum.HOUR,
@@ -25,6 +27,7 @@ export class LegendaryMissions {
       reward: { keyType: 3, amount: 1, xp: 400 },
     },
     {
+      id: 'finish-java-course',
       title: '☕️ Завершить Java курс',
       step: 100,
       refreshTime: 6 * TimeEnum.HOUR,
@@ -32,6 +35,7 @@ export class LegendaryMissions {
       reward: { keyType: 3, amount: 1, xp: 4000 },
     },
     {
+      id: 'finish-book-reading',
       title: '📖 Завершить чтение "Взломать Всё"',
       step: 100,
       refreshTime: 6 * TimeEnum.HOUR,
@@ -39,6 +43,7 @@ export class LegendaryMissions {
       reward: { keyType: 3, amount: 1, xp: 1000 },
     },
     {
+      id: 'finish-sql-book',
       title: '📓 Закончить чтение книги SQL бычстрое погружение (+практика)',
       step: 100,
       refreshTime: TimeEnum.MINUTE,
@@ -46,6 +51,7 @@ export class LegendaryMissions {
       reward: { keyType: 3, amount: 1, xp: 1000 },
     },
     {
+      id: 'learn-lodash',
       title: '📓 Изучить Lodash (добавить 10 упражнений по Lodash)',
       step: 100,
       refreshTime: TimeEnum.MINUTE,
@@ -53,6 +59,7 @@ export class LegendaryMissions {
       reward: { keyType: 3, amount: 1, xp: 1000 },
     },
     {
+      id: 'learn-c-lang',
       title: '📓 Изучить язык Си (добавить 10 упражнений по Си)',
       step: 100,
       refreshTime: TimeEnum.MINUTE,

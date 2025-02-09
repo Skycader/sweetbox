@@ -3,6 +3,7 @@ import { PersistanceService } from '../../common/services/persistance.service';
 import { MatDialog } from '@angular/material/dialog';
 import { RangListComponent } from '../components/rang-list/rang-list.component';
 import { NewRangComponent } from '../components/new-rang/new-rang.component';
+import { AudioService } from '../../sweetbox/services/audio.service';
 
 interface RangInterface {
   title: string;
@@ -64,6 +65,7 @@ export class RangService {
   constructor(
     private persistance: PersistanceService,
     private dialog: MatDialog,
+    private audio: AudioService,
   ) {
     if (!this.persistance.getItem('xp')) this.persistance.setItem('xp', 0);
 
@@ -119,6 +121,7 @@ export class RangService {
   }
 
   public addXp(xp: number) {
+    this.audio.playGainXp();
     this.xp += xp;
     this.persistance.setItem('xp', this.xp);
   }

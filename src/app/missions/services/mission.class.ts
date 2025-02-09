@@ -26,7 +26,7 @@ export class Mission {
       persistance: PersistanceService;
     },
   ) {
-    this.stats = this.loadMissionStats(this.config.title) || this.stats;
+    this.stats = this.loadMissionStats(this.config.id) || this.stats;
     this.disabledUntil = this.stats.disabledUntil;
     this.progress = this.stats.progress;
     this.isCompletedUntil = this.stats.isCompletedUntil;
@@ -197,7 +197,7 @@ export class Mission {
     }
 
     const missions = this.deps.persistance.getItem('missions') || [];
-    missions[this.config.title] = this.stats;
+    missions[this.config.id] = this.stats;
     this.deps.persistance.setItem('missions', missions);
   }
 
@@ -217,9 +217,9 @@ export class Mission {
     return this.requiredProgress;
   }
 
-  public loadMissionStats(title: string) {
+  public loadMissionStats(id: string) {
     if (this.deps.persistance.getItem('missions')) {
-      return this.deps.persistance.getItem('missions')[title];
+      return this.deps.persistance.getItem('missions')[id];
     } else {
       this.deps.persistance.setItem('missions', {});
       return null;
@@ -232,7 +232,7 @@ export class Mission {
     }
 
     const missions = this.deps.persistance.getItem('missions');
-    missions[this.config.title] = this.stats;
+    missions[this.config.id] = this.stats;
     this.deps.persistance.setItem('missions', missions);
   }
 }
