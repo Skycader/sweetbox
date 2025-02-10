@@ -7,7 +7,7 @@ import { TimeEnum } from '../models/time.list.enum';
   providedIn: 'root',
 })
 export class CommonMissions {
-  constructor(private mission: MissionsService) {}
+  constructor(private mission: MissionsService) { }
 
   private commonMissions: MissionConfig[] = [
     {
@@ -175,7 +175,7 @@ export class CommonMissions {
       id: 'carpet-stretching',
       title: '🥋 Сделать растяжку ног на коврике - с дисками гантелей',
       step: 50,
-      refreshTime: TimeEnum.HOUR,
+      refreshTime: 10 * TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 40 },
     },
@@ -183,7 +183,7 @@ export class CommonMissions {
       id: 'long-split',
       title: '🥋 Растяжка - продольный шпагат на полу',
       step: 50,
-      refreshTime: TimeEnum.HOUR,
+      refreshTime: 10 * TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 40 },
     },
@@ -192,7 +192,7 @@ export class CommonMissions {
       title: '🥋 Растяжка - поперечный шпагат у стенки',
       level: '110°',
       step: 50,
-      refreshTime: TimeEnum.HOUR,
+      refreshTime: 10 * TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 40 },
     },

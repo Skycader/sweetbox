@@ -25,4 +25,16 @@ export const coins: ItemModelInterface[] = [
     image: 'assets/images/coins/rubins.webp',
     sound: 'legendary.m4a',
   },
+  {
+    title: '1 старкоин',
+    type: 'legendary',
+    image: 'assets/images/coins/starcoin.webp',
+    sound: 'legendary.m4a',
+  },
+  {
+    title: 'Голд - 10 000 кристаллов',
+    type: 'legendary',
+    image: 'assets/images/coins/gold.png',
+    sound: 'legendary.m4a',
+  },
 ];

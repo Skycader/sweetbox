@@ -7,7 +7,7 @@ import { TimeEnum } from '../models/time.list.enum';
   providedIn: 'root',
 })
 export class EpicMissions {
-  constructor(private mission: MissionsService) {}
+  constructor(private mission: MissionsService) { }
 
   private epicMissions: MissionConfig[] = [
     {
@@ -18,6 +18,15 @@ export class EpicMissions {
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 2, amount: 3, xp: 400 },
     },
+    {
+      id: 'regexp-mission',
+      title: '📓 Освоить следующую главу регулярных выражений',
+      step: 100,
+      refreshTime: TimeEnum.MINUTE,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 2, amount: 3, xp: 400 },
+    },
+
     {
       id: 'grid-css',
       title: '📓 Сделать проект на GRID CSS',
