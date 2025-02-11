@@ -10,8 +10,9 @@ import { NavbarService } from '../../../common/services/navbar.service';
 export class MissionComponent {
   @Input() mission!: Mission;
   @Input() unlockMission: boolean = false;
+  @Input() mining: boolean = false;
 
-  constructor(private navbarService: NavbarService) {}
+  constructor(private navbarService: NavbarService) { }
 
   public earnXp() {
     this.navbarService.controlNavbar$.next('open');

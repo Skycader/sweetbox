@@ -3,6 +3,7 @@ import { clothes } from './clothes.resource';
 import { coins } from './coins.resource';
 import { collectables } from './collectables.resource';
 import { energy } from './energy.resource';
+import { inGameResource } from './game.resource';
 import { keys, multipleKeys } from './keys.resource';
 import { legendaryItems } from './legendary.resource';
 import { money } from './money.resource';
@@ -21,4 +22,5 @@ export const resourcesList: ItemModelInterface[] = [
   ...rareProducts,
   ...collectables,
   ...legendaryItems,
+  ...inGameResource,
 ];
