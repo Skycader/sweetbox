@@ -7,25 +7,9 @@ import { TimeEnum } from '../models/time.list.enum';
   providedIn: 'root',
 })
 export class LegendaryMissions {
-  constructor(private mission: MissionsService) {}
+  constructor(private mission: MissionsService) { }
 
   private legendaryMissions: MissionConfig[] = [
-    {
-      id: 'blue-belt-japanese',
-      title: '🇯🇵 Довести уровень японского до синего пояса',
-      step: 100,
-      refreshTime: TimeEnum.HOUR,
-      respawnTime: 365 * TimeEnum.DAY,
-      reward: { keyType: 3, amount: 1, xp: 2000 },
-    },
-    {
-      id: 'mission-minimalism',
-      title: '🧹 Миссия Минимализм',
-      step: 100,
-      refreshTime: 6 * TimeEnum.HOUR,
-      respawnTime: 24 * TimeEnum.HOUR,
-      reward: { keyType: 3, amount: 1, xp: 400 },
-    },
     {
       id: 'finish-java-course',
       title: '☕️ Завершить Java курс',

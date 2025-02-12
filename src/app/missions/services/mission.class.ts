@@ -2,6 +2,7 @@ import { PersistanceService } from '../../common/services/persistance.service';
 import { RangService } from '../../rangs/services/rang.service';
 import { StorageService } from '../../storage/services/storage.service';
 import { keys } from '../../sweetbox/resources/keys.resource';
+import { MissionStats } from '../models/mission-stats.model';
 import { Streak } from '../models/streak.model';
 import { CompletedPipe } from '../utils/pipes/completed.pipe';
 import { MissionConfig } from './missions.service';
@@ -11,11 +12,13 @@ export class Mission {
   private progress = 0;
   private requiredProgress = 0;
   private isCompletedUntil = 0;
-  private stats: any = {
+  private stats: MissionStats = {
     progress: 0,
     disabledUntil: Date.now(),
     isCompletedUntil: Date.now(),
     skillXp: 0,
+    doneToday: 0,
+    todoDate: '',
   };
 
   constructor(
@@ -26,7 +29,9 @@ export class Mission {
       persistance: PersistanceService;
     },
   ) {
-    this.stats = this.loadMissionStats(this.config.id) || this.stats;
+    this.stats =
+      { ...this.stats, ...this.loadMissionStats(this.config.id) } || this.stats;
+
     this.disabledUntil = this.stats.disabledUntil;
     this.progress = this.stats.progress;
     this.isCompletedUntil = this.stats.isCompletedUntil;
@@ -57,6 +62,8 @@ export class Mission {
       xp: this.config.reward.xp,
       level: this.config.level,
       skillXp: this.stats.skillXp,
+      maxPerDay: this.config.maxPerDay,
+      doneToday: this.stats.doneToday,
     };
   }
 
@@ -124,7 +131,7 @@ export class Mission {
   }
 
   public refreshTodo() {
-    if (this.stats.todoDate === undefined) this.stats.todoDate = this.today();
+    if (this.stats.todoDate === '') this.stats.todoDate = this.today();
 
     if (this.stats.todoDate !== this.today()) {
       this.stats.todoDate = this.today();
@@ -134,7 +141,12 @@ export class Mission {
       this.disabledUntil = 0;
       this.progress = 0;
       this.isCompletedUntil = 0;
+      this.stats.doneToday = 0;
     }
+  }
+
+  public getDoneToday() {
+    return this.stats.doneToday;
   }
 
   public getSkillXp() {
@@ -147,6 +159,12 @@ export class Mission {
 
   public getSkillProgress() {
     return this.deps.rang.nextRangProgress(this.stats.skillXp) + '%';
+  }
+
+  public leftToDoToday() {
+    if (this.config.maxPerDay && this.stats.doneToday)
+      return this.config.maxPerDay - this.stats.doneToday;
+    return this.config.maxPerDay;
   }
 
   public complete() {
@@ -183,6 +201,8 @@ export class Mission {
     }
 
     if (this.progress >= 100) {
+      this.stats.doneToday += 1;
+
       const audio = new Audio(`assets/audio/mission-complete.m4a`);
       audio.play();
 
@@ -227,6 +247,7 @@ export class Mission {
   }
 
   public init() {
+    console.log('init');
     if (!this.deps.persistance.getItem('missions')) {
       this.deps.persistance.setItem('missions', {});
     }
@@ -241,7 +262,7 @@ Date.prototype.toISOString = function toIsoString() {
   const date = this;
   var tzo = -date.getTimezoneOffset(),
     dif = tzo >= 0 ? '+' : '-',
-    pad = function (num: number) {
+    pad = function(num: number) {
       return (num < 10 ? '0' : '') + num;
     };
 

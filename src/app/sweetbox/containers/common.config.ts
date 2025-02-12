@@ -6,6 +6,7 @@ import { keys } from '../resources/keys.resource';
 import { money } from '../resources/money.resource';
 import { partsItems } from '../resources/parts.resource';
 import { products } from '../resources/products.resource';
+import { quests } from '../resources/quests.resource';
 
 Array.prototype.repeat = function <T>(this: T[], count: number): T[] {
   let output: T[] = this;
@@ -40,4 +41,5 @@ export const commonContainer = [
   ...[keys[1]], //Редкий ключ
   ...[coins[4]], //1 старкоин
   ...[coins[5]], //Голд
+  ...[...quests],
 ];

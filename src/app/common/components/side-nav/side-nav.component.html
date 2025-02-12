@@ -53,7 +53,9 @@
           <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
 
           <div matListItemTitle>
-            {{ item.title }}
+            <button mat-raised-button (click)="item.method()">
+              {{ item.title }}
+            </button>
           </div>
         </mat-list-item>
       }

@@ -10,6 +10,7 @@ export interface MissionConfig {
   step: number;
   refreshTime: number;
   respawnTime: number;
+  maxPerDay?: number;
   reward: Reward;
   autocomplete?: boolean;
   level?: string;
@@ -29,7 +30,7 @@ export class MissionsService {
     private persistance: PersistanceService,
     private storage: StorageService,
     private rang: RangService,
-  ) {}
+  ) { }
 
   public make(config: MissionConfig) {
     if (!config?.autocomplete) config.autocomplete = false;

@@ -7,8 +7,8 @@ import { inGameResource } from './game.resource';
 import { keys, multipleKeys } from './keys.resource';
 import { legendaryItems } from './legendary.resource';
 import { money } from './money.resource';
-import { partsItems } from './parts.resource';
 import { products } from './products.resource';
+import { quests } from './quests.resource';
 import { rareProducts } from './rare-products.resource';
 
 export const resourcesList: ItemModelInterface[] = [
@@ -23,4 +23,5 @@ export const resourcesList: ItemModelInterface[] = [
   ...collectables,
   ...legendaryItems,
   ...inGameResource,
+  ...quests,
 ];

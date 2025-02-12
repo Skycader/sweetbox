@@ -7,16 +7,16 @@ import { TimeEnum } from '../models/time.list.enum';
   providedIn: 'root',
 })
 export class RareMissions {
-  constructor(private mission: MissionsService) {}
+  constructor(private mission: MissionsService) { }
 
   private rareMissions: MissionConfig[] = [
     {
-      id: 'big-reading',
-      title: '📖 Прочитать дополнительно 5 глав за день (клик за 1 главу)',
-      step: 20,
-      refreshTime: TimeEnum.DAY,
-      respawnTime: TimeEnum.DAY,
-      reward: { keyType: 1, amount: 1, xp: 40 },
+      id: 'blue-belt-japanese',
+      title: '🇯🇵 Довести уровень японского до синего пояса',
+      step: 100,
+      refreshTime: TimeEnum.HOUR,
+      respawnTime: 365 * TimeEnum.DAY,
+      reward: { keyType: 1, amount: 10, xp: 2000 },
     },
     {
       id: 'memos-cards',

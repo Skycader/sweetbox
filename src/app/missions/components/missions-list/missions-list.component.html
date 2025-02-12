@@ -18,19 +18,6 @@
         >
           ⬤ Ежедневные задания ({{ commonMissions | completed }} /
           {{ commonMissions.length }})
-          <!-- <mat-slide-toggle -->
-          <!--   color="primary" -->
-          <!--   [checked]="hideCompletedMissions" -->
-          <!--   (change)="toggle()" -->
-          <!--   class="ms-2" -->
-          <!-- ></mat-slide-toggle> -->
-
-          <!-- <mat-slide-toggle -->
-          <!--   color="accent" -->
-          <!--   [checked]="miningMode" -->
-          <!--   (change)="toggleMining()" -->
-          <!--   class="ms-2" -->
-          <!-- ></mat-slide-toggle> -->
         </div>
       </ng-template>
       <br />
@@ -43,6 +30,7 @@
         />
       </ng-container>
     </mat-tab>
+
     <mat-tab label="⬤ Редкие задания">
       <br />
       <ng-container *ngFor="let mission of rareMissions">

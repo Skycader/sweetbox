@@ -56,7 +56,7 @@ export class NavbarComponent {
     private storage: StorageService,
     private rang: RangService,
     private common: CommonMissions,
-  ) {}
+  ) { }
 
   showRangs() {
     this.rang.showRangs();
@@ -87,7 +87,8 @@ export class NavbarComponent {
   }
 
   getMissions() {
-    return CompletedPipe.countPending(this.common.get());
+    return -1;
+    return CompletedPipe.countPending(this.persistance.getItem('missions'));
   }
 
   getItems() {
@@ -107,7 +108,7 @@ export class NavbarComponent {
 
   public xpToday = this.persistance.getItem('xp-today', 0);
 
-  public dailyRefresh = interval(100).pipe(
+  public dailyRefresh$ = interval(100).pipe(
     tap(() => {
       this.streak = Streak.getStreak().days;
       this.doneToday = Streak.getStreak().doneToday;
@@ -135,6 +136,8 @@ export class NavbarComponent {
         this.persistance.setItem('streak', streak);
 
         this.persistance.setItem('today', today);
+
+        location.reload();
       }
     }),
     switchMap(() => {

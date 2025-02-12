@@ -8,7 +8,7 @@ import { Mission } from '../../services/mission.class';
 export class CompletedPipe implements PipeTransform {
   public static countCompleted(missions: Mission[]) {
     return missions.reduce(
-      (total, mission) => (mission.isCompleted() ? (total += 1) : total),
+      (total, mission) => (mission.getDoneToday() > 0 ? (total += 1) : total),
       0,
     );
   }
@@ -22,7 +22,7 @@ export class CompletedPipe implements PipeTransform {
 
   transform(missions: Mission[]): number {
     return missions.reduce(
-      (total, mission) => (mission.isCompleted() ? (total += 1) : total),
+      (total, mission) => (mission.getDoneToday() > 0 ? (total += 1) : total),
       0,
     );
   }

@@ -84,6 +84,20 @@
     >
 
     <mat-chip-option
+      *ngIf="
+        mission.getConfig().maxPerDay !== undefined &&
+        mission.getDoneToday() !== undefined
+      "
+      color="primary"
+      matTooltip="Сегодня это задание можно выполнить ещё {{
+        mission.leftToDoToday()
+      }} раз"
+      selected
+    >
+      {{ mission.getDoneToday() }} / {{ mission.getConfig().maxPerDay }}
+    </mat-chip-option>
+
+    <mat-chip-option
       color="warn"
       [matTooltip]="
         mission.earlyBirdReward() > 2 ? 'Утренний бонус' : 'Дневной бонус'
