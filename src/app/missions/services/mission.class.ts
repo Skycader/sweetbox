@@ -1,3 +1,4 @@
+import { NotificationService } from '../../common/services/notification.service';
 import { PersistanceService } from '../../common/services/persistance.service';
 import { RangService } from '../../rangs/services/rang.service';
 import { StorageService } from '../../storage/services/storage.service';
@@ -19,6 +20,7 @@ export class Mission {
     skillXp: 0,
     doneToday: 0,
     todoDate: '',
+    notifiedReady: true,
   };
 
   constructor(
@@ -27,6 +29,7 @@ export class Mission {
       rang: RangService;
       storage: StorageService;
       persistance: PersistanceService;
+      notification: NotificationService;
     },
   ) {
     this.stats =
@@ -168,6 +171,8 @@ export class Mission {
   }
 
   public complete() {
+    this.stats.notifiedReady = false;
+
     let xpToday = this.deps.persistance.getItem('xp-today', 0);
     xpToday += this.config.reward.xp;
     this.deps.persistance.setItem('xp-today', xpToday);
@@ -214,14 +219,27 @@ export class Mission {
       this.stats.progress = this.progress;
       this.isCompletedUntil = Date.now() + this.config.respawnTime;
       this.stats.isCompletedUntil = this.isCompletedUntil;
-    }
 
+      this.sync();
+    }
+  }
+
+  sync() {
     const missions = this.deps.persistance.getItem('missions') || [];
     missions[this.config.id] = this.stats;
     this.deps.persistance.setItem('missions', missions);
   }
 
   public isDisabled() {
+    if (
+      this.disabledUntil <= Date.now() &&
+      this.stats.notifiedReady === false &&
+      this.progress > 0
+    ) {
+      this.deps.notification.notify(`${this.config.title}`);
+      this.stats.notifiedReady = true;
+      this.sync();
+    }
     return this.disabledUntil > Date.now();
   }
 
@@ -247,7 +265,6 @@ export class Mission {
   }
 
   public init() {
-    console.log('init');
     if (!this.deps.persistance.getItem('missions')) {
       this.deps.persistance.setItem('missions', {});
     }

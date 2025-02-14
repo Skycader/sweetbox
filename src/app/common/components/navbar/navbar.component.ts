@@ -124,6 +124,8 @@ export class NavbarComponent {
       if (localDate !== today) {
         //Начался новый день
 
+        downloadLocalStorageAsJSON();
+
         this.persistance.setItem('xp-today', '0');
 
         if (!this.persistance.getItem('streak'))
@@ -144,4 +146,38 @@ export class NavbarComponent {
       return of(true);
     }),
   );
+}
+
+function downloadLocalStorageAsJSON(
+  filename: string = 'localStorageData.json',
+) {
+  const localStorageData: { [key: string]: string } = {};
+
+  // Извлекаем данные из localStorage
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key !== null) {
+      localStorageData[key] = localStorage.getItem(key) as string;
+    }
+  }
+
+  // Преобразуем объект в JSON-строку
+  const jsonContent = JSON.stringify(localStorageData, null, 2);
+
+  // СоздаемBlob и ссылку для скачивания
+  const blob = new Blob([jsonContent], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+
+  // Создаем временный элемент a для скачивания
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+
+  // Добавляем элемент в DOM, инициируем клик и удаляем элемент
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+
+  // Освобождаем URL-объект
+  URL.revokeObjectURL(url);
 }

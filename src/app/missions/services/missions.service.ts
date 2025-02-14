@@ -3,6 +3,7 @@ import { PersistanceService } from '../../common/services/persistance.service';
 import { StorageService } from '../../storage/services/storage.service';
 import { RangService } from '../../rangs/services/rang.service';
 import { Mission } from './mission.class';
+import { NotificationService } from '../../common/services/notification.service';
 
 export interface MissionConfig {
   id: string;
@@ -30,6 +31,7 @@ export class MissionsService {
     private persistance: PersistanceService,
     private storage: StorageService,
     private rang: RangService,
+    private notification: NotificationService,
   ) { }
 
   public make(config: MissionConfig) {
@@ -38,6 +40,7 @@ export class MissionsService {
       rang: this.rang,
       persistance: this.persistance,
       storage: this.storage,
+      notification: this.notification,
     });
   }
 }

@@ -5,4 +5,5 @@ export interface MissionStats {
   skillXp: number;
   doneToday: number;
   todoDate: string;
+  notifiedReady: boolean;
 }

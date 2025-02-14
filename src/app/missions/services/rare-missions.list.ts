@@ -55,7 +55,7 @@ export class RareMissions {
       title: '🇯🇵 Сделать юнит японского легендарным',
       step: 100,
       refreshTime: TimeEnum.DAY,
-      respawnTime: TimeEnum.DAY,
+      respawnTime: 10 * TimeEnum.SECOND,
       reward: { keyType: 1, amount: 1, xp: 200 },
     },
     {
@@ -72,7 +72,7 @@ export class RareMissions {
       step: 100,
       refreshTime: TimeEnum.DAY,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 1, amount: 1, xp: 400 }, //эквивалент 1000 отжиманий, 1 000 000 (маршал) = 250 тренировок (почти 2 года, 96 Тренировок за год)
+      reward: { keyType: 1, amount: 1, xp: 1500 }, //по 500 за уровень пояса (нет кю, 10 кю, 9 кю)
     },
     {
       id: 'chess-za-warudo',

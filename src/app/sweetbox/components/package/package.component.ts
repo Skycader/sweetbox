@@ -71,8 +71,6 @@ export class PackageComponent {
       openAll ? -this.getKeys() : -1,
     );
 
-    console.log(this.items);
-
     this.isShowingPackage = !this.isShowingPackage;
     this.get();
     this.iterator = 0;

@@ -166,6 +166,3 @@ function toIsoString(date: Date) {
     pad(Math.abs(tzo) % 60)
   );
 }
-
-var dt = new Date();
-console.log(toIsoString(dt));
