@@ -2,7 +2,7 @@ import { ItemModelInterface } from '../models/item.model';
 
 export const collectables: ItemModelInterface[] = [
   {
-    title: 'JoJo карточка',
+    title: 'Пачка JoJo карточек',
     type: 'rare',
     image: 'assets/images/collectables/jojo-card.png',
     sound: 'rare.m4a',
@@ -23,7 +23,7 @@ export const collectables: ItemModelInterface[] = [
     height: 270,
   },
   {
-    title: 'JoJo карточка',
+    title: 'Пачка JoJo карточек',
     type: 'rare',
     image: 'assets/images/collectables/jojo-card.png',
     sound: 'rare.m4a',
@@ -31,7 +31,7 @@ export const collectables: ItemModelInterface[] = [
     height: 270,
   },
   {
-    title: 'JoJo карточка',
+    title: 'Пачка JoJo карточек',
     type: 'rare',
     image: 'assets/images/collectables/jojo-card.png',
     sound: 'rare.m4a',

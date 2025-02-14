@@ -12,7 +12,7 @@ export class RareMissions {
   private rareMissions: MissionConfig[] = [
     {
       id: 'blue-belt-japanese',
-      title: '🇯🇵 Довести уровень японского до синего пояса',
+      title: '🇯🇵 Получить 🟦 пояс по японскому языку ',
       step: 100,
       refreshTime: TimeEnum.HOUR,
       respawnTime: 365 * TimeEnum.DAY,
@@ -28,7 +28,7 @@ export class RareMissions {
     },
     {
       id: 'memos-power',
-      title: '📖 Мощь Memos достигла 15 000 000 часов',
+      title: '📖 Мощь Memos достигла 16 000 000 часов',
       step: 100,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,

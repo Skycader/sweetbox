@@ -28,6 +28,23 @@ export class EpicMissions {
     },
     {
       id: 'regexp-mission',
+      title: '📓 Освоить HTML карточки',
+      step: 100,
+      refreshTime: TimeEnum.MINUTE,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 2, amount: 3, xp: 400 },
+    },
+    {
+      id: 'regexp-mission',
+      title:
+        '📓 Добавить форматировщик красивых чисел => 123456 превращает в 123 456',
+      step: 100,
+      refreshTime: TimeEnum.MINUTE,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 2, amount: 3, xp: 400 },
+    },
+    {
+      id: 'regexp-mission',
       title: '📓 Освоить следующую главу регулярных выражений',
       step: 100,
       refreshTime: TimeEnum.MINUTE,

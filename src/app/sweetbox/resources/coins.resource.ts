@@ -37,4 +37,10 @@ export const coins: ItemModelInterface[] = [
     image: 'assets/images/coins/gold.png',
     sound: 'legendary.m4a',
   },
+  {
+    title: 'Мегаголд - 4500 рубинов',
+    type: 'legendary',
+    image: 'assets/images/coins/ruby-megagold-2.png',
+    sound: 'legendary.m4a',
+  },
 ];

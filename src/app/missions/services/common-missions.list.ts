@@ -202,7 +202,7 @@ export class CommonMissions {
       respawnTime: 40 * TimeEnum.MINUTE,
       reward: { keyType: 0, amount: 1, xp: 124 },
       level: '🟦🟡 124°',
-      maxPerDay: 3,
+      maxPerDay: 5,
     },
 
     //Ментальные упражнения
