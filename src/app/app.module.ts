@@ -18,6 +18,7 @@ import { MainModule } from './main/main.module';
 import { AuthModule } from './auth/auth.module';
 import { ProfileModule } from './profile/profile.module';
 import { RootModule } from './root/root.module';
+import { AchivementsModule } from './achivements/achivements.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +29,7 @@ import { RootModule } from './root/root.module';
     ProfileModule,
     RootModule,
     AppCommonModule,
+    AchivementsModule,
     MainModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),

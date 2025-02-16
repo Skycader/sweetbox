@@ -31,10 +31,10 @@ export class CommonMissions {
     {
       id: 'calf-muscles',
       title: '💪 Тренировка икроножных мышц - 100 раз',
-      step: 25,
+      step: 50,
       refreshTime: 10 * TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 2, xp: 100 }, //1xp за работу
+      reward: { keyType: 0, amount: 1, xp: 100 }, //1xp за работу
     },
     {
       id: 'eat-apple',
@@ -219,8 +219,8 @@ export class CommonMissions {
       id: 'memos-add-card',
       title: '❤️  Memos - добавить 1 карточку',
       step: 100,
-      refreshTime: 0,
-      respawnTime: TimeEnum.MINUTE,
+      refreshTime: TimeEnum.SECOND,
+      respawnTime: TimeEnum.SECOND,
       reward: { keyType: 0, amount: 1, xp: 40 },
       maxPerDay: 5,
     },
@@ -228,7 +228,7 @@ export class CommonMissions {
       id: 'duolingo-japanese-practice',
       title: '🇯🇵 1 практика японского языка на дуолинго',
       step: 25,
-      refreshTime: TimeEnum.MINUTE,
+      refreshTime: TimeEnum.SECOND,
       respawnTime: 12 * TimeEnum.HOUR,
       reward: { keyType: 0, amount: 2, xp: 12 },
       level: '⬜️🔵',
@@ -238,7 +238,7 @@ export class CommonMissions {
       id: 'duolingo-new-japanese-lesson',
       title: '🇯🇵 Сделать 1 новый урок японского на дуолинго',
       step: 25,
-      refreshTime: 10 * TimeEnum.SECOND,
+      refreshTime: TimeEnum.SECOND,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 2, xp: 20 },
       level: '⬜️🔵',

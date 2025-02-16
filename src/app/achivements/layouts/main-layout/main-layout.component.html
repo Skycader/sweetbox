@@ -1,0 +1,15 @@
+<div class="progress-container">
+  <div class="progress-bar">
+    <div class="progress" id="progress"></div>
+  </div>
+  <div class="progress-info" id="progressInfo">
+    Получено достижений: {{ 0 }} / {{ achivements.length }}
+  </div>
+</div>
+
+<div class="grid" id="cardGrid">
+  <app-achivement
+    *ngFor="let achivement of achivements"
+    [achivement]="achivement"
+  />
+</div>

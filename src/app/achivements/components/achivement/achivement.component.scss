@@ -1,0 +1,119 @@
+.card {
+  border: none !important;
+  background: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  perspective: 1000px;
+  transition:
+    opacity 0.3s ease,
+    box-shadow 0.3s ease;
+  aspect-ratio: 1024/1024;
+  display: flex;
+  flex-direction: column;
+}
+
+.card.unlocked {
+  opacity: 1;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 10px;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  font-weight: bold;
+  // filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.card.unlocked .card-front {
+  // filter: grayscale(0%);
+}
+
+.card-back {
+  color: #fff;
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.locked {
+  filter: grayscale(100%);
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  border-radius: 10px;
+}
+
+.description {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+
+  mat-icon {
+    width: 100%;
+    height: 100%;
+    transform: translateY(30%);
+    font-size: 147px;
+  }
+
+  p {
+    opacity: 1 !important;
+    font-size: 1.5rem;
+    line-height: 30px;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    font-family: "Main";
+  }
+}
+
+.title {
+  font-family: "Main";
+  width: 100%;
+  font-size: 1rem;
+  margin-top: 5px;
+  text-align: center;
+  color: white;
+}

@@ -11,20 +11,12 @@ export class EpicMissions {
 
   private epicMissions: MissionConfig[] = [
     {
-      id: 'find-lost-girl-quest',
-      title: '👩‍🦱 Найти пропавшую девочку до 1 марта 2025 года',
-      step: 100,
-      refreshTime: TimeEnum.SECOND,
-      respawnTime: TimeEnum.DAY,
-      reward: { keyType: 2, amount: 3, xp: 1000 },
-    },
-    {
       id: 'java-homework',
-      title: '☕️ Сделать домашку по Java курсу',
+      title: '☕️ Реализовать возможность перехода между счетами в Java банке',
       step: 100,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 2, amount: 3, xp: 400 },
+      reward: { keyType: 2, amount: 3, xp: 800 },
     },
     {
       id: 'regexp-mission',

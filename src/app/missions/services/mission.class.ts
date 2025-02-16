@@ -219,9 +219,9 @@ export class Mission {
       this.stats.progress = this.progress;
       this.isCompletedUntil = Date.now() + this.config.respawnTime;
       this.stats.isCompletedUntil = this.isCompletedUntil;
-
-      this.sync();
     }
+
+    this.sync();
   }
 
   sync() {

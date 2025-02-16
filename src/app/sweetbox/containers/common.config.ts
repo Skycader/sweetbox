@@ -34,12 +34,11 @@ export const commonContainer = [
   ...[energy[1]].repeat(15), //1 час
   ...[energy[2]].repeat(1), //6 часов
   ...products,
-  ...[collectables[0]].repeat(1), //1 карточка JoJo в коллекцию
+  ...[collectables[0]].repeat(25), //1 карточка JoJo в коллекцию
   ...[coins[1]].repeat(15), //Горсть кристаллов (100)
   ...[coins[2]].repeat(5), //Куча кристаллов (1000)
   ...[keys[0]].repeat(2), //Обычный ключ
   ...[keys[1]], //Редкий ключ
   ...[coins[4]], //1 старкоин
   ...[coins[5]], //Голд
-  ...[...quests],
 ];

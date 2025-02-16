@@ -1,0 +1,31 @@
+<div class="card" (click)="flip()">
+  <div class="card-inner" [class.flipped]="flipped">
+    <div
+      class="card-front"
+      [class.locked]="!achivement.achived"
+      style="background-image: url(assets/images/achivements/{{
+        achivement.image
+      }})"
+    >
+      <div class="bg"></div>
+      <div class="description">
+        <p>{{ achivement.statement }}</p>
+      </div>
+    </div>
+    <div
+      class="card-back"
+      [class.locked]="!achivement.achived"
+      style="
+             background-image: url(assets/images/achivements/{{
+        achivement.image
+      }});
+        background-size: contain;
+      "
+    >
+      <div class="description" *ngIf="!achivement.achived">
+        <mat-icon>lock</mat-icon>
+      </div>
+    </div>
+  </div>
+  <div class="title">{{ achivement.title }}</div>
+</div>

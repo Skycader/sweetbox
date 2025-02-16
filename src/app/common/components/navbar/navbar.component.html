@@ -88,6 +88,20 @@
     <span class="vr d-none d-sm-block d-md-block d-lg-block d-xl-block"></span>
 
     <a
+      [routerLink]="['/achivements']"
+      matTooltip="Достижения"
+      routerLinkActive="selected"
+    >
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+      >
+        <mat-icon matBadgeColor="accent" matBadgeSize="small">class</mat-icon>
+      </button>
+    </a>
+
+    <a
       [routerLink]="['/missions']"
       matTooltip="Задания"
       routerLinkActive="selected"
