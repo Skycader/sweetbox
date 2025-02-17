@@ -265,9 +265,9 @@ export class CommonMissions {
       id: 'reading',
       title: '📖 Прочитать 1 главу книги',
       step: 50,
-      refreshTime: TimeEnum.MINUTE,
-      respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 2, xp: 40 },
+      refreshTime: TimeEnum.SECOND,
+      respawnTime: TimeEnum.SECOND,
+      reward: { keyType: 0, amount: 2, xp: 400 },
       maxPerDay: 10,
     },
     {

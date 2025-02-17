@@ -161,7 +161,9 @@ export class Mission {
   }
 
   public getSkillProgress() {
-    return this.deps.rang.nextRangProgress(this.stats.skillXp) + '%';
+    return `${this.stats.skillXp}xp -> ${this.deps.rang.nextRangProgress(
+      this.stats.skillXp,
+    )} %`;
   }
 
   public leftToDoToday() {

@@ -11,6 +11,22 @@ export class LegendaryMissions {
 
   private legendaryMissions: MissionConfig[] = [
     {
+      id: 'reading-marathon',
+      title: '📖 Марафон чтения - достигнуть мастера-сержанта до 19 марта 2025',
+      step: 100,
+      refreshTime: 6 * TimeEnum.HOUR,
+      respawnTime: TimeEnum.MINUTE,
+      reward: { keyType: 3, amount: 1, xp: 10000 },
+    },
+    {
+      id: 'split-marathon',
+      title: '📖 Марафон шпагата - достигнуть сержанта до 19 марта 2025',
+      step: 100,
+      refreshTime: 6 * TimeEnum.HOUR,
+      respawnTime: TimeEnum.MINUTE,
+      reward: { keyType: 3, amount: 1, xp: 5000 },
+    },
+    {
       id: 'finish-java-course',
       title: '☕️ Завершить Java курс',
       step: 100,
