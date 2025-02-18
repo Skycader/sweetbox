@@ -5,7 +5,6 @@ import { StorageService } from '../../storage/services/storage.service';
 import { keys } from '../../sweetbox/resources/keys.resource';
 import { MissionStats } from '../models/mission-stats.model';
 import { Streak } from '../models/streak.model';
-import { CompletedPipe } from '../utils/pipes/completed.pipe';
 import { MissionConfig } from './missions.service';
 
 export class Mission {
@@ -21,6 +20,8 @@ export class Mission {
     doneToday: 0,
     todoDate: '',
     notifiedReady: true,
+    hearts: 3,
+    maxHearts: 3,
   };
 
   constructor(
@@ -99,7 +100,6 @@ export class Mission {
 
   public today() {
     let day = new Date().toISOString().split('T')[0]; //2025-01-27
-    // day = '2025-01-28';
     return day;
   }
 
@@ -145,7 +145,22 @@ export class Mission {
       this.progress = 0;
       this.isCompletedUntil = 0;
       this.stats.doneToday = 0;
+      this.stats.hearts -= 1;
+
+      if (this.stats.hearts <= 0) {
+        this.stats.skillXp -= this.stats.skillXp * 0.1;
+        if (this.stats.skillXp < 0) this.stats.skillXp = 0;
+        this.stats.hearts = 0;
+      }
     }
+  }
+
+  public getHearts() {
+    return '❤️'.repeat(this.stats.hearts);
+  }
+
+  public getBrokenHearts() {
+    return '💔'.repeat(this.stats.maxHearts - this.stats.hearts);
   }
 
   public getDoneToday() {
@@ -180,6 +195,9 @@ export class Mission {
     this.deps.persistance.setItem('xp-today', xpToday);
 
     this.stats.skillXp += this.config.reward.xp;
+    this.stats.hearts += 1;
+    if (this.stats.hearts > this.stats.maxHearts)
+      this.stats.hearts = this.stats.maxHearts;
 
     //Если игрок набрал 100 опыта, то ударный режим пополнен новым днем
     if (xpToday >= 100) Streak.markDoneToday();
@@ -281,7 +299,7 @@ Date.prototype.toISOString = function toIsoString() {
   const date = this;
   var tzo = -date.getTimezoneOffset(),
     dif = tzo >= 0 ? '+' : '-',
-    pad = function(num: number) {
+    pad = function (num: number) {
       return (num < 10 ? '0' : '') + num;
     };
 

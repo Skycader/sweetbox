@@ -17,9 +17,16 @@ export class AudioService {
     }
   }
 
-  playGainXp() {
-    const audio = new Audio(`assets/audio/xp/${getRandomInt(1, 5)}.mp3`);
-    audio.play();
+  playGainXp(xp: number = 1) {
+    xp = Math.floor(xp / 20);
+    if (xp > 5) xp = 5;
+    if (xp < 1) xp = 1;
+    for (let i = 0; i < xp; i++) {
+      setTimeout(() => {
+        const audio = new Audio(`assets/audio/xp/${getRandomInt(1, 5)}.mp3`);
+        audio.play();
+      }, 500 * i);
+    }
   }
 }
 

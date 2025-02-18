@@ -12,28 +12,38 @@ export class MissionComponent {
   @Input() unlockMission: boolean = false;
   @Input() mining: boolean = false;
 
-  constructor(private navbarService: NavbarService) { }
+  constructor(private navbarService: NavbarService) {}
 
   public earnXp() {
     this.navbarService.controlNavbar$.next('open');
-    setTimeout(() => {
-      let clonedElement = this.copyElementToFixedPosition(
-        `#M${this.mission.getConfig().hash}`,
+    this.animateXp(Math.floor(this.mission.getConfig().xp / 10));
+  }
+
+  public animateXp(amount: number = 1) {
+    if (amount > 10) amount = 10;
+    for (let i = 0; i < amount; i++) {
+      setTimeout(
+        () => {
+          let clonedElement = this.copyElementToFixedPosition(
+            `#M${this.mission.getConfig().hash}`,
+          );
+          clonedElement!.style.transitionDuration = '1.5s';
+          clonedElement!.classList.remove('hidden');
+          setTimeout(() => {
+            const userXp = document.querySelector('#user-xp');
+            const rect = userXp?.getBoundingClientRect();
+
+            clonedElement!.style.top = rect?.top + 'px';
+            clonedElement!.style.left = rect?.left + 'px';
+
+            setTimeout(() => {
+              clonedElement!.remove();
+            }, 1500);
+          }, 100);
+        },
+        200 + 200 * i,
       );
-      clonedElement!.style.transitionDuration = '1.5s';
-      clonedElement!.classList.remove('hidden');
-      setTimeout(() => {
-        const userXp = document.querySelector('#user-xp');
-        const rect = userXp?.getBoundingClientRect();
-
-        clonedElement!.style.top = rect?.top + 'px';
-        clonedElement!.style.left = rect?.left + 'px';
-
-        setTimeout(() => {
-          clonedElement!.remove();
-        }, 1500);
-      }, 100);
-    }, 200);
+    }
   }
 
   public getReward(mission: any, element: any) {

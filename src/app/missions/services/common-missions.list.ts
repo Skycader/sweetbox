@@ -7,7 +7,7 @@ import { TimeEnum } from '../models/time.list.enum';
   providedIn: 'root',
 })
 export class CommonMissions {
-  constructor(private mission: MissionsService) { }
+  constructor(private mission: MissionsService) {}
 
   private commonMissions: MissionConfig[] = [
     {
@@ -19,6 +19,17 @@ export class CommonMissions {
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 1, amount: 3, xp: 1000 },
       autocomplete: true,
+    },
+
+    //Избранное
+    {
+      id: 'clean-memos',
+      title: '❤️  Отчистить Memos',
+      step: 100,
+      refreshTime: 0,
+      respawnTime: 6 * TimeEnum.HOUR,
+      reward: { keyType: 0, amount: 1, xp: 40 },
+      maxPerDay: 4,
     },
     {
       id: 'take-shower-jump',
@@ -206,15 +217,7 @@ export class CommonMissions {
     },
 
     //Ментальные упражнения
-    {
-      id: 'clean-memos',
-      title: '❤️  Отчистить Memos',
-      step: 100,
-      refreshTime: 0,
-      respawnTime: 6 * TimeEnum.HOUR,
-      reward: { keyType: 0, amount: 1, xp: 40 },
-      maxPerDay: 4,
-    },
+
     {
       id: 'memos-add-card',
       title: '❤️  Memos - добавить 1 карточку',
@@ -249,8 +252,8 @@ export class CommonMissions {
       title: '⛵️ Закончить уровень морязки',
       step: 100,
       refreshTime: TimeEnum.MINUTE,
-      respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 40 },
+      respawnTime: TimeEnum.MINUTE,
+      reward: { keyType: 0, amount: 1, xp: 120 },
       maxPerDay: 5,
     },
     {

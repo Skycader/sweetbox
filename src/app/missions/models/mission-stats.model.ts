@@ -6,4 +6,6 @@ export interface MissionStats {
   doneToday: number;
   todoDate: string;
   notifiedReady: boolean;
+  hearts: number;
+  maxHearts: number;
 }
