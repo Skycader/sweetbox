@@ -74,7 +74,16 @@
         [id]="'M' + mission.getConfig().hash"
         style="margin-left: 1px; margin-bottom: 2px"
         src="assets/images/common/xp.webp"
-    /></mat-chip-option>
+      />
+      <ng-container *ngIf="mission.getStats().hearts === 3">
+        + {{ mission.getConfig().xp * 0.1 }}
+        <img
+          [id]="'M' + mission.getConfig().hash"
+          style="margin-left: 1px; margin-bottom: 2px"
+          src="assets/images/common/xp.webp"
+        />
+      </ng-container>
+    </mat-chip-option>
 
     <mat-chip-option
       color="primary"

@@ -22,6 +22,7 @@ export class Mission {
     notifiedReady: true,
     hearts: 3,
     maxHearts: 3,
+    lastCompleted: Date.now(),
   };
 
   constructor(
@@ -134,9 +135,10 @@ export class Mission {
   }
 
   public refreshTodo() {
+    const today = this.today();
     if (this.stats.todoDate === '') this.stats.todoDate = this.today();
 
-    if (this.stats.todoDate !== this.today()) {
+    if (this.stats.todoDate !== today) {
       this.stats.todoDate = this.today();
       this.stats.progress = 0;
       this.stats.isCompletedUntil = 0;
@@ -145,14 +147,33 @@ export class Mission {
       this.progress = 0;
       this.isCompletedUntil = 0;
       this.stats.doneToday = 0;
-      this.stats.hearts -= 1;
 
-      if (this.stats.hearts <= 0) {
-        this.stats.skillXp -= this.stats.skillXp * 0.1;
+      debugger;
+
+      const daysSinceLastComplete =
+        Math.floor(
+          (Date.now() - this.stats.lastCompleted) / 1000 / 60 / 60 / 24,
+        ) || 1;
+
+      this.stats.hearts -= 1 * daysSinceLastComplete;
+
+      if (this.stats.hearts < 0) {
+        for (let i = 0; i < daysSinceLastComplete - 3; i++) {
+          const log: any = JSON.parse(localStorage.getItem('log') as any) || [];
+          log.push(
+            `Снятие очков опыта в размере 10% у навыка ${this.config.title}`,
+          );
+          localStorage.setItem('log', JSON.stringify(log));
+          this.stats.skillXp -= Math.floor(this.stats.skillXp * 0.1);
+        }
         if (this.stats.skillXp < 0) this.stats.skillXp = 0;
         this.stats.hearts = 0;
       }
     }
+  }
+
+  public getStats() {
+    return this.stats;
   }
 
   public getHearts() {
@@ -188,6 +209,7 @@ export class Mission {
   }
 
   public complete() {
+    this.stats.lastCompleted = Date.now();
     this.stats.notifiedReady = false;
 
     let xpToday = this.deps.persistance.getItem('xp-today', 0);
@@ -195,7 +217,12 @@ export class Mission {
     this.deps.persistance.setItem('xp-today', xpToday);
 
     this.stats.skillXp += this.config.reward.xp;
-    this.stats.hearts += 1;
+    this.stats.skillXp +=
+      this.stats.hearts === this.stats.maxHearts
+        ? Math.floor(this.config.reward.xp * 0.1)
+        : 0; //skill has max hearts
+
+    this.stats.hearts = this.stats.maxHearts;
     if (this.stats.hearts > this.stats.maxHearts)
       this.stats.hearts = this.stats.maxHearts;
 
@@ -207,6 +234,11 @@ export class Mission {
     setTimeout(() => {
       const prevRang = this.deps.rang.getRang().rang;
       this.deps.rang.addXp(this.getConfig().xp);
+      this.deps.rang.addXp(
+        this.stats.hearts === this.stats.maxHearts
+          ? Math.floor(this.config.reward.xp)
+          : 0,
+      ); //if has max hearts
       const newRang = this.deps.rang.getRang().rang;
 
       if (newRang !== prevRang) {

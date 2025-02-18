@@ -8,4 +8,5 @@ export interface MissionStats {
   notifiedReady: boolean;
   hearts: number;
   maxHearts: number;
+  lastCompleted: number;
 }
