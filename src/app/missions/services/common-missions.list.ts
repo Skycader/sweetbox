@@ -17,8 +17,46 @@ export class CommonMissions {
       step: 100,
       refreshTime: TimeEnum.DAY,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 1, amount: 3, xp: 1000 },
+      reward: { keyType: 1, amount: 3, xp: 10 },
       autocomplete: true,
+    },
+
+    //Прием добавок
+    {
+      id: 'antidepresant',
+      title: '❤️  Выпить антидепресант',
+      step: 100,
+      refreshTime: 0,
+      respawnTime: 6 * TimeEnum.HOUR,
+      reward: { keyType: 4, amount: 1, xp: 10 },
+      openHours: [9, 24],
+    },
+    {
+      id: 'gainer',
+      title: '🏋️‍♂️  Принять гейнер',
+      step: 100,
+      refreshTime: 0,
+      respawnTime: 6 * TimeEnum.HOUR,
+      reward: { keyType: 4, amount: 1, xp: 10 },
+      openHours: [9, 24],
+    },
+    {
+      id: 'ptorein',
+      title: '🏋️‍♂️  Принять протеин',
+      step: 100,
+      refreshTime: 0,
+      respawnTime: 6 * TimeEnum.HOUR,
+      reward: { keyType: 4, amount: 1, xp: 10 },
+      openHours: [14, 24],
+    },
+    {
+      id: 'kalogen',
+      title: '🏋️‍♂️  Принять креатин',
+      step: 100,
+      refreshTime: 0,
+      respawnTime: 6 * TimeEnum.HOUR,
+      reward: { keyType: 4, amount: 1, xp: 10 },
+      openHours: [18, 24],
     },
 
     //Избранное
@@ -30,6 +68,7 @@ export class CommonMissions {
       respawnTime: 6 * TimeEnum.HOUR,
       reward: { keyType: 0, amount: 1, xp: 40 },
       maxPerDay: 4,
+      maxHearts: 1,
     },
     {
       id: 'take-shower-jump',
@@ -165,14 +204,6 @@ export class CommonMissions {
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 60 },
     },
-    {
-      id: 'protein',
-      title: '🍹 Выпить стакан протеина после тренировки',
-      step: 100,
-      refreshTime: TimeEnum.MINUTE,
-      respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 10 },
-    },
 
     //Растяжка
     {
@@ -225,7 +256,7 @@ export class CommonMissions {
       refreshTime: TimeEnum.SECOND,
       respawnTime: TimeEnum.SECOND,
       reward: { keyType: 0, amount: 1, xp: 40 },
-      maxPerDay: 5,
+      maxPerDay: 10,
     },
     {
       id: 'duolingo-japanese-practice',
@@ -233,7 +264,7 @@ export class CommonMissions {
       step: 25,
       refreshTime: TimeEnum.SECOND,
       respawnTime: 12 * TimeEnum.HOUR,
-      reward: { keyType: 0, amount: 2, xp: 12 },
+      reward: { keyType: 0, amount: 2, xp: 20 },
       level: '⬜️🔵',
       maxPerDay: 5,
     },
@@ -243,7 +274,7 @@ export class CommonMissions {
       step: 25,
       refreshTime: TimeEnum.SECOND,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 2, xp: 20 },
+      reward: { keyType: 0, amount: 2, xp: 40 },
       level: '⬜️🔵',
       maxPerDay: 5,
     },

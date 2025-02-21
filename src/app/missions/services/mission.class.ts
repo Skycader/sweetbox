@@ -2,6 +2,7 @@ import { NotificationService } from '../../common/services/notification.service'
 import { PersistanceService } from '../../common/services/persistance.service';
 import { RangService } from '../../rangs/services/rang.service';
 import { StorageService } from '../../storage/services/storage.service';
+import { coins } from '../../sweetbox/resources/coins.resource';
 import { keys } from '../../sweetbox/resources/keys.resource';
 import { MissionStats } from '../models/mission-stats.model';
 import { Streak } from '../models/streak.model';
@@ -21,7 +22,7 @@ export class Mission {
     todoDate: '',
     notifiedReady: true,
     hearts: 3,
-    maxHearts: 3,
+    maxHearts: this.config.maxHearts ? this.config.maxHearts : 3,
     lastCompleted: Date.now(),
   };
 
@@ -36,6 +37,11 @@ export class Mission {
   ) {
     this.stats =
       { ...this.stats, ...this.loadMissionStats(this.config.id) } || this.stats;
+
+    if (this.config.maxHearts) this.stats.maxHearts = this.config.maxHearts;
+
+    if (this.stats.hearts > this.stats.maxHearts)
+      this.stats.hearts = this.stats.maxHearts;
 
     this.disabledUntil = this.stats.disabledUntil;
     this.progress = this.stats.progress;
@@ -67,8 +73,9 @@ export class Mission {
       xp: this.config.reward.xp,
       level: this.config.level,
       skillXp: this.stats.skillXp,
-      maxPerDay: this.config.maxPerDay,
+      maxPerDay: this.config.maxPerDay ? this.config.maxPerDay : 1,
       doneToday: this.stats.doneToday,
+      openHours: this.config.openHours ? this.config.openHours : [0, 24],
     };
   }
 
@@ -134,6 +141,12 @@ export class Mission {
     return this.config.reward;
   }
 
+  public refillHearts() {
+    this.stats.hearts = this.stats.maxHearts;
+    this.stats.lastCompleted = Date.now();
+    this.sync();
+  }
+
   public refreshTodo() {
     const today = this.today();
     if (this.stats.todoDate === '') this.stats.todoDate = this.today();
@@ -148,27 +161,32 @@ export class Mission {
       this.isCompletedUntil = 0;
       this.stats.doneToday = 0;
 
-      debugger;
-
       const daysSinceLastComplete =
         Math.floor(
           (Date.now() - this.stats.lastCompleted) / 1000 / 60 / 60 / 24,
         ) || 1;
 
-      this.stats.hearts -= 1 * daysSinceLastComplete;
+      if (
+        this.stats.skillXp > 0 &&
+        (this.config.reward.keyType === 0 || this.config.reward.keyType === 4)
+      )
+        if (this.stats.hearts < 0) {
+          //Чем больше уровень - тем выше вероятность потерять сердце
+          // this.stats.hearts -= 1 * daysSinceLastComplete;
 
-      if (this.stats.hearts < 0) {
-        for (let i = 0; i < daysSinceLastComplete - 3; i++) {
-          const log: any = JSON.parse(localStorage.getItem('log') as any) || [];
-          log.push(
-            `Снятие очков опыта в размере 10% у навыка ${this.config.title}`,
-          );
-          localStorage.setItem('log', JSON.stringify(log));
-          this.stats.skillXp -= Math.floor(this.stats.skillXp * 0.1);
+          for (let i = 0; i < daysSinceLastComplete - 3; i++) {
+            const log: any =
+              JSON.parse(localStorage.getItem('log') as any) || [];
+            log.push(
+              `${this.today()}Снятие очков опыта в размере 10% у навыка ${this.config.title
+              }`,
+            );
+            // localStorage.setItem('log', JSON.stringify(log));
+            // this.stats.skillXp -= Math.floor(this.stats.skillXp * 0.1);
+          }
+          if (this.stats.skillXp < 0) this.stats.skillXp = 0;
+          this.stats.hearts = 0;
         }
-        if (this.stats.skillXp < 0) this.stats.skillXp = 0;
-        this.stats.hearts = 0;
-      }
     }
   }
 
@@ -263,8 +281,12 @@ export class Mission {
       const audio = new Audio(`assets/audio/mission-complete.m4a`);
       audio.play();
 
+      const reward =
+        this.config.reward.keyType < 4
+          ? keys[this.config.reward.keyType]
+          : coins[1];
       this.deps.storage.addItem(
-        keys[this.config.reward.keyType],
+        reward,
         this.config.reward.amount * this.getRewardCoef(),
       );
       this.progress = 0;
@@ -331,7 +353,7 @@ Date.prototype.toISOString = function toIsoString() {
   const date = this;
   var tzo = -date.getTimezoneOffset(),
     dif = tzo >= 0 ? '+' : '-',
-    pad = function (num: number) {
+    pad = function(num: number) {
       return (num < 10 ? '0' : '') + num;
     };
 

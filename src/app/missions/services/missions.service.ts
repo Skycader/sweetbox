@@ -15,6 +15,8 @@ export interface MissionConfig {
   reward: Reward;
   autocomplete?: boolean;
   level?: string;
+  openHours?: [number, number];
+  maxHearts?: number;
 }
 
 interface Reward {
@@ -32,7 +34,7 @@ export class MissionsService {
     private storage: StorageService,
     private rang: RangService,
     private notification: NotificationService,
-  ) { }
+  ) {}
 
   public make(config: MissionConfig) {
     if (!config?.autocomplete) config.autocomplete = false;

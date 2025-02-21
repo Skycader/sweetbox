@@ -5,6 +5,7 @@ import { inGameResource } from '../resources/game.resource';
 import { keys } from '../resources/keys.resource';
 import { money } from '../resources/money.resource';
 import { partsItems } from '../resources/parts.resource';
+import { potions } from '../resources/potions.resource';
 import { products } from '../resources/products.resource';
 import { quests } from '../resources/quests.resource';
 
@@ -34,7 +35,8 @@ export const commonContainer = [
   ...[energy[1]].repeat(15), //1 час
   ...[energy[2]].repeat(1), //6 часов
   ...products,
-  ...[collectables[0]].repeat(25), //1 карточка JoJo в коллекцию
+  ...[collectables[0]].repeat(5), //1 карточка JoJo в коллекцию
+  ...[...potions], //Зелье повышения шанса выпадания JoJo пачки
   ...[coins[1]].repeat(15), //Горсть кристаллов (100)
   ...[coins[2]].repeat(5), //Куча кристаллов (1000)
   ...[keys[0]].repeat(2), //Обычный ключ

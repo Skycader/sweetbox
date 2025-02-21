@@ -25,6 +25,12 @@
 
       <ng-container *ngFor="let mission of commonMissions">
         <app-mission
+          *ngIf="
+            openHours(
+              mission.getConfig().openHours[0],
+              mission.getConfig().openHours[1]
+            )
+          "
           [mission]="mission"
           [class.hide]="mission.isCompleted() && hideCompletedMissions"
         />

@@ -12,7 +12,7 @@ export class EpicMissions {
   private epicMissions: MissionConfig[] = [
     {
       id: 'java-homework',
-      title: '☕️ Реализовать возможность перехода между счетами в Java банке',
+      title: '☕️ Реализовать роли в Java банке',
       step: 100,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,

@@ -21,7 +21,11 @@
     mat-icon-button
     class="example-icon"
     aria-label="Example icon-button with menu icon"
-    [disabled]="mission.isDisabled() || mission.getConfig().autocomplete"
+    [disabled]="
+      mission.isDisabled() ||
+      mission.getConfig().autocomplete ||
+      mission.getConfig().doneToday >= mission.getConfig().maxPerDay
+    "
     (click)="this.mission.complete(); getReward(mission, reward); earnXp()"
   >
     <mat-icon>done</mat-icon>
@@ -31,7 +35,17 @@
   <span class="example-spacer"></span>
 
   <mat-chip-listbox>
-    <mat-chip-option matTooltip="Уровень навыка" *ngIf="mission.getSkillXp()"
+    <mat-chip-option
+      [selected]="mission.getStats().hearts < 3"
+      [color]="
+        mission.getStats().hearts === 0
+          ? 'warn'
+          : mission.getStats().hearts === 1
+            ? 'accent'
+            : 'primary'
+      "
+      matTooltip="Уровень навыка"
+      *ngIf="mission.getSkillXp()"
       >{{ mission.getSkillRang().title }}
       <!-- <img -->
       <!--   style="margin-left: 1px; margin-bottom: 2px" -->
@@ -42,7 +56,12 @@
         style="margin-left: 1px; margin-bottom: 2px; width: 35px"
         [src]="mission.getSkillRang().icon"
       />
+    </mat-chip-option>
 
+    <mat-chip-option
+      *ngIf="mission.getConfig().skillXp > 0"
+      (click)="mission.refillHearts()"
+    >
       {{ mission.getHearts() }}{{ mission.getBrokenHearts() }}
     </mat-chip-option>
 
@@ -172,6 +191,11 @@
       *ngIf="mission.getReward().keyType === 3"
       style="width: 100%"
       src="assets/images/keys/legendary.png"
+    />
+    <img
+      *ngIf="mission.getReward().keyType === 4"
+      style="width: 100%"
+      src="assets/images/coins/diamonds_mini.webp"
     />
   </div>
   <div style="width: 30px"></div>
