@@ -7,9 +7,10 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { CompletedPipe } from './utils/pipes/completed.pipe';
 import { PrettyNumberPipe } from './utils/pipes/pretty-number.pipe';
+import { SkinsListComponent } from './components/skins-list/skins-list.component';
 
 @NgModule({
-  declarations: [MissionComponent, MissionsListComponent, MainLayoutComponent, CompletedPipe, PrettyNumberPipe],
+  declarations: [MissionComponent, MissionsListComponent, MainLayoutComponent, CompletedPipe, PrettyNumberPipe, SkinsListComponent],
   imports: [
     CommonModule,
     MaterialModule,

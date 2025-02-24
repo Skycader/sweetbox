@@ -1,6 +1,9 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Mission } from '../../services/mission.class';
 import { NavbarService } from '../../../common/services/navbar.service';
+import { SkinsListComponent } from '../skins-list/skins-list.component';
+import { DialogRef } from '@angular/cdk/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-mission',
@@ -12,7 +15,16 @@ export class MissionComponent {
   @Input() unlockMission: boolean = false;
   @Input() mining: boolean = false;
 
-  constructor(private navbarService: NavbarService) {}
+  constructor(
+    private navbarService: NavbarService,
+    private dialog: MatDialog,
+  ) { }
+
+  public showSkins() {
+    this.dialog.open(SkinsListComponent, {
+      width: '90vw',
+    });
+  }
 
   public earnXp() {
     this.navbarService.controlNavbar$.next('open');

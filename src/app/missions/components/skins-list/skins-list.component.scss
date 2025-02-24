@@ -1,0 +1,50 @@
+.todo-item {
+  transition-duration: 0.5s;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.disabled {
+  cursor: default !important;
+  opacity: 0.5;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.parent {
+  transition-duration: 1s;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.loading {
+  height: 0px !important;
+}
+
+.finish {
+  height: inherit !important;
+  overflow: inherit !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  height: calc(100% - 64px);
+  justify-content: center;
+  flex-direction: column;
+  .h1 {
+    font-size: 120px;
+  }
+
+  .h2 {
+    font-size: 43px;
+  }
+}

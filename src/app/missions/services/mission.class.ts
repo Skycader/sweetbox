@@ -6,6 +6,7 @@ import { StorageService } from '../../storage/services/storage.service';
 import { coins } from '../../sweetbox/resources/coins.resource';
 import { keys } from '../../sweetbox/resources/keys.resource';
 import { MissionStats } from '../models/mission-stats.model';
+import { SkinsEnum } from '../models/skins.enum';
 import { Streak } from '../models/streak.model';
 import { MissionConfig } from './missions.service';
 
@@ -67,10 +68,16 @@ export class Mission {
     this.requiredProgress = progress;
   }
 
+  getIncomeLevel(income: number) {
+    return Math.ceil(Math.log2(income / 100000));
+  }
+
   public getConfig() {
     return {
       title: this.config.title,
-      skin: this.config.skin ? this.config.skin : '',
+      skin: this.config.skin
+        ? this.config.skin
+        : SkinsEnum[this.getIncomeLevel(this.getSkillXp())],
       hash: this.hashCode(this.config.title),
       step: this.config.step,
       refreshTime: this.formatDuration(this.config.refreshTime),

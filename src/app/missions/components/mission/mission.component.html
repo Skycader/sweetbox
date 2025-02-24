@@ -45,7 +45,6 @@
     <mat-chip-option
       class="skill"
       [class.newRang]="mission.notifyOfNewRang"
-      [selected]="mission.getStats().hearts < 3"
       [color]="
         mission.getStats().hearts === 0
           ? 'warn'
@@ -55,6 +54,7 @@
       "
       matTooltip="Уровень навыка"
       *ngIf="mission.getSkillXp()"
+      (click)="showSkins()"
       >{{ mission.getSkillRang().title }}
       <!-- <img -->
       <!--   style="margin-left: 1px; margin-bottom: 2px" -->

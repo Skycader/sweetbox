@@ -8,6 +8,8 @@ import { RareMissions } from '../../services/rare-missions.list';
 import { TimeEnum } from '../../models/time.list.enum';
 import { PersistanceService } from '../../../common/services/persistance.service';
 import { Streak } from '../../models/streak.model';
+import { MatDialog } from '@angular/material/dialog';
+import { SkinsListComponent } from '../skins-list/skins-list.component';
 
 @Component({
   selector: 'app-missions-list',
@@ -22,6 +24,7 @@ export class MissionsListComponent {
     private epic: EpicMissions,
     private legendary: LegendaryMissions,
     private persistance: PersistanceService,
+    private dialog: MatDialog,
   ) { }
 
   public commonMissions: Mission[] = this.common.get();
