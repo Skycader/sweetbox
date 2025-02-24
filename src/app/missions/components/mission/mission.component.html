@@ -1,7 +1,7 @@
 <mat-toolbar
   matRipple
-  [class.disabled]="mission.isDisabled()"
-  [class.completed]="mission.isCompleted()"
+  [class.disabled]="mission.isDisabled() && !mission.notifyOfNewRang"
+  [class.completed]="mission.isCompleted() && !mission.notifyOfNewRang"
   class="todo-item"
   style="
     height: 100px;
@@ -15,6 +15,13 @@
   [class.silver-mission]="mission.getRewardCoef() === 3"
   [class.gold-mission]="mission.getRewardCoef() === 4"
 >
+  <div
+    *ngIf="mission.getConfig().skin"
+    class="mission-skin"
+    style="background-image: url(assets/images/textures/{{
+      mission.getConfig().skin
+    }})"
+  ></div>
   <div style="width: 10px"></div>
   <button
     id="days-left-indicator"
@@ -36,6 +43,8 @@
 
   <mat-chip-listbox>
     <mat-chip-option
+      class="skill"
+      [class.newRang]="mission.notifyOfNewRang"
       [selected]="mission.getStats().hearts < 3"
       [color]="
         mission.getStats().hearts === 0

@@ -7,7 +7,7 @@ import { TimeEnum } from '../models/time.list.enum';
   providedIn: 'root',
 })
 export class CommonMissions {
-  constructor(private mission: MissionsService) {}
+  constructor(private mission: MissionsService) { }
 
   private commonMissions: MissionConfig[] = [
     {
@@ -25,6 +25,15 @@ export class CommonMissions {
     {
       id: 'antidepresant',
       title: '❤️  Выпить антидепресант',
+      step: 100,
+      refreshTime: 0,
+      respawnTime: 6 * TimeEnum.HOUR,
+      reward: { keyType: 4, amount: 1, xp: 10 },
+      openHours: [9, 24],
+    },
+    {
+      id: 'b-vitamins',
+      title: '🍫 Выпить витамминный комплекс Б',
       step: 100,
       refreshTime: 0,
       respawnTime: 6 * TimeEnum.HOUR,
@@ -263,7 +272,7 @@ export class CommonMissions {
       title: '🇯🇵 1 практика японского языка на дуолинго',
       step: 25,
       refreshTime: TimeEnum.SECOND,
-      respawnTime: 12 * TimeEnum.HOUR,
+      respawnTime: 12 * TimeEnum.SECOND,
       reward: { keyType: 0, amount: 2, xp: 20 },
       level: '⬜️🔵',
       maxPerDay: 5,
@@ -273,7 +282,7 @@ export class CommonMissions {
       title: '🇯🇵 Сделать 1 новый урок японского на дуолинго',
       step: 25,
       refreshTime: TimeEnum.SECOND,
-      respawnTime: TimeEnum.DAY,
+      respawnTime: TimeEnum.SECOND,
       reward: { keyType: 0, amount: 2, xp: 40 },
       level: '⬜️🔵',
       maxPerDay: 5,

@@ -1,5 +1,6 @@
 import { NotificationService } from '../../common/services/notification.service';
 import { PersistanceService } from '../../common/services/persistance.service';
+import { SnackbarService } from '../../common/services/snackbar.service';
 import { RangService } from '../../rangs/services/rang.service';
 import { StorageService } from '../../storage/services/storage.service';
 import { coins } from '../../sweetbox/resources/coins.resource';
@@ -13,6 +14,9 @@ export class Mission {
   private progress = 0;
   private requiredProgress = 0;
   private isCompletedUntil = 0;
+
+  public notifyOfNewRang = false;
+
   private stats: MissionStats = {
     progress: 0,
     disabledUntil: Date.now(),
@@ -33,6 +37,7 @@ export class Mission {
       storage: StorageService;
       persistance: PersistanceService;
       notification: NotificationService;
+      snackbar: SnackbarService;
     },
   ) {
     this.stats =
@@ -65,6 +70,7 @@ export class Mission {
   public getConfig() {
     return {
       title: this.config.title,
+      skin: this.config.skin ? this.config.skin : '',
       hash: this.hashCode(this.config.title),
       step: this.config.step,
       refreshTime: this.formatDuration(this.config.refreshTime),
@@ -234,12 +240,26 @@ export class Mission {
     xpToday += this.config.reward.xp;
     this.deps.persistance.setItem('xp-today', xpToday);
 
+    //Опыт и ранг навыка
+    const rang = this.getSkillRang().icon;
+
     this.stats.skillXp += this.config.reward.xp;
     this.stats.skillXp +=
       this.stats.hearts === this.stats.maxHearts
         ? Math.floor(this.config.reward.xp * 0.1)
         : 0; //skill has max hearts
 
+    //Подсветить новый ранг
+    if (rang !== this.getSkillRang().icon) {
+      this.notifyOfNewRang = true;
+      this.deps.snackbar.inform(
+        `Поздравляем, теперь Вы ${this.getSkillRang().title}!`,
+      );
+      setTimeout(() => {
+        this.notifyOfNewRang = false;
+      }, 10000);
+    }
+    //Сердца навыка
     this.stats.hearts = this.stats.maxHearts;
     if (this.stats.hearts > this.stats.maxHearts)
       this.stats.hearts = this.stats.maxHearts;

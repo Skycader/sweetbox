@@ -12,6 +12,15 @@ export class LegendaryMissions {
   private legendaryMissions: MissionConfig[] = [
     {
       id: 'finish-java-course',
+      title:
+        '⬛️🇯🇵 Завершить путь ученика в Duolingo японский язык, пройдя 6 уровней 6 секции и получив черный пояс',
+      step: 100,
+      refreshTime: 365 * TimeEnum.DAY,
+      respawnTime: 365 * TimeEnum.DAY,
+      reward: { keyType: 3, amount: 10, xp: 0 },
+    },
+    {
+      id: 'finish-java-course',
       title: '☕️ Завершить Java курс',
       step: 100,
       refreshTime: 6 * TimeEnum.HOUR,

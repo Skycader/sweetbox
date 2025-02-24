@@ -4,10 +4,12 @@ import { StorageService } from '../../storage/services/storage.service';
 import { RangService } from '../../rangs/services/rang.service';
 import { Mission } from './mission.class';
 import { NotificationService } from '../../common/services/notification.service';
+import { SnackbarService } from '../../common/services/snackbar.service';
 
 export interface MissionConfig {
   id: string;
   title: string;
+  skin?: string;
   step: number;
   refreshTime: number;
   respawnTime: number;
@@ -34,7 +36,8 @@ export class MissionsService {
     private storage: StorageService,
     private rang: RangService,
     private notification: NotificationService,
-  ) {}
+    private snackbar: SnackbarService,
+  ) { }
 
   public make(config: MissionConfig) {
     if (!config?.autocomplete) config.autocomplete = false;
@@ -43,6 +46,7 @@ export class MissionsService {
       persistance: this.persistance,
       storage: this.storage,
       notification: this.notification,
+      snackbar: this.snackbar,
     });
   }
 }

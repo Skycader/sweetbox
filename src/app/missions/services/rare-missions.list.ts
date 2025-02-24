@@ -12,7 +12,7 @@ export class RareMissions {
   private rareMissions: MissionConfig[] = [
     {
       id: 'blue-belt-japanese',
-      title: '🇯🇵 Получить 🟦 пояс по японскому языку ',
+      title: '🇯🇵 Получить 🟦 пояс по японскому языку, закончив 2ую секцию из 5',
       step: 100,
       refreshTime: TimeEnum.HOUR,
       respawnTime: 365 * TimeEnum.DAY,

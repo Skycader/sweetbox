@@ -31,3 +31,32 @@
   background: radial-gradient(circle, #a17500, #ffea00) !important;
   font-family: "Main";
 }
+
+.mission-skin {
+  position: absolute;
+  width: 800px;
+  right: 0px;
+  height: 260px;
+  animation: moveBackground 10s linear infinite; /* Анимация на 10 секунд, линейная, бесконечная */
+  background-repeat: repeat;
+  background-size: 67px;
+  z-index: -1;
+  transform: rotate(-34deg);
+}
+@keyframes moveBackground {
+  from {
+    background-position: 0 0; /* Начальная позиция */
+  }
+  to {
+    background-position: 100% 0; /* Конечная позиция */
+  }
+}
+
+.skill {
+  transition-duration: 1s;
+}
+
+.newRang {
+  background: gold !important;
+  box-shadow: 10px 10px 80px gold;
+}
