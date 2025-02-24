@@ -7,6 +7,7 @@ import {
 } from '../../services/missions.service';
 import { SkinsEnum } from '../../models/skins.enum';
 import { PrettyNumberPipe } from '../../utils/pipes/pretty-number.pipe';
+import { DialogRef } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-skins-list',
@@ -14,11 +15,22 @@ import { PrettyNumberPipe } from '../../utils/pipes/pretty-number.pipe';
   styleUrl: './skins-list.component.scss',
 })
 export class SkinsListComponent {
-  constructor(private mission: MissionsService) { }
+  constructor(
+    private mission: MissionsService,
+    private dialogRef: DialogRef,
+  ) { }
 
   private missions: MissionConfig[] = [];
 
+  close() {
+    this.dialogRef.close();
+  }
+
   ngOnInit() {
+    const audio = new Audio('assets/audio/takeout.mp3');
+    audio.volume = 0.3;
+    audio.play();
+
     SkinsEnum.forEach((skin, index) => {
       this.missions.push({
         id: `${skin}-skin`,
@@ -40,5 +52,11 @@ export class SkinsListComponent {
 
   public get(): Mission[] {
     return this.missions.map((mission) => this.mission.make(mission));
+  }
+
+  ngOnDestroy() {
+    const audio = new Audio('assets/audio/close.mp3');
+    audio.volume = 0.3;
+    audio.play();
   }
 }
