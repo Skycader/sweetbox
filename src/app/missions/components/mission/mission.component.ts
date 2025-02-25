@@ -28,7 +28,9 @@ export class MissionComponent {
 
   public earnXp() {
     this.navbarService.controlNavbar$.next('open');
-    this.animateXp(Math.floor(this.mission.getConfig().xp / 10));
+
+    const combo = this.mission.getStats().onFire === 3 ? 2 : 1;
+    this.animateXp(Math.floor((this.mission.getConfig().xp * combo) / 10));
   }
 
   public animateXp(amount: number = 1) {

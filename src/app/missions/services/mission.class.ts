@@ -27,6 +27,7 @@ export class Mission {
     todoDate: '',
     notifiedReady: true,
     hearts: 3,
+    onFire: 0,
     maxHearts: this.config.maxHearts ? this.config.maxHearts : 3,
     lastCompleted: Date.now(),
   };
@@ -173,6 +174,7 @@ export class Mission {
       this.progress = 0;
       this.isCompletedUntil = 0;
       this.stats.doneToday = 0;
+      this.stats.onFire = 0;
 
       const daysSinceLastComplete =
         Math.floor(
@@ -185,7 +187,10 @@ export class Mission {
       )
         if (this.stats.hearts < 0) {
           //Чем больше уровень - тем выше вероятность потерять сердце
-          // this.stats.hearts -= 1 * daysSinceLastComplete;
+
+          for (let day = 0; day < daysSinceLastComplete; day++) {
+            this.stats.hearts -= Math.random() > 0.9 ? 1 : 0;
+          }
 
           for (let i = 0; i < daysSinceLastComplete - 3; i++) {
             const log: any =
@@ -194,8 +199,8 @@ export class Mission {
               `${this.today()}Снятие очков опыта в размере 10% у навыка ${this.config.title
               }`,
             );
-            // localStorage.setItem('log', JSON.stringify(log));
-            // this.stats.skillXp -= Math.floor(this.stats.skillXp * 0.1);
+            localStorage.setItem('log', JSON.stringify(log));
+            this.stats.skillXp -= Math.floor(this.stats.skillXp * 0.1);
           }
           if (this.stats.skillXp < 0) this.stats.skillXp = 0;
           this.stats.hearts = 0;
@@ -205,6 +210,14 @@ export class Mission {
 
   public getStats() {
     return this.stats;
+  }
+
+  public getFire() {
+    return '🔥'.repeat(this.stats.onFire);
+  }
+
+  public getDeadFire() {
+    return '🔥'.repeat(3 - this.stats.onFire);
   }
 
   public getHearts() {
@@ -242,19 +255,22 @@ export class Mission {
   public complete() {
     this.stats.lastCompleted = Date.now();
     this.stats.notifiedReady = false;
+    this.stats.onFire += this.stats.onFire < 3 ? 1 : 0;
 
     let xpToday = this.deps.persistance.getItem('xp-today', 0);
+
+    //Сегодшняшний опыт
     xpToday += this.config.reward.xp;
+    if (this.stats.onFire === 3) xpToday += this.config.reward.xp;
+
     this.deps.persistance.setItem('xp-today', xpToday);
 
     //Опыт и ранг навыка
     const rang = this.getSkillRang().icon;
 
+    //Скилл опыт + бонус по условию
     this.stats.skillXp += this.config.reward.xp;
-    this.stats.skillXp +=
-      this.stats.hearts === this.stats.maxHearts
-        ? Math.floor(this.config.reward.xp * 0.1)
-        : 0; //skill has max hearts
+    if (this.stats.onFire === 3) this.stats.skillXp += this.config.reward.xp;
 
     //Подсветить новый ранг
     if (rang !== this.getSkillRang().icon) {
@@ -278,12 +294,11 @@ export class Mission {
 
     setTimeout(() => {
       const prevRang = this.deps.rang.getRang().rang;
+
+      //Добавить основной опыт + бонус
       this.deps.rang.addXp(this.getConfig().xp);
-      this.deps.rang.addXp(
-        this.stats.hearts === this.stats.maxHearts
-          ? Math.floor(this.config.reward.xp)
-          : 0,
-      ); //if has max hearts
+      if (this.stats.onFire === 3) this.deps.rang.addXp(this.getConfig().xp);
+
       const newRang = this.deps.rang.getRang().rang;
 
       if (newRang !== prevRang) {

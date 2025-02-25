@@ -43,6 +43,14 @@
 
   <mat-chip-listbox>
     <mat-chip-option
+      *ngIf="mission.getConfig().step < 50 || mission.getConfig().maxPerDay > 2"
+      matTooltip="Комбо"
+      matTooltip="Соберите 3 огонька чтобы получать двойной опыт!"
+    >
+      <span> {{ mission.getFire() }}</span>
+      <span style="filter: grayscale(100%)"> {{ mission.getDeadFire() }}</span>
+    </mat-chip-option>
+    <mat-chip-option
       class="skill"
       [class.newRang]="mission.notifyOfNewRang"
       [color]="
@@ -69,9 +77,12 @@
 
     <mat-chip-option
       *ngIf="mission.getConfig().skillXp > 0"
-      (click)="mission.refillHearts()"
+      matTooltip="Здоровье навыка"
     >
-      {{ mission.getHearts() }}{{ mission.getBrokenHearts() }}
+      <span>{{ mission.getHearts() }}</span>
+      <span style="filter: grayscale(100%)">{{
+        mission.getBrokenHearts()
+      }}</span>
     </mat-chip-option>
 
     <mat-chip-option
@@ -103,8 +114,8 @@
         style="margin-left: 1px; margin-bottom: 2px"
         src="assets/images/common/xp.webp"
       />
-      <ng-container *ngIf="mission.getStats().hearts === 3">
-        + {{ mission.getConfig().xp * 0.1 }}
+      <ng-container *ngIf="mission.getStats().onFire === 3">
+        + {{ mission.getConfig().xp }}
         <img
           [id]="'M' + mission.getConfig().hash"
           style="margin-left: 1px; margin-bottom: 2px"

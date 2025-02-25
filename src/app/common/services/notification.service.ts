@@ -8,6 +8,8 @@ export class NotificationService {
 
   public notify(msg: string) {
     notify(msg);
+    const audio = new Audio(`assets/audio/notify.mp3`);
+    audio.play();
   }
 }
 

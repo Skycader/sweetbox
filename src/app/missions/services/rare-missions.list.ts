@@ -20,7 +20,7 @@ export class RareMissions {
     },
     {
       id: 'memos-cards',
-      title: '📖 Словарь Memos достиг 1 700 карточек',
+      title: '📖 Словарь Memos достиг 1 800 карточек',
       step: 100,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
@@ -33,6 +33,24 @@ export class RareMissions {
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 1, amount: 5, xp: 1000 },
+    },
+    //Хозяйственные активности
+
+    {
+      id: 'washing-the-plates',
+      title: '💧 Помыть посуду',
+      step: 100,
+      refreshTime: TimeEnum.SECOND,
+      respawnTime: 7 * TimeEnum.DAY,
+      reward: { keyType: 1, amount: 1, xp: 1000 },
+    },
+    {
+      id: 'iron-clothes',
+      title: '👕 Погладить вещи',
+      step: 100,
+      refreshTime: TimeEnum.SECOND,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 1, amount: 1, xp: 1000 },
     },
     {
       id: 'cleaning-time',

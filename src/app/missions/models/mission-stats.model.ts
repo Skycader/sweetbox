@@ -9,4 +9,5 @@ export interface MissionStats {
   hearts: number;
   maxHearts: number;
   lastCompleted: number;
+  onFire: number;
 }

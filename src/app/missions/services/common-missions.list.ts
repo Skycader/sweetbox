@@ -2,12 +2,21 @@ import { Injectable } from '@angular/core';
 import { Mission } from './mission.class';
 import { MissionConfig, MissionsService } from './missions.service';
 import { TimeEnum } from '../models/time.list.enum';
+import { RangService } from '../../rangs/services/rang.service';
+import { SkinsEnum } from '../models/skins.enum';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommonMissions {
-  constructor(private mission: MissionsService) { }
+  constructor(
+    private mission: MissionsService,
+    private rang: RangService,
+  ) { }
+
+  getIncomeLevel(income: number) {
+    return Math.ceil(Math.log2(income / 100000));
+  }
 
   private commonMissions: MissionConfig[] = [
     {
@@ -15,9 +24,10 @@ export class CommonMissions {
       title:
         '🎁 Выполните все ежедневные миссии в течении суток, чтобы получить эту награду',
       step: 100,
+      skin: SkinsEnum[this.getIncomeLevel(this.rang.getXp())],
       refreshTime: TimeEnum.DAY,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 1, amount: 3, xp: 10 },
+      reward: { keyType: 1, amount: 5, xp: 1000 },
       autocomplete: true,
     },
 
@@ -230,18 +240,17 @@ export class CommonMissions {
       step: 50,
       refreshTime: 10 * TimeEnum.SECOND,
       respawnTime: 40 * TimeEnum.MINUTE,
-      reward: { keyType: 0, amount: 1, xp: 125 },
+      reward: { keyType: 0, amount: 1, xp: 120 },
       level: '🟦 125°',
       maxPerDay: 3,
     },
     {
       id: 'long-split',
-      title:
-        '🥋 Растяжка - продольный шпагат на полу - обе ноги по 2 минуты 2 подхода',
+      title: '🥋 Растяжка - продольный шпагат на полу',
       step: 50,
       refreshTime: 10 * TimeEnum.SECOND,
       respawnTime: 40 * TimeEnum.MINUTE,
-      reward: { keyType: 0, amount: 1, xp: 125 },
+      reward: { keyType: 0, amount: 1, xp: 120 },
       level: '🟦 125°',
       maxPerDay: 3,
     },
@@ -251,7 +260,7 @@ export class CommonMissions {
       step: 50,
       refreshTime: 10 * TimeEnum.SECOND,
       respawnTime: 40 * TimeEnum.MINUTE,
-      reward: { keyType: 0, amount: 1, xp: 124 },
+      reward: { keyType: 0, amount: 1, xp: 120 },
       level: '🟦🟡 124°',
       maxPerDay: 5,
     },
@@ -336,16 +345,6 @@ export class CommonMissions {
       refreshTime: 10 * TimeEnum.SECOND,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 10 },
-    },
-
-    //Хозяйственные активности
-    {
-      id: 'iron-clothes',
-      title: '👕 Погладить вещи',
-      step: 100,
-      refreshTime: TimeEnum.SECOND,
-      respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 100 },
     },
   ];
 
