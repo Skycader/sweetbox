@@ -17,6 +17,7 @@ export interface MissionConfig {
   reward: Reward;
   autocomplete?: boolean;
   level?: string;
+  stars?: number;
   openHours?: [number, number];
   maxHearts?: number;
 }

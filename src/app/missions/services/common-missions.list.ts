@@ -37,7 +37,7 @@ export class CommonMissions {
       title: '❤️  Выпить антидепресант',
       step: 100,
       refreshTime: 0,
-      respawnTime: 6 * TimeEnum.HOUR,
+      respawnTime: 24 * TimeEnum.HOUR,
       reward: { keyType: 4, amount: 1, xp: 10 },
       openHours: [9, 24],
     },
@@ -46,16 +46,16 @@ export class CommonMissions {
       title: '🍫 Выпить витамминный комплекс Б',
       step: 100,
       refreshTime: 0,
-      respawnTime: 6 * TimeEnum.HOUR,
+      respawnTime: 24 * TimeEnum.HOUR,
       reward: { keyType: 4, amount: 1, xp: 10 },
-      openHours: [9, 24],
+      openHours: [0, 24],
     },
     {
       id: 'gainer',
       title: '🏋️‍♂️  Принять гейнер',
       step: 100,
       refreshTime: 0,
-      respawnTime: 6 * TimeEnum.HOUR,
+      respawnTime: 24 * TimeEnum.HOUR,
       reward: { keyType: 4, amount: 1, xp: 10 },
       openHours: [9, 24],
     },
@@ -64,7 +64,7 @@ export class CommonMissions {
       title: '🏋️‍♂️  Принять протеин',
       step: 100,
       refreshTime: 0,
-      respawnTime: 6 * TimeEnum.HOUR,
+      respawnTime: 24 * TimeEnum.HOUR,
       reward: { keyType: 4, amount: 1, xp: 10 },
       openHours: [14, 24],
     },
@@ -73,7 +73,7 @@ export class CommonMissions {
       title: '🏋️‍♂️  Принять креатин',
       step: 100,
       refreshTime: 0,
-      respawnTime: 6 * TimeEnum.HOUR,
+      respawnTime: 24 * TimeEnum.HOUR,
       reward: { keyType: 4, amount: 1, xp: 10 },
       openHours: [18, 24],
     },
@@ -87,7 +87,6 @@ export class CommonMissions {
       respawnTime: 6 * TimeEnum.HOUR,
       reward: { keyType: 0, amount: 1, xp: 40 },
       maxPerDay: 4,
-      maxHearts: 1,
     },
     {
       id: 'take-shower-jump',
@@ -104,6 +103,7 @@ export class CommonMissions {
       refreshTime: 10 * TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 100 }, //1xp за работу
+      stars: 1,
     },
     {
       id: 'eat-apple',
@@ -122,6 +122,7 @@ export class CommonMissions {
       refreshTime: 3 * TimeEnum.HOUR,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 40 },
+      stars: 2,
     },
     {
       id: 'ao-obi-no-kata',
@@ -130,6 +131,7 @@ export class CommonMissions {
       refreshTime: 3 * TimeEnum.HOUR,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 40 },
+      stars: 1,
     },
 
     //Силовые упражнения
@@ -140,6 +142,7 @@ export class CommonMissions {
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 40 },
+      stars: 1, //за каждые 20 отжиманий (20/100 => 10/50 => 1/5)
     },
     {
       id: 'abs',
@@ -148,6 +151,7 @@ export class CommonMissions {
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 40 },
+      stars: 2,
     },
     {
       id: 'squats',
@@ -156,6 +160,7 @@ export class CommonMissions {
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 40 },
+      stars: 1,
     },
     {
       id: 'bicycle-exercise',
@@ -164,6 +169,7 @@ export class CommonMissions {
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 40 },
+      stars: 1,
     },
     {
       id: 'leg-swinging',
@@ -172,6 +178,7 @@ export class CommonMissions {
       refreshTime: 10 * TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 25 },
+      stars: 2,
     },
     {
       id: 'hand-training',
@@ -180,6 +187,7 @@ export class CommonMissions {
       refreshTime: 1 * TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 20 },
+      stars: 2,
     },
     {
       id: 'fist-training',
@@ -189,6 +197,7 @@ export class CommonMissions {
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 20 },
       maxPerDay: 10,
+      stars: 1,
     },
     {
       id: 'back-training',
@@ -198,6 +207,7 @@ export class CommonMissions {
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 20 },
+      stars: 1,
     },
     {
       id: 'kegel-training',
@@ -206,6 +216,7 @@ export class CommonMissions {
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 40 },
+      stars: 1,
     },
     {
       id: 'elbow-up-downs',
@@ -214,6 +225,7 @@ export class CommonMissions {
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 20 },
+      stars: 1,
     },
     {
       id: 'legs-statics',
@@ -222,47 +234,63 @@ export class CommonMissions {
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 60 },
+      stars: 1,
     },
 
     //Растяжка
     {
       id: 'kitchen-stretching',
-      title: '🥋 Сделать растяжку ног на кухне',
+      title: '🤸 Сделать растяжку ног на кухне x6',
       step: 20,
       refreshTime: 20 * TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 40 },
       maxPerDay: 2,
+      stars: 3,
     },
     {
       id: 'carpet-stretching',
-      title: '🥋 Сделать растяжку ног на коврике - с дисками гантелей',
+      title: '🧘 Сделать растяжку ног на коврике - с дисками гантелей 2x3',
       step: 50,
       refreshTime: 10 * TimeEnum.SECOND,
       respawnTime: 40 * TimeEnum.MINUTE,
       reward: { keyType: 0, amount: 1, xp: 120 },
       level: '🟦 125°',
+      stars: 3,
       maxPerDay: 3,
     },
     {
       id: 'long-split',
-      title: '🥋 Растяжка - продольный шпагат на полу',
+      title: '🦵 Растяжка - продольный шпагат на полу 1x4',
       step: 50,
       refreshTime: 10 * TimeEnum.SECOND,
       respawnTime: 40 * TimeEnum.MINUTE,
       reward: { keyType: 0, amount: 1, xp: 120 },
       level: '🟦 125°',
+      stars: 3,
       maxPerDay: 3,
     },
     {
       id: 'transverse-split',
-      title: '🥋 Растяжка - поперечный шпагат у стенки - 2 подхода по 4 минуты',
+      title: '🤸 Растяжка - поперечный шпагат у стенки - 2x4',
+      step: 50,
+      refreshTime: TimeEnum.SECOND,
+      respawnTime: TimeEnum.SECOND,
+      reward: { keyType: 0, amount: 1, xp: 120 },
+      level: '🟦🟡 124°',
+      stars: 3,
+      maxPerDay: 5,
+    },
+    {
+      id: 'spring-exc',
+      title: '🤸 Растяжка - на коврике голову к полу + пружинка 1x4',
       step: 50,
       refreshTime: 10 * TimeEnum.SECOND,
       respawnTime: 40 * TimeEnum.MINUTE,
       reward: { keyType: 0, amount: 1, xp: 120 },
-      level: '🟦🟡 124°',
       maxPerDay: 5,
+      skin: 'epic/emerald.webp',
+      stars: 1,
     },
 
     //Ментальные упражнения
@@ -275,6 +303,7 @@ export class CommonMissions {
       respawnTime: TimeEnum.SECOND,
       reward: { keyType: 0, amount: 1, xp: 40 },
       maxPerDay: 10,
+      stars: 1,
     },
     {
       id: 'duolingo-japanese-practice',
@@ -285,6 +314,7 @@ export class CommonMissions {
       reward: { keyType: 0, amount: 2, xp: 20 },
       level: '⬜️🔵',
       maxPerDay: 5,
+      stars: 1,
     },
     {
       id: 'duolingo-new-japanese-lesson',
@@ -295,6 +325,7 @@ export class CommonMissions {
       reward: { keyType: 0, amount: 2, xp: 40 },
       level: '⬜️🔵',
       maxPerDay: 5,
+      stars: 1,
     },
     {
       id: 'finish-morsecode-level',
@@ -304,6 +335,7 @@ export class CommonMissions {
       respawnTime: TimeEnum.MINUTE,
       reward: { keyType: 0, amount: 1, xp: 120 },
       maxPerDay: 5,
+      stars: 2,
     },
     {
       id: 'rubics-cube',
@@ -312,6 +344,7 @@ export class CommonMissions {
       refreshTime: 3 * TimeEnum.HOUR,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 40 },
+      stars: 1, //1 минута (1 звезда), 30 сек (2), 15 сек(3), 10 сек (4), 5 сек (5)
     },
     {
       id: 'reading',
@@ -321,6 +354,7 @@ export class CommonMissions {
       respawnTime: TimeEnum.SECOND,
       reward: { keyType: 0, amount: 2, xp: 400 },
       maxPerDay: 10,
+      stars: 1,
     },
     {
       id: 'raptorium',
@@ -329,6 +363,7 @@ export class CommonMissions {
       refreshTime: TimeEnum.HOUR,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 20 },
+      stars: 4,
     },
     {
       id: 'regexp',
@@ -337,6 +372,7 @@ export class CommonMissions {
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 40 },
+      stars: 3,
     },
     {
       id: 'chess-training',
@@ -345,6 +381,7 @@ export class CommonMissions {
       refreshTime: 10 * TimeEnum.SECOND,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 10 },
+      stars: 1,
     },
   ];
 

@@ -10,4 +10,5 @@ export interface MissionStats {
   maxHearts: number;
   lastCompleted: number;
   onFire: number;
+  streak: { days: number; doneToday: boolean };
 }

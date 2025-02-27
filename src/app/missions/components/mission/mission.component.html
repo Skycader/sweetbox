@@ -47,8 +47,12 @@
       matTooltip="Комбо"
       matTooltip="Соберите 3 огонька чтобы получать двойной опыт!"
     >
-      <span> {{ mission.getFire() }}</span>
-      <span style="filter: grayscale(100%)"> {{ mission.getDeadFire() }}</span>
+      <span style="display: flex">
+        <span style="margin: 0px"> {{ mission.getFire() }}</span>
+        <span style="margin: 0px; filter: grayscale(100%)">
+          {{ mission.getDeadFire() }}</span
+        >
+      </span>
     </mat-chip-option>
     <mat-chip-option
       class="skill"
@@ -87,9 +91,24 @@
 
     <mat-chip-option
       matTooltip="Уровень мастерства"
-      *ngIf="mission.getConfig().level"
-      >{{ mission.getConfig().level }}</mat-chip-option
+      *ngIf="mission.getConfig().stars"
     >
+      <span>{{ mission.getConfig().achivedStars() }}</span>
+      <span style="filter: grayscale(100%)">{{
+        mission.getConfig().unachivedStars()
+      }}</span>
+    </mat-chip-option>
+
+    <mat-chip-option matTooltip="Ударный режим">
+      <span
+        [style]="
+          mission.getStats().streak.doneToday === false
+            ? 'filter: grayscale(100%)'
+            : ''
+        "
+        >{{ mission.getStats().streak.days }}🔥</span
+      >
+    </mat-chip-option>
 
     <mat-chip-option>{{ mission.getConfig().step }}%</mat-chip-option>
     <mat-chip-option

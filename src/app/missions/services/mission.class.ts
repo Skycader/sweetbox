@@ -19,6 +19,7 @@ export class Mission {
   public notifyOfNewRang = false;
 
   private stats: MissionStats = {
+    streak: { days: 0, doneToday: false },
     progress: 0,
     disabledUntil: Date.now(),
     isCompletedUntil: Date.now(),
@@ -43,7 +44,10 @@ export class Mission {
     },
   ) {
     this.stats =
-      { ...this.stats, ...this.loadMissionStats(this.config.id) } || this.stats;
+      {
+        ...this.stats,
+        ...this.loadMissionStats(this.config.id),
+      } || this.stats;
 
     if (this.config.maxHearts) this.stats.maxHearts = this.config.maxHearts;
 
@@ -90,6 +94,11 @@ export class Mission {
       maxPerDay: this.config.maxPerDay ? this.config.maxPerDay : 1,
       doneToday: this.stats.doneToday,
       openHours: this.config.openHours ? this.config.openHours : [0, 24],
+      stars: this.config.stars,
+      achivedStars: () =>
+        this.config.stars ? '⭐️'.repeat(this.config.stars) : '',
+      unachivedStars: () =>
+        this.config.stars ? '⭐️'.repeat(5 - this.config.stars) : '',
     };
   }
 
@@ -176,6 +185,12 @@ export class Mission {
       this.stats.doneToday = 0;
       this.stats.onFire = 0;
 
+      if (this.stats.streak.doneToday === false) {
+        this.stats.hearts -= 1;
+        if (this.stats.hearts === 0) this.stats.streak.days = 0;
+      }
+      this.stats.streak.doneToday = false;
+
       const daysSinceLastComplete =
         Math.floor(
           (Date.now() - this.stats.lastCompleted) / 1000 / 60 / 60 / 24,
@@ -253,6 +268,11 @@ export class Mission {
   }
 
   public complete() {
+    if (this.stats.streak.doneToday === false) {
+      this.stats.streak.days += 1;
+      this.stats.streak.doneToday = true;
+    }
+
     this.stats.lastCompleted = Date.now();
     this.stats.notifiedReady = false;
     this.stats.onFire += this.stats.onFire < 3 ? 1 : 0;
