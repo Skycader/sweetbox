@@ -69,7 +69,7 @@ export class CommonMissions {
       openHours: [14, 24],
     },
     {
-      id: 'kalogen',
+      id: 'creatin',
       title: '🏋️‍♂️  Принять креатин',
       step: 100,
       refreshTime: 0,
@@ -122,7 +122,6 @@ export class CommonMissions {
       refreshTime: 3 * TimeEnum.HOUR,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 40 },
-      stars: 2,
     },
     {
       id: 'ao-obi-no-kata',
@@ -131,7 +130,6 @@ export class CommonMissions {
       refreshTime: 3 * TimeEnum.HOUR,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 40 },
-      stars: 1,
     },
 
     //Силовые упражнения
@@ -211,12 +209,12 @@ export class CommonMissions {
     },
     {
       id: 'kegel-training',
-      title: '💪 Упражнения кегеля 100 раз и ноги назад 100 раз каждая',
+      title: '💪 Упражнения кегеля 100 раз и ноги назад 50 раз каждая',
       step: 50,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 40 },
-      stars: 1,
+      reward: { keyType: 0, amount: 1, xp: 20 },
+      stars: 0, //потом посчитаю
     },
     {
       id: 'elbow-up-downs',
@@ -303,7 +301,6 @@ export class CommonMissions {
       respawnTime: TimeEnum.SECOND,
       reward: { keyType: 0, amount: 1, xp: 40 },
       maxPerDay: 10,
-      stars: 1,
     },
     {
       id: 'duolingo-japanese-practice',
@@ -335,7 +332,9 @@ export class CommonMissions {
       respawnTime: TimeEnum.MINUTE,
       reward: { keyType: 0, amount: 1, xp: 120 },
       maxPerDay: 5,
-      stars: 2,
+      stars: 1, //(15/30 WPM + 3/40 SPM)/2 => 0.2875 (каждые 20% = 1 звезда навыка)
+      //WPM = words per minute, rather sounds per second such as . or -
+      //SPM => spaces per minute, i.e. the pause in ms between letters such as (...) or (---)
     },
     {
       id: 'rubics-cube',

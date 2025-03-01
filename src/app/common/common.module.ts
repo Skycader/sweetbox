@@ -10,6 +10,7 @@ import {
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
+import { MissionsModule } from '../missions/missions.module';
 import { RangsModule } from '../rangs/rangs.module';
 
 @NgModule({
@@ -20,7 +21,13 @@ import { RangsModule } from '../rangs/rangs.module';
     PageNotFoundComponent,
   ],
   exports: [NavbarComponent, SideNavComponent, FooterComponent],
-  imports: [CommonModule, MaterialModule, RouterModule],
+  imports: [
+    CommonModule,
+    MaterialModule,
+    RouterModule,
+    MissionsModule,
+    RangsModule,
+  ],
   providers: [provideHttpClient(withInterceptorsFromDi())],
 })
 export class AppCommonModule { }

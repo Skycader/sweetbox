@@ -204,7 +204,7 @@ export class Mission {
           //Чем больше уровень - тем выше вероятность потерять сердце
 
           for (let day = 0; day < daysSinceLastComplete; day++) {
-            this.stats.hearts -= Math.random() > 0.9 ? 1 : 0;
+            this.stats.hearts -= this.stats.streak.doneToday ? 0 : 1;
           }
 
           for (let i = 0; i < daysSinceLastComplete - 3; i++) {
@@ -372,7 +372,8 @@ export class Mission {
       this.stats.notifiedReady === false &&
       this.progress > 0
     ) {
-      this.deps.notification.notify(`${this.config.title}`);
+      if (Date.now() - this.stats.lastCompleted > 10000)
+        this.deps.notification.notify(`${this.config.title}`);
       this.stats.notifiedReady = true;
       this.sync();
     }
