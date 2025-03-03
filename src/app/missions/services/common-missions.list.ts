@@ -287,7 +287,6 @@ export class CommonMissions {
       respawnTime: 40 * TimeEnum.MINUTE,
       reward: { keyType: 0, amount: 1, xp: 120 },
       maxPerDay: 5,
-      skin: 'epic/emerald.webp',
       stars: 1,
     },
 

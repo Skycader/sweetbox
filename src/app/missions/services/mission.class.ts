@@ -204,19 +204,24 @@ export class Mission {
           //Чем больше уровень - тем выше вероятность потерять сердце
 
           for (let day = 0; day < daysSinceLastComplete; day++) {
-            this.stats.hearts -= this.stats.streak.doneToday ? 0 : 1;
+            if (
+              this.config.reward.keyType === 0 ||
+              this.config.reward.keyType === 4
+            )
+              this.stats.hearts -= this.stats.streak.doneToday ? 0 : 1;
+            if (this.stats.hearts < 0) this.stats.hearts = 0;
           }
 
-          for (let i = 0; i < daysSinceLastComplete - 3; i++) {
-            const log: any =
-              JSON.parse(localStorage.getItem('log') as any) || [];
-            log.push(
-              `${this.today()}Снятие очков опыта в размере 10% у навыка ${this.config.title
-              }`,
-            );
-            localStorage.setItem('log', JSON.stringify(log));
-            this.stats.skillXp -= Math.floor(this.stats.skillXp * 0.1);
-          }
+          // for (let i = 0; i < daysSinceLastComplete - 3; i++) {
+          //   const log: any =
+          //     JSON.parse(localStorage.getItem('log') as any) || [];
+          //   log.push(
+          //     `${this.today()}Снятие очков опыта в размере 10% у навыка ${this.config.title
+          //     }`,
+          //   );
+          //   localStorage.setItem('log', JSON.stringify(log));
+          //   this.stats.skillXp -= Math.floor(this.stats.skillXp * 0.1);
+          // }
           if (this.stats.skillXp < 0) this.stats.skillXp = 0;
           this.stats.hearts = 0;
         }
@@ -236,6 +241,7 @@ export class Mission {
   }
 
   public getHearts() {
+    if (this.stats.hearts < 0) this.stats.hearts = 0;
     return '❤️'.repeat(this.stats.hearts);
   }
 
