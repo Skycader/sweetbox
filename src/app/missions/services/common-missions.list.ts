@@ -81,7 +81,7 @@ export class CommonMissions {
     //Избранное
     {
       id: 'clean-memos',
-      title: '❤️  Отчистить Memos',
+      title: '🔄 Отчистить Memos',
       step: 100,
       refreshTime: 0,
       respawnTime: 6 * TimeEnum.HOUR,
@@ -270,7 +270,7 @@ export class CommonMissions {
     },
     {
       id: 'transverse-split',
-      title: '🤸 Растяжка - поперечный шпагат у стенки - 2x4',
+      title: '🤸 Растяжка - поперечный шпагат у стенки - 8 минут',
       step: 50,
       refreshTime: TimeEnum.SECOND,
       respawnTime: TimeEnum.SECOND,
@@ -294,7 +294,7 @@ export class CommonMissions {
 
     {
       id: 'memos-add-card',
-      title: '❤️  Memos - добавить 1 карточку',
+      title: '📔✍️  Memos - добавить 1 карточку',
       step: 100,
       refreshTime: TimeEnum.SECOND,
       respawnTime: TimeEnum.SECOND,
@@ -338,7 +338,7 @@ export class CommonMissions {
     {
       id: 'rubics-cube',
       title: '🧠 Собрать кубик рубика',
-      step: 50,
+      step: 100,
       refreshTime: 3 * TimeEnum.HOUR,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 40 },
@@ -376,7 +376,7 @@ export class CommonMissions {
       id: 'chess-training',
       title: '🧠 Решить упражнение по шахматам на lichess.org (всего 10)',
       step: 10,
-      refreshTime: 10 * TimeEnum.SECOND,
+      refreshTime: 5 * TimeEnum.SECOND,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 10 },
       stars: 1,

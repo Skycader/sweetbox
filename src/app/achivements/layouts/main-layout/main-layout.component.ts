@@ -61,7 +61,7 @@ export class MainLayoutComponent {
     },
     {
       title: 'Стальные ноги',
-      statement: 'сделать 1 000 приседаний на стопе за час',
+      statement: 'Сделать 1 000 икроножных приседаний за час',
       achived: false,
       image: 'iron_legs.jpeg',
     },
@@ -79,7 +79,7 @@ export class MainLayoutComponent {
     },
     {
       title: 'The World!',
-      statement: 'Продержаться в планке 25 минут',
+      statement: 'Продержаться в планке 60 минут',
       achived: false,
       image: 'za_warudo.jpeg',
     },

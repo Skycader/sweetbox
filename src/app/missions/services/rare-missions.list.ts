@@ -35,6 +35,14 @@ export class RareMissions {
       reward: { keyType: 1, amount: 5, xp: 1000 },
     },
     //Хозяйственные активности
+    {
+      id: 'clean-pc-light',
+      title: '💧 Помыть пылевые фильтры ПК',
+      step: 100,
+      refreshTime: TimeEnum.SECOND,
+      respawnTime: 7 * TimeEnum.DAY,
+      reward: { keyType: 1, amount: 1, xp: 1000 },
+    },
 
     {
       id: 'washing-the-plates',

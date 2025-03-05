@@ -12,6 +12,7 @@ import {
 } from '@angular/common/http';
 import { MissionsModule } from '../missions/missions.module';
 import { RangsModule } from '../rangs/rangs.module';
+import { PrettyNumberPipe } from './utils/pipes/pretty-number.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { RangsModule } from '../rangs/rangs.module';
     SideNavComponent,
     FooterComponent,
     PageNotFoundComponent,
+    PrettyNumberPipe,
   ],
   exports: [NavbarComponent, SideNavComponent, FooterComponent],
   imports: [

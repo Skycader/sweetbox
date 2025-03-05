@@ -52,7 +52,7 @@
             style="width: 12px; height: auto; margin-bottom: 2px"
             src="assets/images/common/xp.webp"
           />
-          {{ getXp() }} / {{ getNextRangXp() }}
+          {{ getXp() | prettyNumber }} / {{ getNextRangXp() | prettyNumber }}
         </div>
       </div>
     </div>
@@ -80,7 +80,7 @@
       "
     >
       <div class="fire" [class.grey]="!doneToday">🔥</div>
-      {{ streak }}
+      {{ streak | prettyNumber }}
     </div>
 
     <span *ngIf="dailyRefresh$ | async"></span>
