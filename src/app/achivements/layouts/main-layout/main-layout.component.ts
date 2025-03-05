@@ -98,7 +98,7 @@ export class MainLayoutComponent {
     },
     {
       title: 'Сила двух сотен',
-      statement: 'Боксировать на протяжении 25 минут без остановки',
+      statement: 'Боксировать на протяжении 60 минут без остановки',
       achived: false,
       image: 'full_stamina.jpeg',
     },
