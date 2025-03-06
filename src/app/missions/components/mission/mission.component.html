@@ -141,6 +141,14 @@
           src="assets/images/common/xp.webp"
         />
       </ng-container>
+      <ng-container *ngIf="mission.getStats().streak.days > 0">
+        + {{ mission.getStats().streak.days }}
+        <img
+          [id]="'M' + mission.getConfig().hash"
+          style="margin-left: 1px; margin-bottom: 2px"
+          src="assets/images/common/xp.webp"
+        />
+      </ng-container>
     </mat-chip-option>
 
     <mat-chip-option

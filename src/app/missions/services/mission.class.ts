@@ -274,11 +274,6 @@ export class Mission {
   }
 
   public complete() {
-    if (this.stats.streak.doneToday === false) {
-      this.stats.streak.days += 1;
-      this.stats.streak.doneToday = true;
-    }
-
     this.stats.lastCompleted = Date.now();
     this.stats.notifiedReady = false;
     this.stats.onFire += this.stats.onFire < 3 ? 1 : 0;
@@ -295,7 +290,7 @@ export class Mission {
     const rang = this.getSkillRang().icon;
 
     //Скилл опыт + бонус по условию
-    this.stats.skillXp += this.config.reward.xp;
+    this.stats.skillXp += this.config.reward.xp + this.getStats().streak.days;
     if (this.stats.onFire === 3) this.stats.skillXp += this.config.reward.xp;
 
     //Подсветить новый ранг
@@ -324,6 +319,13 @@ export class Mission {
       //Добавить основной опыт + бонус
       this.deps.rang.addXp(this.getConfig().xp);
       if (this.stats.onFire === 3) this.deps.rang.addXp(this.getConfig().xp);
+      if (this.stats.streak.days > 0)
+        this.deps.rang.addXp(this.stats.streak.days);
+
+      if (this.stats.streak.doneToday === false) {
+        this.stats.streak.days += 1;
+        this.stats.streak.doneToday = true;
+      }
 
       const newRang = this.deps.rang.getRang().rang;
 

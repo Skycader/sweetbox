@@ -34,16 +34,15 @@ export class CommonMissions {
     //Прием добавок
     {
       id: 'antidepresant',
-      title: '❤️  Выпить антидепресант',
+      title: '❗️ Выпить антидепресант',
       step: 100,
       refreshTime: 0,
       respawnTime: 24 * TimeEnum.HOUR,
       reward: { keyType: 4, amount: 1, xp: 10 },
-      openHours: [9, 24],
     },
     {
       id: 'b-vitamins',
-      title: '🍫 Выпить витамминный комплекс Б',
+      title: '❗️ Выпить витамминный комплекс Б',
       step: 100,
       refreshTime: 0,
       respawnTime: 24 * TimeEnum.HOUR,
@@ -81,7 +80,7 @@ export class CommonMissions {
     //Избранное
     {
       id: 'clean-memos',
-      title: '🔄 Отчистить Memos',
+      title: '❗️🔄 Отчистить Memos',
       step: 100,
       refreshTime: 0,
       respawnTime: 6 * TimeEnum.HOUR,
