@@ -1,15 +1,36 @@
-<div class="progress-container">
-  <div class="progress-bar">
-    <div class="progress" id="progress"></div>
-  </div>
-  <div class="progress-info" id="progressInfo">
-    Получено достижений: {{ 0 }} / {{ achivements.length }}
-  </div>
-</div>
+<div class="p-4 progress-container">
+  <mat-tab-group>
+    <mat-tab label="Достижения">
+      <br />
+      <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+      </div>
+      <div class="progress-info" id="progressInfo">
+        Получено достижений: {{ 0 }} / {{ achivements.length }}
+      </div>
 
-<div class="grid" id="cardGrid">
-  <app-achivement
-    *ngFor="let achivement of achivements"
-    [achivement]="achivement"
-  />
+      <div class="grid" id="cardGrid">
+        <app-achivement
+          *ngFor="let achivement of achivements"
+          [achivement]="achivement"
+        />
+      </div>
+    </mat-tab>
+    <mat-tab label="Испытания">
+      <br />
+      <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+      </div>
+      <div class="progress-info" id="progressInfo">
+        Выполнено испытаний: {{ 0 }} / {{ challanges.length }}
+      </div>
+
+      <div class="grid" id="cardGrid">
+        <app-achivement
+          *ngFor="let achivement of challanges"
+          [achivement]="achivement"
+        />
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 </div>

@@ -79,6 +79,7 @@ export class Mission {
 
   public getConfig() {
     return {
+      id: this.config.id,
       title: this.config.title,
       skin: this.config.skin
         ? this.config.skin
@@ -332,6 +333,8 @@ export class Mission {
       if (newRang !== prevRang) {
         setTimeout(() => this.deps.rang.congratsOnNewRang(), 300);
       }
+
+      this.sync();
     }, 1500);
 
     this.stats.progress = this.progress;

@@ -46,31 +46,39 @@ export class MissionsListComponent {
     return day;
   }
 
-  public areAllMissionsComplete() {
-    const missions = this.commonMissions.slice(1);
+  public heroMissionCheck() {
+    let totalXp =
+      this.commonMissions
+        .find((mission) => mission.getConfig().id === 'calf-muscles')
+        ?.getStats().skillXp || 0;
 
-    let allMissionsComplete = true;
-    let totalPercentage = 0;
-    let requiredTotalPercentage = (this.commonMissions.length - 1) * 100;
+    totalXp -= 3331;
 
-    missions.forEach((mission: Mission) => {
-      if (!mission.isCompleted()) allMissionsComplete = false;
-      totalPercentage +=
-        mission.getProgress() + Number(mission.isCompleted()) * 100;
-    });
+    const requiredXp = 13331 - 3331; //earn 10K exp within 7 days
 
-    if (allMissionsComplete) {
-      return this.commonMissions[0].unblock();
-    }
+    // if (cond) {
+    //   return this.commonMissions[0].unblock();
+    // }
 
     this.commonMissions[0].setProgress(
-      Math.floor((totalPercentage / requiredTotalPercentage) * 100),
+      Math.floor((totalXp / requiredXp) * 100),
     );
 
+    const startline = Number(new Date('2025-03-09'));
+    const deadline = Number(new Date('2025-03-16'));
+    const formula = (Date.now() - startline) / (deadline - startline);
     this.commonMissions[0].setRequiredProgress(
-      Math.floor(
-        ((this.getSecondsToday() - 8 * 60 * 60) / (12 * 60 * 60)) * 100,
-      ),
+      Math.floor(formula * 100) + 0.001,
+    );
+
+    /**
+     * a = new Date('2025-03-09')
+     * b = new Date('2025-03-16')
+     * (Date.now()-a)/(b-a)
+     */
+
+    console.log(
+      Math.floor(((Date.now() + startline) / (deadline - startline)) * 100),
     );
   }
 
@@ -121,7 +129,7 @@ export class MissionsListComponent {
     tap(() => {
       this.randomBonus();
       this.cdk.detectChanges();
-      this.areAllMissionsComplete();
+      this.heroMissionCheck();
     }),
   );
 

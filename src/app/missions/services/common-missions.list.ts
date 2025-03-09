@@ -22,7 +22,7 @@ export class CommonMissions {
     {
       id: 'everyday-hero',
       title:
-        '🎁 Выполните все ежедневные миссии в течении суток, чтобы получить эту награду',
+        '🎮 Наберите 10 000 опыта на икроножных мышцах за неделю (дедлайн 16 марта)',
       step: 100,
       skin: SkinsEnum[this.getIncomeLevel(this.rang.getXp())],
       refreshTime: TimeEnum.DAY,
@@ -99,10 +99,11 @@ export class CommonMissions {
       id: 'calf-muscles',
       title: '💪 Тренировка икроножных мышц - 100 раз',
       step: 50,
-      refreshTime: 10 * TimeEnum.MINUTE,
-      respawnTime: TimeEnum.DAY,
+      refreshTime: 40 * TimeEnum.MINUTE,
+      respawnTime: 40 * TimeEnum.MINUTE,
       reward: { keyType: 0, amount: 1, xp: 100 }, //1xp за работу
       stars: 1,
+      maxPerDay: 10,
     },
     {
       id: 'eat-apple',

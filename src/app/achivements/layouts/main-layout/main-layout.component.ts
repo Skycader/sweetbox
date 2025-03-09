@@ -10,6 +10,16 @@ export class MainLayoutComponent {
     const audio = new Audio('assets/audio/takeout.mp3');
     audio.play();
   }
+
+  challanges = [
+    {
+      title: 'Subway Surfers',
+      statement: 'Работай ножками, вложено 10 000 EXP за неделю',
+      achived: false,
+      image: 'game.jpeg',
+    },
+  ];
+
   achivements = [
     {
       title: 'Начинающий боец',
