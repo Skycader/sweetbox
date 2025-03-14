@@ -280,11 +280,11 @@ export class CommonMissions {
     },
     {
       id: 'long-split',
-      title: '🦵 Растяжка - продольный шпагат на полу 1x4',
+      title: '🦵 Растяжка - продольный шпагат на полу обе ноги 2 минуты',
       step: 50,
       refreshTime: 10 * TimeEnum.SECOND,
       respawnTime: 40 * TimeEnum.MINUTE,
-      reward: { keyType: 0, amount: 1, xp: 120 },
+      reward: { keyType: 0, amount: 1, xp: 60 },
       level: '🟦 125°',
       stars: 3,
       maxPerDay: 3,

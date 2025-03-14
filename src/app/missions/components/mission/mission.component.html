@@ -24,12 +24,12 @@
 
   <div
     style="position: absolute; width: 100%; height: 100%"
-    [class.rusty-mission]="mission.getStats().hearts <= 1"
+    [class.broken-mission]="mission.getStats().hearts <= 1"
   ></div>
 
   <div
     style="position: absolute; width: 100%; height: 100%"
-    [class.broken-mission]="mission.getStats().hearts <= 0"
+    [class.rusty-mission]="mission.getStats().hearts <= 0"
   ></div>
   <div
     *ngIf="mission.getConfig().skin"
