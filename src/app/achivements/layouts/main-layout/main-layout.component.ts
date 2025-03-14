@@ -156,5 +156,11 @@ export class MainLayoutComponent {
       achived: false,
       image: 'racer.jpeg',
     },
+    {
+      title: 'Истинный воин',
+      statement: 'Получить все достижения',
+      achived: false,
+      image: 'true_warrior.jpeg',
+    },
   ];
 }

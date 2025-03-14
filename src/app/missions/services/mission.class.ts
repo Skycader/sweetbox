@@ -230,7 +230,12 @@ export class Mission {
   }
 
   public getStats() {
-    return this.stats;
+    let hearts = this.config.autocomplete ? 3 : this.stats.hearts;
+    hearts = [1, 2, 3].includes(this.config.reward.keyType) ? 3 : hearts;
+    return {
+      ...this.stats,
+      hearts: hearts,
+    };
   }
 
   public getFire() {

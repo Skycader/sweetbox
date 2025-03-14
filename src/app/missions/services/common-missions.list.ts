@@ -31,6 +31,18 @@ export class CommonMissions {
       autocomplete: true,
     },
 
+    //Медитация + напряжение мышц + массаж челюсти
+    {
+      id: 'calm-complex', //Самое главное исключить негативные мысли и эмоции   (гнев, тревога)
+      title: '🧘‍♀️ Медитация + напряжение + массаж челюсти',
+      step: 100,
+      refreshTime: TimeEnum.MINUTE,
+      respawnTime: TimeEnum.MINUTE,
+      reward: { keyType: 4, amount: 1, xp: 10 },
+      openHours: [0, 24],
+      maxPerDay: 3,
+    },
+
     //Прием добавок
     {
       id: 'antidepresant',
@@ -43,6 +55,15 @@ export class CommonMissions {
     {
       id: 'b-vitamins',
       title: '❗️ Выпить витамминный комплекс Б',
+      step: 100,
+      refreshTime: 0,
+      respawnTime: 24 * TimeEnum.HOUR,
+      reward: { keyType: 4, amount: 1, xp: 10 },
+      openHours: [0, 24],
+    },
+    {
+      id: 'magnium-vitamins',
+      title: '❗️ Выпить магний',
       step: 100,
       refreshTime: 0,
       respawnTime: 24 * TimeEnum.HOUR,
@@ -99,11 +120,11 @@ export class CommonMissions {
       id: 'calf-muscles',
       title: '💪 Тренировка икроножных мышц - 100 раз',
       step: 50,
-      refreshTime: 40 * TimeEnum.MINUTE,
-      respawnTime: 40 * TimeEnum.MINUTE,
+      refreshTime: 10 * TimeEnum.MINUTE,
+      respawnTime: 10 * TimeEnum.MINUTE,
       reward: { keyType: 0, amount: 1, xp: 100 }, //1xp за работу
       stars: 1,
-      maxPerDay: 10,
+      maxPerDay: 20,
     },
     {
       id: 'eat-apple',

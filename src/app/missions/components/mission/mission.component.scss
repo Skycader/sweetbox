@@ -21,6 +21,23 @@
   opacity: 0 !important;
 }
 
+.rusty-mission {
+  z-index: -1;
+  background-image: url(../../../../assets/images/textures/rust.png);
+}
+
+.dirty-mission {
+  z-index: -1;
+  background-image: url(../../../../assets/images/textures/dirty.png);
+  background-size: 380px;
+}
+
+.broken-mission {
+  z-index: -1;
+  background-image: url(../../../../assets/images/textures/broken.png);
+  background-size: 430px;
+}
+
 .bronze-mission {
   background: radial-gradient(circle, #8c5a3d, #c09b6b);
   font-family: "Main";
