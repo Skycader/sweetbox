@@ -71,10 +71,11 @@ export class RareMissions {
     {
       id: 'algorithm-task',
       title: '📖 Решить алгоритмическую задачу',
-      step: 50,
-      refreshTime: TimeEnum.MINUTE,
-      respawnTime: TimeEnum.DAY,
-      reward: { keyType: 1, amount: 1, xp: 100 },
+      step: 100,
+      refreshTime: TimeEnum.HOUR,
+      respawnTime: TimeEnum.HOUR,
+      reward: { keyType: 4, amount: 1, xp: 10000 },
+      maxPerDay: 10,
     },
     {
       id: 'japanese-unit-legendary',

@@ -122,7 +122,7 @@ export class CommonMissions {
       step: 50,
       refreshTime: 10 * TimeEnum.MINUTE,
       respawnTime: 10 * TimeEnum.MINUTE,
-      reward: { keyType: 0, amount: 1, xp: 100 }, //1xp за работу
+      reward: { keyType: 4, amount: 10, xp: 100 }, //1xp за работу
       stars: 1,
       maxPerDay: 20,
     },
@@ -295,8 +295,8 @@ export class CommonMissions {
       step: 50,
       refreshTime: TimeEnum.SECOND,
       respawnTime: TimeEnum.SECOND,
-      reward: { keyType: 0, amount: 1, xp: 120 },
-      level: '🟦🟡 124°',
+      reward: { keyType: 0, amount: 1, xp: 130 },
+      level: '🟦🟡 131°',
       stars: 3,
       maxPerDay: 5,
     },
