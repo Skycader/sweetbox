@@ -74,7 +74,7 @@ export class RareMissions {
       step: 100,
       refreshTime: TimeEnum.HOUR,
       respawnTime: TimeEnum.HOUR,
-      reward: { keyType: 4, amount: 1, xp: 10000 },
+      reward: { keyType: 4, amount: 10000, xp: 500 },
       maxPerDay: 10,
     },
     {
