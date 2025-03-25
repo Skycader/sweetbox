@@ -31,18 +31,6 @@ export class CommonMissions {
       autocomplete: true,
     },
 
-    //Медитация + напряжение мышц + массаж челюсти
-    {
-      id: 'calm-complex', //Самое главное исключить негативные мысли и эмоции   (гнев, тревога)
-      title: '🧘‍♀️ Медитация + напряжение + массаж челюсти',
-      step: 100,
-      refreshTime: TimeEnum.MINUTE,
-      respawnTime: TimeEnum.MINUTE,
-      reward: { keyType: 4, amount: 1, xp: 10 },
-      openHours: [0, 24],
-      maxPerDay: 3,
-    },
-
     //Прием добавок
     {
       id: 'antidepresant',
@@ -77,7 +65,7 @@ export class CommonMissions {
       refreshTime: 0,
       respawnTime: 24 * TimeEnum.HOUR,
       reward: { keyType: 4, amount: 1, xp: 10 },
-      openHours: [9, 24],
+      openHours: [0, 24],
     },
     {
       id: 'ptorein',
@@ -118,13 +106,12 @@ export class CommonMissions {
     },
     {
       id: 'calf-muscles',
-      title: '💪 Тренировка икроножных мышц - 100 раз',
-      step: 50,
-      refreshTime: 10 * TimeEnum.MINUTE,
-      respawnTime: 10 * TimeEnum.MINUTE,
-      reward: { keyType: 4, amount: 10, xp: 100 }, //1xp за работу
+      title: '💪 💎 Тренировка икроножных мышц - 100 раз',
+      step: 20,
+      refreshTime: 60 * TimeEnum.MINUTE,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 4, amount: 125, xp: 100 }, //1xp за работу
       stars: 1,
-      maxPerDay: 20,
     },
     {
       id: 'eat-apple',
@@ -280,11 +267,11 @@ export class CommonMissions {
     },
     {
       id: 'long-split',
-      title: '🦵 Растяжка - продольный шпагат на полу обе ноги 2 минуты',
-      step: 50,
+      title: '🦵 Растяжка - продольный шпагат на полу обе ноги 2 минуты (FAV)',
+      step: 20,
       refreshTime: 10 * TimeEnum.SECOND,
       respawnTime: 40 * TimeEnum.MINUTE,
-      reward: { keyType: 0, amount: 1, xp: 60 },
+      reward: { keyType: 4, amount: 50, xp: 60 },
       level: '🟦 125°',
       stars: 3,
       maxPerDay: 3,
@@ -335,13 +322,12 @@ export class CommonMissions {
     },
     {
       id: 'duolingo-new-japanese-lesson',
-      title: '🇯🇵 Сделать 1 новый урок японского на дуолинго',
-      step: 25,
-      refreshTime: TimeEnum.SECOND,
-      respawnTime: TimeEnum.SECOND,
-      reward: { keyType: 0, amount: 2, xp: 40 },
+      title: '🇯🇵 💎 Сделать 1 новый урок японского на дуолинго',
+      step: 10,
+      refreshTime: 15 * TimeEnum.SECOND,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 4, amount: 100, xp: 40 },
       level: '⬜️🔵',
-      maxPerDay: 5,
       stars: 1,
     },
     {
