@@ -32,7 +32,7 @@ export class RareMissions {
       step: 100,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 1, amount: 5, xp: 1000 },
+      reward: { keyType: 4, amount: 10000, xp: 1000 },
     },
     //Хозяйственные активности
     {
@@ -74,7 +74,7 @@ export class RareMissions {
       step: 100,
       refreshTime: TimeEnum.HOUR,
       respawnTime: TimeEnum.HOUR,
-      reward: { keyType: 4, amount: 10000, xp: 500 },
+      reward: { keyType: 4, amount: 660, xp: 500 },
       maxPerDay: 10,
     },
     {
@@ -91,7 +91,7 @@ export class RareMissions {
       step: 100,
       refreshTime: TimeEnum.DAY,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 1, amount: 1, xp: 200 },
+      reward: { keyType: 4, amount: 300, xp: 200 },
     },
     {
       id: 'karate-training',

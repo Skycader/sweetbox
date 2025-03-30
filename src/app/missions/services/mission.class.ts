@@ -362,10 +362,13 @@ export class Mission {
       const reward =
         this.config.reward.keyType < 4
           ? keys[this.config.reward.keyType]
-          : coins[1];
+          : coins[this.config.reward.keyType - 3];
+
       this.deps.storage.addItem(
         reward,
-        this.config.reward.amount * this.getRewardCoef(),
+        this.config.reward.amount *
+        this.getRewardCoef() *
+        (this.stats.doneToday + 1), //multiple diamonds reward
       );
       this.progress = 0;
       this.stats.progress = this.progress;

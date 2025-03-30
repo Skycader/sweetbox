@@ -233,7 +233,9 @@
       style="color: transparent; position: absolute; right: 45px; top: 20px"
       [matBadge]="
         mission.getReward().amount * mission.getRewardCoef() > 1
-          ? mission.getReward().amount * mission.getRewardCoef()
+          ? mission.getReward().amount *
+            mission.getRewardCoef() *
+            (mission.getStats().doneToday + 1)
           : ''
       "
       >X</span
@@ -262,6 +264,11 @@
       *ngIf="mission.getReward().keyType === 4"
       style="width: 100%"
       src="assets/images/coins/diamonds_mini.webp"
+    />
+    <img
+      *ngIf="mission.getReward().keyType === 5"
+      style="width: 100%"
+      src="assets/images/coins/diamonds.webp"
     />
   </div>
   <div style="width: 30px"></div>

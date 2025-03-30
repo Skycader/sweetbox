@@ -89,12 +89,12 @@ export class CommonMissions {
     //Избранное
     {
       id: 'clean-memos',
-      title: '❗️🔄 Отчистить Memos',
+      title: '❗️🔄 Memos - повторить 10 карточек',
       step: 100,
-      refreshTime: 0,
-      respawnTime: 6 * TimeEnum.HOUR,
-      reward: { keyType: 0, amount: 1, xp: 40 },
-      maxPerDay: 4,
+      refreshTime: 3 * TimeEnum.SECOND,
+      respawnTime: 3 * TimeEnum.HOUR,
+      reward: { keyType: 5, amount: 5, xp: 100 },
+      maxPerDay: 10,
     },
     {
       id: 'take-shower-jump',
@@ -108,10 +108,11 @@ export class CommonMissions {
       id: 'calf-muscles',
       title: '💪 💎 Тренировка икроножных мышц - 100 раз',
       step: 20,
-      refreshTime: 60 * TimeEnum.MINUTE,
-      respawnTime: TimeEnum.DAY,
-      reward: { keyType: 4, amount: 125, xp: 100 }, //1xp за работу
+      refreshTime: 2 * TimeEnum.MINUTE,
+      respawnTime: 3 * TimeEnum.HOUR,
+      reward: { keyType: 5, amount: 10, xp: 100 }, //1xp за работу
       stars: 1,
+      maxPerDay: 3,
     },
     {
       id: 'eat-apple',
@@ -267,7 +268,7 @@ export class CommonMissions {
     },
     {
       id: 'long-split',
-      title: '🦵 Растяжка - продольный шпагат на полу обе ноги 2 минуты (FAV)',
+      title: '🦵 Растяжка - продольный шпагат на полу обе ноги 2 минуты',
       step: 20,
       refreshTime: 10 * TimeEnum.SECOND,
       respawnTime: 40 * TimeEnum.MINUTE,
@@ -323,12 +324,13 @@ export class CommonMissions {
     {
       id: 'duolingo-new-japanese-lesson',
       title: '🇯🇵 💎 Сделать 1 новый урок японского на дуолинго',
-      step: 10,
-      refreshTime: 15 * TimeEnum.SECOND,
-      respawnTime: TimeEnum.DAY,
-      reward: { keyType: 4, amount: 100, xp: 40 },
+      step: 20,
+      refreshTime: 2 * TimeEnum.MINUTE,
+      respawnTime: 3 * TimeEnum.HOUR,
+      reward: { keyType: 5, amount: 5, xp: 40 },
       level: '⬜️🔵',
       stars: 1,
+      maxPerDay: 3,
     },
     {
       id: 'finish-morsecode-level',
