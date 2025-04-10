@@ -13,6 +13,12 @@ export class MainLayoutComponent {
 
   challanges = [
     {
+      title: 'Yamato Starship UGF',
+      statement: 'Учи японский в поте лица (18 000 EXP / Month)',
+      achived: false,
+      image: 'yamato.jpeg',
+    },
+    {
       title: 'Subway Surfers',
       statement: 'Работай ножками, вложено 10 000 EXP за неделю',
       achived: false,

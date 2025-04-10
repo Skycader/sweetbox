@@ -11,4 +11,5 @@ export interface MissionStats {
   lastCompleted: number;
   onFire: number;
   streak: { days: number; doneToday: boolean };
+  earlyBirdBonus: boolean;
 }

@@ -62,6 +62,18 @@
 
   <mat-chip-listbox>
     <mat-chip-option
+      matTooltip="Ранняя пташка, выполните задание полностью до 11:00 чтобы получать бонусный опыт в течении всего дня!"
+    >
+      <span
+        [style]="
+          mission.getStats().earlyBirdBonus ? '' : 'filter: grayscale(100%)'
+        "
+      >
+        ☀️
+      </span>
+    </mat-chip-option>
+
+    <mat-chip-option
       *ngIf="mission.getConfig().step < 50 || mission.getConfig().maxPerDay > 2"
       matTooltip="Комбо"
       matTooltip="Соберите 3 огонька чтобы получать двойной опыт!"
@@ -129,20 +141,24 @@
       >
     </mat-chip-option>
 
-    <mat-chip-option>{{ mission.getConfig().step }}%</mat-chip-option>
-    <mat-chip-option
-      color="accent"
-      [selected]="mission.getConfig().refreshTime.includes('h')"
-      [matTooltip]="
-        mission.getConfig().refreshTime.includes('h')
-          ? 'У этого задания длительный перерыв'
-          : 'Время перерыва'
-      "
-      >{{ mission.getConfig().refreshTime }}</mat-chip-option
-    >
-    <mat-chip-option matTooltip="Время на повторное появление задания">{{
-      mission.getConfig().respawnTime
-    }}</mat-chip-option>
+    <mat-chip-option matTooltip="Перезарядка навыка">
+      {{ remeainingTime() }}
+    </mat-chip-option>
+
+    <!-- <mat-chip-option>{{ mission.getConfig().step }}%</mat-chip-option> -->
+    <!-- <mat-chip-option -->
+    <!--   color="accent" -->
+    <!--   [selected]="mission.getConfig().refreshTime.includes('h')" -->
+    <!--   [matTooltip]=" -->
+    <!--     mission.getConfig().refreshTime.includes('h') -->
+    <!--       ? 'У этого задания длительный перерыв' -->
+    <!--       : 'Время перерыва' -->
+    <!--   " -->
+    <!--   >{{ mission.getConfig().refreshTime }}</mat-chip-option -->
+    <!-- > -->
+    <!-- <mat-chip-option matTooltip="Время на повторное появление задания">{{ -->
+    <!--   mission.getConfig().respawnTime -->
+    <!-- }}</mat-chip-option> -->
     <mat-chip-option
       matTooltip="Очки опыта"
       style="display: flex; justify-content: center"
@@ -160,6 +176,15 @@
           src="assets/images/common/xp.webp"
         />
       </ng-container>
+      <ng-container *ngIf="mission.getStats().earlyBirdBonus">
+        + {{ mission.getConfig().xp }}
+        <img
+          [id]="'M' + mission.getConfig().hash"
+          style="margin-left: 1px; margin-bottom: 2px"
+          src="assets/images/common/xp.webp"
+        />
+      </ng-container>
+
       <ng-container *ngIf="mission.getStats().streak.days > 0">
         + {{ mission.getStats().streak.days }}
         <img
@@ -191,37 +216,6 @@
       selected
     >
       {{ mission.getDoneToday() }} / {{ mission.getConfig().maxPerDay }}
-    </mat-chip-option>
-
-    <mat-chip-option
-      color="warn"
-      [matTooltip]="
-        mission.earlyBirdReward() > 2 ? 'Утренний бонус' : 'Дневной бонус'
-      "
-      selected
-      *ngIf="mission.earlyBirdReward() > 1"
-    >
-      <div
-        style="
-          width: 100%;
-          height: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        "
-      >
-        <mat-icon
-          *ngIf="mission.earlyBirdReward() === 3"
-          style="font-size: 20px; width: 20px; height: 20px"
-          >brightness_high</mat-icon
-        >
-
-        <mat-icon
-          *ngIf="mission.earlyBirdReward() === 2"
-          style="font-size: 20px; width: 20px; height: 20px"
-          >brightness_low</mat-icon
-        >
-      </div>
     </mat-chip-option>
   </mat-chip-listbox>
 

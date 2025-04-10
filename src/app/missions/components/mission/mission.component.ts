@@ -26,6 +26,18 @@ export class MissionComponent {
     });
   }
 
+  public remeainingTime() {
+    let remainingTime = this.mission.getStats().isCompletedUntil - Date.now();
+
+    if (remainingTime < 0) {
+      remainingTime = this.mission.getStats().disabledUntil - Date.now();
+    }
+
+    if (remainingTime < 0) return '💪';
+
+    return formatMilliseconds(remainingTime);
+  }
+
   public earnXp() {
     this.navbarService.controlNavbar$.next('open');
 
@@ -155,4 +167,17 @@ export class MissionComponent {
     document.body.appendChild(copyElement);
     return copyElement;
   }
+}
+
+function formatMilliseconds(ms: number): string {
+  const totalSeconds = Math.floor(ms / 1000);
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  const formatNumber = (num: number): string => String(num).padStart(2, '0');
+
+  return `${formatNumber(hours)}:${formatNumber(minutes)}:${formatNumber(
+    seconds,
+  )}`;
 }

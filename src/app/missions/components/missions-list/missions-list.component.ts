@@ -47,14 +47,19 @@ export class MissionsListComponent {
   }
 
   public heroMissionCheck() {
+    const toEarn = 18000;
+    const currentSkillXp = 18093;
     let totalXp =
       this.commonMissions
-        .find((mission) => mission.getConfig().id === 'calf-muscles')
+        .find(
+          (mission) =>
+            mission.getConfig().id === 'duolingo-new-japanese-lesson',
+        )
         ?.getStats().skillXp || 0;
 
-    totalXp -= 3331;
+    totalXp -= toEarn;
 
-    const requiredXp = 13331 - 3331; //earn 10K exp within 7 days
+    const requiredXp = currentSkillXp + toEarn; //earn 10K exp within 7 days
 
     // if (cond) {
     //   return this.commonMissions[0].unblock();
@@ -64,8 +69,8 @@ export class MissionsListComponent {
       Math.floor((totalXp / requiredXp) * 100),
     );
 
-    const startline = Number(new Date('2025-03-09'));
-    const deadline = Number(new Date('2025-03-16'));
+    const startline = Number(new Date('2025-04-06'));
+    const deadline = Number(new Date('2025-05-06'));
     const formula = (Date.now() - startline) / (deadline - startline);
     this.commonMissions[0].setRequiredProgress(
       Math.floor(formula * 100) + 0.001,
@@ -76,10 +81,6 @@ export class MissionsListComponent {
      * b = new Date('2025-03-16')
      * (Date.now()-a)/(b-a)
      */
-
-    console.log(
-      Math.floor(((Date.now() + startline) / (deadline - startline)) * 100),
-    );
   }
 
   public getSecondsToday() {

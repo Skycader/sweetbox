@@ -31,6 +31,11 @@ export class SideNavComponent {
       items: [
         {
           icon: 'grade',
+          title: 'Импорт',
+          method: this.importLocalStorage,
+        },
+        {
+          icon: 'grade',
           title: 'Экспорт',
           method: this.exportLocalStorage,
         },
@@ -64,6 +69,10 @@ export class SideNavComponent {
 
   public exportLocalStorage() {
     downloadLocalStorageAsJSON();
+  }
+
+  public importLocalStorage() {
+    importJSONToLocalStorage();
   }
 }
 
@@ -99,4 +108,43 @@ function downloadLocalStorageAsJSON(
 
   // Освобождаем URL-объект
   URL.revokeObjectURL(url);
+}
+
+// Функция для импорта данных в localStorage
+function importJSONToLocalStorage() {
+  // Создаем динамический input элемент
+  const inputElement: HTMLInputElement = document.createElement('input');
+  inputElement.type = 'file';
+
+  // Обработчик события 'change'
+  inputElement.addEventListener('change', (event: Event) => {
+    const target = event.target as HTMLInputElement;
+    const fileList: FileList | null = target.files;
+
+    if (fileList && fileList.length > 0) {
+      if (inputElement.files && inputElement.files.length > 0) {
+        const file = inputElement.files[0];
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          try {
+            const localStorageData = JSON.parse(event.target?.result as string);
+            for (const key in localStorageData) {
+              if (localStorageData.hasOwnProperty(key)) {
+                localStorage.setItem(key, localStorageData[key]);
+              }
+            }
+            console.log('Данные успешно импортированы в localStorage.');
+          } catch (error) {
+            console.error('Ошибка при импорте данных:', error);
+          }
+        };
+        reader.readAsText(file);
+      } else {
+        console.warn('Пожалуйста, выберите файл для загрузки.');
+      }
+    }
+  });
+
+  // Программно вызываем клик на элементе input
+  inputElement.click();
 }

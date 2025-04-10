@@ -22,7 +22,7 @@ export class CommonMissions {
     {
       id: 'everyday-hero',
       title:
-        '🎮 Наберите 10 000 опыта на икроножных мышцах за неделю (дедлайн 16 марта)',
+        '✨🛳 Проект Звёздный Потрошитель 3000 - Yamato Starship UGF (18 000 опыта)',
       step: 100,
       skin: SkinsEnum[this.getIncomeLevel(this.rang.getXp())],
       refreshTime: TimeEnum.DAY,
@@ -92,8 +92,8 @@ export class CommonMissions {
       title: '❗️🔄 Memos - повторить 10 карточек',
       step: 100,
       refreshTime: 3 * TimeEnum.SECOND,
-      respawnTime: 3 * TimeEnum.HOUR,
-      reward: { keyType: 5, amount: 5, xp: 100 },
+      respawnTime: 3 * TimeEnum.SECOND,
+      reward: { keyType: 5, amount: 10 * 5, xp: 100 },
       maxPerDay: 10,
     },
     {
@@ -106,11 +106,11 @@ export class CommonMissions {
     },
     {
       id: 'calf-muscles',
-      title: '💪 💎 Тренировка икроножных мышц - 100 раз',
-      step: 20,
-      refreshTime: 2 * TimeEnum.MINUTE,
+      title: '💪 💎 Тренировка икроножных мышц - 110 раз',
+      step: 50,
+      refreshTime: 40 * TimeEnum.MINUTE,
       respawnTime: 3 * TimeEnum.HOUR,
-      reward: { keyType: 5, amount: 10, xp: 100 }, //1xp за работу
+      reward: { keyType: 5, amount: 36, xp: 110 }, //110 раз => 11 тыс + 7 тыс (уровень)
       stars: 1,
       maxPerDay: 3,
     },
@@ -307,7 +307,7 @@ export class CommonMissions {
       step: 100,
       refreshTime: TimeEnum.SECOND,
       respawnTime: TimeEnum.SECOND,
-      reward: { keyType: 0, amount: 1, xp: 40 },
+      reward: { keyType: 5, amount: 100, xp: 40 },
       maxPerDay: 10,
     },
     {
@@ -323,14 +323,25 @@ export class CommonMissions {
     },
     {
       id: 'duolingo-new-japanese-lesson',
-      title: '🇯🇵 💎 Сделать 1 новый урок японского на дуолинго',
+      title: '🇯🇵 💎 Сделать 1 новый урок японского',
       step: 20,
-      refreshTime: 2 * TimeEnum.MINUTE,
+      refreshTime: 3 * TimeEnum.SECOND,
       respawnTime: 3 * TimeEnum.HOUR,
-      reward: { keyType: 5, amount: 5, xp: 40 },
+      reward: { keyType: 5, amount: 10 * 5, xp: 40 },
       level: '⬜️🔵',
       stars: 1,
-      maxPerDay: 3,
+      maxPerDay: 5,
+    },
+    {
+      id: 'japanese-writing-lesson',
+      title: '🇯🇵🈂️🈶 Практика японской письменности',
+      step: 20,
+      refreshTime: 3 * TimeEnum.SECOND,
+      respawnTime: 3 * TimeEnum.HOUR,
+      reward: { keyType: 5, amount: 1, xp: 20 },
+      level: '⬜️🔵',
+      stars: 1,
+      maxPerDay: 5,
     },
     {
       id: 'finish-morsecode-level',
@@ -359,7 +370,7 @@ export class CommonMissions {
       step: 50,
       refreshTime: TimeEnum.SECOND,
       respawnTime: TimeEnum.SECOND,
-      reward: { keyType: 0, amount: 2, xp: 400 },
+      reward: { keyType: 5, amount: 20, xp: 400 },
       maxPerDay: 10,
       stars: 1,
     },

@@ -28,7 +28,7 @@ export class RareMissions {
     },
     {
       id: 'memos-power',
-      title: '📖 Мощь Memos достигла 16 000 000 часов',
+      title: '📖 Мощь Memos достигла 17 000 000 часов',
       step: 100,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,

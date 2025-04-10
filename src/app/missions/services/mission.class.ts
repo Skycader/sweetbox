@@ -31,6 +31,7 @@ export class Mission {
     onFire: 0,
     maxHearts: this.config.maxHearts ? this.config.maxHearts : 3,
     lastCompleted: Date.now(),
+    earlyBirdBonus: false,
   };
 
   constructor(
@@ -185,6 +186,7 @@ export class Mission {
       this.isCompletedUntil = 0;
       this.stats.doneToday = 0;
       this.stats.onFire = 0;
+      this.stats.earlyBirdBonus = false;
 
       if (this.stats.streak.doneToday === false) {
         this.stats.hearts -= 1;
@@ -289,6 +291,7 @@ export class Mission {
     //Сегодшняшний опыт
     xpToday += this.config.reward.xp;
     if (this.stats.onFire === 3) xpToday += this.config.reward.xp;
+    if (this.stats.earlyBirdBonus) xpToday += this.config.reward.xp;
 
     this.deps.persistance.setItem('xp-today', xpToday);
 
@@ -298,6 +301,7 @@ export class Mission {
     //Скилл опыт + бонус по условию
     this.stats.skillXp += this.config.reward.xp + this.getStats().streak.days;
     if (this.stats.onFire === 3) this.stats.skillXp += this.config.reward.xp;
+    if (this.stats.earlyBirdBonus) this.stats.skillXp += this.config.reward.xp;
 
     //Подсветить новый ранг
     if (rang !== this.getSkillRang().icon) {
@@ -355,6 +359,10 @@ export class Mission {
 
     if (this.progress >= 100) {
       this.stats.doneToday += 1;
+
+      if (new Date().getHours() < 11) {
+        this.stats.earlyBirdBonus = true;
+      }
 
       const audio = new Audio(`assets/audio/mission-complete.m4a`);
       audio.play();
