@@ -359,8 +359,8 @@ export class Mission {
 
     if (this.progress >= 100) {
       this.stats.doneToday += 1;
-
-      if (new Date().getHours() < 11) {
+      const hours = new Date().getHours();
+      if (hours > 7 && hours < 11) {
         this.stats.earlyBirdBonus = true;
       }
 

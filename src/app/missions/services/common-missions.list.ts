@@ -338,7 +338,7 @@ export class CommonMissions {
       step: 20,
       refreshTime: 3 * TimeEnum.SECOND,
       respawnTime: 3 * TimeEnum.HOUR,
-      reward: { keyType: 5, amount: 1, xp: 20 },
+      reward: { keyType: 5, amount: 20, xp: 20 },
       level: '⬜️🔵',
       stars: 1,
       maxPerDay: 5,
