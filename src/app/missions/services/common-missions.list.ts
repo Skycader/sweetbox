@@ -88,6 +88,15 @@ export class CommonMissions {
 
     //Избранное
     {
+      id: 'single-warrior',
+      title: '🥷 Сигма бой',
+      step: 100,
+      refreshTime: TimeEnum.DAY,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 5, amount: 1, xp: 10 },
+      maxPerDay: 1,
+    },
+    {
       id: 'clean-memos',
       title: '❗️🔄 Memos - повторить 10 карточек',
       step: 100,
@@ -339,9 +348,18 @@ export class CommonMissions {
       refreshTime: 3 * TimeEnum.SECOND,
       respawnTime: 3 * TimeEnum.HOUR,
       reward: { keyType: 5, amount: 20, xp: 20 },
-      level: '⬜️🔵',
       stars: 1,
       maxPerDay: 5,
+    },
+    {
+      id: 'japanese-5-min-lesson',
+      title: '🇯🇵⏰ Японский за 26 часов (1 глава + memos)',
+      step: 100,
+      refreshTime: 3 * TimeEnum.HOUR,
+      respawnTime: 3 * TimeEnum.HOUR,
+      reward: { keyType: 5, amount: 100, xp: 200 },
+      stars: 1,
+      maxPerDay: 3,
     },
     {
       id: 'finish-morsecode-level',
