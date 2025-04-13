@@ -34,7 +34,7 @@ export class MissionsListComponent {
 
   public loading = true;
   public finish = false;
-  public hideCompletedMissions = false;
+  public hideCompletedMissions = true;
 
   public toggle() {
     this.hideCompletedMissions = !this.hideCompletedMissions;

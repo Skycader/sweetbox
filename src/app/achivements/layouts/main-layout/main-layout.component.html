@@ -1,12 +1,28 @@
 <div class="p-4 progress-container">
   <mat-tab-group>
-    <mat-tab label="Достижения">
+    <mat-tab label="Редкие достижения">
       <br />
       <div class="progress-bar">
         <div class="progress" id="progress"></div>
       </div>
       <div class="progress-info" id="progressInfo">
-        Получено достижений: {{ 0 }} / {{ achivements.length }}
+        Получено достижений: {{ 0 }} / {{ rare_achivements.length }}
+      </div>
+
+      <div class="grid" id="cardGrid">
+        <app-achivement
+          *ngFor="let achivement of rare_achivements"
+          [achivement]="achivement"
+        />
+      </div>
+    </mat-tab>
+    <mat-tab label="Легендарные достижения">
+      <br />
+      <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+      </div>
+      <div class="progress-info" id="progressInfo">
+        Получено достижений: {{ 0 }} / {{ rare_achivements.length }}
       </div>
 
       <div class="grid" id="cardGrid">

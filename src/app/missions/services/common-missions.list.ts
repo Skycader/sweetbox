@@ -15,7 +15,7 @@ export class CommonMissions {
   ) { }
 
   getIncomeLevel(income: number) {
-    return Math.ceil(Math.log2(income / 100000));
+    return Math.ceil(Math.log2(income / 100000)) - 1;
   }
 
   private commonMissions: MissionConfig[] = [
@@ -30,7 +30,14 @@ export class CommonMissions {
       reward: { keyType: 1, amount: 5, xp: 1000 },
       autocomplete: true,
     },
-
+    {
+      id: 'vue-practice',
+      title: '🥝 Vue практика',
+      step: 25,
+      refreshTime: TimeEnum.MINUTE,
+      respawnTime: 24 * TimeEnum.HOUR,
+      reward: { keyType: 4, amount: 1000, xp: 1000 },
+    },
     //Прием добавок
     {
       id: 'antidepresant',
@@ -103,7 +110,7 @@ export class CommonMissions {
       refreshTime: 3 * TimeEnum.SECOND,
       respawnTime: 3 * TimeEnum.SECOND,
       reward: { keyType: 5, amount: 10 * 5, xp: 100 },
-      maxPerDay: 10,
+      maxPerDay: 3,
     },
     {
       id: 'take-shower-jump',
@@ -117,11 +124,11 @@ export class CommonMissions {
       id: 'calf-muscles',
       title: '💪 💎 Тренировка икроножных мышц - 110 раз',
       step: 50,
-      refreshTime: 40 * TimeEnum.MINUTE,
+      refreshTime: TimeEnum.SECOND,
       respawnTime: 3 * TimeEnum.HOUR,
-      reward: { keyType: 5, amount: 36, xp: 110 }, //110 раз => 11 тыс + 7 тыс (уровень)
+      reward: { keyType: 5, amount: 50, xp: 110 }, //110 раз => 11 тыс + 7 тыс (уровень)
       stars: 1,
-      maxPerDay: 3,
+      maxPerDay: 2,
     },
     {
       id: 'eat-apple',
@@ -136,7 +143,7 @@ export class CommonMissions {
     {
       id: 'shiro-obi-no-kata',
       title: '🥋⬜️ Сделать Широ Оби Но Ката',
-      step: 50,
+      step: 100,
       refreshTime: 3 * TimeEnum.HOUR,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 40 },
@@ -144,7 +151,7 @@ export class CommonMissions {
     {
       id: 'ao-obi-no-kata',
       title: '🥋🟦 Сделать Ао Оби Но Ката',
-      step: 50,
+      step: 100,
       refreshTime: 3 * TimeEnum.HOUR,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 40 },
@@ -162,12 +169,12 @@ export class CommonMissions {
     },
     {
       id: 'abs',
-      title: '💪 Сделать 20 скручиваний',
+      title: '💪 Сделать 100 мини-скручиваний',
       step: 20,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 40 },
-      stars: 2,
+      reward: { keyType: 5, amount: 1, xp: 40 },
+      stars: 1, //сделать 500 мини-скручиваний за 1 проход - 5 звёзд
     },
     {
       id: 'squats',
@@ -339,7 +346,7 @@ export class CommonMissions {
       reward: { keyType: 5, amount: 10 * 5, xp: 40 },
       level: '⬜️🔵',
       stars: 1,
-      maxPerDay: 5,
+      maxPerDay: 3,
     },
     {
       id: 'japanese-writing-lesson',
@@ -349,7 +356,7 @@ export class CommonMissions {
       respawnTime: 3 * TimeEnum.HOUR,
       reward: { keyType: 5, amount: 20, xp: 20 },
       stars: 1,
-      maxPerDay: 5,
+      maxPerDay: 3,
     },
     {
       id: 'japanese-5-min-lesson',

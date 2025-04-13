@@ -82,3 +82,10 @@ body {
   margin-top: 5px !important;
   margin-bottom: 7px !important;
 }
+
+.hide {
+  mat-toolbar {
+    height: 0px !important;
+    margin: 0px !important;
+  }
+}

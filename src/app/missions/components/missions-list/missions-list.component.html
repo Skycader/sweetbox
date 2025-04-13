@@ -26,14 +26,14 @@
       <ng-container *ngFor="let mission of commonMissions">
         <app-mission
           *ngIf="
-            mission.getStats().hearts > -1 &&
+            mission.getStats().hearts > 0 &&
             openHours(
               mission.getConfig().openHours[0],
               mission.getConfig().openHours[1]
             )
           "
           [mission]="mission"
-          [class.hide]="mission.isCompleted() && hideCompletedMissions"
+          [class.hide]="mission.isFinished() && hideCompletedMissions"
         />
       </ng-container>
     </mat-tab>

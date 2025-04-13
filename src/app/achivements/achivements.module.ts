@@ -5,12 +5,14 @@ import { AchivementsListComponent } from './components/achivements-list/achiveme
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
+import { TiltDirective } from './directives/tilt.directive';
 
 @NgModule({
   declarations: [
     AchivementComponent,
     AchivementsListComponent,
     MainLayoutComponent,
+    TiltDirective,
   ],
   imports: [
     CommonModule,

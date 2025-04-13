@@ -81,3 +81,9 @@
   background: gold !important;
   box-shadow: 10px 10px 80px gold;
 }
+
+mat-toolbar {
+  .hide {
+    transition-duration: 0.5s;
+  }
+}

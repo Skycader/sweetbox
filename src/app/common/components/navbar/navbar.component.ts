@@ -108,7 +108,7 @@ export class NavbarComponent {
 
   public xpToday = this.persistance.getItem('xp-today', 0);
 
-  public dailyRefresh$ = interval(100).pipe(
+  public dailyRefresh$ = interval(1000).pipe(
     tap(() => {
       this.streak = Streak.getStreak().days;
       this.doneToday = Streak.getStreak().doneToday;

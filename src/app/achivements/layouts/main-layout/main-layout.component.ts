@@ -11,6 +11,27 @@ export class MainLayoutComponent {
     audio.play();
   }
 
+  rare_achivements = [
+    {
+      title: 'Начало пути',
+      statement: 'Закончить 2-ую (35) секцию японского из 5',
+      achived: false,
+      image: 'japanese_course_2_unit_finished.jpeg',
+    },
+    {
+      title: 'За чертой смелости',
+      statement: 'Закончить 3-ую (91) юнит японского из 5',
+      achived: false,
+      image: 'japanese_course_3_unit_finished.jpeg',
+    },
+    {
+      title: 'Позади горы',
+      statement: 'Закончить 4-ую (80) юнит японского из 5',
+      achived: false,
+      image: 'japanese_course_4_unit_finished.jpeg',
+    },
+  ];
+
   challanges = [
     {
       title: 'Yamato Starship UGF',

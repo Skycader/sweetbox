@@ -75,7 +75,7 @@ export class Mission {
   }
 
   getIncomeLevel(income: number) {
-    return Math.ceil(Math.log2(income / 100000));
+    return Math.ceil(Math.log2(income / 100000)) - 1;
   }
 
   public getConfig() {
@@ -405,6 +405,14 @@ export class Mission {
       this.sync();
     }
     return this.disabledUntil > Date.now();
+  }
+
+  public isReady() {
+    return !this.isCompleted() || !this.isDisabled();
+  }
+
+  public isFinished() {
+    return this.stats.doneToday === (this.config.maxPerDay || 1);
   }
 
   public isCompleted() {
