@@ -142,7 +142,7 @@
     </mat-chip-option>
 
     <mat-chip-option matTooltip="Перезарядка навыка">
-      {{ remeainingTime() }}
+      {{ mission.remainingTime }}
     </mat-chip-option>
 
     <!-- <mat-chip-option>{{ mission.getConfig().step }}%</mat-chip-option> -->
@@ -184,6 +184,19 @@
           src="assets/images/common/xp.webp"
         />
       </ng-container>
+      <ng-container
+        *ngIf="
+          mission.getConfig().maxPerDay > 1 &&
+          mission.getStats().doneToday + 1 === mission.getConfig().maxPerDay
+        "
+      >
+        + {{ mission.getConfig().xp }}
+        <img
+          [id]="'M' + mission.getConfig().hash"
+          style="margin-left: 1px; margin-bottom: 2px"
+          src="assets/images/common/xp.webp"
+        />
+      </ng-container>
 
       <ng-container *ngIf="mission.getStats().streak.days > 0">
         + {{ mission.getStats().streak.days }}
@@ -212,7 +225,9 @@
       color="primary"
       matTooltip="Сегодня это задание можно выполнить ещё {{
         mission.leftToDoToday()
-      }} раз"
+      }} раз. Выполните это задание {{
+        mission.getConfig().maxPerDay - 1
+      }} раз, чтобы получать дополнительный опыт!"
       selected
     >
       {{ mission.getDoneToday() }} / {{ mission.getConfig().maxPerDay }}

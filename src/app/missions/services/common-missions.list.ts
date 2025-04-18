@@ -33,7 +33,7 @@ export class CommonMissions {
     {
       id: 'vue-practice',
       title: '🥝 Vue практика',
-      step: 25,
+      step: 50,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: 24 * TimeEnum.HOUR,
       reward: { keyType: 4, amount: 1000, xp: 1000 },
@@ -81,7 +81,6 @@ export class CommonMissions {
       refreshTime: 0,
       respawnTime: 24 * TimeEnum.HOUR,
       reward: { keyType: 4, amount: 1, xp: 10 },
-      openHours: [14, 24],
     },
     {
       id: 'creatin',
@@ -89,8 +88,7 @@ export class CommonMissions {
       step: 100,
       refreshTime: 0,
       respawnTime: 24 * TimeEnum.HOUR,
-      reward: { keyType: 4, amount: 1, xp: 10 },
-      openHours: [18, 24],
+      reward: { keyType: 5, amount: 10, xp: 100 },
     },
 
     //Избранное
@@ -160,11 +158,11 @@ export class CommonMissions {
     //Силовые упражнения
     {
       id: 'push-ups',
-      title: '💪 Сделать 10 отжиманий',
-      step: 20,
+      title: '💪 Сделать 10 отжиманий (за 100 отжиманий 1КК кристаллов)',
+      step: 10,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 0, amount: 1, xp: 40 },
+      reward: { keyType: 5, amount: 1000, xp: 40 },
       stars: 1, //за каждые 20 отжиманий (20/100 => 10/50 => 1/5)
     },
     {
@@ -302,7 +300,7 @@ export class CommonMissions {
       reward: { keyType: 0, amount: 1, xp: 130 },
       level: '🟦🟡 131°',
       stars: 3,
-      maxPerDay: 5,
+      maxPerDay: 1,
     },
     {
       id: 'spring-exc',
@@ -324,7 +322,7 @@ export class CommonMissions {
       refreshTime: TimeEnum.SECOND,
       respawnTime: TimeEnum.SECOND,
       reward: { keyType: 5, amount: 100, xp: 40 },
-      maxPerDay: 10,
+      maxPerDay: 1,
     },
     {
       id: 'duolingo-japanese-practice',
@@ -346,7 +344,7 @@ export class CommonMissions {
       reward: { keyType: 5, amount: 10 * 5, xp: 40 },
       level: '⬜️🔵',
       stars: 1,
-      maxPerDay: 3,
+      maxPerDay: 4,
     },
     {
       id: 'japanese-writing-lesson',
@@ -356,7 +354,7 @@ export class CommonMissions {
       respawnTime: 3 * TimeEnum.HOUR,
       reward: { keyType: 5, amount: 20, xp: 20 },
       stars: 1,
-      maxPerDay: 3,
+      maxPerDay: 4,
     },
     {
       id: 'japanese-5-min-lesson',
@@ -396,7 +394,7 @@ export class CommonMissions {
       refreshTime: TimeEnum.SECOND,
       respawnTime: TimeEnum.SECOND,
       reward: { keyType: 5, amount: 20, xp: 400 },
-      maxPerDay: 10,
+      maxPerDay: 1,
       stars: 1,
     },
     {

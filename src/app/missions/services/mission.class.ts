@@ -8,6 +8,7 @@ import { keys } from '../../sweetbox/resources/keys.resource';
 import { MissionStats } from '../models/mission-stats.model';
 import { SkinsEnum } from '../models/skins.enum';
 import { Streak } from '../models/streak.model';
+import { TimeEnum } from '../models/time.list.enum';
 import { MissionConfig } from './missions.service';
 
 export class Mission {
@@ -16,6 +17,19 @@ export class Mission {
   private requiredProgress = 0;
   private isCompletedUntil = 0;
 
+  public get remainingTime() {
+    if (!this.isCompleted()) return '💪';
+
+    let remainingTime = this.getStats().isCompletedUntil - Date.now();
+
+    if (remainingTime < 0) {
+      remainingTime = this.getStats().disabledUntil - Date.now();
+    }
+
+    if (remainingTime < 0) return '💪';
+
+    return formatMilliseconds(remainingTime);
+  }
   public notifyOfNewRang = false;
 
   private stats: MissionStats = {
@@ -241,6 +255,12 @@ export class Mission {
   }
 
   public getFire() {
+    if (
+      Date.now() - this.stats.lastCompleted >
+      this.config.respawnTime + TimeEnum.HOUR
+    ) {
+      this.stats.onFire = 0;
+    }
     return '🔥'.repeat(this.stats.onFire);
   }
 
@@ -292,6 +312,11 @@ export class Mission {
     xpToday += this.config.reward.xp;
     if (this.stats.onFire === 3) xpToday += this.config.reward.xp;
     if (this.stats.earlyBirdBonus) xpToday += this.config.reward.xp;
+    if (
+      this.stats.doneToday + 1 === this.config.maxPerDay &&
+      this.config.maxPerDay > 1
+    )
+      xpToday += this.config.reward.xp;
 
     this.deps.persistance.setItem('xp-today', xpToday);
 
@@ -302,6 +327,11 @@ export class Mission {
     this.stats.skillXp += this.config.reward.xp + this.getStats().streak.days;
     if (this.stats.onFire === 3) this.stats.skillXp += this.config.reward.xp;
     if (this.stats.earlyBirdBonus) this.stats.skillXp += this.config.reward.xp;
+    if (
+      this.stats.doneToday + 1 === this.config.maxPerDay &&
+      this.config.maxPerDay > 1
+    )
+      this.stats.skillXp += this.config.reward.xp;
 
     //Подсветить новый ранг
     if (rang !== this.getSkillRang().icon) {
@@ -473,3 +503,16 @@ Date.prototype.toISOString = function toIsoString() {
     pad(Math.abs(tzo) % 60)
   );
 };
+
+function formatMilliseconds(ms: number): string {
+  const totalSeconds = Math.floor(ms / 1000);
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  const formatNumber = (num: number): string => String(num).padStart(2, '0');
+
+  return `${formatNumber(hours)}:${formatNumber(minutes)}:${formatNumber(
+    seconds,
+  )}`;
+}
