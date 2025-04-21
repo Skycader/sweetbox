@@ -62,7 +62,7 @@
 
   <mat-chip-listbox>
     <mat-chip-option
-      matTooltip="Ранняя пташка, выполните задание полностью до 11:00 чтобы получать бонусный опыт в течении всего дня!"
+      matTooltip="Ранняя пташка, выполните задание полностью с 7:00 до 11:00 чтобы получать бонусный опыт в течении всего дня!"
     >
       <span
         [style]="
@@ -76,7 +76,7 @@
     <mat-chip-option
       *ngIf="mission.getConfig().step < 50 || mission.getConfig().maxPerDay > 2"
       matTooltip="Комбо"
-      matTooltip="Соберите 3 огонька чтобы получать двойной опыт!"
+      matTooltip="Соберите 3 огонька чтобы получать бонусный опыт!"
     >
       <span style="display: flex">
         <span style="margin: 0px"> {{ mission.getFire() }}</span>
@@ -141,7 +141,7 @@
       >
     </mat-chip-option>
 
-    <mat-chip-option matTooltip="Перезарядка навыка">
+    <mat-chip-option matTooltip="Перезарядка навыка" (click)="makeReady()">
       {{ mission.remainingTime }}
     </mat-chip-option>
 
@@ -184,12 +184,7 @@
           src="assets/images/common/xp.webp"
         />
       </ng-container>
-      <ng-container
-        *ngIf="
-          mission.getConfig().maxPerDay > 1 &&
-          mission.getStats().doneToday + 1 === mission.getConfig().maxPerDay
-        "
-      >
+      <ng-container *ngIf="mission.getStats().doneToday >= 3">
         + {{ mission.getConfig().xp }}
         <img
           [id]="'M' + mission.getConfig().hash"

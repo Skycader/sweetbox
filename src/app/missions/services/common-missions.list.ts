@@ -322,7 +322,7 @@ export class CommonMissions {
       refreshTime: TimeEnum.SECOND,
       respawnTime: TimeEnum.SECOND,
       reward: { keyType: 5, amount: 100, xp: 40 },
-      maxPerDay: 1,
+      maxPerDay: 20,
     },
     {
       id: 'duolingo-japanese-practice',
@@ -344,7 +344,7 @@ export class CommonMissions {
       reward: { keyType: 5, amount: 10 * 5, xp: 40 },
       level: '⬜️🔵',
       stars: 1,
-      maxPerDay: 4,
+      maxPerDay: 6,
     },
     {
       id: 'japanese-writing-lesson',

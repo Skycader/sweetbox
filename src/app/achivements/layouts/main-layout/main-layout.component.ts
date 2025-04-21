@@ -15,7 +15,7 @@ export class MainLayoutComponent {
     {
       title: 'Начало пути',
       statement: 'Закончить 2-ую (35) секцию японского из 5',
-      achived: false,
+      achived: true,
       image: 'japanese_course_2_unit_finished.jpeg',
     },
     {
@@ -158,7 +158,7 @@ export class MainLayoutComponent {
       image: 'nest_framework.jpeg',
     },
     {
-      title: 'Начинающий анимешник',
+      title: 'Путь самурая',
       statement: 'Закончить курс японского на дуолинго',
       achived: false,
       image: 'japanese_hero.jpeg',

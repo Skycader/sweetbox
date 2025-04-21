@@ -17,6 +17,11 @@ export class Mission {
   private requiredProgress = 0;
   private isCompletedUntil = 0;
 
+  public makeReady() {
+    this.isCompletedUntil = Date.now();
+    this.disabledUntil = Date.now();
+  }
+
   public get remainingTime() {
     if (!this.isCompleted()) return '💪';
 
@@ -312,11 +317,7 @@ export class Mission {
     xpToday += this.config.reward.xp;
     if (this.stats.onFire === 3) xpToday += this.config.reward.xp;
     if (this.stats.earlyBirdBonus) xpToday += this.config.reward.xp;
-    if (
-      this.stats.doneToday + 1 === this.config.maxPerDay &&
-      this.config.maxPerDay > 1
-    )
-      xpToday += this.config.reward.xp;
+    if (this.stats.doneToday >= 3) xpToday += this.config.reward.xp;
 
     this.deps.persistance.setItem('xp-today', xpToday);
 
@@ -327,11 +328,7 @@ export class Mission {
     this.stats.skillXp += this.config.reward.xp + this.getStats().streak.days;
     if (this.stats.onFire === 3) this.stats.skillXp += this.config.reward.xp;
     if (this.stats.earlyBirdBonus) this.stats.skillXp += this.config.reward.xp;
-    if (
-      this.stats.doneToday + 1 === this.config.maxPerDay &&
-      this.config.maxPerDay > 1
-    )
-      this.stats.skillXp += this.config.reward.xp;
+    if (this.stats.doneToday >= 3) this.stats.skillXp += this.config.reward.xp;
 
     //Подсветить новый ранг
     if (rang !== this.getSkillRang().icon) {
@@ -390,7 +387,7 @@ export class Mission {
     if (this.progress >= 100) {
       this.stats.doneToday += 1;
       const hours = new Date().getHours();
-      if (hours > 7 && hours < 11) {
+      if (hours >= 7 && hours <= 11) {
         this.stats.earlyBirdBonus = true;
       }
 

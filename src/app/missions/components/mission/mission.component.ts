@@ -29,6 +29,10 @@ export class MissionComponent {
 
   public remeainingTime = 'X';
 
+  public makeReady() {
+    this.mission.makeReady();
+  }
+
   public earnXp() {
     this.navbarService.controlNavbar$.next('open');
 
