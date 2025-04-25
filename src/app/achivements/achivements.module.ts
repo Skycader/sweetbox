@@ -6,6 +6,7 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { TiltDirective } from './directives/tilt.directive';
+import { GotPipe } from './pipes/got.pipe';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { TiltDirective } from './directives/tilt.directive';
     AchivementsListComponent,
     MainLayoutComponent,
     TiltDirective,
+    GotPipe,
   ],
   imports: [
     CommonModule,

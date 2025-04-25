@@ -11,6 +11,39 @@ export class MainLayoutComponent {
     audio.play();
   }
 
+  common_achivements = [
+    {
+      title: 'Цирк Уродов',
+      statement: 'Закончить 1-ую книгу саги о Даррэне Шэне',
+      achived: true,
+      image: 'collectables/cirk_urodov.jpeg',
+    },
+    {
+      title: 'Помощник Вампира',
+      statement: 'Закончить 2-ую книгу саги о Даррэне Шэне',
+      achived: true,
+      image: 'collectables/vampire_assistant.jpeg',
+    },
+    {
+      title: 'История Одного Вампира',
+      statement: 'Закончить 3-ую книгу саги о Даррэне Шэне',
+      achived: true,
+      image: 'collectables/one_vampire_story.jpeg',
+    },
+    {
+      title: 'Туннели Крови',
+      statement: 'Закончить 4-ую книгу саги о Даррэне Шэне',
+      achived: true,
+      image: 'collectables/tunnels.jpeg',
+    },
+    {
+      title: 'Гора Вампиров',
+      statement: 'Закончить 5-ую книгу саги о Даррэне Шэне',
+      achived: false,
+      image: 'collectables/gora_vampirov.jpeg',
+    },
+  ];
+
   rare_achivements = [
     {
       title: 'Начало пути',

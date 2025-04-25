@@ -87,3 +87,7 @@ mat-toolbar {
     transition-duration: 0.5s;
   }
 }
+
+// :host ::ng-deep .mdc-linear-progress__bar-inner {
+//   border-radius: 20px !important;
+// }

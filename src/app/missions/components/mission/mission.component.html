@@ -87,6 +87,7 @@
     </mat-chip-option>
     <mat-chip-option
       class="skill"
+      style="overflow: hidden"
       [class.newRang]="mission.notifyOfNewRang"
       [color]="
         mission.getStats().hearts === 0
@@ -95,7 +96,7 @@
             ? 'accent'
             : 'primary'
       "
-      matTooltip="Уровень навыка"
+      [matTooltip]="'Уровень навыка Lv. ' + mission.getSkillRang().rang + '\n'"
       *ngIf="mission.getSkillXp()"
       (click)="showSkins()"
       >{{ mission.getSkillRang().title }}
@@ -103,11 +104,36 @@
       <!--   style="margin-left: 1px; margin-bottom: 2px" -->
       <!--   src="assets/images/common/xp.webp" -->
       <!-- /> -->
+
       <img
-        [matTooltip]="mission.getSkillProgress()"
         style="margin-left: 1px; margin-bottom: 2px; width: 35px"
         [src]="mission.getSkillRang().icon"
       />
+    </mat-chip-option>
+
+    <mat-chip-option [matTooltip]="mission.visualizeProgress()">
+      <span style="font-size: 1.5rem">
+        <span *ngIf="mission.getSkillProgress() < 25">○</span>
+        <span
+          *ngIf="
+            mission.getSkillProgress() > 25 && mission.getSkillProgress() < 50
+          "
+          >◔</span
+        >
+        <span
+          *ngIf="
+            mission.getSkillProgress() > 50 && mission.getSkillProgress() < 75
+          "
+          >◑</span
+        >
+        <span
+          *ngIf="
+            mission.getSkillProgress() > 75 && mission.getSkillProgress() < 99
+          "
+          >◕</span
+        >
+        <span *ngIf="mission.getSkillProgress() > 99">●</span>
+      </span>
     </mat-chip-option>
 
     <mat-chip-option

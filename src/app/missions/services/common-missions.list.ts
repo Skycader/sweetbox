@@ -367,6 +367,16 @@ export class CommonMissions {
       maxPerDay: 3,
     },
     {
+      id: 'japanese-exc-from-red-book',
+      title: '🇯🇵⏰ Японский упражнение из красной книги',
+      step: 100,
+      refreshTime: 3 * TimeEnum.HOUR,
+      respawnTime: 3 * TimeEnum.HOUR,
+      reward: { keyType: 5, amount: 1000, xp: 500 },
+      stars: 1,
+      maxPerDay: 3,
+    },
+    {
       id: 'finish-morsecode-level',
       title: '⛵️ Закончить уровень морязки',
       step: 100,

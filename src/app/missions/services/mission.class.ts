@@ -295,9 +295,12 @@ export class Mission {
   }
 
   public getSkillProgress() {
-    return `${this.stats.skillXp}xp -> ${this.deps.rang.nextRangProgress(
-      this.stats.skillXp,
-    )} %`;
+    return Number(this.deps.rang.nextRangProgress(this.stats.skillXp));
+  }
+
+  public visualizeProgress() {
+    let perc = (this.getSkillProgress() / 10) >> 0;
+    return '▰'.repeat(perc) + '▱'.repeat(10 - perc);
   }
 
   public leftToDoToday() {
@@ -405,6 +408,12 @@ export class Mission {
         this.getRewardCoef() *
         (this.stats.doneToday + 1), //multiple diamonds reward
       );
+
+      if (this.config.reward.keyType === 5)
+        this.deps.snackbar.inform(
+          `Начислено ${this.config.reward.amount * 1000} кристаллов`,
+        );
+
       this.progress = 0;
       this.stats.progress = this.progress;
       this.isCompletedUntil = Date.now() + this.config.respawnTime;
