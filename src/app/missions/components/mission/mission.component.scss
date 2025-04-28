@@ -88,6 +88,22 @@ mat-toolbar {
   }
 }
 
+.hover-text {
+  display: inline; /* По умолчанию видимый текст */
+}
+
+.hover-content {
+  display: none; /* По умолчанию содержимое скрыто */
+}
+
+.hover-container:hover .hover-text {
+  display: none; /* Скрыть текст при наведении */
+}
+
+.hover-container:hover .hover-content {
+  display: block; /* Показать содержимое при наведении */
+}
+
 // :host ::ng-deep .mdc-linear-progress__bar-inner {
 //   border-radius: 20px !important;
 // }

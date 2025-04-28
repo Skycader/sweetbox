@@ -116,6 +116,7 @@ export class Mission {
       doneToday: this.stats.doneToday,
       openHours: this.config.openHours ? this.config.openHours : [0, 24],
       stars: this.config.stars,
+      logo: this.config.logo,
       achivedStars: () =>
         this.config.stars ? '⭐️'.repeat(this.config.stars) : '',
       unachivedStars: () =>
@@ -296,6 +297,72 @@ export class Mission {
 
   public getSkillProgress() {
     return Number(this.deps.rang.nextRangProgress(this.stats.skillXp));
+  }
+
+  public getLogoById(config: any) {
+    console.log(config);
+    return (rang: number) =>
+      `assets/images/textures/coc/` +
+      config.logo?.path.replace(
+        '$',
+        '' + Math.floor(rang * (config?.logo.levels / 31)),
+      ) +
+      '.webp';
+  }
+
+  public getLogo() {
+    if (this.config.logo)
+      return (
+        `assets/images/textures/coc/` +
+        this.config.logo?.path.replace(
+          '$',
+          '' +
+          Math.floor(
+            this.getSkillRang().rang * (this.config?.logo.levels / 31),
+          ),
+        ) +
+        '.webp'
+      );
+
+    return '';
+  }
+
+  public getMoveUp() {
+    if (this.config.logo) return this.config.logo?.moveUp || 0;
+    return 0;
+  }
+  public getLogoSize() {
+    if (this.config.logo) return this.config.logo?.size;
+    return 0;
+  }
+
+  public getLogoDescription() {
+    if (this.config.logo)
+      return (
+        Math.floor(this.getSkillRang().rang * (this.config?.logo.levels / 31)) +
+        ' ➤ ' +
+        Math.floor(
+          (this.getSkillRang().rang + 1) * (this.config?.logo.levels / 31),
+        )
+      );
+    return '';
+  }
+
+  public getNextLogo() {
+    if (this.config.logo)
+      return (
+        `assets/images/textures/coc/` +
+        this.config.logo?.path.replace(
+          '$',
+          '' +
+          Math.floor(
+            (this.getSkillRang().rang + 1) * (this.config?.logo.levels / 31),
+          ),
+        ) +
+        '.webp'
+      );
+
+    return '';
   }
 
   public visualizeProgress() {

@@ -20,6 +20,12 @@ export interface MissionConfig {
   stars?: number;
   openHours?: [number, number];
   maxHearts?: number;
+  logo?: {
+    path: string;
+    size: number;
+    levels: number;
+    moveUp?: number;
+  };
 }
 
 interface Reward {

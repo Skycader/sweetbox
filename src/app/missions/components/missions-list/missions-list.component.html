@@ -26,7 +26,7 @@
       <ng-container *ngFor="let mission of commonMissions">
         <app-mission
           *ngIf="
-            mission.getStats().hearts > 0 &&
+            (mission.getLogo() !== '' || mission.getStats().hearts > 0) &&
             openHours(
               mission.getConfig().openHours[0],
               mission.getConfig().openHours[1]

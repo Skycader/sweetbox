@@ -32,6 +32,15 @@
       </div>
       <div class="rang-title">{{ rang.title }}</div>
       <div class="rang-icon"><img draggable="false" [src]="rang.icon" /></div>
+      <div class="rang-icon" *ngIf="optionalLogo">
+        <div style="padding: 25px">
+          <img
+            draggable="false"
+            [src]="optionalLogo(rang.rang)"
+            onerror="this.style.display='none'"
+          />
+        </div>
+      </div>
       <div class="rang-xp">
         <div
           style="

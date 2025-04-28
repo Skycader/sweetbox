@@ -2,14 +2,15 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Mission } from '../../services/mission.class';
 import { NavbarService } from '../../../common/services/navbar.service';
 import { SkinsListComponent } from '../skins-list/skins-list.component';
-import { DialogRef } from '@angular/cdk/dialog';
 import { MatDialog } from '@angular/material/dialog';
-import { interval, map, switchMap } from 'rxjs';
+import { RangListComponent } from '../../../rangs/components/rang-list/rang-list.component';
+import { RangService } from '../../../rangs/services/rang.service';
 
 @Component({
   selector: 'app-mission',
   templateUrl: './mission.component.html',
   styleUrl: './mission.component.scss',
+  providers: [RangService],
 })
 export class MissionComponent {
   @Input() mission!: Mission;
@@ -19,7 +20,21 @@ export class MissionComponent {
   constructor(
     private navbarService: NavbarService,
     private dialog: MatDialog,
+    private rang: RangService,
   ) { }
+
+  public showLogoPath() {
+    const dialog = this.dialog.open(RangListComponent, {
+      data: {
+        rang: this.rang,
+      },
+    });
+    dialog.componentInstance.optionalSkillXp = this.mission.getStats().skillXp;
+
+    dialog.componentInstance.optionalLogo = this.mission.getLogoById(
+      this.mission.getConfig(),
+    );
+  }
 
   public showSkins() {
     this.dialog.open(SkinsListComponent, {
@@ -41,7 +56,7 @@ export class MissionComponent {
   }
 
   public animateXp(amount: number = 1) {
-    if (amount > 10) amount = 10;
+    if (amount > 1000) amount = 1000;
     for (let i = 0; i < amount; i++) {
       setTimeout(
         () => {

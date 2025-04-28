@@ -109,6 +109,12 @@ export class CommonMissions {
       respawnTime: 3 * TimeEnum.SECOND,
       reward: { keyType: 5, amount: 10 * 5, xp: 100 },
       maxPerDay: 3,
+      logo: {
+        path: 'mortar/Mortar$',
+        size: 90,
+        levels: 17,
+        moveUp: 10,
+      },
     },
     {
       id: 'take-shower-jump',
@@ -127,6 +133,12 @@ export class CommonMissions {
       reward: { keyType: 5, amount: 50, xp: 110 }, //110 раз => 11 тыс + 7 тыс (уровень)
       stars: 1,
       maxPerDay: 2,
+      logo: {
+        path: 'xbow/X-Bow$_Ground',
+        size: 70,
+        levels: 12,
+        moveUp: 15,
+      },
     },
     {
       id: 'eat-apple',
@@ -158,12 +170,18 @@ export class CommonMissions {
     //Силовые упражнения
     {
       id: 'push-ups',
-      title: '💪 Сделать 10 отжиманий (за 100 отжиманий 1КК кристаллов)',
+      title: '💪 Сделать 10 отжиманий',
       step: 10,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 5, amount: 1000, xp: 40 },
       stars: 1, //за каждые 20 отжиманий (20/100 => 10/50 => 1/5)
+      logo: {
+        path: 'Cannon/Cannon$',
+        size: 110,
+        levels: 21,
+        moveUp: 10,
+      },
     },
     {
       id: 'abs',
@@ -173,6 +191,12 @@ export class CommonMissions {
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 5, amount: 1, xp: 40 },
       stars: 1, //сделать 500 мини-скручиваний за 1 проход - 5 звёзд
+      logo: {
+        path: 'wall/Wall$',
+        size: 50,
+        levels: 18,
+        moveUp: 10,
+      },
     },
     {
       id: 'squats',
@@ -345,6 +369,12 @@ export class CommonMissions {
       level: '⬜️🔵',
       stars: 1,
       maxPerDay: 6,
+      logo: {
+        path: 'TH/Town_Hall$',
+        size: 50,
+        levels: 17,
+        moveUp: 15,
+      },
     },
     {
       id: 'japanese-writing-lesson',
@@ -355,6 +385,12 @@ export class CommonMissions {
       reward: { keyType: 5, amount: 20, xp: 20 },
       stars: 1,
       maxPerDay: 4,
+      logo: {
+        path: 'at/Archer_Tower$',
+        size: 50,
+        levels: 21,
+        moveUp: 15,
+      },
     },
     {
       id: 'japanese-5-min-lesson',
@@ -384,6 +420,12 @@ export class CommonMissions {
       respawnTime: TimeEnum.MINUTE,
       reward: { keyType: 0, amount: 1, xp: 120 },
       maxPerDay: 5,
+      logo: {
+        path: 'tesla/Hidden_Tesla$',
+        size: 50,
+        levels: 16,
+        moveUp: 20,
+      },
       stars: 1, //(15/30 WPM + 3/40 SPM)/2 => 0.2875 (каждые 20% = 1 звезда навыка)
       //WPM = words per minute, rather sounds per second such as . or -
       //SPM => spaces per minute, i.e. the pause in ms between letters such as (...) or (---)
@@ -406,6 +448,12 @@ export class CommonMissions {
       reward: { keyType: 5, amount: 20, xp: 400 },
       maxPerDay: 1,
       stars: 1,
+      logo: {
+        path: 'Wizard/Wizard_Tower$',
+        size: 50,
+        levels: 17,
+        moveUp: 15,
+      },
     },
     {
       id: 'raptorium',

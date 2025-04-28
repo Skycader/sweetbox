@@ -28,6 +28,10 @@ class Rang implements RangInterface {
 export class RangService {
   private xp = this.persistance.getItem('xp') || 0;
 
+  public setXp(xp: number) {
+    this.xp = xp;
+  }
+
   private rangs: Rang[] = [
     new Rang('Новобранец', 1, 0),
     new Rang('Рядовой', 2, 100),
@@ -90,6 +94,9 @@ export class RangService {
 
   showRangs() {
     this.dialog.open(RangListComponent, {
+      data: {
+        rang: this,
+      },
       autoFocus: false,
       height: '900px',
       width: '90vw',

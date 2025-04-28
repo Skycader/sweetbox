@@ -116,24 +116,50 @@
         <span *ngIf="mission.getSkillProgress() < 25">○</span>
         <span
           *ngIf="
-            mission.getSkillProgress() > 25 && mission.getSkillProgress() < 50
+            mission.getSkillProgress() >= 25 && mission.getSkillProgress() < 50
           "
           >◔</span
         >
         <span
           *ngIf="
-            mission.getSkillProgress() > 50 && mission.getSkillProgress() < 75
+            mission.getSkillProgress() >= 50 && mission.getSkillProgress() < 75
           "
           >◑</span
         >
         <span
           *ngIf="
-            mission.getSkillProgress() > 75 && mission.getSkillProgress() < 99
+            mission.getSkillProgress() >= 75 && mission.getSkillProgress() < 99
           "
           >◕</span
         >
-        <span *ngIf="mission.getSkillProgress() > 99">●</span>
+        <span *ngIf="mission.getSkillProgress() >= 99">●</span>
       </span>
+    </mat-chip-option>
+
+    <mat-chip-option
+      selectable="false"
+      *ngIf="mission.getLogo()"
+      (click)="showLogoPath()"
+      [matTooltip]="mission.getLogoDescription()"
+    >
+      <div class="hover-container">
+        <span class="hover-text">
+          <img
+            style="width: {{
+              mission.getLogoSize()
+            }}px; transform: translateY(-{{ mission.getMoveUp() }}px)"
+            [src]="mission.getLogo()"
+          />
+        </span>
+        <div class="hover-content">
+          <img
+            style="width: {{
+              mission.getLogoSize()
+            }}px; transform: translateY(-{{ mission.getMoveUp() }}px)"
+            [src]="mission.getNextLogo()"
+          />
+        </div>
+      </div>
     </mat-chip-option>
 
     <mat-chip-option
@@ -270,6 +296,7 @@
       "
       >X</span
     >
+
     <img
       *ngIf="mission.getReward().keyType === 0"
       style="width: 100%"

@@ -1,6 +1,6 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { RangService } from '../../services/rang.service';
+import { Component, ElementRef, Inject, Input, ViewChild } from '@angular/core';
 import { DialogRef } from '@angular/cdk/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-rang-list',
@@ -8,14 +8,23 @@ import { DialogRef } from '@angular/cdk/dialog';
   styleUrl: './rang-list.component.scss',
 })
 export class RangListComponent {
+  @Input() rang: any;
+  @Input() optionalLogo: any;
+  @Input() optionalSkillXp: number = -1;
   @ViewChild('rangList') rangList: any;
-  public rangs = this.rang.getRangs().slice(0, 31);
+  public rangs = null;
   constructor(
-    private rang: RangService,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private modalRef: DialogRef,
-  ) { }
+  ) {
+    console.log(`data`, data);
+    this.rang = data.rang;
+  }
 
   ngOnInit() {
+    this.rangs = this.rang.getRangs().slice(0, 31);
+    if (this.optionalSkillXp > 0) this.rang.setXp(this.optionalSkillXp);
+
     const audio = new Audio('assets/audio/takeout.mp3');
     audio.volume = 0.3;
     audio.play();
