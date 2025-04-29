@@ -129,7 +129,6 @@ export class RangService {
   }
 
   public addXp(xp: number) {
-    this.audio.playGainXp(xp);
     this.xp += xp;
     this.persistance.setItem('xp', this.xp);
   }

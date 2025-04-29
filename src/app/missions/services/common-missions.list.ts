@@ -108,7 +108,7 @@ export class CommonMissions {
       refreshTime: 3 * TimeEnum.SECOND,
       respawnTime: 3 * TimeEnum.SECOND,
       reward: { keyType: 5, amount: 10 * 5, xp: 100 },
-      maxPerDay: 3,
+      maxPerDay: 5,
       logo: {
         path: 'mortar/Mortar$',
         size: 90,
@@ -314,6 +314,12 @@ export class CommonMissions {
       level: '🟦 125°',
       stars: 3,
       maxPerDay: 3,
+      logo: {
+        path: 'air/Air_Defense$',
+        size: 50,
+        levels: 15,
+        moveUp: 15,
+      },
     },
     {
       id: 'transverse-split',
@@ -325,6 +331,12 @@ export class CommonMissions {
       level: '🟦🟡 131°',
       stars: 3,
       maxPerDay: 1,
+      logo: {
+        path: 'bh/Builder_Hall$',
+        size: 70,
+        levels: 10,
+        moveUp: 10,
+      },
     },
     {
       id: 'spring-exc',
@@ -347,6 +359,12 @@ export class CommonMissions {
       respawnTime: TimeEnum.SECOND,
       reward: { keyType: 5, amount: 100, xp: 40 },
       maxPerDay: 20,
+      logo: {
+        path: 'wallb/Wall$B',
+        size: 50,
+        levels: 10,
+        moveUp: 10,
+      },
     },
     {
       id: 'duolingo-japanese-practice',
@@ -358,6 +376,12 @@ export class CommonMissions {
       level: '⬜️🔵',
       maxPerDay: 5,
       stars: 1,
+      logo: {
+        path: 'bomb/Bomb_Tower$',
+        size: 50,
+        levels: 12,
+        moveUp: 15,
+      },
     },
     {
       id: 'duolingo-new-japanese-lesson',
@@ -472,6 +496,12 @@ export class CommonMissions {
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 40 },
       stars: 3,
+      logo: {
+        path: 'wb/Wall_Wrecker$',
+        size: 50,
+        levels: 5,
+        moveUp: 10,
+      },
     },
     {
       id: 'chess-training',

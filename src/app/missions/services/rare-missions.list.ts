@@ -20,7 +20,7 @@ export class RareMissions {
     },
     {
       id: 'memos-cards',
-      title: '📖 Словарь Memos достиг 1 800 карточек',
+      title: '📖 Словарь Memos достиг 1 900 карточек',
       step: 100,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
@@ -87,7 +87,7 @@ export class RareMissions {
     },
     {
       id: 'finish-japanese-unit',
-      title: '🇯🇵 Закончить юнит японского',
+      title: '🇯🇵 Закончить юнит японского (last 3.1)',
       step: 100,
       refreshTime: TimeEnum.DAY,
       respawnTime: TimeEnum.DAY,

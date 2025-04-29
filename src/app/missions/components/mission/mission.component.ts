@@ -5,6 +5,7 @@ import { SkinsListComponent } from '../skins-list/skins-list.component';
 import { MatDialog } from '@angular/material/dialog';
 import { RangListComponent } from '../../../rangs/components/rang-list/rang-list.component';
 import { RangService } from '../../../rangs/services/rang.service';
+import { AudioService } from '../../../sweetbox/services/audio.service';
 
 @Component({
   selector: 'app-mission',
@@ -21,6 +22,7 @@ export class MissionComponent {
     private navbarService: NavbarService,
     private dialog: MatDialog,
     private rang: RangService,
+    private audio: AudioService,
   ) { }
 
   public showLogoPath() {
@@ -51,8 +53,19 @@ export class MissionComponent {
   public earnXp() {
     this.navbarService.controlNavbar$.next('open');
 
-    const combo = this.mission.getStats().onFire === 3 ? 2 : 1;
-    this.animateXp(Math.floor((this.mission.getConfig().xp * combo) / 10));
+    const totalXp =
+      this.mission.getConfig().xp +
+      this.mission.getStats().streak.days +
+      (this.mission.getStats().earlyBirdBonus
+        ? this.mission.getConfig().xp
+        : 0) +
+      (this.mission.getStats().onFire === 3 ? this.mission.getConfig().xp : 0) +
+      (this.mission.getStats().doneToday >= 3
+        ? this.mission.getConfig().xp
+        : 0);
+
+    this.animateXp(Math.floor(totalXp / 10));
+    this.audio.playGainXp(totalXp);
   }
 
   public animateXp(amount: number = 1) {

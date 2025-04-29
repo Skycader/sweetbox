@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AudioService {
-  constructor() {}
+  constructor() { }
 
   playSound(fileName: string, stopAfter: number = 0) {
     const audio = new Audio(`assets/audio/${fileName}`);
@@ -19,7 +19,7 @@ export class AudioService {
 
   playGainXp(xp: number = 1) {
     xp = Math.floor(xp / 20);
-    if (xp > 5) xp = 5;
+    if (xp > 500) xp = 500;
     if (xp < 1) xp = 1;
     for (let i = 0; i < xp; i++) {
       setTimeout(() => {
