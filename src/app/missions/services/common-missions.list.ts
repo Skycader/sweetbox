@@ -32,11 +32,17 @@ export class CommonMissions {
     },
     {
       id: 'vue-practice',
-      title: '🥝 Vue практика',
+      title: '🥝 Vue практика (10M!!!)',
       step: 50,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: 24 * TimeEnum.HOUR,
-      reward: { keyType: 4, amount: 1000, xp: 1000 },
+      reward: { keyType: 4, amount: 10000, xp: 1000 },
+      logo: {
+        path: 'bh/Builder_Hall$',
+        size: 70,
+        levels: 10,
+        moveUp: 10,
+      },
     },
     //Прием добавок
     {
@@ -314,6 +320,17 @@ export class CommonMissions {
       level: '🟦 125°',
       stars: 3,
       maxPerDay: 3,
+    },
+    {
+      id: 'easy-long-split',
+      title: '🦵 Продольный шпагат на 🛌 кровати обе ноги 2 минуты',
+      step: 20,
+      refreshTime: 10 * TimeEnum.SECOND,
+      respawnTime: 40 * TimeEnum.MINUTE,
+      reward: { keyType: 4, amount: 50, xp: 30 },
+      level: '🟦 125°',
+      stars: 3,
+      maxPerDay: 3,
       logo: {
         path: 'air/Air_Defense$',
         size: 50,
@@ -389,7 +406,7 @@ export class CommonMissions {
       step: 20,
       refreshTime: 3 * TimeEnum.SECOND,
       respawnTime: 3 * TimeEnum.HOUR,
-      reward: { keyType: 5, amount: 10 * 5, xp: 40 },
+      reward: { keyType: 5, amount: 10 * 5, xp: 40 + 18 },
       level: '⬜️🔵',
       stars: 1,
       maxPerDay: 6,
@@ -402,7 +419,7 @@ export class CommonMissions {
     },
     {
       id: 'japanese-writing-lesson',
-      title: '🇯🇵🈂️🈶 Практика японской письменности',
+      title: '🇯🇵🈂️🈶 Практика японской письменности (10 шт.)',
       step: 20,
       refreshTime: 3 * TimeEnum.SECOND,
       respawnTime: 3 * TimeEnum.HOUR,
@@ -470,7 +487,7 @@ export class CommonMissions {
       refreshTime: TimeEnum.SECOND,
       respawnTime: TimeEnum.SECOND,
       reward: { keyType: 5, amount: 20, xp: 400 },
-      maxPerDay: 1,
+      maxPerDay: 2,
       stars: 1,
       logo: {
         path: 'Wizard/Wizard_Tower$',

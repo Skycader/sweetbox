@@ -87,7 +87,7 @@ export class RareMissions {
     },
     {
       id: 'finish-japanese-unit',
-      title: '🇯🇵 Закончить юнит японского (last 3.1)',
+      title: '🇯🇵 Закончить юнит японского (last 3.3)',
       step: 100,
       refreshTime: TimeEnum.DAY,
       respawnTime: TimeEnum.DAY,

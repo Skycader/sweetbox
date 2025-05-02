@@ -7,9 +7,7 @@ import { EpicMissions } from '../../services/epic-missions.list';
 import { RareMissions } from '../../services/rare-missions.list';
 import { TimeEnum } from '../../models/time.list.enum';
 import { PersistanceService } from '../../../common/services/persistance.service';
-import { Streak } from '../../models/streak.model';
 import { MatDialog } from '@angular/material/dialog';
-import { SkinsListComponent } from '../skins-list/skins-list.component';
 
 @Component({
   selector: 'app-missions-list',
@@ -23,8 +21,6 @@ export class MissionsListComponent {
     private rare: RareMissions,
     private epic: EpicMissions,
     private legendary: LegendaryMissions,
-    private persistance: PersistanceService,
-    private dialog: MatDialog,
   ) { }
 
   public commonMissions: Mission[] = this.common.get();
@@ -65,9 +61,9 @@ export class MissionsListComponent {
     //   return this.commonMissions[0].unblock();
     // }
 
-    this.commonMissions[0].setProgress(
-      Math.floor((totalXp / requiredXp) * 100),
-    );
+    const progress = Math.floor((totalXp / requiredXp) * 100);
+    console.log(progress);
+    this.commonMissions[0].setProgress(progress);
 
     const startline = Number(new Date('2025-04-06'));
     const deadline = Number(new Date('2025-05-06'));

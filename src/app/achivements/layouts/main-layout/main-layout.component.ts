@@ -69,8 +69,14 @@ export class MainLayoutComponent {
     {
       title: 'Yamato Starship UGF',
       statement: 'Учи японский в поте лица (18 000 EXP / Month)',
-      achived: false,
+      achived: true,
       image: 'yamato.jpeg',
+    },
+    {
+      title: 'UGF CITHADEL',
+      statement: 'Читай книги в поте лица (112 000 EXP / Month)',
+      achived: false,
+      image: 'cithadel.jpeg',
     },
     {
       title: 'Subway Surfers',
