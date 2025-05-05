@@ -388,6 +388,8 @@ export class Mission {
     if (this.stats.onFire === 3) xpToday += this.config.reward.xp;
     if (this.stats.earlyBirdBonus) xpToday += this.config.reward.xp;
     if (this.stats.doneToday >= 3) xpToday += this.config.reward.xp;
+    //For each level reward xp is bigger;
+    xpToday += this.getSkillRang().rang * 10;
 
     this.deps.persistance.setItem('xp-today', xpToday);
 
@@ -399,6 +401,9 @@ export class Mission {
     if (this.stats.onFire === 3) this.stats.skillXp += this.config.reward.xp;
     if (this.stats.earlyBirdBonus) this.stats.skillXp += this.config.reward.xp;
     if (this.stats.doneToday >= 3) this.stats.skillXp += this.config.reward.xp;
+
+    //For each level reward xp is bigger;
+    this.stats.skillXp += this.getSkillRang().rang * 10;
 
     //Подсветить новый ранг
     if (rang !== this.getSkillRang().icon) {
@@ -433,6 +438,8 @@ export class Mission {
         this.stats.streak.days += 1;
         this.stats.streak.doneToday = true;
       }
+
+      this.deps.rang.addXp(this.getSkillRang().rang * 10);
 
       const newRang = this.deps.rang.getRang().rang;
 

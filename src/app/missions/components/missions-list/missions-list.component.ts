@@ -43,30 +43,23 @@ export class MissionsListComponent {
   }
 
   public heroMissionCheck() {
-    const toEarn = 18000;
-    const currentSkillXp = 18093;
-    let totalXp =
-      this.commonMissions
-        .find(
-          (mission) =>
-            mission.getConfig().id === 'duolingo-new-japanese-lesson',
-        )
-        ?.getStats().skillXp || 0;
-
-    totalXp -= toEarn;
-
-    const requiredXp = currentSkillXp + toEarn; //earn 10K exp within 7 days
+    const toEarn = 10000;
+    const startingPoint = 72613;
+    const totalXp =
+      (this.commonMissions
+        .find((mission) => mission.getConfig().id === 'reading')
+        ?.getStats().skillXp || 0) - startingPoint;
 
     // if (cond) {
     //   return this.commonMissions[0].unblock();
     // }
 
-    const progress = Math.floor((totalXp / requiredXp) * 100);
+    const progress = Math.floor((totalXp / toEarn) * 100);
     console.log(progress);
     this.commonMissions[0].setProgress(progress);
 
-    const startline = Number(new Date('2025-04-06'));
-    const deadline = Number(new Date('2025-05-06'));
+    const startline = Number(new Date('2025-05-06'));
+    const deadline = Number(new Date('2025-06-06'));
     const formula = (Date.now() - startline) / (deadline - startline);
     this.commonMissions[0].setRequiredProgress(
       Math.floor(formula * 100) + 0.001,

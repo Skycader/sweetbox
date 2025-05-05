@@ -21,8 +21,7 @@ export class CommonMissions {
   private commonMissions: MissionConfig[] = [
     {
       id: 'everyday-hero',
-      title:
-        '✨🛳 Проект Звёздный Потрошитель 3000 - Yamato Starship UGF (18 000 опыта)',
+      title: '✨ Разработка игры Tiny Bunny (Сюжет)',
       step: 100,
       skin: SkinsEnum[this.getIncomeLevel(this.rang.getXp())],
       refreshTime: TimeEnum.DAY,
