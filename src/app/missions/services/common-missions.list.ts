@@ -12,22 +12,54 @@ export class CommonMissions {
   constructor(
     private mission: MissionsService,
     private rang: RangService,
-  ) { }
+  ) {}
 
   getIncomeLevel(income: number) {
     return Math.ceil(Math.log2(income / 100000)) - 1;
   }
 
+  //      skin: SkinsEnum[this.getIncomeLevel(this.rang.getXp())],
+
   private commonMissions: MissionConfig[] = [
     {
       id: 'everyday-hero',
-      title: '✨ Разработка игры Tiny Bunny (Сюжет)',
+      title: '✨ 🍫 🍰 🍬 Пряничное оформление 🍫 🍰 🍬',
       step: 100,
-      skin: SkinsEnum[this.getIncomeLevel(this.rang.getXp())],
+      skin: SkinsEnum[4],
       refreshTime: TimeEnum.DAY,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 1, amount: 5, xp: 1000 },
       autocomplete: true,
+    },
+    {
+      id: 'walk-time',
+      title: '🦶 Шагоход - 1 000 шагов',
+      step: 100,
+      maxPerDay: 5,
+      refreshTime: TimeEnum.MINUTE,
+      respawnTime: TimeEnum.MINUTE,
+      reward: { keyType: 4, amount: 10000, xp: 1000 },
+      logo: {
+        path: 'bh/Builder_Hall$',
+        size: 70,
+        levels: 10,
+        moveUp: 10,
+      },
+    },
+    {
+      id: 'sber-apps',
+      title: '💵 Решить задачу Sber Jira',
+      step: 100,
+      maxPerDay: 5,
+      refreshTime: TimeEnum.MINUTE,
+      respawnTime: 24 * TimeEnum.HOUR,
+      reward: { keyType: 4, amount: 10000, xp: 1000 },
+      logo: {
+        path: 'bh/Builder_Hall$',
+        size: 70,
+        levels: 10,
+        moveUp: 10,
+      },
     },
     {
       id: 'vue-practice',
@@ -338,15 +370,30 @@ export class CommonMissions {
       },
     },
     {
+      id: 'frog-split',
+      title: '🐸 Растяжка - по-лягушачтьи',
+      step: 100,
+      refreshTime: TimeEnum.SECOND,
+      respawnTime: TimeEnum.SECOND,
+      reward: { keyType: 5, amount: 1, xp: 100 },
+      maxPerDay: 5,
+      logo: {
+        path: 'bh/Builder_Hall$',
+        size: 70,
+        levels: 10,
+        moveUp: 10,
+      },
+    },
+    {
       id: 'transverse-split',
-      title: '🤸 Растяжка - поперечный шпагат у стенки - 8 минут',
+      title: '🤸 Поперечный шпагат у стенки (10м)',
       step: 50,
       refreshTime: TimeEnum.SECOND,
       respawnTime: TimeEnum.SECOND,
       reward: { keyType: 0, amount: 1, xp: 130 },
-      level: '🟦🟡 131°',
+      level: '🟦🟡 133°',
       stars: 3,
-      maxPerDay: 1,
+      maxPerDay: 3,
       logo: {
         path: 'bh/Builder_Hall$',
         size: 70,
@@ -527,6 +574,23 @@ export class CommonMissions {
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 0, amount: 1, xp: 10 },
       stars: 1,
+    },
+    {
+      id: 'duolingo-german',
+      title: '🇩🇪 💎 Сделать урок немецкого (2x for new)',
+      step: 10,
+      refreshTime: 3 * TimeEnum.SECOND,
+      respawnTime: 3 * TimeEnum.HOUR,
+      reward: { keyType: 5, amount: 10 * 5, xp: 40 },
+      level: '⬜️🔵',
+      stars: 1,
+      maxPerDay: 10,
+      logo: {
+        path: 'TH/Town_Hall$',
+        size: 50,
+        levels: 17,
+        moveUp: 15,
+      },
     },
   ];
 

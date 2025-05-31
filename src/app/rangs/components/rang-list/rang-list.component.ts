@@ -23,7 +23,7 @@ export class RangListComponent {
 
   ngOnInit() {
     this.rangs = this.rang.getRangs().slice(0, 31);
-    if (this.optionalSkillXp > 0) this.rang.setXp(this.optionalSkillXp);
+    if (this.optionalSkillXp >= 0) this.rang.setXp(this.optionalSkillXp);
 
     const audio = new Audio('assets/audio/takeout.mp3');
     audio.volume = 0.3;

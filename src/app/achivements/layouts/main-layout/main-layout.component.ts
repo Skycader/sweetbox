@@ -85,6 +85,12 @@ export class MainLayoutComponent {
 
   challanges = [
     {
+      title: 'Пряничное оформление',
+      statement: 'Набери 100 000 EXP за месяц',
+      achived: false,
+      image: 'cookie.jpeg',
+    },
+    {
       title: 'Yamato Starship UGF',
       statement: 'Учи японский в поте лица (18 000 EXP / Month)',
       achived: true,
@@ -108,7 +114,7 @@ export class MainLayoutComponent {
     {
       title: 'Начинающий боец',
       statement: 'Получить синий пояс',
-      achived: false,
+      achived: true, //18 may 2025
       image: 'blue_belt.jpeg',
     },
     {

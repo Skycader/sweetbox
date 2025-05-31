@@ -7,7 +7,7 @@ import { TimeEnum } from '../models/time.list.enum';
   providedIn: 'root',
 })
 export class RareMissions {
-  constructor(private mission: MissionsService) { }
+  constructor(private mission: MissionsService) {}
 
   private rareMissions: MissionConfig[] = [
     {
@@ -28,7 +28,7 @@ export class RareMissions {
     },
     {
       id: 'memos-power',
-      title: '📖 Мощь Memos достигла 17 000 000 часов',
+      title: '📖 Мощь Memos достигла 18 000 000 часов',
       step: 100,
       refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
@@ -99,7 +99,7 @@ export class RareMissions {
       step: 100,
       refreshTime: TimeEnum.DAY,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 1, amount: 1, xp: 1500 }, //по 500 за уровень пояса (нет кю, 10 кю, 9 кю)
+      reward: { keyType: 1, amount: 1, xp: 2000 + 1000 }, //по 500 за уровень пояса (нет кю, 10 кю, 9 кю, 8 кю синий) + бонус при сложностях
     },
     {
       id: 'chess-za-warudo',
