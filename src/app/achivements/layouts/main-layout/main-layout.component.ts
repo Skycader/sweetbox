@@ -46,20 +46,38 @@ export class MainLayoutComponent {
 
   rare_achivements = [
     {
+      title: 'Мощь 100 миллионов',
+      statement: 'Добиться 100 миллионов мощи в Memos',
+      achived: false,
+      image: 'memos100k.jpeg',
+    },
+    {
+      title: 'Словарик японского языка',
+      statement: 'Собрать 500 слов или фраз в Memos на японском',
+      achived: false,
+      image: 'japanese500.jpeg',
+    },
+    {
+      title: 'Большой архив',
+      statement: 'Собрать 5000 карточек в Memos',
+      achived: false,
+      image: 'memos5000.jpeg',
+    },
+    {
       title: 'Начало пути',
-      statement: 'Закончить 2-ую (35) секцию японского из 5',
+      statement: 'Закончить 2-ую секцию японского из 6',
       achived: true,
       image: 'japanese_course_2_unit_finished.jpeg',
     },
     {
       title: 'За чертой смелости',
-      statement: 'Закончить 3-ую (91) юнит японского из 5',
-      achived: false,
+      statement: 'Закончить 3-ию секцию японского из 6',
+      achived: true,
       image: 'japanese_course_3_unit_finished.jpeg',
     },
     {
       title: 'Позади горы',
-      statement: 'Закончить 4-ую (80) юнит японского из 5',
+      statement: 'Закончить 4-ую секцию японского из 6',
       achived: false,
       image: 'japanese_course_4_unit_finished.jpeg',
     },
@@ -87,7 +105,7 @@ export class MainLayoutComponent {
     {
       title: 'Пряничное оформление',
       statement: 'Набери 100 000 EXP за месяц',
-      achived: false,
+      achived: true,
       image: 'cookie.jpeg',
     },
     {
