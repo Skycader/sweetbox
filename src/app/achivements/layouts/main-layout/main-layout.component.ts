@@ -42,6 +42,12 @@ export class MainLayoutComponent {
       achived: false,
       image: 'collectables/gora_vampirov.jpeg',
     },
+    {
+      title: 'Мастер регулярных выражений',
+      statement: 'Полностью прочитать книгу Бен Форта',
+      achived: false,
+      image: 'regex.jpeg',
+    },
   ];
 
   rare_achivements = [
@@ -53,7 +59,7 @@ export class MainLayoutComponent {
     },
     {
       title: 'Словарик японского языка',
-      statement: 'Собрать 500 слов или фраз в Memos на японском',
+      statement: 'Собрать 500 разговорных слов или фраз в Memos на японском',
       achived: false,
       image: 'japanese500.jpeg',
     },
@@ -80,6 +86,43 @@ export class MainLayoutComponent {
       statement: 'Закончить 4-ую секцию японского из 6',
       achived: false,
       image: 'japanese_course_4_unit_finished.jpeg',
+    },
+    {
+      title: 'Вечное сияние солнца',
+      statement: 'Закончить 5-ую секцию японского из 6',
+      achived: false,
+      image: 'japanese_5.jpeg',
+    },
+    {
+      title: 'Бог Император',
+      statement: 'Закончить 6-ую секцию японского из 6',
+      achived: false,
+      image: 'japanese_6.jpeg',
+    },
+
+    {
+      title: 'Panzer I Ausf. A',
+      statement: 'Закончить 2-ую секцию немецкого из 5',
+      achived: false,
+      image: 'panzer_2.jpeg',
+    },
+    {
+      title: 'Jagdpanther G1',
+      statement: 'Закончить 3-ию секцию немецкого из 5',
+      achived: false,
+      image: 'jagpanther_3.jpeg',
+    },
+    {
+      title: 'Königstiger',
+      statement: 'Закончить 4-ую секцию немецкого из 5',
+      achived: false,
+      image: 'king_tiger_4.jpeg',
+    },
+    {
+      title: 'Leopard 2A7V',
+      statement: 'Закончить 5-ую секцию немецкого из 5',
+      achived: false,
+      image: 'leopard_5.jpeg',
     },
   ];
 
@@ -186,7 +229,7 @@ export class MainLayoutComponent {
     {
       title: 'Мышечная масса',
       statement: 'Набрать вес в 80 кг',
-      achived: false,
+      achived: true,
       image: 'full_weight.jpeg',
     },
     {
