@@ -317,9 +317,9 @@ export class Mission {
         this.config.logo?.path.replace(
           '$',
           '' +
-          Math.floor(
-            this.getSkillRang().rang * (this.config?.logo.levels / 31),
-          ),
+            Math.floor(
+              this.getSkillRang().rang * (this.config?.logo.levels / 31),
+            ),
         ) +
         '.webp'
       );
@@ -355,9 +355,9 @@ export class Mission {
         this.config.logo?.path.replace(
           '$',
           '' +
-          Math.floor(
-            (this.getSkillRang().rang + 1) * (this.config?.logo.levels / 31),
-          ),
+            Math.floor(
+              (this.getSkillRang().rang + 1) * (this.config?.logo.levels / 31),
+            ),
         ) +
         '.webp'
       );
@@ -461,6 +461,7 @@ export class Mission {
       audio.play();
     }
 
+    //HERE
     if (this.progress >= 100) {
       this.stats.doneToday += 1;
       const hours = new Date().getHours();
@@ -479,8 +480,8 @@ export class Mission {
       this.deps.storage.addItem(
         reward,
         this.config.reward.amount *
-        this.getRewardCoef() *
-        (this.stats.doneToday + 1), //multiple diamonds reward
+          this.getRewardCoef() *
+          (this.stats.doneToday + 1), //multiple diamonds reward
       );
 
       if (this.config.reward.keyType === 5)
@@ -561,7 +562,7 @@ Date.prototype.toISOString = function toIsoString() {
   const date = this;
   var tzo = -date.getTimezoneOffset(),
     dif = tzo >= 0 ? '+' : '-',
-    pad = function(num: number) {
+    pad = function (num: number) {
       return (num < 10 ? '0' : '') + num;
     };
 

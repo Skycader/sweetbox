@@ -11,6 +11,30 @@ export class RareMissions {
 
   private rareMissions: MissionConfig[] = [
     {
+      id: 'rubics-cube',
+      title: '🧠 Собрать кубик рубика',
+      step: 100,
+      refreshTime: 0,
+      respawnTime: 7 * TimeEnum.DAY,
+      reward: { keyType: 5, amount: 1, xp: 100 },
+      stars: 1, //1 минута (1 звезда), 30 сек (2), 15 сек(3), 10 сек (4), 5 сек (5)
+    },
+    {
+      id: 'reading',
+      title: '📖 Прочитать 1 главу книги',
+      step: 100,
+      refreshTime: 0,
+      respawnTime: TimeEnum.DAY,
+      reward: { keyType: 5, amount: 1, xp: 100 },
+      stars: 1,
+      logo: {
+        path: 'TH/Town_Hall$',
+        size: 50,
+        levels: 17,
+        moveUp: 15,
+      },
+    },
+    {
       id: 'blue-belt-japanese',
       title: '🇯🇵 Получить 🟦 пояс по японскому языку, закончив 2ую секцию из 5',
       step: 100,

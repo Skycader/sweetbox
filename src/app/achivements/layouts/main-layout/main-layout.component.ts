@@ -39,7 +39,7 @@ export class MainLayoutComponent {
     {
       title: 'Гора Вампиров',
       statement: 'Закончить 5-ую книгу саги о Даррэне Шэне',
-      achived: false,
+      achived: true, //11 december 2025
       image: 'collectables/gora_vampirov.jpeg',
     },
     {

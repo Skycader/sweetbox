@@ -5,7 +5,7 @@
   [class.loading]="loading"
   [class.finish]="finish"
 >
-  <mat-tab-group style="">
+  <mat-tab-group>
     <mat-tab>
       <ng-template mat-tab-label>
         <div
@@ -36,6 +36,24 @@
           [class.xhide]="mission.isFinished() && hideCompletedMissions"
         />
       </ng-container>
+
+      <!-- <div class="center">Выполненные активности</div>
+      <br />
+
+      <ng-container *ngFor="let mission of commonMissions">
+        <app-mission
+          *ngIf="
+            mission.getDoneToday() > 0 &&
+            (mission.getLogo() !== '' || mission.getStats().hearts > -100) &&
+            openHours(
+              mission.getConfig().openHours[0],
+              mission.getConfig().openHours[1]
+            )
+          "
+          [mission]="mission"
+          [class.xhide]="mission.isFinished() && hideCompletedMissions"
+        />
+      </ng-container> -->
     </mat-tab>
 
     <mat-tab label="⬤ Редкие задания">
