@@ -384,6 +384,11 @@ export class Mission {
     let xpToday = this.deps.persistance.getItem('xp-today', 0);
 
     //Сегодшняшний опыт
+    let coef = 1;
+    if (this.config.reward.dynemic) {
+      coef = Number(prompt('Enter coef:'));
+      this.config.reward.xp *= coef;
+    }
     xpToday += this.config.reward.xp;
     if (this.stats.onFire === 3) xpToday += this.config.reward.xp;
     if (this.stats.earlyBirdBonus) xpToday += this.config.reward.xp;

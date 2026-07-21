@@ -29,8 +29,8 @@ export class CommonMissions {
       id: 'duolingo-german',
       title: '🇩🇪 Сделать урок немецкого',
       step: 100,
-      maxPerDay: 1,
-      refreshTime: 3 * TimeEnum.HOUR,
+      maxPerDay: 10,
+      refreshTime: TimeEnum.MINUTE,
       respawnTime: TimeEnum.DAY,
       reward: { keyType: 5, amount: 1, xp: 100 },
       logo: {
@@ -42,7 +42,7 @@ export class CommonMissions {
     },
     {
       id: 'walk-time',
-      title: '🦶 Прогулка - 3 000 шагов',
+      title: '🦶 Прогулка - 5 000 шагов',
       step: 100,
       maxPerDay: 1,
       refreshTime: 3 * TimeEnum.HOUR,
@@ -163,8 +163,8 @@ export class CommonMissions {
       step: 50,
       refreshTime: 0,
       respawnTime: TimeEnum.DAY,
-      reward: { keyType: 5, amount: 1, xp: 100 },
-      stars: 3,
+      reward: { keyType: 5, amount: 1, xp: 10, dynemic: true },
+      stars: 5,
       logo: {
         path: 'TH/Town_Hall$',
         size: 50,

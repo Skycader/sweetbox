@@ -32,6 +32,7 @@ interface Reward {
   keyType: number;
   amount: number;
   xp: number;
+  dynemic?: boolean;
 }
 
 @Injectable({
@@ -44,7 +45,7 @@ export class MissionsService {
     private rang: RangService,
     private notification: NotificationService,
     private snackbar: SnackbarService,
-  ) { }
+  ) {}
 
   public make(config: MissionConfig) {
     if (!config?.autocomplete) config.autocomplete = false;
