@@ -19,7 +19,7 @@ export class NewRangComponent {
   ) {}
 
   ngOnInit() {
-    const audio = new Audio(`assets/audio/level-up-2.m4a`);
+    const audio = new Audio(`assets/audio/level-up.mp3`);
     audio.volume = 1;
     audio.play();
   }
